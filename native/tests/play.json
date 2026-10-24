@@ -476,6 +476,20 @@
       "expect:SCOUNDREL",
       "key:RIGHT",
       "wait:300"
+    ],
+    "bastet": [
+      "expect:Play! (normal version)",
+      "key:ENTER",
+      "wait:2500",
+      "key:LEFT",
+      "key:UP",
+      "key:ENTER",
+      "wait:1500",
+      "key:RIGHT",
+      "type: ",
+      "key:ENTER",
+      "wait:1500",
+      "expect:Lines:"
     ]
   }
 }

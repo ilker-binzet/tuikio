@@ -492,6 +492,24 @@
       "key:LEFT",
       "key:ENTER",
       "wait:600"
+    ],
+    "bastet": [
+      "expect:Play! (normal version)",
+      "key:ENTER",
+      "wait:2500",
+      "key:LEFT",
+      "key:LEFT",
+      "key:ENTER",
+      "wait:1800",
+      "key:RIGHT",
+      "key:RIGHT",
+      "key:ENTER",
+      "wait:1800",
+      "key:UP",
+      "key:ENTER",
+      "wait:1800",
+      "key:DOWN",
+      "wait:600"
     ]
   }
 }
