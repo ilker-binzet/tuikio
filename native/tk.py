@@ -294,8 +294,9 @@ class Abi:
         check_static_pie(built, self)
         dst = os.path.join(self.out, f"lib{name}.so")
         # Copy, then rename over: the old file may be running (tests, the pty helper), and a
-        # running executable can't be opened for writing.
-        tmp = dst + ".tmp"
+        # running executable can't be opened for writing. Games that share an executable (an
+        # interpreter) may install it at the same time: each uses its own temporary name.
+        tmp = f"{dst}.{os.getpid()}.{threading.get_ident()}.tmp"
         shutil.copyfile(built, tmp)
         os.chmod(tmp, 0o755)
         os.replace(tmp, dst)

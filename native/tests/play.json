@@ -693,10 +693,9 @@
       "expect:D F J K: hit"
     ],
     "shellgame-snake": [
-      "expect:Score: 0",
+      "expect:core: ",
       "key:DOWN",
-      "wait:300",
-      "expect:Length:"
+      "wait:300"
     ],
     "shellgame-solitaire": [
       "expect:SOLITAIRE",

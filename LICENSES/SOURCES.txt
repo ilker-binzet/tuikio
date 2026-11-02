@@ -19,6 +19,14 @@ mirror disappears.
   https://raw.githubusercontent.com/mevdschee/2048.c/main/2048.c
   sha256 90f794c675a696aa10980dd120d1f0503ee4ed33a61fef92c7df8f443f5b18a8
 
+angband_4.2.5+dfsg1-1.debian.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/universe/a/angband/angband_4.2.5+dfsg1-1.debian.tar.xz
+  sha256 9dc197db197caf307ec6a1d5de69f76f25f682a1380b65c34a4b8e46fbb3b6f4
+
+angband_4.2.5+dfsg1.orig.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/universe/a/angband/angband_4.2.5+dfsg1.orig.tar.xz
+  sha256 687c0b18b8fc10de7e7ba75cf9e2d7e910de9319d9de21f91b7cbfee42a32014
+
 ascii-chess-f8cb9f10.tar
   https://github.com/Parigyan/ASCII-Chess @ f8cb9f102caa9188bbac511fe7c6df4f5759e821
   sha256 a235a0d83291bddf3ab40fc22098d652743946f3eea2a7e883fda9086f27ddb5
@@ -51,13 +59,41 @@ balatrotui-01bbb9ac.tar
   https://github.com/Passeriform/BalatroTUI @ 01bbb9ac1b62f6dba4c9c737329034e82d30c81d
   sha256 b0561097bd11f510dce6a20c5a7fe33886271e3b35ee4c7e45977f1f4b3af76b
 
+base-files_13ubuntu10.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/main/b/base-files/base-files_13ubuntu10.tar.xz
+  sha256 a9f11adb8de40460e0b814a1b4421c4d2d2089b4baccef46f1385c7d29a1104e
+
+bash_5.2.21.orig.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/main/b/bash/bash_5.2.21.orig.tar.xz
+  sha256 ec21ab4efd6bd7a6e2802fbda622b81bfc43a8095d721234d4bf075797683014
+
+bastet_0.43-7build1.debian.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/universe/b/bastet/bastet_0.43-7build1.debian.tar.xz
+  sha256 6f49b5d5663df7163e9041791c2beda7b1c8c92261e701078fbd7b16d3585190
+
+bastet_0.43.orig.tar.gz
+  http://archive.ubuntu.com/ubuntu/pool/universe/b/bastet/bastet_0.43.orig.tar.gz
+  sha256 e208c68684cc9b818a08b0d3f5f1e7ef381b1e4d8bc801a90b5ff6a8f00d8168
+
 blackguard-294bfd37.tar
   https://github.com/ElnurBDa/blackguard @ 294bfd379255cfc0249531c899250e4d1fa9ca45
   sha256 1bb864df770b588a9266ca6d584b76cf8d0795d50480c37d8dc005de6a5c38b4
 
+bluemoon-91ff5db7.tar
+  https://gitlab.com/esr/bluemoon @ 91ff5db75d1eccf9731d2373c7617d6dc1ee6656
+  sha256 beb45d16dc4c3d5485b74d3a9de9f5d8e62dc74169f5f981adaa54c255b3a4c4
+
 bombardier_0.8.3+nmu3.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/universe/b/bombardier/bombardier_0.8.3+nmu3.tar.xz
   sha256 ead8d6c2d2edfd5325a7cfbc25451d2763dc78c83af2d924d7495316aabfcd13
+
+boost1.83_1.83.0.orig.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/main/b/boost1.83/boost1.83_1.83.0.orig.tar.xz
+  sha256 404df4b4072fc7f2d4483d4fc2d61ff6f554dd80c9a812652684d5952e881c91
+
+brogue-ce-1ba4240b.tar
+  https://github.com/tmewett/BrogueCE @ 1ba4240b7a928ddf0ffb772717bf1d433cd63804
+  sha256 f0094775a94cfde71048d0dfddfc5438b670653bc891a7cf867aa3c507bf3547
 
 bsdgames_2.17-33.debian.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/universe/b/bsdgames/bsdgames_2.17-33.debian.tar.xz
@@ -75,13 +111,25 @@ cavezofphear_0.5.1.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/c/cavezofphear/cavezofphear_0.5.1.orig.tar.gz
   sha256 5bcb2975094721bedb823ba4697e27bfaae1115ff043b284fa156f5964d8d542
 
+chess-tui-c0fcb9ee.tar
+  https://github.com/thomas-mauran/chess-tui @ c0fcb9eeee7fd629a9117ae2c796ade1bb3a684f
+  sha256 f933bf6686e73da0b131a6f622721ad09962f96fdd5c1d0f20edf839d6aeff96
+
 chroma_1.19-1ubuntu1.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/c/chroma/chroma_1.19-1ubuntu1.tar.gz
   sha256 b7b6177559cae0cbefebf188e11bfe63b6ebccdde37c6145e0220d2f830ea6cb
 
+clidle-fb05b782.tar
+  https://github.com/ajeetdsouza/clidle @ fb05b782cdcf2e44be6eb4d434e76a4c487b1904
+  sha256 10b93e6674554d2d34cbb921d6d390f2dcfad22d53365a0a9d93d37845cfed18
+
 clines-410ae26c.tar
   https://github.com/veselov/clines @ 410ae26cc0ba76c6627ca6f52a9b92497d2af697
   sha256 bbcb82ee03a17f626e08f413774a1fc5e930f089862cce2cd00239fdd18df78b
+
+cpat-1.4.2.tar.gz
+  https://downloads.sourceforge.net/project/cpat/v1.4.2/cpat-1.4.2.tar.gz
+  sha256 be255b694db5b48e2553ed16a12cd15bcd5a50fcc222424a8c947f04f1053b67
 
 csol-b3bd1938.tar
   https://github.com/nielssp/csol @ b3bd1938e20d890b5eafe9d620d74621aef1bf80
@@ -115,6 +163,46 @@ freesweep_1.0.2.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/f/freesweep/freesweep_1.0.2.orig.tar.gz
   sha256 ec9318eec04f8a7ce20c230620f830a17bcf02d8e161866750dfb0c89ff8fe72
 
+frotz_2.54+dfsg-3build2.debian.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/universe/f/frotz/frotz_2.54+dfsg-3build2.debian.tar.xz
+  sha256 f1e103e90942a1f52a2f8b323712fce5699362e3cc12ff3e01efc3676d3649ee
+
+frotz_2.54+dfsg.orig.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/universe/f/frotz/frotz_2.54+dfsg.orig.tar.xz
+  sha256 4202b6545a2278a369ad5b6e7343b11849424b1b05cc7a1416961c5be33dd0b4
+
+gawk_5.2.1.orig.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/main/g/gawk/gawk_5.2.1.orig.tar.xz
+  sha256 2337a0283b180ec1b9c727973a34781c6478b3ae9bcbdcca0a4dc49861d75a65
+
+gnuchess_6.2.7-1build1.debian.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/universe/g/gnuchess/gnuchess_6.2.7-1build1.debian.tar.xz
+  sha256 91b53f130296a8f1861a76fc57224db8589b034da80b09625afce68b3346b80e
+
+gnuchess_6.2.7.orig.tar.gz
+  http://archive.ubuntu.com/ubuntu/pool/universe/g/gnuchess/gnuchess_6.2.7.orig.tar.gz
+  sha256 e536675a61abe82e61b919f6b786755441d9fcd4c21e1c82fb9e5340dd229846
+
+gnugo_3.8-11build2.debian.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/universe/g/gnugo/gnugo_3.8-11build2.debian.tar.xz
+  sha256 94ab936340c2f33a1bdb7f67b6885866370cfa9d0d0b61e074e6996776a7c729
+
+gnugo_3.8.orig.tar.gz
+  http://archive.ubuntu.com/ubuntu/pool/universe/g/gnugo/gnugo_3.8.orig.tar.gz
+  sha256 da68d7a65f44dcf6ce6e4e630b6f6dd9897249d34425920bfdd4e07ff1866a72
+
+gnushogi_1.5~git20140725-2.1.debian.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/universe/g/gnushogi/gnushogi_1.5~git20140725-2.1.debian.tar.xz
+  sha256 200b08546437c16bbc4146759a4b5302f8641d8f524814c0830beed0ea1ae125
+
+gnushogi_1.5~git20140725.orig.tar.gz
+  http://archive.ubuntu.com/ubuntu/pool/universe/g/gnushogi/gnushogi_1.5~git20140725.orig.tar.gz
+  sha256 bd69e9fe7a2dd0d965b585149b59a95374fcd46f099bef10a5c12db448ab3da7
+
+go-solar-system-7fe16e6a.tar
+  https://github.com/furan917/go-solar-system @ 7fe16e6a837c58cbff8256d605b1a732766b3ffb
+  sha256 afbac454e719b6a4c036b5619c8d818a12e7cbf7188a5489238eb6f7cf529bf1
+
 greed_4.2.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/g/greed/greed_4.2.orig.tar.gz
   sha256 702bc0314ddedb2ba17d4b55d873384a1606886e8d69f35ce67f6e3024a8d3fd
@@ -134,6 +222,10 @@ hamurabi-994563d7.tar
 inertia-80886289.tar
   https://github.com/aclfe/inertia @ 80886289ed4165134e4c650aa69c22933b7b28b9
   sha256 685a5a2398988c5fb6616ee73b5e8696c7ac880fb242fdea64c42a77cdd095f2
+
+minesviiper-f39a17cd.tar
+  https://github.com/girst/minesviiper @ f39a17cdae0c4c5986f8b3f12146910300727b63
+  sha256 525f51f66ac83dd5863ae743a42cb3440d74bd2955e635733a4a70734f4f5da7
 
 minesweep-rs-6ca1c255.tar
   https://github.com/cpcloud/minesweep-rs @ 6ca1c255ae1088f811499808499d5b4e18ae7f4f
@@ -175,6 +267,14 @@ ncurses_6.4+20240113.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/main/n/ncurses/ncurses_6.4+20240113.orig.tar.gz
   sha256 37a12a0f8ae2605012c9a164dd286b0cfa02b51b5055836d09eb3d597fc351b1
 
+nethack_3.6.7-1build3.debian.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/universe/n/nethack/nethack_3.6.7-1build3.debian.tar.xz
+  sha256 19ee03a133c48e08df7c9de9c479eddd30ce23f2d682f8a3e1d17a948107d64c
+
+nethack_3.6.7.orig.tar.gz
+  http://archive.ubuntu.com/ubuntu/pool/universe/n/nethack/nethack_3.6.7.orig.tar.gz
+  sha256 98cf67df6debf9668a61745aa84c09bcab362e5d33f5b944ec5155d44d2aacb2
+
 netris_0.52-11.debian.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/universe/n/netris/netris_0.52-11.debian.tar.xz
   sha256 2d5965344d4728344564ae43f8413e7a40b99e4556fb8292a8a2004bce19117a
@@ -195,9 +295,17 @@ ninvaders_0.1.1.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/n/ninvaders/ninvaders_0.1.1.orig.tar.gz
   sha256 bfbc5c378704d9cf5e7fed288dac88859149bee5ed0850175759d310b61fd30b
 
+noteye-55bb69d7.tar
+  https://github.com/zenorogue/noteye @ 55bb69d716a9fb269c6364f9df89d4bc260cb1a1
+  sha256 c3934e92247f4329a9bbaf59f017d92e8c2e15ed2cea148154f7b7c38d892b97
+
 nsnake_3.0.1.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/n/nsnake/nsnake_3.0.1.orig.tar.gz
   sha256 7240dafe35e17b01134591d7ae8f09f5a375cded8b01e43ba97ca3610a09ea61
+
+nsuds-0.7B.tar.gz
+  https://downloads.sourceforge.net/project/nsuds/nsuds/nsuds-0.7B/nsuds-0.7B.tar.gz
+  sha256 6d9b3e53f3cf45e9aa29f742f6a3f7bc83a1290099a62d9b8ba421879076926e
 
 nudoku_2.1.0-0.2.debian.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/universe/n/nudoku/nudoku_2.1.0-0.2.debian.tar.xz
@@ -219,6 +327,14 @@ omega-rpg_0.90-pa9.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/o/omega-rpg/omega-rpg_0.90-pa9.orig.tar.gz
   sha256 1c91efa6939a9ca550cd0fad910fcc94c735893f33f6f80974632a65cca6fc42
 
+open-adventure_1.12-1.debian.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/universe/o/open-adventure/open-adventure_1.12-1.debian.tar.xz
+  sha256 559688cd958097d804788997e847c3ea31312324d0ab2ae9e1fcc6f4f0dfb223
+
+open-adventure_1.12.orig.tar.gz
+  http://archive.ubuntu.com/ubuntu/pool/universe/o/open-adventure/open-adventure_1.12.orig.tar.gz
+  sha256 b6db9554157c87907dd2d90f0190217cc826faee5781765b6026ca5ce90235f2
+
 pacman4console_1.3-1build3.debian.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/universe/p/pacman4console/pacman4console_1.3-1build3.debian.tar.xz
   sha256 442c8d0959b74bcff5709cd3d72e192af7e21c0ab944dd92539171595d7437b1
@@ -234,6 +350,14 @@ petris_1.0.1-11.debian.tar.xz
 petris_1.0.1.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/p/petris/petris_1.0.1.orig.tar.gz
   sha256 33f6f0e929262314e0ab1ed81f0ad85224285398238eadcada0d5d9faa8d4dde
+
+piu-piu-sh-c7da41c0.tar
+  https://github.com/vaniacer/piu-piu-SH @ c7da41c07a924b5a074d595efbbad2f0271575a3
+  sha256 188b490be9abe9c321351ac63feea0fd499564e5af138a1420a7b16b77fe2475
+
+python3.12_3.12.3.orig.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/main/p/python3.12/python3.12_3.12.3.orig.tar.xz
+  sha256 56bfef1fdfc1221ce6720e43a661e3eb41785dd914ce99698d8c7896af4bdaa1
 
 rhex-dd1b6b66.tar
   https://github.com/dpc/rhex @ dd1b6b66b051d8eccc7ff4ba2edd82b165daa133
@@ -251,6 +375,22 @@ scowl_2020.12.07.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/main/s/scowl/scowl_2020.12.07.orig.tar.gz
   sha256 5587667caa20c4891390c2d42dbb4d5c4c3f41bee77af1457ece3ba23fb859cc
 
+shellgame-dd1aa485.tar
+  https://github.com/MCookinho/shellgame @ dd1aa485f564b879a974e7a1b2640c5d2a698321
+  sha256 1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0
+
+shellshock-6b072c66.tar
+  https://github.com/PacAnimal/shellshock @ 6b072c66e4d98bb5a7ed1ebe245c485fde86c8c0
+  sha256 8578c9bfc78aef22f35638186ea0e57a881a6e23e2b37394e41c74551e685632
+
+solvitaire-1883ee0c.tar
+  https://github.com/girst/solvitaire @ 1883ee0c67f3e5f7807f7a886333360e31f804be
+  sha256 1111570e9666eca94337d5f7f09fbdf3403d48405176004bdfc466b0f1bdc2bb
+
+sporkhack-8d6bc8e9.tar
+  https://github.com/NHTangles/sporkhack @ 8d6bc8e9042c52159688ab06ef7376f432ee7b6b
+  sha256 2f0132e1febaa70e1af47356a67c22d99a879638629537c61aadc7e8ca74b6e0
+
 sudoku-rs-c8b6572a.tar
   https://github.com/MitchelPaulin/sudoku-rs @ c8b6572aa1fcdcea69dcfa88dd4b8765b04fd97c
   sha256 e2ad3ac427827fe9004dfec3e2f29283597e1f0670c89c9903a3a3b99c11be63
@@ -262,6 +402,10 @@ sudoku_1.0.5-2.1.debian.tar.xz
 sudoku_1.0.5.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/s/sudoku/sudoku_1.0.5.orig.tar.gz
   sha256 3ce6d9b237546d4ac7cdb7a6bb0e47d5c99e696a710b8935bce40dc706d32ff2
+
+terminal-pong-aff432ef.tar
+  https://github.com/IshmamR/terminal.pong @ aff432ef7a6f06ba0c18845371193b780f4e2cb5
+  sha256 f2e638ffa3bb46dcbc1b5b03a587afdc3495c4ddb9628f7dbb43fa05785a88fd
 
 termrex-18d381ad.tar
   https://github.com/SATYADAHAL/termrex @ 18d381ad9edbeced1386d45b8d7fd3d6c7333876
@@ -294,6 +438,10 @@ tinytetris-38d4cc33.tar
 tornado-1148312f.tar
   https://github.com/kouya/tornado @ 1148312f0b94a23304561c3b25c50cf7d6646bb7
   sha256 4961372b97d95e129265e6242021bd44ce6ccf41a5e7a82d074ce47e71c7ad33
+
+toybox_0.8.9+dfsg.orig.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/universe/t/toybox/toybox_0.8.9+dfsg.orig.tar.xz
+  sha256 16fb5967531e88ca33b8c9142376987617ebe52e34e2b3f3a779603674b7d07c
 
 trader_7.18-1.debian.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/universe/t/trader/trader_7.18-1.debian.tar.xz
@@ -331,6 +479,10 @@ ularn-ef421842.tar
   https://github.com/joshbressers/ularn @ ef421842add954c55639656c5973042963c9b258
   sha256 c15ada21d3f817924a6f8f91d99b53c8c0e791f929c7a74523df06785ed0b408
 
+unipac-dc0f6d0b.tar
+  https://github.com/jesper-olsen/UniPac @ dc0f6d0b6028fe7c18a0967e333cd241d9a24067
+  sha256 7e128fd505e353e9fdff25699b969b8210b48669993e8a915a75c70687a2f350
+
 unix-aliens-94b5eb2e.tar
   https://github.com/troglobit/aliens @ 94b5eb2e1fb054b25d6daf5ac0ead3adc3672ee4
   sha256 7940d23bbe6d8bd9ebd88b4c5856668971fbb6ad606423c751166bf9fbf4a4e2
@@ -343,6 +495,38 @@ wander-d3f07807.tar
   https://github.com/shmup/wander @ d3f0780736f8d511429388cef2acd96b238caa49
   sha256 0b6ad127a204441eebca0fb3559fcdc24332bcde7c809229cafc263404383da0
 
+wordle-cli-90f3c622.tar
+  https://github.com/nimblebun/wordle-cli @ 90f3c622983dd9b37056b111ea4096774bfd4b59
+  sha256 3b9b7d09809580b180d3526a41622012d673772baf084d9e406421754a338d94
+
 xonitix-8d0eba81.tar
   https://github.com/garu/Xonitix @ 8d0eba81ff0984d4f1415214c5edb5a8ab1566d0
   sha256 2c8c08fb36e06bc27c1b213654d81a5e64ff91140657399225d5181c301d6d34
+
+yetris-cf3fee6c.tar
+  https://github.com/alexdantas/yetris @ cf3fee6c2f1daf5b2c35468b9e211c2e87530a4f
+  sha256 cc81bce294b3a26f36721b59e7f436ad4dfc94664469f92fe27ad6920f149080
+
+zigtris-60206d8f.tar
+  https://github.com/ringtailsoftware/zigtris @ 60206d8f12f80dde8e5dac93a4fd217523c2e5be
+  sha256 b51962a8ceba9cdc71cfed2c62da8abeda49e9bbf6abc2288fa73ccb0c4e5761
+
+zlib_1.3.dfsg.orig.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/main/z/zlib/zlib_1.3.dfsg.orig.tar.xz
+  sha256 5eea0322c1c21c75cad3b607ac1c43ff5c71e014b8ac4a34300b5e2b80d02e70
+
+zoridor-960df4f7.tar
+  https://github.com/ringtailsoftware/zoridor @ 960df4f73236654226bf8fad1f578d379c6b23a8
+  sha256 4503e6b164dc6cee00226efc44650c4f163dc0d52ff3d42346bfd59ab4a71bf4
+
+zork1-97b7b3d6.tar
+  https://github.com/historicalsource/zork1 @ 97b7b3d68c075dd9af7da499c3e9690ada3471fd
+  sha256 1c3da872b97c17056a58079dfdc6bb76a90455f9e5684b6d428091e722d257ac
+
+zork2-3da96610.tar
+  https://github.com/historicalsource/zork2 @ 3da9661098809788a99cef00f00c865c6c204f96
+  sha256 81816c2a13c1c38c0e0548c69d885924ad90d220661a8ea9b3ddaf85b440fcfa
+
+zork3-3ec9ed41.tar
+  https://github.com/historicalsource/zork3 @ 3ec9ed412b5f3cafe65d83c727d07db1fe4a86a8
+  sha256 21b13d35b7c7e2a08d885c8a50c7decac79cb6385f7d50725d210f44ea8f706f
