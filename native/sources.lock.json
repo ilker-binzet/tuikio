@@ -417,6 +417,39 @@
       "git": "https://github.com/alexdantas/yetris",
       "commit": "cf3fee6c2f1daf5b2c35468b9e211c2e87530a4f",
       "sha256": "cc81bce294b3a26f36721b59e7f436ad4dfc94664469f92fe27ad6920f149080"
+    },
+    "nsuds-0.7B.tar.gz": {
+      "url": "https://downloads.sourceforge.net/project/nsuds/nsuds/nsuds-0.7B/nsuds-0.7B.tar.gz",
+      "sha256": "6d9b3e53f3cf45e9aa29f742f6a3f7bc83a1290099a62d9b8ba421879076926e"
+    },
+    "cpat-1.4.2.tar.gz": {
+      "url": "https://downloads.sourceforge.net/project/cpat/v1.4.2/cpat-1.4.2.tar.gz",
+      "sha256": "be255b694db5b48e2553ed16a12cd15bcd5a50fcc222424a8c947f04f1053b67"
+    },
+    "minesviiper-f39a17cd.tar": {
+      "git": "https://github.com/girst/minesviiper",
+      "commit": "f39a17cdae0c4c5986f8b3f12146910300727b63",
+      "sha256": "525f51f66ac83dd5863ae743a42cb3440d74bd2955e635733a4a70734f4f5da7"
+    },
+    "solvitaire-1883ee0c.tar": {
+      "git": "https://github.com/girst/solvitaire",
+      "commit": "1883ee0c67f3e5f7807f7a886333360e31f804be",
+      "sha256": "1111570e9666eca94337d5f7f09fbdf3403d48405176004bdfc466b0f1bdc2bb"
+    },
+    "bluemoon-91ff5db7.tar": {
+      "git": "https://gitlab.com/esr/bluemoon",
+      "commit": "91ff5db75d1eccf9731d2373c7617d6dc1ee6656",
+      "sha256": "beb45d16dc4c3d5485b74d3a9de9f5d8e62dc74169f5f981adaa54c255b3a4c4"
+    },
+    "zigtris-60206d8f.tar": {
+      "git": "https://github.com/ringtailsoftware/zigtris",
+      "commit": "60206d8f12f80dde8e5dac93a4fd217523c2e5be",
+      "sha256": "b51962a8ceba9cdc71cfed2c62da8abeda49e9bbf6abc2288fa73ccb0c4e5761"
+    },
+    "zoridor-960df4f7.tar": {
+      "git": "https://github.com/ringtailsoftware/zoridor",
+      "commit": "960df4f73236654226bf8fad1f578d379c6b23a8",
+      "sha256": "4503e6b164dc6cee00226efc44650c4f163dc0d52ff3d42346bfd59ab4a71bf4"
     }
   }
 }

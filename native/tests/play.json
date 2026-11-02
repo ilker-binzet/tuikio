@@ -504,6 +504,15 @@
       "type: ",
       "wait:500",
       "expect:Pieces"
+    ],
+    "nsuds": [
+      "expect:Select difficulty",
+      "key:ENTER",
+      "expect:Time Remaining",
+      "key:RIGHT",
+      "key:DOWN",
+      "type:5",
+      "expect:Remaining:"
     ]
   }
 }

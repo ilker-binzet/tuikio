@@ -45,4 +45,16 @@ GAMES = [
          saves=([".local/share/yetris"], "Profile: settings, high scores and statistics"),
          test_notes="Host test: first-run profile prompt, main menu, a game with rotation, pause menu, game over "
                     "and restart at 80x24."),
+    # Its screen is a fixed 65x21 layout (timer and score beside a 37-column grid).
+    dict(id="nsuds", title="nsuds", exe="game_nsuds", controls="arrows.v1", terminal=((66, 22), (66, 22)),
+         labels={"select": "OK"}, hide=["space", "back"],
+         keys=["#1-9", "Delete=x", "Mark=m", "Pause=p", "New=n", "Scores=H", "Help=?", "Quit=q"],
+         summary="Sudoku against the clock, with 30 levels and pencil marks.",
+         description="Choose a difficulty, then fill the grid before the timer runs out: move with the pad and tap a "
+                     "digit. Mark followed by a digit pencils it in; Help lists every command.",
+         category="puzzle", tags=["sudoku", "logic", "numbers"], authors=["Vincent Launchbury"],
+         license="GPL-2.0-or-later", source_url="https://sourceforge.net/projects/nsuds/", version="0.7B",
+         archive="nsuds-0.7B.tar.gz", saves=(["nsuds/high_scores"], "High scores"),
+         discovery_notes="Ported to Tuikio from the 0.7B release tarball on SourceForge.",
+         test_notes="Host test: difficulty menu, a number entered and deleted, pause, help and the quit dialog at 66x22."),
 ]

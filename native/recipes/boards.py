@@ -145,3 +145,25 @@ def yetris(abi):
     exe = os.path.join(src, "yetris")
     link(abi, objs, exe, abi.curses_libs, cxx=True, cwd=src)
     return {"game_yetris": exe}
+
+
+# ---------------------------------------------------------------- nsuds
+
+@game("nsuds", notice=("nsuds-0.7B.tar.gz", "COPYING"))
+def nsuds(abi):
+    src = tree(abi, "nsuds", "nsuds-0.7B.tar.gz")
+    # What configure finds on Linux (config.h), without running it.
+    with open(os.path.join(src, "src", "config.h"), "w") as fh:
+        fh.write("#define HAVE_NCURSES_H 1\n#define HAVE_STDLIB_H 1\n#define HAVE_STRING_H 1\n#define HAVE_UNISTD_H 1\n"
+                 "#define HAVE_SYS_STAT_H 1\n#define HAVE_SYS_TYPES_H 1\n#define STDC_HEADERS 1\n"
+                 '#define PACKAGE "nsuds"\n#define VERSION "0.7B"\n#define PACKAGE_STRING "nsuds 0.7B"\n#define PACKAGE_BUGREPORT "vincent@doublecreations.com"\n')
+    # Help text and high scores live in nsuds/ in the game's home (not /usr/share/doc and /var/games).
+    exe = os.path.join(src, "nsuds")
+    # musl has no <sys/queue.h>; native/ports/nsuds/include has the tail-queue macros it uses. menu.c
+    # calls display_scores() without including its header; its headers define globals (-fcommon).
+    queue = os.path.join(tk.HERE, "ports", "nsuds", "include")
+    cc(abi, files(src, "src/*.c"), exe, f"-std=gnu99 -I{src}/src -idirafter {queue} -include highscores.h -fcommon -DHELPDIR='\"nsuds/\"' -DSCOREDIR='\"nsuds/\"'",
+       f"{abi.curses_libs} -lm", cwd=src)
+    install_asset("games/nsuds/nsuds/main", os.path.join(src, "helpfiles", "main"))
+    install_asset("games/nsuds/nsuds/high_scores", os.path.join(src, "src", "high_scores"))
+    return {"game_nsuds": exe}
