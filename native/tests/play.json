@@ -513,6 +513,34 @@
       "key:DOWN",
       "type:5",
       "expect:Remaining:"
+    ],
+    "minesviiper": [
+      "expect:[067*]",
+      "type: ",
+      "key:RIGHT",
+      "key:RIGHT",
+      "type:i",
+      "wait:300",
+      "expect:[0"
+    ],
+    "solvitaire": [
+      "expect:\u256d\u2500\u2500\u2500\u256e",
+      "key:ENTER",
+      "type: ",
+      "key:RIGHT",
+      "expect:7"
+    ],
+    "solvitaire-spider": [
+      "expect:\u256d\u2500\u2500\u2500\u256e",
+      "type: ",
+      "key:RIGHT",
+      "expect:0"
+    ],
+    "solvitaire-freecell": [
+      "expect:\u256d\u2500\u2500\u2500\u256e",
+      "type: ",
+      "key:RIGHT",
+      "expect:8"
     ]
   }
 }

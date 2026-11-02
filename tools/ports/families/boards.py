@@ -57,4 +57,48 @@ GAMES = [
          archive="nsuds-0.7B.tar.gz", saves=(["nsuds/high_scores"], "High scores"),
          discovery_notes="Ported to Tuikio from the 0.7B release tarball on SourceForge.",
          test_notes="Host test: difficulty menu, a number entered and deleted, pause, help and the quit dialog at 66x22."),
+    # An 18x24 field fills an upright 40x29 screen (it clamps any field to the terminal).
+    dict(id="minesviiper", title="minesVIiper", exe="game_minesviiper", controls="space-select.v1",
+         orientation="portrait", terminal=((40, 29), (40, 29)), args=["-c", "18x24"],
+         labels={"space": "Open"}, hide=["enter", "back"],
+         keys=["Flag=i", "Open/flag mode=s", "New=:n\\r", "Again=r", "Quit=:q\\r"],
+         summary="Minesweeper with vi keys, chording and a colourful board.",
+         description="Move with the pad, Open uncovers a square (or clears around a satisfied number) and Flag marks "
+                     "a mine. After a win or a loss, Again deals a new board.",
+         category="puzzle", tags=["minesweeper", "logic"], authors=["Tobias Girstmair"], license="GPL-3.0-only",
+         **git("https://github.com/girst/minesviiper", "f39a17cdae0c4c5986f8b3f12146910300727b63", "minesviiper-f39a17cd.tar"),
+         test_notes="Host test: 18x24 board at 40x29, open, flag, :n new game and :q quit."),
+]
+
+_SOL = dict(controls="space-select.v1", orientation="portrait", category="cards", authors=["Tobias Girstmair"],
+            license="GPL-3.0-only",
+            **git("https://github.com/girst/solvitaire", "1883ee0c67f3e5f7807f7a886333360e31f804be", "solvitaire-1883ee0c.tar"))
+
+GAMES += [
+    dict(_SOL, id="solvitaire", title="solVItaire Klondike", exe="game_solvitaire", terminal=((36, 40), (36, 40)),
+         labels={"space": "Select", "enter": "Draw"}, hide=["back"],
+         keys=["Join here=J", "Undo=u", "New=:n\\r", "Restart=:r\\r", "Quit=:q\\r"],
+         summary="Klondike solitaire with big Unicode cards.",
+         description="Move the cursor with the pad and Select a pile, then Select where it goes (twice sends a card "
+                     "home). Draw turns the stock; Join here pulls the matching run to the cursor.",
+         tags=["solitaire", "klondike", "cards"],
+         test_notes="Host test: deal, draw from the stock, select and move the cursor at 36x40."),
+    dict(_SOL, id="solvitaire-spider", title="solVItaire Spider", exe="game_solvitaire_spider",
+         terminal=((51, 40), (51, 40)), discovery_url="https://github.com/girst/solvitaire",
+         labels={"space": "Select", "enter": "Deal"}, hide=["back"],
+         keys=["Join here=J", "Undo=u", "New=:n\\r", "Restart=:r\\r", "Quit=:q\\r"],
+         summary="Spider solitaire (two suits) with big Unicode cards.",
+         description="Build runs from King down to Ace in the same suit to clear them. Select a card, then the pile "
+                     "it goes to; Deal puts a new card on every pile.",
+         tags=["solitaire", "spider", "cards"],
+         test_notes="Host test: deal at 51x40 (ten piles)."),
+    dict(_SOL, id="solvitaire-freecell", title="solVItaire FreeCell", exe="game_solvitaire_freecell",
+         terminal=((41, 40), (41, 40)), discovery_url="https://github.com/girst/solvitaire",
+         labels={"space": "Select"}, hide=["enter", "back"],
+         keys=["Join here=J", "Undo=u", "New=:n\\r", "Restart=:r\\r", "Quit=:q\\r"],
+         summary="FreeCell with big Unicode cards.",
+         description="Every card is dealt face up: use the four free cells to move them home in order. Select a card, "
+                     "then where it goes.",
+         tags=["solitaire", "freecell", "cards"],
+         test_notes="Host test: deal at 41x40."),
 ]

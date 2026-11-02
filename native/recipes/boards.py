@@ -167,3 +167,33 @@ def nsuds(abi):
     install_asset("games/nsuds/nsuds/main", os.path.join(src, "helpfiles", "main"))
     install_asset("games/nsuds/nsuds/high_scores", os.path.join(src, "src", "high_scores"))
     return {"game_nsuds": exe}
+
+
+# ---------------------------------------------------------------- Tobias Girstmair's games (no curses)
+
+def girst_tree(abi, gid, archive, source):
+    src = tree(abi, gid, archive)
+    # Switching between raw and cooked input flushed what was already typed (TCSAFLUSH), so a button
+    # that sends a whole command (":n" and Enter) lost everything after the colon. Keep the input.
+    replace_in(os.path.join(src, source), "TCSAFLUSH", "TCSADRAIN", count=2)
+    return src
+
+
+@game("minesviiper", curses=False, notice=("minesviiper-f39a17cd.tar", "LICENSE"))
+def minesviiper(abi):
+    src = girst_tree(abi, "minesviiper", "minesviiper-f39a17cd.tar", "mines.c")
+    exe = os.path.join(src, "mines")
+    cc(abi, [os.path.join(src, "mines.c")], exe, "-std=gnu99", cwd=src)
+    return {"game_minesviiper": exe}
+
+
+@game("solvitaire", curses=False, notice=("solvitaire-1883ee0c.tar", "LICENSE"))
+def solvitaire(abi):
+    src = girst_tree(abi, "solvitaire", "solvitaire-1883ee0c.tar", "sol.c")
+    out = {}
+    for variant, exe in (("KLONDIKE", "game_solvitaire"), ("SPIDER", "game_solvitaire_spider"),
+                         ("FREECELL", "game_solvitaire_freecell")):
+        path = os.path.join(src, exe)
+        cc(abi, [os.path.join(src, "sol.c")], path, f"-std=gnu99 -D{variant}", cwd=src)
+        out[exe] = path
+    return out
