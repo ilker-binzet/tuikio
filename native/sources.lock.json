@@ -551,6 +551,36 @@
       "git": "https://github.com/PacAnimal/shellshock",
       "commit": "6b072c66e4d98bb5a7ed1ebe245c485fde86c8c0",
       "sha256": "8578c9bfc78aef22f35638186ea0e57a881a6e23e2b37394e41c74551e685632"
+    },
+    "terminal-pong-aff432ef.tar": {
+      "git": "https://github.com/IshmamR/terminal.pong",
+      "commit": "aff432ef7a6f06ba0c18845371193b780f4e2cb5",
+      "sha256": "f2e638ffa3bb46dcbc1b5b03a587afdc3495c4ddb9628f7dbb43fa05785a88fd"
+    },
+    "unipac-dc0f6d0b.tar": {
+      "git": "https://github.com/jesper-olsen/UniPac",
+      "commit": "dc0f6d0b6028fe7c18a0967e333cd241d9a24067",
+      "sha256": "7e128fd505e353e9fdff25699b969b8210b48669993e8a915a75c70687a2f350"
+    },
+    "wordle-cli-90f3c622.tar": {
+      "git": "https://github.com/nimblebun/wordle-cli",
+      "commit": "90f3c622983dd9b37056b111ea4096774bfd4b59",
+      "sha256": "3b9b7d09809580b180d3526a41622012d673772baf084d9e406421754a338d94"
+    },
+    "clidle-fb05b782.tar": {
+      "git": "https://github.com/ajeetdsouza/clidle",
+      "commit": "fb05b782cdcf2e44be6eb4d434e76a4c487b1904",
+      "sha256": "10b93e6674554d2d34cbb921d6d390f2dcfad22d53365a0a9d93d37845cfed18"
+    },
+    "go-solar-system-7fe16e6a.tar": {
+      "git": "https://github.com/furan917/go-solar-system",
+      "commit": "7fe16e6a837c58cbff8256d605b1a732766b3ffb",
+      "sha256": "afbac454e719b6a4c036b5619c8d818a12e7cbf7188a5489238eb6f7cf529bf1"
+    },
+    "chess-tui-c0fcb9ee.tar": {
+      "git": "https://github.com/thomas-mauran/chess-tui",
+      "commit": "c0fcb9eeee7fd629a9117ae2c796ade1bb3a684f",
+      "sha256": "f933bf6686e73da0b131a6f622721ad09962f96fdd5c1d0f20edf839d6aeff96"
     }
   }
 }

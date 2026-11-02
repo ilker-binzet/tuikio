@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "wordle-cli",
+  "title": "Wordle CLI",
+  "summary": "Wordle: guess the five-letter word in six tries, with coloured hints after each guess.",
+  "description": "Type a word and press Enter. Green letters are in the right place, yellow ones are in the word but elsewhere, grey ones aren't in it; the keyboard under the board keeps track. New word starts another game once one is over.",
+  "category": "words",
+  "tags": [
+    "wordle",
+    "words",
+    "puzzle"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Nimble Bun Works"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/nimblebun/wordle-cli",
+    "version": "git 90f3c622"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/rustgo.py",
+    "source_archive": "wordle-cli-90f3c622.tar",
+    "source_sha256": "3b9b7d09809580b180d3526a41622012d673772baf084d9e406421754a338d94"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_wordle_cli",
+    "args": [
+      "random"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        52,
+        37
+      ],
+      "preferred": [
+        52,
+        37
+      ]
+    },
+    "orientation": "portrait",
+    "input": "typing"
+  },
+  "controls": "wordle.v1",
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: six guesses to the end of a game at 52x37, and a new word after it."
+  }
+}

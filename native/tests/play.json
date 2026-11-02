@@ -777,6 +777,51 @@
       "type: ",
       "key:RIGHT",
       "expect:Shot:"
+    ],
+    "terminal-pong": [
+      "expect:Play vs. AI",
+      "key:ENTER",
+      "expect:Enter Player 1 name",
+      "key:ENTER",
+      "expect:terminal.pong",
+      "key:UP",
+      "key:UP",
+      "wait:500",
+      "type:p",
+      "expect:Paused - Options",
+      "type:p",
+      "wait:300"
+    ],
+    "unipac": [
+      "expect:UniPac - Unicode-powered Pacman",
+      "expect:Score  :",
+      "key:LEFT",
+      "wait:1500",
+      "type: ",
+      "expect:PAUSED",
+      "type: ",
+      "wait:300"
+    ],
+    "wordle-cli": [
+      "expect:Random wordle",
+      "type:c",
+      "wait:80",
+      "type:r",
+      "wait:80",
+      "type:a",
+      "wait:80",
+      "type:n",
+      "wait:80",
+      "type:e",
+      "wait:80",
+      "expect:│ C ││ R ││ A ││ N ││ E │",
+      "type:\n",
+      "wait:300",
+      "type:s",
+      "wait:80",
+      "type:l",
+      "wait:80",
+      "expect:│ S ││ L ││ _ │"
     ]
   }
 }
