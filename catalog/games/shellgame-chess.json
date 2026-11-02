@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-chess",
+  "title": "Chess (Shell Games)",
+  "summary": "Chess for two players on one phone, with legal-move hints.",
+  "description": "Move the cursor with the pad, Select a piece and its valid squares light up, then Select the target. Check, checkmate and stalemate are detected. Pieces switches between symbols and letters.",
+  "category": "strategy",
+  "tags": [
+    "chess",
+    "board",
+    "two players",
+    "shell games"
+  ],
+  "players": "2",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "chess"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        56,
+        23
+      ],
+      "preferred": [
+        56,
+        23
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows.v1",
+  "control_labels": {
+    "select": "Select"
+  },
+  "control_hide": [
+    "space",
+    "back"
+  ],
+  "keys": [
+    {
+      "label": "Pieces",
+      "text": "u"
+    }
+  ],
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: board, e2-e4. Fixed: the info panel ran off the screen."
+  }
+}

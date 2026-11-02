@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-rhythm-spire",
+  "title": "Rhythm Spire (Shell Games)",
+  "summary": "Hit the notes in four lanes as they reach the line.",
+  "description": "Notes fall down four lanes. Tap the lane's button (D, F, J or K) when a note crosses the target line: perfect, good or miss. Pause stops the song.",
+  "category": "arcade",
+  "tags": [
+    "rhythm",
+    "music",
+    "timing",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "rhythm"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        44,
+        24
+      ],
+      "preferred": [
+        44,
+        24
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "rhythm4.v1",
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: lanes, falling notes, hits. Fixed: the title was drawn over the score."
+  }
+}

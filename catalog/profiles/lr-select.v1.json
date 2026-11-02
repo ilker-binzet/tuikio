@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "profile_id": "lr-select.v1",
+  "title": "Left, right and select",
+  "help": "Left and right move between choices, Select is Enter and the second button is Space. The game's numbered choices are buttons under the game.",
+  "orientation": "any",
+  "actions": [
+    {"id": "left", "label": "Left", "icon": "arrow_left", "output": {"key": "LEFT"}},
+    {"id": "right", "label": "Right", "icon": "arrow_right", "output": {"key": "RIGHT"}},
+    {"id": "select", "label": "Select", "icon": "check", "output": {"key": "ENTER"}},
+    {"id": "space", "label": "Space", "output": {"text": " "}},
+    {"id": "quit", "label": "Quit", "icon": "close", "output": {"text": "q"}, "confirm": true}
+  ],
+  "layout": {
+    "portrait": [
+      {"type": "button", "anchor": "bottom_start", "size": 72, "bind": {"press": "left"}},
+      {"type": "button", "anchor": "bottom_start", "offset": [84, 0], "size": 72, "bind": {"press": "right"}},
+      {"type": "button", "anchor": "bottom_end", "size": 88, "bind": {"press": "select"}, "style": "primary"},
+      {"type": "button", "anchor": "bottom_end", "offset": [-100, 0], "size": 64, "bind": {"press": "space"}},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "quit"}}
+    ],
+    "landscape": [
+      {"type": "button", "anchor": "center_start", "offset": [0, -44], "size": 72, "bind": {"press": "left"}},
+      {"type": "button", "anchor": "center_start", "offset": [0, 44], "size": 72, "bind": {"press": "right"}},
+      {"type": "button", "anchor": "center_end", "size": 88, "bind": {"press": "select"}, "style": "primary"},
+      {"type": "button", "anchor": "bottom_end", "size": 60, "bind": {"press": "space"}},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "quit"}}
+    ]
+  },
+  "pointer": "none",
+  "keyboard": true
+}

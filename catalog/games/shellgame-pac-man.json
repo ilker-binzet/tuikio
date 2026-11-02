@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-pac-man",
+  "title": "Pac-Man (Shell Games)",
+  "summary": "Eat all the dots and dodge the four ghosts.",
+  "description": "Steer through the maze with the pad. Power pellets turn the ghosts blue for a while, and then you can eat them.",
+  "category": "arcade",
+  "tags": [
+    "maze",
+    "pac-man",
+    "classic",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "pacman"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        56,
+        28
+      ],
+      "preferred": [
+        56,
+        28
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "snake.v1",
+  "control_labels": {
+    "ok": "Again"
+  },
+  "control_hide": [
+    "back",
+    "pause"
+  ],
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: maze, ghosts, Pac-Man moves and eats."
+  }
+}

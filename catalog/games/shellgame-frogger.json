@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-frogger",
+  "title": "Frogger (Shell Games)",
+  "summary": "Hop across the highway and the river to reach home.",
+  "description": "Hop with the pad between the cars, then ride the logs across the water to the five homes at the top.",
+  "category": "arcade",
+  "tags": [
+    "frogger",
+    "classic",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "frogger"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        35,
+        24
+      ],
+      "preferred": [
+        35,
+        24
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "snake.v1",
+  "control_labels": {
+    "ok": "Again"
+  },
+  "control_hide": [
+    "back",
+    "pause"
+  ],
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: road, river, hops."
+  }
+}

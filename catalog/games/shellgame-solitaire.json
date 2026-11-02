@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-solitaire",
+  "title": "Solitaire (Shell Games)",
+  "summary": "Klondike solitaire: build the four suits from ace to king.",
+  "description": "Move the cursor with the pad. Pick/place takes a card or a run and puts it on the pile under the cursor; Draw turns over the stock; Cancel drops the selection.",
+  "category": "cards",
+  "tags": [
+    "solitaire",
+    "klondike",
+    "cards",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "paciencia"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        60,
+        22
+      ],
+      "preferred": [
+        60,
+        22
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows.v1",
+  "control_labels": {
+    "select": "Pick/place",
+    "space": "Draw",
+    "back": "Cancel"
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: deal, draw, a move. Fixed: suits were drawn as escaped bytes, and the title over the pile labels."
+  }
+}

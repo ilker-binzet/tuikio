@@ -376,6 +376,11 @@
       "git": "https://github.com/ElnurBDa/blackguard",
       "commit": "294bfd379255cfc0249531c899250e4d1fa9ca45",
       "sha256": "1bb864df770b588a9266ca6d584b76cf8d0795d50480c37d8dc005de6a5c38b4"
+    },
+    "shellgame-dd1aa485.tar": {
+      "git": "https://github.com/MCookinho/shellgame",
+      "commit": "dd1aa485f564b879a974e7a1b2640c5d2a698321",
+      "sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0"
     }
   }
 }
