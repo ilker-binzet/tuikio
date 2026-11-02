@@ -517,6 +517,40 @@
       "git": "https://github.com/NHTangles/sporkhack",
       "commit": "8d6bc8e9042c52159688ab06ef7376f432ee7b6b",
       "sha256": "2f0132e1febaa70e1af47356a67c22d99a879638629537c61aadc7e8ca74b6e0"
+    },
+    "bash_5.2.21.orig.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/main/b/bash/bash_5.2.21.orig.tar.xz",
+      "sha256": "ec21ab4efd6bd7a6e2802fbda622b81bfc43a8095d721234d4bf075797683014"
+    },
+    "toybox_0.8.9+dfsg.orig.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/t/toybox/toybox_0.8.9+dfsg.orig.tar.xz",
+      "sha256": "16fb5967531e88ca33b8c9142376987617ebe52e34e2b3f3a779603674b7d07c"
+    },
+    "gawk_5.2.1.orig.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/main/g/gawk/gawk_5.2.1.orig.tar.xz",
+      "sha256": "2337a0283b180ec1b9c727973a34781c6478b3ae9bcbdcca0a4dc49861d75a65"
+    },
+    "python3.12_3.12.3.orig.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/main/p/python3.12/python3.12_3.12.3.orig.tar.xz",
+      "sha256": "56bfef1fdfc1221ce6720e43a661e3eb41785dd914ce99698d8c7896af4bdaa1"
+    },
+    "zlib_1.3.dfsg.orig.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/main/z/zlib/zlib_1.3.dfsg.orig.tar.xz",
+      "sha256": "5eea0322c1c21c75cad3b607ac1c43ff5c71e014b8ac4a34300b5e2b80d02e70"
+    },
+    "base-files_13ubuntu10.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/main/b/base-files/base-files_13ubuntu10.tar.xz",
+      "sha256": "a9f11adb8de40460e0b814a1b4421c4d2d2089b4baccef46f1385c7d29a1104e"
+    },
+    "piu-piu-sh-c7da41c0.tar": {
+      "git": "https://github.com/vaniacer/piu-piu-SH",
+      "commit": "c7da41c07a924b5a074d595efbbad2f0271575a3",
+      "sha256": "188b490be9abe9c321351ac63feea0fd499564e5af138a1420a7b16b77fe2475"
+    },
+    "shellshock-6b072c66.tar": {
+      "git": "https://github.com/PacAnimal/shellshock",
+      "commit": "6b072c66e4d98bb5a7ed1ebe245c485fde86c8c0",
+      "sha256": "8578c9bfc78aef22f35638186ea0e57a881a6e23e2b37394e41c74551e685632"
     }
   }
 }

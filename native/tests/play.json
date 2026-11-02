@@ -755,6 +755,28 @@
       "expect:welcome to NetHack",
       "type:s",
       "expect:Dlvl:1"
+    ],
+    "piu-piu-sh": [
+      "expect:start single",
+      "type:p",
+      "expect:Killed aliens",
+      "type:d",
+      "type:d",
+      "type:w",
+      "type:p",
+      "wait:300",
+      "expect:Ammo"
+    ],
+    "shellshock": [
+      "expect:Press SPACE to start",
+      "type: ",
+      "expect:Dynl:",
+      "key:LEFT",
+      "key:LEFT",
+      "type: ",
+      "type: ",
+      "key:RIGHT",
+      "expect:Shot:"
     ]
   }
 }
