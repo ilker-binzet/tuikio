@@ -492,6 +492,62 @@
       "key:LEFT",
       "key:ENTER",
       "wait:600"
+    ],
+    "bastet": [
+      "expect:Play! (normal version)",
+      "key:ENTER",
+      "wait:2500",
+      "key:LEFT",
+      "key:LEFT",
+      "key:ENTER",
+      "wait:1800",
+      "key:RIGHT",
+      "key:RIGHT",
+      "key:ENTER",
+      "wait:1800",
+      "key:UP",
+      "key:ENTER",
+      "wait:1800",
+      "key:DOWN",
+      "wait:600"
+    ],
+    "yetris": [
+      "expect:Please enter a profile name",
+      "text:\n",
+      "wait:800",
+      "key:ENTER",
+      "wait:600",
+      "key:ENTER",
+      "wait:800",
+      "key:LEFT",
+      "key:LEFT",
+      "text: ",
+      "wait:400",
+      "key:UP",
+      "key:RIGHT",
+      "key:RIGHT",
+      "text: ",
+      "wait:400",
+      "key:UP",
+      "key:UP",
+      "text: ",
+      "wait:400",
+      "key:LEFT",
+      "wait:600"
+    ],
+    "nsuds": [
+      "expect:Select difficulty",
+      "key:ENTER",
+      "wait:1000"
+    ],
+    "cpat-solitaire": [
+      "expect:Choose a game",
+      "text:b",
+      "wait:500",
+      "text:b",
+      "wait:800",
+      "text:oo",
+      "wait:600"
     ]
   }
 }

@@ -376,6 +376,80 @@
       "git": "https://github.com/ElnurBDa/blackguard",
       "commit": "294bfd379255cfc0249531c899250e4d1fa9ca45",
       "sha256": "1bb864df770b588a9266ca6d584b76cf8d0795d50480c37d8dc005de6a5c38b4"
+    },
+    "bastet_0.43.orig.tar.gz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/b/bastet/bastet_0.43.orig.tar.gz",
+      "sha256": "e208c68684cc9b818a08b0d3f5f1e7ef381b1e4d8bc801a90b5ff6a8f00d8168"
+    },
+    "bastet_0.43-7build1.debian.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/b/bastet/bastet_0.43-7build1.debian.tar.xz",
+      "sha256": "6f49b5d5663df7163e9041791c2beda7b1c8c92261e701078fbd7b16d3585190"
+    },
+    "gnuchess_6.2.7.orig.tar.gz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/g/gnuchess/gnuchess_6.2.7.orig.tar.gz",
+      "sha256": "e536675a61abe82e61b919f6b786755441d9fcd4c21e1c82fb9e5340dd229846"
+    },
+    "gnuchess_6.2.7-1build1.debian.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/g/gnuchess/gnuchess_6.2.7-1build1.debian.tar.xz",
+      "sha256": "91b53f130296a8f1861a76fc57224db8589b034da80b09625afce68b3346b80e"
+    },
+    "gnugo_3.8.orig.tar.gz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/g/gnugo/gnugo_3.8.orig.tar.gz",
+      "sha256": "da68d7a65f44dcf6ce6e4e630b6f6dd9897249d34425920bfdd4e07ff1866a72"
+    },
+    "gnugo_3.8-11build2.debian.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/g/gnugo/gnugo_3.8-11build2.debian.tar.xz",
+      "sha256": "94ab936340c2f33a1bdb7f67b6885866370cfa9d0d0b61e074e6996776a7c729"
+    },
+    "gnushogi_1.5~git20140725.orig.tar.gz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/g/gnushogi/gnushogi_1.5~git20140725.orig.tar.gz",
+      "sha256": "bd69e9fe7a2dd0d965b585149b59a95374fcd46f099bef10a5c12db448ab3da7"
+    },
+    "gnushogi_1.5~git20140725-2.1.debian.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/g/gnushogi/gnushogi_1.5~git20140725-2.1.debian.tar.xz",
+      "sha256": "200b08546437c16bbc4146759a4b5302f8641d8f524814c0830beed0ea1ae125"
+    },
+    "boost1.83_1.83.0.orig.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/main/b/boost1.83/boost1.83_1.83.0.orig.tar.xz",
+      "sha256": "404df4b4072fc7f2d4483d4fc2d61ff6f554dd80c9a812652684d5952e881c91"
+    },
+    "yetris-cf3fee6c.tar": {
+      "git": "https://github.com/alexdantas/yetris",
+      "commit": "cf3fee6c2f1daf5b2c35468b9e211c2e87530a4f",
+      "sha256": "cc81bce294b3a26f36721b59e7f436ad4dfc94664469f92fe27ad6920f149080"
+    },
+    "nsuds-0.7B.tar.gz": {
+      "url": "https://downloads.sourceforge.net/project/nsuds/nsuds/nsuds-0.7B/nsuds-0.7B.tar.gz",
+      "sha256": "6d9b3e53f3cf45e9aa29f742f6a3f7bc83a1290099a62d9b8ba421879076926e"
+    },
+    "cpat-1.4.2.tar.gz": {
+      "url": "https://downloads.sourceforge.net/project/cpat/v1.4.2/cpat-1.4.2.tar.gz",
+      "sha256": "be255b694db5b48e2553ed16a12cd15bcd5a50fcc222424a8c947f04f1053b67"
+    },
+    "minesviiper-f39a17cd.tar": {
+      "git": "https://github.com/girst/minesviiper",
+      "commit": "f39a17cdae0c4c5986f8b3f12146910300727b63",
+      "sha256": "525f51f66ac83dd5863ae743a42cb3440d74bd2955e635733a4a70734f4f5da7"
+    },
+    "solvitaire-1883ee0c.tar": {
+      "git": "https://github.com/girst/solvitaire",
+      "commit": "1883ee0c67f3e5f7807f7a886333360e31f804be",
+      "sha256": "1111570e9666eca94337d5f7f09fbdf3403d48405176004bdfc466b0f1bdc2bb"
+    },
+    "bluemoon-91ff5db7.tar": {
+      "git": "https://gitlab.com/esr/bluemoon",
+      "commit": "91ff5db75d1eccf9731d2373c7617d6dc1ee6656",
+      "sha256": "beb45d16dc4c3d5485b74d3a9de9f5d8e62dc74169f5f981adaa54c255b3a4c4"
+    },
+    "zigtris-60206d8f.tar": {
+      "git": "https://github.com/ringtailsoftware/zigtris",
+      "commit": "60206d8f12f80dde8e5dac93a4fd217523c2e5be",
+      "sha256": "b51962a8ceba9cdc71cfed2c62da8abeda49e9bbf6abc2288fa73ccb0c4e5761"
+    },
+    "zoridor-960df4f7.tar": {
+      "git": "https://github.com/ringtailsoftware/zoridor",
+      "commit": "960df4f73236654226bf8fad1f578d379c6b23a8",
+      "sha256": "4503e6b164dc6cee00226efc44650c4f163dc0d52ff3d42346bfd59ab4a71bf4"
     }
   }
 }

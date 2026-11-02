@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "id": "minesviiper",
+  "title": "minesVIiper",
+  "summary": "Minesweeper with vi keys, chording and a colourful board.",
+  "description": "Move with the pad, Open uncovers a square (or clears around a satisfied number) and Flag marks a mine. After a win or a loss, Again deals a new board.",
+  "category": "puzzle",
+  "tags": [
+    "minesweeper",
+    "logic"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Tobias Girstmair"
+    ],
+    "license": "GPL-3.0-only",
+    "source_url": "https://github.com/girst/minesviiper",
+    "version": "git f39a17cd"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/boards.py",
+    "source_archive": "minesviiper-f39a17cd.tar",
+    "source_sha256": "525f51f66ac83dd5863ae743a42cb3440d74bd2955e635733a4a70734f4f5da7"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_minesviiper",
+    "args": [
+      "-c",
+      "18x24"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        40,
+        29
+      ],
+      "preferred": [
+        40,
+        29
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "space-select.v1",
+  "control_labels": {
+    "space": "Open"
+  },
+  "control_hide": [
+    "enter",
+    "back"
+  ],
+  "keys": [
+    {
+      "label": "Flag",
+      "text": "i"
+    },
+    {
+      "label": "Open/flag mode",
+      "text": "s"
+    },
+    {
+      "label": "New",
+      "text": ":n\r"
+    },
+    {
+      "label": "Again",
+      "text": "r"
+    },
+    {
+      "label": "Quit",
+      "text": ":q\r"
+    }
+  ],
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: 18x24 board at 40x29, open, flag, :n new game and :q quit."
+  }
+}

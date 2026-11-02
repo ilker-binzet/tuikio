@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "id": "cpat-solitaire",
+  "title": "CPat",
+  "summary": "Eleven solitaires in one: FreeCell, Klondike, Spider, Yukon, Canfield and more.",
+  "description": "Pick a game from the menu. Moves are typed as source and destination letters, the columns a to j (k to m for Baker's Dozen on the keyboard), p for the piles and o for the other spaces (an optional count first): 'ab' moves column a onto b, 'oo' deals. Help and Rules explain each game.",
+  "category": "cards",
+  "tags": [
+    "solitaire",
+    "freecell",
+    "klondike",
+    "spider",
+    "cards"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Trevor Carey-Smith"
+    ],
+    "license": "GPL-2.0-only",
+    "source_url": "https://cpat.sourceforge.net/",
+    "version": "1.4.2"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/boards.py",
+    "source_archive": "cpat-1.4.2.tar.gz",
+    "source_sha256": "be255b694db5b48e2553ed16a12cd15bcd5a50fcc222424a8c947f04f1053b67"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_cpat",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "text.v1",
+  "control_hide": [
+    "enter",
+    "space",
+    "erase"
+  ],
+  "keys": [
+    {
+      "label": "a",
+      "text": "a"
+    },
+    {
+      "label": "b",
+      "text": "b"
+    },
+    {
+      "label": "c",
+      "text": "c"
+    },
+    {
+      "label": "d",
+      "text": "d"
+    },
+    {
+      "label": "e",
+      "text": "e"
+    },
+    {
+      "label": "f",
+      "text": "f"
+    },
+    {
+      "label": "g",
+      "text": "g"
+    },
+    {
+      "label": "h",
+      "text": "h"
+    },
+    {
+      "label": "i",
+      "text": "i"
+    },
+    {
+      "label": "j",
+      "text": "j"
+    },
+    {
+      "label": "p",
+      "text": "p"
+    },
+    {
+      "label": "o",
+      "text": "o"
+    },
+    {
+      "label": "Undo",
+      "text": "u"
+    },
+    {
+      "label": "Help",
+      "text": "?"
+    }
+  ],
+  "saves": {
+    "paths": [
+      ".cpat_scores"
+    ],
+    "notes": "High scores and statistics"
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: menu, Klondike dealt, a deal from the stock and the quit menu at 80x24."
+  }
+}

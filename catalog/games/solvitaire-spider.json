@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "id": "solvitaire-spider",
+  "title": "solVItaire Spider",
+  "summary": "Spider solitaire (two suits) with big Unicode cards.",
+  "description": "Build runs from King down to Ace in the same suit to clear them. Select a card, then the pile it goes to; Deal puts a new card on every pile.",
+  "category": "cards",
+  "tags": [
+    "solitaire",
+    "spider",
+    "cards"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Tobias Girstmair"
+    ],
+    "license": "GPL-3.0-only",
+    "source_url": "https://github.com/girst/solvitaire",
+    "version": "git 1883ee0c"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/boards.py",
+    "source_archive": "solvitaire-1883ee0c.tar",
+    "source_sha256": "1111570e9666eca94337d5f7f09fbdf3403d48405176004bdfc466b0f1bdc2bb",
+    "license_file": "solvitaire.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_solvitaire_spider",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        51,
+        40
+      ],
+      "preferred": [
+        51,
+        40
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "space-select.v1",
+  "control_labels": {
+    "space": "Select",
+    "enter": "Deal"
+  },
+  "control_hide": [
+    "back"
+  ],
+  "keys": [
+    {
+      "label": "Join here",
+      "text": "J"
+    },
+    {
+      "label": "Undo",
+      "text": "u"
+    },
+    {
+      "label": "New",
+      "text": ":n\r"
+    },
+    {
+      "label": "Restart",
+      "text": ":r\r"
+    },
+    {
+      "label": "Quit",
+      "text": ":q\r"
+    }
+  ],
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: deal at 51x40 (ten piles)."
+  }
+}

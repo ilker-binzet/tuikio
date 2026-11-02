@@ -476,6 +476,85 @@
       "expect:SCOUNDREL",
       "key:RIGHT",
       "wait:300"
+    ],
+    "bastet": [
+      "expect:Play! (normal version)",
+      "key:ENTER",
+      "wait:2500",
+      "key:LEFT",
+      "key:UP",
+      "key:ENTER",
+      "wait:1500",
+      "key:RIGHT",
+      "type: ",
+      "key:ENTER",
+      "wait:1500",
+      "expect:Lines:"
+    ],
+    "yetris": [
+      "expect:Please enter a profile name",
+      "type:\n",
+      "expect:Single Player",
+      "key:ENTER",
+      "expect:Start Game",
+      "key:ENTER",
+      "expect:Statistics",
+      "key:LEFT",
+      "key:UP",
+      "type: ",
+      "wait:500",
+      "expect:Pieces"
+    ],
+    "nsuds": [
+      "expect:Select difficulty",
+      "key:ENTER",
+      "expect:Time Remaining",
+      "key:RIGHT",
+      "key:DOWN",
+      "type:5",
+      "expect:Remaining:"
+    ],
+    "minesviiper": [
+      "expect:[067*]",
+      "type: ",
+      "key:RIGHT",
+      "key:RIGHT",
+      "type:i",
+      "wait:300",
+      "expect:[0"
+    ],
+    "solvitaire": [
+      "expect:\u256d\u2500\u2500\u2500\u256e",
+      "key:ENTER",
+      "type: ",
+      "key:RIGHT",
+      "expect:7"
+    ],
+    "solvitaire-spider": [
+      "expect:\u256d\u2500\u2500\u2500\u256e",
+      "type: ",
+      "key:RIGHT",
+      "expect:0"
+    ],
+    "solvitaire-freecell": [
+      "expect:\u256d\u2500\u2500\u2500\u256e",
+      "type: ",
+      "key:RIGHT",
+      "expect:8"
+    ],
+    "blue-moon-solitaire": [
+      "expect:to move, r to redraw",
+      "type:r",
+      "expect:Deal 1"
+    ],
+    "cpat-solitaire": [
+      "expect:Choose a game",
+      "type:b",
+      "expect:Choose normal or easy",
+      "type:b",
+      "expect:Move:",
+      "type:oo",
+      "expect:Klondike"
     ]
   }
 }
