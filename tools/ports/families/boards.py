@@ -32,4 +32,17 @@ GAMES = [
          saves=(["bastet.scores2", ".bastetrc"], "High scores and key settings"),
          test_notes="Host test: menu, a game played to the end with Drop, the high score table, back to the menu. "
                     "Boost 1.83 (headers and Program_options) is built in."),
+    # It refuses to start below 80x24.
+    dict(id="yetris", title="yetris", exe="game_yetris", controls="blocks.v1",
+         labels={"ok": "OK"}, hide=["back"], keys=["Hold=c", "Turn left=z", "Pause=p", "Help=h"],
+         summary="A full-featured Tetris clone: hold, ghost piece, statistics and colourful menus.",
+         description="Pick Single Player, then Start Game. Up turns the piece, Drop hard-drops it, Hold keeps it "
+                     "for later and OK pauses with a menu. Game settings set the starting level, noise and more; "
+                     "your profile keeps scores and statistics.",
+         category="arcade", tags=["blocks", "tetris", "hold"], authors=["Alexandre Dantas"],
+         license="GPL-3.0-or-later",
+         **git("https://github.com/alexdantas/yetris", "cf3fee6c2f1daf5b2c35468b9e211c2e87530a4f", "yetris-cf3fee6c.tar"),
+         saves=([".local/share/yetris"], "Profile: settings, high scores and statistics"),
+         test_notes="Host test: first-run profile prompt, main menu, a game with rotation, pause menu, game over "
+                    "and restart at 80x24."),
 ]

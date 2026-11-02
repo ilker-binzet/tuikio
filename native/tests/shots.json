@@ -510,6 +510,30 @@
       "wait:1800",
       "key:DOWN",
       "wait:600"
+    ],
+    "yetris": [
+      "expect:Please enter a profile name",
+      "text:\n",
+      "wait:800",
+      "key:ENTER",
+      "wait:600",
+      "key:ENTER",
+      "wait:800",
+      "key:LEFT",
+      "key:LEFT",
+      "text: ",
+      "wait:400",
+      "key:UP",
+      "key:RIGHT",
+      "key:RIGHT",
+      "text: ",
+      "wait:400",
+      "key:UP",
+      "key:UP",
+      "text: ",
+      "wait:400",
+      "key:LEFT",
+      "wait:600"
     ]
   }
 }

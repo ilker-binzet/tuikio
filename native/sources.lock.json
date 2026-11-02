@@ -412,6 +412,11 @@
     "boost1.83_1.83.0.orig.tar.xz": {
       "url": "http://archive.ubuntu.com/ubuntu/pool/main/b/boost1.83/boost1.83_1.83.0.orig.tar.xz",
       "sha256": "404df4b4072fc7f2d4483d4fc2d61ff6f554dd80c9a812652684d5952e881c91"
+    },
+    "yetris-cf3fee6c.tar": {
+      "git": "https://github.com/alexdantas/yetris",
+      "commit": "cf3fee6c2f1daf5b2c35468b9e211c2e87530a4f",
+      "sha256": "cc81bce294b3a26f36721b59e7f436ad4dfc94664469f92fe27ad6920f149080"
     }
   }
 }

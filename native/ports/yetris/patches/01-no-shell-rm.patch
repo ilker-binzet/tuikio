@@ -1,0 +1,45 @@
+Deleting a profile (and its files) ran "rm -rf" through system(); games get no shell on Android,
+so remove the tree with nftw() and the file with unlink() instead.
+
+--- a/deps/Engine/Helpers/File.cpp
++++ b/deps/Engine/Helpers/File.cpp
+@@ -4,6 +4,8 @@
+ #include <sys/types.h> // opendir(), readdir()
+ #include <dirent.h>    // readdir()
+ #include <stdlib.h>	   // system()
++#include <ftw.h>       // nftw()
++#include <unistd.h>    // unlink()
+ #include <stdio.h>     // fopen()
+ #include <iostream>	   // ofstream
+ #include <fstream>	   // ofstream
+@@ -72,9 +74,15 @@
+ 	//
+ 	// ...OK, I've warned you
+ 
+-	std::string command("rm -rf " + path);
+-
+-	system(command.c_str());
++	// Tuikio: there is no shell to run rm(1) on Android, so remove
++	// the tree directly.
++	struct Remover {
++		static int remove(const char* p, const struct stat*, int, struct FTW*)
++		{
++			return ::remove(p);
++		}
++	};
++	nftw(path.c_str(), Remover::remove, 16, FTW_DEPTH | FTW_PHYS);
+ }
+ void Utils::File::rm_f(std::string path)
+ {
+@@ -83,9 +91,8 @@
+ 
+ 	// This is ALSO another big hack.
+ 	// God-dang it
+-	std::string command("rm -f " + path);
+-
+-	system(command.c_str());
++	// Tuikio: no shell for rm(1); unlink the file directly.
++	unlink(path.c_str());
+ }
+ 
+ bool Utils::File::create(std::string path)

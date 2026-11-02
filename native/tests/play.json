@@ -490,6 +490,20 @@
       "key:ENTER",
       "wait:1500",
       "expect:Lines:"
+    ],
+    "yetris": [
+      "expect:Please enter a profile name",
+      "type:\n",
+      "expect:Single Player",
+      "key:ENTER",
+      "expect:Start Game",
+      "key:ENTER",
+      "expect:Statistics",
+      "key:LEFT",
+      "key:UP",
+      "type: ",
+      "wait:500",
+      "expect:Pieces"
     ]
   }
 }

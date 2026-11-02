@@ -116,3 +116,32 @@ def bastet(abi):
         tk.EXTRA_NOTICES["bastet"] = ("\n\n--- Boost 1.83 (headers and Boost.Program_options, linked in) ---\n\n"
                                       + open(os.path.join(boost, "LICENSE_1_0.txt")).read())
     return {"game_bastet": exe}
+
+
+# ---------------------------------------------------------------- yetris
+
+@game("yetris", notice=("yetris-cf3fee6c.tar", "COPYING"))
+def yetris(abi):
+    src = tree(abi, "yetris", "yetris-cf3fee6c.tar")  # patch: no shell for rm -rf
+    # The first-run profile name defaulted to the home directory's name ("home" in the app); the
+    # player's name is $USER.
+    replace_in(os.path.join(src, "deps", "Engine", "Helpers", "File.cpp"),
+               "std::string Utils::File::getUser()\n{\n",
+               "std::string Utils::File::getUser()\n{\n\tif (getenv(\"USER\") && *getenv(\"USER\")) /* Tuikio */\n"
+               "\t\treturn getenv(\"USER\");\n")
+    # Up did nothing in play (rotation was only x and z); on a phone's pad Up turns the piece, as in
+    # the other falling-block games. Menus keep Up for moving up.
+    replace_in(os.path.join(src, "src", "Game", "Entities", "Profile.cpp"),
+               "settings.input.rotate_clockwise        = 'x';", "settings.input.rotate_clockwise        = KEY_UP;")
+    # What its Makefile passes; DATE is the pinned commit's month instead of the build's.
+    defs = '-DVERSION=\\"2.3.0\\" -DPACKAGE=\\"yetris\\" -DDATE=\\"Jan2015\\"'
+    cpp = [f for f in glob.glob(os.path.join(src, "**", "*.cpp"), recursive=True)
+           if os.path.relpath(f, src).startswith(("src/", "deps/Engine/"))]
+    # Its rotation tables are negative offsets in plain chars: signed on x86, unsigned on ARM.
+    objs = compile_objects(abi, sorted(cpp), os.path.join(src, "obj"),
+                           f"-std=c++11 -fsigned-char -I{src}/src -I{src}/deps {defs}", cxx=True, cwd=src)
+    objs += compile_objects(abi, [os.path.join(src, "deps", "commander", "commander.c")], os.path.join(src, "obj"),
+                            "-std=gnu99", cwd=src)
+    exe = os.path.join(src, "yetris")
+    link(abi, objs, exe, abi.curses_libs, cxx=True, cwd=src)
+    return {"game_yetris": exe}
