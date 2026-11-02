@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "terminal-pong",
+  "title": "Terminal Pong",
+  "summary": "Pong against the computer or a friend, with power shots, themes and a screensaver mode.",
+  "description": "Hold up or down to move your paddle on the left and keep the ball in play; Power smashes it back when it is close (ten per game). Play with Friend gives the right paddle to a second player (P2 buttons). Pause sets the difficulty and the colour theme.",
+  "category": "arcade",
+  "tags": [
+    "pong",
+    "paddle",
+    "two-player"
+  ],
+  "players": "1-2",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "IshmamR"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/IshmamR/terminal.pong",
+    "version": "git aff432ef"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/rustgo.py",
+    "source_archive": "terminal-pong-aff432ef.tar",
+    "source_sha256": "f2e638ffa3bb46dcbc1b5b03a587afdc3495c4ddb9628f7dbb43fa05785a88fd"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_terminal_pong",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "pong.v1",
+  "keys": [
+    {
+      "label": "P2 up",
+      "text": "w"
+    },
+    {
+      "label": "P2 down",
+      "text": "s"
+    },
+    {
+      "label": "P2 power",
+      "text": " "
+    },
+    {
+      "label": "Theme",
+      "text": "d"
+    }
+  ],
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: menu, name prompt, a rally against the computer and the pause options at 80x24."
+  }
+}

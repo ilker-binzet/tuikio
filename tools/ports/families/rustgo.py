@@ -20,6 +20,16 @@ GO_NOTES = ("Ported to Tuikio from the upstream repository, pinned by commit; bu
             "for Android's musl targets.")
 
 GAMES = [
+    # Upstream wanted a 130x28 terminal; the court now follows the terminal (patch): 80x24 sideways.
+    dict(id="terminal-pong", title="Terminal Pong", exe="game_terminal_pong", controls="pong.v1",
+         keys=["P2 up=w", "P2 down=s", "P2 power= ", "Theme=d"],
+         summary="Pong against the computer or a friend, with power shots, themes and a screensaver mode.",
+         description="Hold up or down to move your paddle on the left and keep the ball in play; Power smashes "
+                     "it back when it is close (ten per game). Play with Friend gives the right paddle to a second "
+                     "player (P2 buttons). Pause sets the difficulty and the colour theme.",
+         category="arcade", tags=["pong", "paddle", "two-player"], authors=["IshmamR"], license="MIT",
+         players="1-2", **gh("IshmamR/terminal.pong", "aff432ef", "terminal-pong"),
+         test_notes="Host test: menu, name prompt, a rally against the computer and the pause options at 80x24."),
     # Its info panel starts at column 32 and the Ms. Pac-Man mazes are 31 rows (plus lives and the
     # marquee): 64x33, upright, with the pad under it. Built without sound (Android has no ALSA).
     dict(id="unipac", title="UniPac", exe="game_unipac", controls="unipac.v1", orientation="portrait",

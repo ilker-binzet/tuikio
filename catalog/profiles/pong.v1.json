@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "profile_id": "pong.v1",
+  "title": "Paddle up and down",
+  "help": "Hold up or down on the pad to move your paddle (the left one); Power smashes the ball back when it's close. Select picks menu entries, Pause opens the options and Back leaves a game.",
+  "orientation": "landscape",
+  "actions": [
+    {"id": "up", "label": "Up", "icon": "arrow_up", "output": {"key": "UP"}, "repeat": {"delay_ms": 120, "interval_ms": 30}},
+    {"id": "down", "label": "Down", "icon": "arrow_down", "output": {"key": "DOWN"}, "repeat": {"delay_ms": 120, "interval_ms": 30}},
+    {"id": "left", "label": "Left", "icon": "arrow_left", "output": {"key": "LEFT"}, "repeat": {"delay_ms": 300, "interval_ms": 110}},
+    {"id": "right", "label": "Right", "icon": "arrow_right", "output": {"key": "RIGHT"}, "repeat": {"delay_ms": 300, "interval_ms": 110}},
+    {"id": "power", "label": "Power", "icon": "spark", "output": {"text": "/"}, "haptic": "click"},
+    {"id": "select", "label": "Select", "icon": "check", "output": {"key": "ENTER"}},
+    {"id": "pause", "label": "Pause", "icon": "pause", "output": {"text": "p"},
+     "states": [{"when": "Paused - Options", "label": "Resume", "icon": "play"}]},
+    {"id": "back", "label": "Back", "icon": "back", "output": {"key": "ESCAPE"}, "confirm": true}
+  ],
+  "layout": {
+    "portrait": [
+      {"type": "dpad4", "anchor": "bottom_start", "size": 184, "bind": {"up": "up", "down": "down", "left": "left", "right": "right"}},
+      {"type": "button", "anchor": "bottom_end", "size": 84, "bind": {"press": "power"}, "style": "primary"},
+      {"type": "button", "anchor": "center_end", "size": 60, "bind": {"press": "select"}},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "back"}},
+      {"type": "button", "anchor": "top_start", "size": 52, "bind": {"press": "pause"}}
+    ],
+    "landscape": [
+      {"type": "dpad4", "anchor": "center_start", "size": 176, "bind": {"up": "up", "down": "down", "left": "left", "right": "right"}},
+      {"type": "button", "anchor": "center_end", "size": 80, "bind": {"press": "power"}, "style": "primary"},
+      {"type": "button", "anchor": "bottom_end", "size": 56, "bind": {"press": "select"}},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "back"}},
+      {"type": "button", "anchor": "bottom_start", "size": 52, "bind": {"press": "pause"}}
+    ]
+  },
+  "gestures": {"swipe_up": "up", "swipe_down": "down"},
+  "pointer": "none",
+  "keyboard": true
+}

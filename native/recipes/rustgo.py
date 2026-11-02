@@ -30,6 +30,8 @@ def rust(lock, exe, binary, *, notice="LICENSE", args="", data=()):
 
 
 RUST = {
+    # The court follows the terminal (patch); upstream wanted at least 130x28.
+    "terminal-pong": rust("terminal-pong-aff432ef.tar", "game_terminal_pong", "terminal-pong"),
     # Its sound needs ALSA (kira -> cpal), which Android doesn't have: built without it (patch).
     "unipac": rust("unipac-dc0f6d0b.tar", "game_unipac", "rspacman"),
 }

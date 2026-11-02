@@ -325,6 +325,20 @@
     "teachgammon-bsd": [
       "expect:Backgammon"
     ],
+    "terminal-pong": [
+      "expect:Play vs. AI",
+      "key:ENTER",
+      "expect:Enter Player 1 name",
+      "key:ENTER",
+      "expect:terminal.pong",
+      "key:UP",
+      "key:UP",
+      "wait:500",
+      "type:p",
+      "expect:Paused - Options",
+      "type:p",
+      "wait:300"
+    ],
     "termrex": [
       "expect:PRESS SPACE TO START"
     ],
