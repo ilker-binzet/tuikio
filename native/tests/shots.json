@@ -539,6 +539,15 @@
       "expect:Select difficulty",
       "key:ENTER",
       "wait:1000"
+    ],
+    "cpat-solitaire": [
+      "expect:Choose a game",
+      "text:b",
+      "wait:500",
+      "text:b",
+      "wait:800",
+      "text:oo",
+      "wait:600"
     ]
   }
 }

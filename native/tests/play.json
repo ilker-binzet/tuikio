@@ -541,6 +541,20 @@
       "type: ",
       "key:RIGHT",
       "expect:8"
+    ],
+    "blue-moon-solitaire": [
+      "expect:to move, r to redraw",
+      "type:r",
+      "expect:Deal 1"
+    ],
+    "cpat-solitaire": [
+      "expect:Choose a game",
+      "type:b",
+      "expect:Choose normal or easy",
+      "type:b",
+      "expect:Move:",
+      "type:oo",
+      "expect:Klondike"
     ]
   }
 }

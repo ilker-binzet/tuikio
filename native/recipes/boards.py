@@ -197,3 +197,24 @@ def solvitaire(abi):
         cc(abi, [os.path.join(src, "sol.c")], path, f"-std=gnu99 -D{variant}", cwd=src)
         out[exe] = path
     return out
+
+
+# ---------------------------------------------------------------- Blue Moon
+
+@game("blue-moon-solitaire", notice=("bluemoon-91ff5db7.tar", "COPYING"))
+def bluemoon(abi):
+    src = tree(abi, "blue-moon-solitaire", "bluemoon-91ff5db7.tar")
+    exe = os.path.join(src, "bluemoon")
+    cc(abi, [os.path.join(src, "bluemoon.c")], exe, "-std=gnu99 -DRELEASE=\\\"2.15\\\"", abi.curses_libs, cwd=src)
+    return {"game_bluemoon": exe}
+
+
+# ---------------------------------------------------------------- CPat
+
+@game("cpat-solitaire", notice=("cpat-1.4.2.tar.gz", "COPYING"))
+def cpat(abi):
+    src = tree(abi, "cpat-solitaire", "cpat-1.4.2.tar.gz")
+    # High scores go to $HOME/.cpat_scores (src/cpat.c).
+    autotools(abi, src, "", make="make -j4")
+    exe = os.path.join(src, "src", "cpat")
+    return {"game_cpat": exe}

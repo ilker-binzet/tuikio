@@ -101,4 +101,27 @@ GAMES += [
                      "then where it goes.",
          tags=["solitaire", "freecell", "cards"],
          test_notes="Host test: deal at 41x40."),
+    # Its four 14-card rows are 70 columns wide, with the rules printed under them.
+    dict(id="blue-moon-solitaire", title="Blue Moon", exe="game_bluemoon", controls="text.v1",
+         hide=["enter", "space", "erase"], keys=["#a-d", "Redraw=r", "Quit=q"],
+         summary="Eric Raymond's Blue Moon: line up all four suits in order across 13 deals.",
+         description="The cards that can move into a gap are marked a to d under them: tap the letter. When nothing "
+                     "can move, the cards out of sequence are dealt again. Fewer deals is better.",
+         category="cards", tags=["solitaire", "patience", "cards"], authors=["Tim Lister", "Eric S. Raymond"],
+         license="BSD-2-Clause",
+         **git("https://gitlab.com/esr/bluemoon", "91ff5db75d1eccf9731d2373c7617d6dc1ee6656", "bluemoon-91ff5db7.tar"),
+         discovery="blue-moon-solitaire", test_notes="Host test: deal 1 and a move at 80x24."),
+    # Every source file and its own licence screen say GPL version 2 only; the 1.4.2 tarball's
+    # COPYING holds the GPL 3 text (shipped as its notice, as it comes).
+    dict(id="cpat-solitaire", title="CPat", exe="game_cpat", controls="text.v1",
+         hide=["enter", "space", "erase"], keys=["#a-m", "p=p", "o=o", "Undo=u", "Help=?", "Rules=r"],
+         summary="Eleven solitaires in one: FreeCell, Klondike, Spider, Yukon, Canfield and more.",
+         description="Pick a game from the menu. Moves are typed as source and destination letters, the columns a to "
+                     "m, p for the piles and o for the other spaces (an optional count first): 'ab' moves column a "
+                     "onto b, 'oo' deals. Help and Rules explain each game.",
+         category="cards", tags=["solitaire", "freecell", "klondike", "spider", "cards"],
+         authors=["Trevor Carey-Smith"], license="GPL-2.0-only", source_url="https://cpat.sourceforge.net/",
+         version="1.4.2", archive="cpat-1.4.2.tar.gz", saves=([".cpat_scores"], "High scores and statistics"),
+         discovery_notes="Ported to Tuikio from the 1.4.2 release tarball on SourceForge.",
+         test_notes="Host test: menu, Klondike dealt, a deal from the stock and the quit menu at 80x24."),
 ]

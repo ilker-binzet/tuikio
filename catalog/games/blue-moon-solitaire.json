@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "blue-moon-solitaire",
+  "title": "Blue Moon",
+  "summary": "Eric Raymond's Blue Moon: line up all four suits in order across 13 deals.",
+  "description": "The cards that can move into a gap are marked a to d under them: tap the letter. When nothing can move, the cards out of sequence are dealt again. Fewer deals is better.",
+  "category": "cards",
+  "tags": [
+    "solitaire",
+    "patience",
+    "cards"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Tim Lister",
+      "Eric S. Raymond"
+    ],
+    "license": "BSD-2-Clause",
+    "source_url": "https://gitlab.com/esr/bluemoon",
+    "version": "git 91ff5db7"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/boards.py",
+    "source_archive": "bluemoon-91ff5db7.tar",
+    "source_sha256": "beb45d16dc4c3d5485b74d3a9de9f5d8e62dc74169f5f981adaa54c255b3a4c4"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_bluemoon",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "text.v1",
+  "control_hide": [
+    "enter",
+    "space",
+    "erase"
+  ],
+  "keys": [
+    {
+      "label": "a",
+      "text": "a"
+    },
+    {
+      "label": "b",
+      "text": "b"
+    },
+    {
+      "label": "c",
+      "text": "c"
+    },
+    {
+      "label": "d",
+      "text": "d"
+    },
+    {
+      "label": "Redraw",
+      "text": "r"
+    },
+    {
+      "label": "Quit",
+      "text": "q"
+    }
+  ],
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: deal 1 and a move at 80x24."
+  }
+}
