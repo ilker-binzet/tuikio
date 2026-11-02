@@ -28,11 +28,25 @@ SHELLGAME_FIXES = [
     # Solitaire: the title sat under the pile labels ("SSLITAIWE"); moved right of the
     # foundations, on the same row.
     ("paciencia.c", 'mvaddstr(0, 2, _("SOLITAIRE", "PACIENCIA"));', 'mvaddstr(0, 44, _("SOLITAIRE", "PACIENCIA"));'),
+    # Solitaire: a card's suit was one byte cut out of the UTF-8 string "♠♣♥♦", so every card
+    # showed a broken character instead of its suit (on any terminal); copy the whole symbol.
+    ("paciencia.c", "    char s = SUIT_CH[c.suit];\n"
+                    "    if (c.rank == 10) { buf[0] = '1'; buf[1] = '0'; buf[2] = s; buf[3] = 0; }\n"
+                    "    else { buf[0] = RANK_CH[c.rank]; buf[1] = s; buf[2] = ' '; buf[3] = 0; }\n",
+     '    static const char *suit[] = {"\\xe2\\x99\\xa0", "\\xe2\\x99\\xa3", "\\xe2\\x99\\xa5", "\\xe2\\x99\\xa6"};\n'
+     '    (void)SUIT_CH;\n'
+     '    if (c.rank == 10) snprintf(buf, 16, "10%s", suit[c.suit]);\n'
+     '    else snprintf(buf, 16, "%c%s ", RANK_CH[c.rank], suit[c.suit]);\n'),
+    # The Typer drew its lives as '<' + 3, which is '?' ("Lives: ???"); a star per life instead.
+    ("typer.c", "mvaddch(oy + 1, ox + strlen(buf) + i, '<' + 3);", "mvaddch(oy + 1, ox + strlen(buf) + i, '*');"),
     # Chess and Checkers centred only the board, so the info panel beside and below it ran off
     # the screen; centre the whole layout (board and panel: 54 columns, chess 22 rows).
     ("chess.c", "int oy = (LINES - 12) / 2;", "int oy = (LINES - 22) / 2;"),
     ("chess.c", "int ox = (COLS - 40) / 2;", "int ox = (COLS - 54) / 2;"),
     ("checkers.c", "draw((COLS - 44) / 2 < 1 ? 1 : (COLS - 44) / 2,", "draw((COLS - 54) / 2 < 1 ? 1 : (COLS - 54) / 2,"),
+    # Tetris centred the well alone, and its side panel (next piece, score, keys) wrapped at the
+    # right edge of a phone-width terminal; centre well and panel together (37 columns).
+    ("tetris.c", "int ox = (COLS - W * 2 - 2) / 2;", "int ox = (COLS - 37) / 2;"),
     # Spire Ascent: the map's key line sat ten rows below the relics list, past the bottom of
     # any phone-sized terminal; it follows the list now.
     ("spire.c", "int by2 = rel_y + 10;", "int by2 = rel_y + 2 + (relic_sz > 0 ? relic_sz : 1);"),

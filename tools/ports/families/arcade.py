@@ -20,7 +20,7 @@ def size(cols, rows):
 
 
 # Shell Games: 25 small ncurses games in one executable, started with the game's name.
-SG = dict(exe="game_shellgame", authors=["Peu Borges"], license="MIT", **gh("MCookinho/shellgame", "dd1aa485"),
+SG = dict(exe="game_shellgame", license_file="shell-games.txt", authors=["Peu Borges"], license="MIT", **gh("MCookinho/shellgame", "dd1aa485"),
           discovery_notes="Ported to Tuikio as one game per title, all built into one executable (the collection's "
                           "menu starts the others with system(), which Android lacks). Licence: MIT, as declared by "
                           "the author's PKGBUILD; the repository has no licence file.")
@@ -136,13 +136,13 @@ GAMES = [
                    "can eat them.",
        category="arcade", tags=["maze", "pac-man", "classic", "shell games"],
        test_notes="Host test: maze, ghosts, Pac-Man moves and eats."),
-    sg("pong", "pong", title="Pong (Shell Games)", controls="pong2.v1", players="1-2", **size(60, 27),
+    sg("pong", "pong", title="Pong (Shell Games)", controls="pong2.v1", players="1-2", **size(60, 28),
        summary="Table tennis against the computer or a friend: first to five wins.",
        description="Pick a mode with the arrows and OK. Player 1 is the left paddle (left buttons), player 2 or the "
                    "computer the right one (right buttons). Restart goes back to the mode menu.",
        category="arcade", tags=["pong", "two players", "classic", "shell games"],
        test_notes="Host test: mode menu, a game against the computer."),
-    sg("q-bert", "qbert", title="Q*Bert (Shell Games)", controls="qbert.v1", **size(54, 17),
+    sg("q-bert", "qbert", title="Q*Bert (Shell Games)", controls="qbert.v1", **size(70, 17),
        summary="Hop down the pyramid and change every cube's colour.",
        description="The pad hops diagonally, the way the cubes are stacked. Land on every cube to change its colour, "
                    "and don't hop off the edge.",

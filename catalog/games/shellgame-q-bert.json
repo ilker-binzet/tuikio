@@ -25,7 +25,8 @@
     "maintainer": "Tuikio ports team",
     "recipe": "native/recipes/arcade.py",
     "source_archive": "shellgame-dd1aa485.tar",
-    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0"
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
   },
   "runtime": {
     "backend": "native_pty",
@@ -36,11 +37,11 @@
     "env": {},
     "terminal": {
       "min": [
-        54,
+        70,
         17
       ],
       "preferred": [
-        54,
+        70,
         17
       ]
     },

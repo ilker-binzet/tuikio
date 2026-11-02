@@ -476,6 +476,187 @@
       "expect:SCOUNDREL",
       "key:RIGHT",
       "wait:300"
+    ],
+    "shellgame-2048": [
+      "expect:Score: 0",
+      "key:LEFT",
+      "key:UP",
+      "key:RIGHT",
+      "key:DOWN",
+      "expect:Score:"
+    ],
+    "shellgame-asteroids": [
+      "expect:ASTEROIDS",
+      "key:LEFT",
+      "key:UP",
+      "type: ",
+      "wait:300",
+      "expect:Score:"
+    ],
+    "shellgame-blackjack": [
+      "expect:Dealer:",
+      "type:s",
+      "expect:Enter: next round",
+      "key:ENTER",
+      "expect:Round 2"
+    ],
+    "shellgame-breakout": [
+      "expect:BREAKOUT",
+      "key:LEFT",
+      "key:LEFT",
+      "type: ",
+      "expect:Bricks:"
+    ],
+    "shellgame-centipede": [
+      "expect:Score: 0",
+      "key:LEFT",
+      "type: ",
+      "wait:300",
+      "expect:Lives:"
+    ],
+    "shellgame-checkers": [
+      "expect:Turn: White",
+      "key:UP",
+      "key:UP",
+      "type: ",
+      "expect:Arrows: move"
+    ],
+    "shellgame-chess": [
+      "expect:Turn: White",
+      "key:UP",
+      "key:ENTER",
+      "expect:(e2)",
+      "key:UP",
+      "key:UP",
+      "key:ENTER",
+      "expect:e2-e4"
+    ],
+    "shellgame-dig-dug": [
+      "expect:Score: 0",
+      "key:LEFT",
+      "key:DOWN",
+      "type: ",
+      "expect:Lives:"
+    ],
+    "shellgame-donkey-kong": [
+      "expect:Score:",
+      "key:RIGHT",
+      "type: ",
+      "wait:300",
+      "expect:Space: jump"
+    ],
+    "shellgame-duck-hunt": [
+      "expect:DUCK HUNT",
+      "wait:1300",
+      "key:UP",
+      "type: ",
+      "expect:Shots: 2/3"
+    ],
+    "shellgame-enduro": [
+      "expect:Day: 1/4",
+      "key:LEFT",
+      "key:RIGHT",
+      "expect:Score:"
+    ],
+    "shellgame-frogger": [
+      "expect:Lives: 3",
+      "key:UP",
+      "key:UP",
+      "expect:Score:"
+    ],
+    "shellgame-galaga": [
+      "expect:Stage: 1",
+      "key:LEFT",
+      "type: ",
+      "wait:300",
+      "expect:Combo:"
+    ],
+    "shellgame-hangman": [
+      "expect:Type a letter",
+      "type:e",
+      "type:a",
+      "expect:Letters:",
+      "expect:a e"
+    ],
+    "shellgame-minesweeper": [
+      "expect:Mines left: 10",
+      "key:RIGHT",
+      "key:DOWN",
+      "type:f",
+      "expect:Mines left: 9"
+    ],
+    "shellgame-pac-man": [
+      "expect:Dots:",
+      "key:LEFT",
+      "wait:800",
+      "expect:Score:"
+    ],
+    "shellgame-pong": [
+      "expect:Select mode:",
+      "key:ENTER",
+      "expect:PONG - vs AI",
+      "type:w",
+      "type:s",
+      "expect:First to 5 wins!"
+    ],
+    "shellgame-q-bert": [
+      "expect:Cubes: 0/28",
+      "type:k",
+      "wait:400",
+      "expect:Cubes: 1/28"
+    ],
+    "shellgame-rhythm-spire": [
+      "expect:RHYTHM SPIRE",
+      "type:d",
+      "type:f",
+      "type:j",
+      "type:k",
+      "expect:D F J K: hit"
+    ],
+    "shellgame-snake": [
+      "expect:Score: 0",
+      "key:DOWN",
+      "wait:300",
+      "expect:Length:"
+    ],
+    "shellgame-solitaire": [
+      "expect:SOLITAIRE",
+      "type: ",
+      "expect:Space: draw",
+      "key:DOWN",
+      "key:ENTER",
+      "expect:Selected."
+    ],
+    "shellgame-spire-ascent": [
+      "expect:THE SPIRE",
+      "key:ENTER",
+      "wait:500",
+      "key:ENTER",
+      "wait:500",
+      "type:1"
+    ],
+    "shellgame-super-auto-pets": [
+      "expect:SHOP:",
+      "type:a",
+      "expect:(sold)",
+      "key:ENTER",
+      "expect:Press any key",
+      "key:ENTER",
+      "expect:Round 2"
+    ],
+    "shellgame-tetris": [
+      "expect:TETRIS",
+      "key:LEFT",
+      "key:UP",
+      "type: ",
+      "expect:SCORE:"
+    ],
+    "shellgame-the-typer": [
+      "expect:THE TYPER",
+      "wait:2500",
+      "expect:Z ",
+      "type:a",
+      "expect:Wave: 1"
     ]
   }
 }
