@@ -103,9 +103,9 @@
       "expect:Long (to 121) or Short (to 61)"
     ],
     "csol": [
-      "expect:\u2500\u2500\u2500\u2500",
+      "expect:────",
       "type:s",
-      "expect:\u2500\u2500\u2500\u2500"
+      "expect:────"
     ],
     "ctris": [
       "expect:Press a key to start!",
@@ -476,6 +476,28 @@
       "expect:SCOUNDREL",
       "key:RIGHT",
       "wait:300"
+    ],
+    "piu-piu-sh": [
+      "expect:start single",
+      "type:p",
+      "expect:Killed aliens",
+      "type:d",
+      "type:d",
+      "type:w",
+      "type:p",
+      "wait:300",
+      "expect:Ammo"
+    ],
+    "shellshock": [
+      "expect:Press SPACE to start",
+      "type: ",
+      "expect:Dynl:",
+      "key:LEFT",
+      "key:LEFT",
+      "type: ",
+      "type: ",
+      "key:RIGHT",
+      "expect:Shot:"
     ]
   }
 }

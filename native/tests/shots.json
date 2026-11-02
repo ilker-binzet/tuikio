@@ -492,6 +492,24 @@
       "key:LEFT",
       "key:ENTER",
       "wait:600"
+    ],
+    "piu-piu-sh": [
+      "expect:start single",
+      "text:p",
+      "wait:2500",
+      "text:d",
+      "text:p",
+      "wait:400"
+    ],
+    "shellshock": [
+      "expect:Press SPACE to start",
+      "key:SPACE",
+      "wait:1500",
+      "key:LEFT",
+      "key:SPACE",
+      "wait:300",
+      "key:SPACE",
+      "wait:400"
     ]
   }
 }

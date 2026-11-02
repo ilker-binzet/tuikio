@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "id": "piu-piu-sh",
+  "title": "piu-piu",
+  "summary": "A side-scrolling space shooter written in pure bash: shoot down the alien drones, then their mothership.",
+  "description": "Fly with the pad and shoot with Fire. Crates dropped by aliens give lives, ammo or a bigger gun. In the menu the pad moves up and down, left and right change your ship's look, and Fire picks.",
+  "category": "arcade",
+  "tags": [
+    "shooter",
+    "space",
+    "bash"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Ivan Marov (vaniacer)"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/vaniacer/piu-piu-SH",
+    "version": "git c7da41c0"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/scripts.py",
+    "source_archive": "piu-piu-sh-c7da41c0.tar",
+    "source_sha256": "188b490be9abe9c321351ac63feea0fd499564e5af138a1420a7b16b77fe2475"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_bash",
+    "args": [
+      "piu-piu"
+    ],
+    "env": {
+      "BASH_ENV": "tuikio-bash.sh"
+    },
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "piu-piu.v1",
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [
+    {
+      "asset": "games/piu-piu-sh/piu-piu",
+      "dest": "piu-piu",
+      "sha256": "dd618514c48fee4e2e91cea16b49999a53a70b846ee88b57f70d7a74c3efdbbd"
+    },
+    {
+      "asset": "games/piu-piu-sh/tuikio-bash.sh",
+      "dest": "tuikio-bash.sh",
+      "sha256": "19274c2265f9de41b41047f81ff12cf8d2da90732a05ab503c906f3a2f505718"
+    }
+  ],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-02",
+    "android_tested": null,
+    "notes": "Host test in a PTY at 80x24: intro, menu without multiplayer, play with WASD and P, lives and ammo counting down. Multiplayer (netcat) removed: games are offline."
+  }
+}

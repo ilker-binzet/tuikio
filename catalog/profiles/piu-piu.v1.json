@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "profile_id": "piu-piu.v1",
+  "title": "Ship (WASD) and fire",
+  "help": "The pad flies the ship with W, A, S and D; Fire shoots (P). In the menu the pad moves and changes, Fire picks.",
+  "orientation": "landscape",
+  "actions": [
+    {
+      "id": "up",
+      "label": "Up",
+      "icon": "arrow_up",
+      "output": {
+        "text": "w"
+      },
+      "repeat": {
+        "delay_ms": 200,
+        "interval_ms": 70
+      }
+    },
+    {
+      "id": "down",
+      "label": "Down",
+      "icon": "arrow_down",
+      "output": {
+        "text": "s"
+      },
+      "repeat": {
+        "delay_ms": 200,
+        "interval_ms": 70
+      }
+    },
+    {
+      "id": "left",
+      "label": "Left",
+      "icon": "arrow_left",
+      "output": {
+        "text": "a"
+      },
+      "repeat": {
+        "delay_ms": 200,
+        "interval_ms": 70
+      }
+    },
+    {
+      "id": "right",
+      "label": "Right",
+      "icon": "arrow_right",
+      "output": {
+        "text": "d"
+      },
+      "repeat": {
+        "delay_ms": 200,
+        "interval_ms": 70
+      }
+    },
+    {
+      "id": "fire",
+      "label": "Fire",
+      "output": {
+        "text": "p"
+      }
+    }
+  ],
+  "layout": {
+    "portrait": [
+      {
+        "type": "dpad4",
+        "anchor": "bottom_start",
+        "size": 184,
+        "bind": {
+          "up": "up",
+          "down": "down",
+          "left": "left",
+          "right": "right"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "bottom_end",
+        "size": 96,
+        "bind": {
+          "press": "fire"
+        },
+        "style": "primary"
+      }
+    ],
+    "landscape": [
+      {
+        "type": "dpad4",
+        "anchor": "center_start",
+        "size": 176,
+        "bind": {
+          "up": "up",
+          "down": "down",
+          "left": "left",
+          "right": "right"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "center_end",
+        "size": 96,
+        "bind": {
+          "press": "fire"
+        },
+        "style": "primary"
+      }
+    ]
+  },
+  "pointer": "none",
+  "keyboard": true
+}
