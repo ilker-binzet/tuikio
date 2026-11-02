@@ -24,7 +24,8 @@
     "maintainer": "Tuikio ports team",
     "recipe": "native/recipes/boards.py",
     "source_archive": "solvitaire-1883ee0c.tar",
-    "source_sha256": "1111570e9666eca94337d5f7f09fbdf3403d48405176004bdfc466b0f1bdc2bb"
+    "source_sha256": "1111570e9666eca94337d5f7f09fbdf3403d48405176004bdfc466b0f1bdc2bb",
+    "license_file": "solvitaire.txt"
   },
   "runtime": {
     "backend": "native_pty",

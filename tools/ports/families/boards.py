@@ -71,7 +71,7 @@ GAMES = [
 ]
 
 _SOL = dict(controls="space-select.v1", orientation="portrait", category="cards", authors=["Tobias Girstmair"],
-            license="GPL-3.0-only",
+            license="GPL-3.0-only", license_file="solvitaire.txt",
             **git("https://github.com/girst/solvitaire", "1883ee0c67f3e5f7807f7a886333360e31f804be", "solvitaire-1883ee0c.tar"))
 
 GAMES += [
@@ -114,10 +114,10 @@ GAMES += [
     # Every source file and its own licence screen say GPL version 2 only; the 1.4.2 tarball's
     # COPYING holds the GPL 3 text (shipped as its notice, as it comes).
     dict(id="cpat-solitaire", title="CPat", exe="game_cpat", controls="text.v1",
-         hide=["enter", "space", "erase"], keys=["#a-m", "p=p", "o=o", "Undo=u", "Help=?", "Rules=r"],
+         hide=["enter", "space", "erase"], keys=["#a-j", "p=p", "o=o", "Undo=u", "Help=?"],
          summary="Eleven solitaires in one: FreeCell, Klondike, Spider, Yukon, Canfield and more.",
          description="Pick a game from the menu. Moves are typed as source and destination letters, the columns a to "
-                     "m, p for the piles and o for the other spaces (an optional count first): 'ab' moves column a "
+                     "j (k to m for Baker's Dozen on the keyboard), p for the piles and o for the other spaces (an optional count first): 'ab' moves column a "
                      "onto b, 'oo' deals. Help and Rules explain each game.",
          category="cards", tags=["solitaire", "freecell", "klondike", "spider", "cards"],
          authors=["Trevor Carey-Smith"], license="GPL-2.0-only", source_url="https://cpat.sourceforge.net/",

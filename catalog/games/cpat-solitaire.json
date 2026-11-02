@@ -3,7 +3,7 @@
   "id": "cpat-solitaire",
   "title": "CPat",
   "summary": "Eleven solitaires in one: FreeCell, Klondike, Spider, Yukon, Canfield and more.",
-  "description": "Pick a game from the menu. Moves are typed as source and destination letters, the columns a to m, p for the piles and o for the other spaces (an optional count first): 'ab' moves column a onto b, 'oo' deals. Help and Rules explain each game.",
+  "description": "Pick a game from the menu. Moves are typed as source and destination letters, the columns a to j (k to m for Baker's Dozen on the keyboard), p for the piles and o for the other spaces (an optional count first): 'ab' moves column a onto b, 'oo' deals. Help and Rules explain each game.",
   "category": "cards",
   "tags": [
     "solitaire",
@@ -93,18 +93,6 @@
       "text": "j"
     },
     {
-      "label": "k",
-      "text": "k"
-    },
-    {
-      "label": "l",
-      "text": "l"
-    },
-    {
-      "label": "m",
-      "text": "m"
-    },
-    {
       "label": "p",
       "text": "p"
     },
@@ -119,10 +107,6 @@
     {
       "label": "Help",
       "text": "?"
-    },
-    {
-      "label": "Rules",
-      "text": "r"
     }
   ],
   "saves": {
