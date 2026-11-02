@@ -20,6 +20,16 @@ GO_NOTES = ("Ported to Tuikio from the upstream repository, pinned by commit; bu
             "for Android's musl targets.")
 
 GAMES = [
+    # Its info panel starts at column 32 and the Ms. Pac-Man mazes are 31 rows (plus lives and the
+    # marquee): 64x33, upright, with the pad under it. Built without sound (Android has no ALSA).
+    dict(id="unipac", title="UniPac", exe="game_unipac", controls="unipac.v1", orientation="portrait",
+         terminal=((64, 33), (64, 33)),
+         summary="Pac-Man in the terminal, with emoji ghosts, fruit and the Ms. Pac-Man mazes.",
+         description="Steer Pac-Man through the maze, eat every dot and grab a power pill to turn the tables on the "
+                     "ghosts. Each level brings a new maze. Pause stops the game; after a game, Again starts another.",
+         category="arcade", tags=["pacman", "maze", "action"], authors=["Jesper Olsen"], license="MIT",
+         **gh("jesper-olsen/UniPac", "dc0f6d0b"),
+         test_notes="Host test: first maze at 64x33, steering, pause, quit to GAME OVER and the Y/N prompt."),
     # Random mode: a new word whenever you like (the daily modes allow one game a day). Upright, with the
     # board above its letter keyboard (patch); side by side it needed 84 columns.
     dict(id="wordle-cli", title="Wordle CLI", exe="game_wordle_cli", controls="wordle.v1", input="typing",

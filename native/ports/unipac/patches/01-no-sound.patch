@@ -1,0 +1,75 @@
+Tuikio: build without sound. kira plays it through cpal, which needs ALSA (libasound), and Android
+has none. src/audio.rs keeps the interface the game calls, with a play() that does nothing, and
+kira leaves Cargo.toml (the lock without it is native/ports/unipac/Cargo.lock).
+
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -7,6 +7,5 @@
+ 
+ [dependencies]
+ crossterm = "0.29.0"
+-kira = "0.12.2"
+ rand = "0.10.2"
+ time = "0.3.54"
+--- a/src/audio.rs
++++ b/src/audio.rs
+@@ -1,10 +1,5 @@
+-use std::{io, path};
+-
+-use kira::{
+-    AudioManager, AudioManagerSettings, DefaultBackend,
+-    sound::static_sound::{StaticSoundData, StaticSoundHandle},
+-};
+-
++// Tuikio: Android has no ALSA, which kira's audio backend (cpal) needs, so the game is built
++// without sound. This keeps the interface the game calls; playing a sound does nothing.
+ #[derive(Copy, Clone, Eq, Hash, PartialEq)]
+ pub enum Sound {
+     Die = 0,
+@@ -14,41 +9,11 @@
+     OpeningSong,
+ }
+ 
+-const AUDIO_DIR: &str = "Audio";
++#[derive(Default)]
++pub struct AM;
+ 
+-const AUDIO_FILES: [&str; 5] = [
+-    "die.ogg",
+-    "eatpill.ogg",
+-    "eatghost.ogg",
+-    "extra_lives.ogg",
+-    "opening_song.ogg",
+-];
+-
+-pub struct AM {
+-    manager: AudioManager<DefaultBackend>,
+-    sounds: [StaticSoundData; AUDIO_FILES.len()],
+-}
+-
+-impl Default for AM {
+-    fn default() -> Self {
+-        let manager = AudioManager::<DefaultBackend>::new(AudioManagerSettings::default())
+-            .expect("Failed to create AM");
+-
+-        let sounds = AUDIO_FILES.map(|audio_file| {
+-            let path = path::Path::new(AUDIO_DIR).join(audio_file);
+-
+-            StaticSoundData::from_file(&path)
+-                .unwrap_or_else(|e| panic!("Failed to load sound: {path:?}: {e}"))
+-        });
+-
+-        AM { manager, sounds }
++impl AM {
++    pub fn play(&mut self, _name: Sound) -> Result<(), std::io::Error> {
++        Ok(())
+     }
+ }
+-
+-impl AM {
+-    pub fn play(&mut self, name: Sound) -> Result<StaticSoundHandle, std::io::Error> {
+-        self.manager
+-            .play(self.sounds[name as usize].clone())
+-            .map_err(io::Error::other)
+-    }
+-}

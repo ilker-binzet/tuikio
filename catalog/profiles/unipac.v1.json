@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "profile_id": "unipac.v1",
+  "title": "Steer Pac-Man",
+  "help": "Steer with the pad or swipe: Pac-Man keeps going and turns at the next opening. Pause stops the game. After a game, Again starts another and No leaves.",
+  "orientation": "portrait",
+  "actions": [
+    {"id": "up", "label": "Up", "icon": "arrow_up", "output": {"key": "UP"}},
+    {"id": "down", "label": "Down", "icon": "arrow_down", "output": {"key": "DOWN"}},
+    {"id": "left", "label": "Left", "icon": "arrow_left", "output": {"key": "LEFT"}},
+    {"id": "right", "label": "Right", "icon": "arrow_right", "output": {"key": "RIGHT"}},
+    {"id": "pause", "label": "Pause", "icon": "pause", "output": {"text": " "},
+     "states": [
+       {"when": "PAUSED", "label": "Resume", "icon": "play"},
+       {"when": "Another game, squire", "label": "Again", "icon": "play", "output": {"text": "y"}}
+     ]},
+    {"id": "quit", "label": "Quit", "icon": "close", "output": {"text": "q"}, "confirm": true,
+     "states": [
+       {"when": "Another game, squire", "label": "No", "output": {"text": "n"}}
+     ]}
+  ],
+  "layout": {
+    "portrait": [
+      {"type": "dpad4", "anchor": "bottom_center", "size": 208, "bind": {"up": "up", "down": "down", "left": "left", "right": "right"}},
+      {"type": "button", "anchor": "bottom_end", "size": 64, "bind": {"press": "pause"}},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "quit"}}
+    ],
+    "landscape": [
+      {"type": "dpad4", "anchor": "center_start", "size": 180, "bind": {"up": "up", "down": "down", "left": "left", "right": "right"}},
+      {"type": "button", "anchor": "center_end", "size": 72, "bind": {"press": "pause"}, "style": "primary"},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "quit"}}
+    ]
+  },
+  "gestures": {"swipe_up": "up", "swipe_down": "down", "swipe_left": "left", "swipe_right": "right"},
+  "pointer": "none",
+  "keyboard": true
+}

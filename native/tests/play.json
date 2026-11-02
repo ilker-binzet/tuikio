@@ -405,6 +405,16 @@
       "type:b",
       "expect:Welcome to the game of Ularn"
     ],
+    "unipac": [
+      "expect:UniPac - Unicode-powered Pacman",
+      "expect:Score  :",
+      "key:LEFT",
+      "wait:1500",
+      "type: ",
+      "expect:PAUSED",
+      "type: ",
+      "wait:300"
+    ],
     "unix-aliens": [
       "expect:Alien invasion in progress",
       "type:3",

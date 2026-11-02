@@ -1,6 +1,14 @@
 {
   "comment": "Keys RenderShotsTest sends before capturing a game (./gradlew :app:test --tests '*RenderShotsTest*' -Pshots=...), in place of its play.json script: they get each game past menus and prompts into play, for the audit and for the card pictures tools/catalog/capture_art.py takes from these screens. Steps: \"text:<chars>\" (\\n is Enter), \"key:<ENTER|ESCAPE|UP|DOWN|LEFT|RIGHT|SPACE>\", \"wait:<ms>\", \"expect:<text on screen>\", \"shot:<name>\" (an extra screenshot).",
   "games": {
+    "unipac": [
+      "expect:Score  :",
+      "wait:1800",
+      "key:UP",
+      "wait:700",
+      "key:LEFT",
+      "wait:1200"
+    ],
     "vitetris": [
       "key:ENTER",
       "wait:400",

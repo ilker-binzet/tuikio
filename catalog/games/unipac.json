@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "unipac",
+  "title": "UniPac",
+  "summary": "Pac-Man in the terminal, with emoji ghosts, fruit and the Ms. Pac-Man mazes.",
+  "description": "Steer Pac-Man through the maze, eat every dot and grab a power pill to turn the tables on the ghosts. Each level brings a new maze. Pause stops the game; after a game, Again starts another.",
+  "category": "arcade",
+  "tags": [
+    "pacman",
+    "maze",
+    "action"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Jesper Olsen"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/jesper-olsen/UniPac",
+    "version": "git dc0f6d0b"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/rustgo.py",
+    "source_archive": "unipac-dc0f6d0b.tar",
+    "source_sha256": "7e128fd505e353e9fdff25699b969b8210b48669993e8a915a75c70687a2f350"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_unipac",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        64,
+        33
+      ],
+      "preferred": [
+        64,
+        33
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "unipac.v1",
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: first maze at 64x33, steering, pause, quit to GAME OVER and the Y/N prompt."
+  }
+}
