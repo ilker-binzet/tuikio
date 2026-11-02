@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-checkers",
+  "title": "Checkers (Shell Games)",
+  "summary": "Draughts for two players on one phone, with forced captures.",
+  "description": "Move the cursor with the pad and Select a piece, then Select where it goes. Captures are compulsory and shown in red; reach the far side to crown a king. Players take turns.",
+  "category": "strategy",
+  "tags": [
+    "checkers",
+    "draughts",
+    "board",
+    "two players",
+    "shell games"
+  ],
+  "players": "2",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "checkers"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        56,
+        18
+      ],
+      "preferred": [
+        56,
+        18
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows.v1",
+  "control_labels": {
+    "select": "Select"
+  },
+  "control_hide": [
+    "space",
+    "back"
+  ],
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: board and a first move. Fixed: the side panel ran off the screen."
+  }
+}

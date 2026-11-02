@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "profile_id": "pong2.v1",
+  "title": "Two paddles",
+  "help": "Player 1 (left paddle) moves with the buttons on the left (W and S), player 2 (right paddle) with the ones on the right (arrows), which also pick from the menu. OK confirms, Restart goes back to the menu.",
+  "orientation": "landscape",
+  "actions": [
+    {"id": "p1up", "label": "P1 up", "icon": "arrow_up", "output": {"text": "w"}, "repeat": {"delay_ms": 120, "interval_ms": 50}},
+    {"id": "p1down", "label": "P1 down", "icon": "arrow_down", "output": {"text": "s"}, "repeat": {"delay_ms": 120, "interval_ms": 50}},
+    {"id": "p2up", "label": "P2 up", "icon": "arrow_up", "output": {"key": "UP"}, "repeat": {"delay_ms": 120, "interval_ms": 50}},
+    {"id": "p2down", "label": "P2 down", "icon": "arrow_down", "output": {"key": "DOWN"}, "repeat": {"delay_ms": 120, "interval_ms": 50}},
+    {"id": "ok", "label": "OK", "icon": "check", "output": {"key": "ENTER"}},
+    {"id": "restart", "label": "Restart", "icon": "refresh", "output": {"text": "r"}, "confirm": true},
+    {"id": "quit", "label": "Quit", "icon": "close", "output": {"text": "q"}, "confirm": true}
+  ],
+  "layout": {
+    "portrait": [
+      {"type": "button", "anchor": "bottom_start", "offset": [0, -96], "size": 84, "bind": {"press": "p1up"}, "style": "primary"},
+      {"type": "button", "anchor": "bottom_start", "size": 84, "bind": {"press": "p1down"}, "style": "primary"},
+      {"type": "button", "anchor": "bottom_end", "offset": [0, -96], "size": 84, "bind": {"press": "p2up"}},
+      {"type": "button", "anchor": "bottom_end", "size": 84, "bind": {"press": "p2down"}},
+      {"type": "button", "anchor": "bottom_center", "size": 64, "bind": {"press": "ok"}},
+      {"type": "button", "anchor": "top_start", "size": 52, "bind": {"press": "restart"}},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "quit"}}
+    ],
+    "landscape": [
+      {"type": "button", "anchor": "center_start", "offset": [0, -50], "size": 84, "bind": {"press": "p1up"}, "style": "primary"},
+      {"type": "button", "anchor": "center_start", "offset": [0, 50], "size": 84, "bind": {"press": "p1down"}, "style": "primary"},
+      {"type": "button", "anchor": "center_end", "offset": [0, -50], "size": 84, "bind": {"press": "p2up"}},
+      {"type": "button", "anchor": "center_end", "offset": [0, 50], "size": 84, "bind": {"press": "p2down"}},
+      {"type": "button", "anchor": "bottom_end", "size": 52, "bind": {"press": "ok"}},
+      {"type": "button", "anchor": "top_start", "size": 52, "bind": {"press": "restart"}},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "quit"}}
+    ]
+  },
+  "pointer": "none",
+  "keyboard": true
+}

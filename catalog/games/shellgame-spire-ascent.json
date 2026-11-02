@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-spire-ascent",
+  "title": "Spire Ascent (Shell Games)",
+  "summary": "A deck-building climb: fight, rest, shop and beat the boss.",
+  "description": "Choose your path up the map with left, right and Enter. In a fight, play cards with the number buttons (each costs energy) and End turn when done. Win cards and relics on the way up.",
+  "category": "roguelike",
+  "tags": [
+    "deck building",
+    "cards",
+    "roguelike",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "spire"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        60,
+        30
+      ],
+      "preferred": [
+        60,
+        30
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "lr-select.v1",
+  "control_labels": {
+    "select": "Enter",
+    "space": "End turn"
+  },
+  "keys": [
+    {
+      "label": "1",
+      "text": "1"
+    },
+    {
+      "label": "2",
+      "text": "2"
+    },
+    {
+      "label": "3",
+      "text": "3"
+    },
+    {
+      "label": "4",
+      "text": "4"
+    },
+    {
+      "label": "5",
+      "text": "5"
+    },
+    {
+      "label": "6",
+      "text": "6"
+    },
+    {
+      "label": "7",
+      "text": "7"
+    },
+    {
+      "label": "8",
+      "text": "8"
+    },
+    {
+      "label": "9",
+      "text": "9"
+    }
+  ],
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: map, first fight, cards played. Fixed: the map's key line was below the screen."
+  }
+}

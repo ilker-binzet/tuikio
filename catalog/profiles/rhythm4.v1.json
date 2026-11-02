@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "profile_id": "rhythm4.v1",
+  "title": "Four lanes",
+  "help": "Tap a lane's button (D, F, J, K) as its note reaches the target line. Pause stops the song; Again starts a new one after the results.",
+  "orientation": "portrait",
+  "actions": [
+    {"id": "lane1", "label": "D", "output": {"text": "d"}, "haptic": "tick"},
+    {"id": "lane2", "label": "F", "output": {"text": "f"}, "haptic": "tick"},
+    {"id": "lane3", "label": "J", "output": {"text": "j"}, "haptic": "tick"},
+    {"id": "lane4", "label": "K", "output": {"text": "k"}, "haptic": "tick"},
+    {"id": "pause", "label": "Pause", "icon": "pause", "output": {"text": "p"}},
+    {"id": "again", "label": "Again", "icon": "check", "output": {"key": "ENTER"}},
+    {"id": "quit", "label": "Quit", "icon": "close", "output": {"text": "q"}, "confirm": true}
+  ],
+  "layout": {
+    "portrait": [
+      {"type": "button", "anchor": "bottom_start", "size": 84, "bind": {"press": "lane1"}, "style": "primary"},
+      {"type": "button", "anchor": "bottom_start", "offset": [94, 0], "size": 84, "bind": {"press": "lane2"}, "style": "primary"},
+      {"type": "button", "anchor": "bottom_end", "offset": [-94, 0], "size": 84, "bind": {"press": "lane3"}, "style": "primary"},
+      {"type": "button", "anchor": "bottom_end", "size": 84, "bind": {"press": "lane4"}, "style": "primary"},
+      {"type": "button", "anchor": "top_start", "size": 52, "bind": {"press": "pause"}},
+      {"type": "button", "anchor": "top_end", "offset": [-62, 0], "size": 52, "bind": {"press": "again"}},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "quit"}}
+    ],
+    "landscape": [
+      {"type": "button", "anchor": "center_start", "offset": [0, -48], "size": 80, "bind": {"press": "lane1"}, "style": "primary"},
+      {"type": "button", "anchor": "center_start", "offset": [0, 48], "size": 80, "bind": {"press": "lane2"}, "style": "primary"},
+      {"type": "button", "anchor": "center_end", "offset": [0, -48], "size": 80, "bind": {"press": "lane3"}, "style": "primary"},
+      {"type": "button", "anchor": "center_end", "offset": [0, 48], "size": 80, "bind": {"press": "lane4"}, "style": "primary"},
+      {"type": "button", "anchor": "top_start", "size": 52, "bind": {"press": "pause"}},
+      {"type": "button", "anchor": "bottom_end", "size": 52, "bind": {"press": "again"}},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "quit"}}
+    ]
+  },
+  "pointer": "none",
+  "keyboard": true
+}

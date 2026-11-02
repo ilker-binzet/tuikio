@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "profile_id": "blackjack.v1",
+  "title": "Blackjack",
+  "help": "Hit takes a card, Stand ends your turn and Double takes one card at double stakes. Deal starts the next round.",
+  "orientation": "any",
+  "actions": [
+    {"id": "hit", "label": "Hit", "output": {"text": "h"}, "haptic": "click"},
+    {"id": "stand", "label": "Stand", "output": {"text": "s"}},
+    {"id": "double", "label": "Double", "output": {"text": "d"}},
+    {"id": "deal", "label": "Deal", "icon": "check", "output": {"key": "ENTER"}},
+    {"id": "quit", "label": "Quit", "icon": "close", "output": {"text": "q"}, "confirm": true}
+  ],
+  "layout": {
+    "portrait": [
+      {"type": "button", "anchor": "bottom_start", "size": 92, "bind": {"press": "hit"}, "style": "primary"},
+      {"type": "button", "anchor": "bottom_start", "offset": [104, 0], "size": 92, "bind": {"press": "stand"}},
+      {"type": "button", "anchor": "bottom_end", "size": 92, "bind": {"press": "deal"}},
+      {"type": "button", "anchor": "bottom_end", "offset": [0, -104], "size": 64, "bind": {"press": "double"}},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "quit"}}
+    ],
+    "landscape": [
+      {"type": "button", "anchor": "center_start", "offset": [0, -50], "size": 84, "bind": {"press": "hit"}, "style": "primary"},
+      {"type": "button", "anchor": "center_start", "offset": [0, 50], "size": 84, "bind": {"press": "stand"}},
+      {"type": "button", "anchor": "center_end", "size": 88, "bind": {"press": "deal"}},
+      {"type": "button", "anchor": "bottom_end", "size": 60, "bind": {"press": "double"}},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "quit"}}
+    ]
+  },
+  "pointer": "none",
+  "keyboard": true
+}

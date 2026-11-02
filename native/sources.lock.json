@@ -450,6 +450,11 @@
       "git": "https://github.com/ringtailsoftware/zoridor",
       "commit": "960df4f73236654226bf8fad1f578d379c6b23a8",
       "sha256": "4503e6b164dc6cee00226efc44650c4f163dc0d52ff3d42346bfd59ab4a71bf4"
+    },
+    "shellgame-dd1aa485.tar": {
+      "git": "https://github.com/MCookinho/shellgame",
+      "commit": "dd1aa485f564b879a974e7a1b2640c5d2a698321",
+      "sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0"
     }
   }
 }

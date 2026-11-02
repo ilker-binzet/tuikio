@@ -548,6 +548,117 @@
       "wait:800",
       "text:oo",
       "wait:600"
+    ],
+    "shellgame-asteroids": [
+      "key:LEFT",
+      "text: ",
+      "wait:300",
+      "key:UP",
+      "text: ",
+      "wait:400"
+    ],
+    "shellgame-blackjack": [
+      "text:h",
+      "wait:300"
+    ],
+    "shellgame-breakout": [
+      "wait:1500"
+    ],
+    "shellgame-checkers": [
+      "key:UP",
+      "key:UP",
+      "text: ",
+      "wait:300",
+      "key:UP",
+      "key:LEFT",
+      "text: ",
+      "wait:300"
+    ],
+    "shellgame-chess": [
+      "key:UP",
+      "key:ENTER",
+      "key:UP",
+      "key:UP",
+      "key:ENTER",
+      "wait:300",
+      "key:UP",
+      "key:LEFT",
+      "key:ENTER",
+      "wait:300"
+    ],
+    "shellgame-duck-hunt": [
+      "wait:1500",
+      "key:UP",
+      "key:LEFT",
+      "wait:300"
+    ],
+    "shellgame-galaga": [
+      "text: ",
+      "wait:300",
+      "key:LEFT",
+      "text: ",
+      "wait:600"
+    ],
+    "shellgame-hangman": [
+      "text:e",
+      "text:a",
+      "text:o",
+      "text:t",
+      "wait:300"
+    ],
+    "shellgame-minesweeper": [
+      "key:RIGHT",
+      "key:RIGHT",
+      "key:DOWN",
+      "key:DOWN",
+      "key:DOWN",
+      "text:f",
+      "wait:300"
+    ],
+    "shellgame-pong": [
+      "key:ENTER",
+      "wait:1500"
+    ],
+    "shellgame-q-bert": [
+      "text:k",
+      "wait:400",
+      "text:j",
+      "wait:400",
+      "text:k",
+      "wait:400"
+    ],
+    "shellgame-rhythm-spire": [
+      "wait:3000"
+    ],
+    "shellgame-solitaire": [
+      "text: ",
+      "wait:300"
+    ],
+    "shellgame-spire-ascent": [
+      "key:ENTER",
+      "wait:600",
+      "key:ENTER",
+      "wait:600",
+      "text:1",
+      "wait:400"
+    ],
+    "shellgame-super-auto-pets": [
+      "text:b",
+      "wait:400"
+    ],
+    "shellgame-tetris": [
+      "wait:600",
+      "key:LEFT",
+      "key:LEFT",
+      "text: ",
+      "wait:600",
+      "key:RIGHT",
+      "key:RIGHT",
+      "text: ",
+      "wait:800"
+    ],
+    "shellgame-the-typer": [
+      "wait:4000"
     ]
   }
 }
