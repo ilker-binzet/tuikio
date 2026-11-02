@@ -659,6 +659,25 @@
     ],
     "shellgame-the-typer": [
       "wait:4000"
+    ],
+    "nethack": [
+      "expect:Who are you?",
+      "text:Kio\n",
+      "wait:500",
+      "text:n",
+      "wait:400",
+      "text:v",
+      "wait:400",
+      "text:h",
+      "wait:400",
+      "text:l",
+      "wait:400",
+      "text:y",
+      "wait:800",
+      "key:ENTER",
+      "wait:800",
+      "text:s",
+      "wait:600"
     ]
   }
 }

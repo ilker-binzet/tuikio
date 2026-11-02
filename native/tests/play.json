@@ -736,6 +736,25 @@
       "expect:Z ",
       "type:a",
       "expect:Wave: 1"
+    ],
+    "nethack": [
+      "expect:Who are you?",
+      "type:Kio\n",
+      "expect:Shall I pick",
+      "type:n",
+      "expect:Pick a role",
+      "type:v",
+      "expect:Pick a race",
+      "type:h",
+      "expect:Pick an alignment",
+      "type:l",
+      "expect:Is this ok?",
+      "type:y",
+      "expect:--More--",
+      "key:ENTER",
+      "expect:welcome to NetHack",
+      "type:s",
+      "expect:Dlvl:1"
     ]
   }
 }
