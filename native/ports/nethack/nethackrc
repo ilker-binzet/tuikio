@@ -1,0 +1,12 @@
+# NetHack options for Tuikio. This file is yours: edit it in the game's folder.
+# The on-screen pad sends the vi keys h j k l y u b n, so the number pad stays off.
+OPTIONS=number_pad:0
+OPTIONS=color,hilite_pet,lit_corridor,showexp,time
+# Pick up gold, scrolls, potions, wands, rings, amulets and spellbooks by walking over them.
+OPTIONS=autopickup,pickup_types:$?!/="+
+# Doors open when you walk into them.
+OPTIONS=autoopen
+OPTIONS=!rest_on_space
+OPTIONS=suppress_alert:3.4.3
+# Walls and floors drawn with line graphics; delete this line for plain ASCII.
+OPTIONS=symset:DECgraphics

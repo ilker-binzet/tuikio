@@ -186,14 +186,6 @@
       "url": "http://archive.ubuntu.com/ubuntu/pool/universe/a/ascii-patrol/ascii-patrol_1.7+dfsg-1.debian.tar.xz",
       "sha256": "81813193e595ca3fb0f565502ac795609d71a57926f0a24f0636aa6f9714ed1b"
     },
-    "omega-rpg_0.90-pa9.orig.tar.gz": {
-      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/o/omega-rpg/omega-rpg_0.90-pa9.orig.tar.gz",
-      "sha256": "1c91efa6939a9ca550cd0fad910fcc94c735893f33f6f80974632a65cca6fc42"
-    },
-    "omega-rpg_0.90-pa9-17.debian.tar.xz": {
-      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/o/omega-rpg/omega-rpg_0.90-pa9-17.debian.tar.xz",
-      "sha256": "8282ba453b0168633bb7a513faa412f57e96b3ca9ef556df58d1db2fb799148e"
-    },
     "moria_5.7.13.orig.tar.gz": {
       "url": "http://archive.ubuntu.com/ubuntu/pool/universe/m/moria/moria_5.7.13.orig.tar.gz",
       "sha256": "2e3ac82142e9b31a5b328503015952abb00fa41dbee1f620e3b32716d911fe5f"
@@ -376,6 +368,68 @@
       "git": "https://github.com/ElnurBDa/blackguard",
       "commit": "294bfd379255cfc0249531c899250e4d1fa9ca45",
       "sha256": "1bb864df770b588a9266ca6d584b76cf8d0795d50480c37d8dc005de6a5c38b4"
+    },
+    "nethack_3.6.7.orig.tar.gz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/n/nethack/nethack_3.6.7.orig.tar.gz",
+      "sha256": "98cf67df6debf9668a61745aa84c09bcab362e5d33f5b944ec5155d44d2aacb2"
+    },
+    "nethack_3.6.7-1build3.debian.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/n/nethack/nethack_3.6.7-1build3.debian.tar.xz",
+      "sha256": "19ee03a133c48e08df7c9de9c479eddd30ce23f2d682f8a3e1d17a948107d64c"
+    },
+    "angband_4.2.5+dfsg1.orig.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/a/angband/angband_4.2.5+dfsg1.orig.tar.xz",
+      "sha256": "687c0b18b8fc10de7e7ba75cf9e2d7e910de9319d9de21f91b7cbfee42a32014"
+    },
+    "angband_4.2.5+dfsg1-1.debian.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/a/angband/angband_4.2.5+dfsg1-1.debian.tar.xz",
+      "sha256": "9dc197db197caf307ec6a1d5de69f76f25f682a1380b65c34a4b8e46fbb3b6f4"
+    },
+    "frotz_2.54+dfsg.orig.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/f/frotz/frotz_2.54+dfsg.orig.tar.xz",
+      "sha256": "4202b6545a2278a369ad5b6e7343b11849424b1b05cc7a1416961c5be33dd0b4"
+    },
+    "frotz_2.54+dfsg-3build2.debian.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/f/frotz/frotz_2.54+dfsg-3build2.debian.tar.xz",
+      "sha256": "f1e103e90942a1f52a2f8b323712fce5699362e3cc12ff3e01efc3676d3649ee"
+    },
+    "open-adventure_1.12.orig.tar.gz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/o/open-adventure/open-adventure_1.12.orig.tar.gz",
+      "sha256": "b6db9554157c87907dd2d90f0190217cc826faee5781765b6026ca5ce90235f2"
+    },
+    "open-adventure_1.12-1.debian.tar.xz": {
+      "url": "http://archive.ubuntu.com/ubuntu/pool/universe/o/open-adventure/open-adventure_1.12-1.debian.tar.xz",
+      "sha256": "559688cd958097d804788997e847c3ea31312324d0ab2ae9e1fcc6f4f0dfb223"
+    },
+    "noteye-55bb69d7.tar": {
+      "git": "https://github.com/zenorogue/noteye",
+      "commit": "55bb69d716a9fb269c6364f9df89d4bc260cb1a1",
+      "sha256": "c3934e92247f4329a9bbaf59f017d92e8c2e15ed2cea148154f7b7c38d892b97"
+    },
+    "zork1-97b7b3d6.tar": {
+      "git": "https://github.com/historicalsource/zork1",
+      "commit": "97b7b3d68c075dd9af7da499c3e9690ada3471fd",
+      "sha256": "1c3da872b97c17056a58079dfdc6bb76a90455f9e5684b6d428091e722d257ac"
+    },
+    "zork2-3da96610.tar": {
+      "git": "https://github.com/historicalsource/zork2",
+      "commit": "3da9661098809788a99cef00f00c865c6c204f96",
+      "sha256": "81816c2a13c1c38c0e0548c69d885924ad90d220661a8ea9b3ddaf85b440fcfa"
+    },
+    "zork3-3ec9ed41.tar": {
+      "git": "https://github.com/historicalsource/zork3",
+      "commit": "3ec9ed412b5f3cafe65d83c727d07db1fe4a86a8",
+      "sha256": "21b13d35b7c7e2a08d885c8a50c7decac79cb6385f7d50725d210f44ea8f706f"
+    },
+    "brogue-ce-1ba4240b.tar": {
+      "git": "https://github.com/tmewett/BrogueCE",
+      "commit": "1ba4240b7a928ddf0ffb772717bf1d433cd63804",
+      "sha256": "f0094775a94cfde71048d0dfddfc5438b670653bc891a7cf867aa3c507bf3547"
+    },
+    "sporkhack-8d6bc8e9.tar": {
+      "git": "https://github.com/NHTangles/sporkhack",
+      "commit": "8d6bc8e9042c52159688ab06ef7376f432ee7b6b",
+      "sha256": "2f0132e1febaa70e1af47356a67c22d99a879638629537c61aadc7e8ca74b6e0"
     }
   }
 }

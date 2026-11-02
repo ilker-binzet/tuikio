@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "id": "nethack",
+  "title": "NetHack",
+  "summary": "The classic dungeon crawl: retrieve the Amulet of Yendor from the depths of Gehennom.",
+  "description": "NetHack 3.6.7 with its original tty interface. Choose a role and race, then descend through the Dungeons of Doom, the Gnomish Mines, Sokoban and beyond. The pad walks with the vi keys; the strip holds the everyday commands, # starts any extended command from the keyboard, and ? lists everything. Leaving the game saves it.",
+  "category": "roguelike",
+  "tags": [
+    "roguelike",
+    "dungeon",
+    "classic",
+    "fantasy"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "The NetHack DevTeam",
+      "Stichting Mathematisch Centrum",
+      "M. Stephenson"
+    ],
+    "license": "NGPL",
+    "source_url": "https://www.nethack.org/",
+    "version": "3.6.7"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/roguelikes.py",
+    "source_archive": "nethack_3.6.7.orig.tar.gz",
+    "source_sha256": "98cf67df6debf9668a61745aa84c09bcab362e5d33f5b944ec5155d44d2aacb2"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_nethack",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "dungeon8.v1",
+  "keys": [
+    {
+      "label": "Wield",
+      "text": "w"
+    },
+    {
+      "label": "Wear",
+      "text": "W"
+    },
+    {
+      "label": "Take off",
+      "text": "T"
+    },
+    {
+      "label": "Put on",
+      "text": "P"
+    },
+    {
+      "label": "Remove",
+      "text": "R"
+    },
+    {
+      "label": "Eat",
+      "text": "e"
+    },
+    {
+      "label": "Quaff",
+      "text": "q"
+    },
+    {
+      "label": "Read",
+      "text": "r"
+    },
+    {
+      "label": "Zap",
+      "text": "z"
+    },
+    {
+      "label": "Cast",
+      "text": "Z"
+    },
+    {
+      "label": "Apply",
+      "text": "a"
+    },
+    {
+      "label": "Fire",
+      "text": "f"
+    },
+    {
+      "label": "Drop",
+      "text": "d"
+    },
+    {
+      "label": "Kick",
+      "text": "#kick\r"
+    },
+    {
+      "label": "Pray",
+      "text": "#pray\r"
+    },
+    {
+      "label": "Help",
+      "text": "?"
+    }
+  ],
+  "saves": {
+    "paths": [
+      "save",
+      "record",
+      "nethackrc"
+    ],
+    "notes": "Saved game, top scores and your options file"
+  },
+  "data_files": [
+    {
+      "asset": "games/nethack/license",
+      "dest": "license",
+      "sha256": "93a3ae2cb8dee482daddfaebe53bcffe5b114b603def19b4dca21621cbc5a747"
+    },
+    {
+      "asset": "games/nethack/logfile",
+      "dest": "logfile",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "asset": "games/nethack/nethackrc",
+      "dest": "nethackrc",
+      "sha256": "977f403c7735902a31e1669071fd7c65343ea37e96e18f9312519eb857187295"
+    },
+    {
+      "asset": "games/nethack/nhdat",
+      "dest": "nhdat",
+      "sha256": "15d3bf4776f02a5c0ef5e8c579c9df6953bb066cc830d9fce211465475909e01"
+    },
+    {
+      "asset": "games/nethack/nhdat32",
+      "dest": "nhdat32",
+      "sha256": "44ed8108f5c8cddc2af2d2e05f833caa610b0ec6daf031d216c5d513358be4e6"
+    },
+    {
+      "asset": "games/nethack/perm",
+      "dest": "perm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "asset": "games/nethack/record",
+      "dest": "record",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "asset": "games/nethack/save/keep",
+      "dest": "save/keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "asset": "games/nethack/symbols",
+      "dest": "symbols",
+      "sha256": "aab9bd7d64fa4ad5bfd094fb3b2de7e2488f017f5eecb82ea197873be3cfa3a1"
+    },
+    {
+      "asset": "games/nethack/xlogfile",
+      "dest": "xlogfile",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-02",
+    "android_tested": null,
+    "notes": "Host test: name, role choice, first moves, kick, pray, save and restore, quit with tombstone and score list; armeabi-v7a binary checked under qemu with its 32-bit data library."
+  }
+}
