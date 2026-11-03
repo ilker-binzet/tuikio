@@ -753,6 +753,20 @@
       "wait:80",
       "key:ENTER",
       "wait:600"
+    ],
+    "doom-ascii": [
+      "wait:3000",
+      "key:ENTER",
+      "wait:700",
+      "key:ENTER",
+      "wait:700",
+      "key:ENTER",
+      "wait:700",
+      "key:ENTER",
+      "wait:3000",
+      "key:UP",
+      "key:UP",
+      "wait:800"
     ]
   }
 }

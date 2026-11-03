@@ -60,7 +60,7 @@ the SIL Open Font License 1.1.
 
 Everyone whose suggestion, port or correction is accepted through the app or a pull request is listed here, by GitHub login or as an anonymous community contributor. Be the first: suggest a game from the app's Create tab.
 
-### Games (147 playable)
+### Games (148 playable)
 
 Every game is the work of its authors; Tuikio only ports and packages it. Licenses link to the full text shipped in the app.
 
@@ -107,6 +107,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 | Darrt | abakh | [CC0-1.0 OR Apache-2.0](LICENSES/nbsdgames.txt) | [github.com/abakh/nbsdgames](https://github.com/abakh/nbsdgames) | PORTABLE |
 | Dig Dug (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
 | Donkey Kong (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
+| Doom (ASCII) | Wojciech Graj, ozkl (doomgeneric), id Software, the Freedoom project | [GPL-2.0-only AND BSD-3-Clause](LICENSES/doom-ascii.txt) | [github.com/wojciech-graj/doom-ascii](https://github.com/wojciech-graj/doom-ascii) | PORTABLE |
 | Dots and Boxes | Christos Zoulas | [BSD-2-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
 | Duck Hunt (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
 | Empire | Chuck Simmons, Eric S. Raymond | [GPL-2.0-only](LICENSES/empire.txt) | [http://www.catb.org/~esr/vms-empire/](http://www.catb.org/~esr/vms-empire/) | PORTABLE |
@@ -244,7 +245,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 - [Termux packages](https://github.com/termux/termux-packages) by The Termux maintainers
 - [Debian and Ubuntu archives](https://packages.debian.org/) by The Debian and Ubuntu maintainers
 
-### Also in the catalog (86 links)
+### Also in the catalog (85 links)
 
 Listed in the app with a link to their authors' pages; not bundled (yet). Licenses are their authors'.
 
@@ -274,7 +275,6 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [Conquest (Jtrulson)](https://github.com/jtrulson/conquest/)
 - [Dango (Go board)](https://github.com/gsobell/dango)
 - [dMagnetic (interactive fiction interpreter)](https://www.dettus.net/dMagnetic)
-- [DOOM-ASCII](https://github.com/wojciech-graj/doom-ascii)
 - [DoomRL / DRL](https://drl.chaosforge.org/)
 - [Dopewars](https://dopewars.sourceforge.io/)
 - [Dukedomrb](https://github.com/infews/dukedomrb)

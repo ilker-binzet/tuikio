@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "id": "doom-ascii",
+  "title": "Doom (ASCII)",
+  "summary": "Doom, drawn in coloured text, with the free Freedoom levels.",
+  "description": "The full Doom engine (doomgeneric) renders every frame as coloured characters. It plays Freedoom: Phase 1, a free, complete replacement for the original episodes. Fire shoots, Use opens doors, 1-7 pick weapons, Map toggles the automap.",
+  "category": "arcade",
+  "tags": [
+    "fps",
+    "doom",
+    "shooter",
+    "freedoom"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Wojciech Graj",
+      "ozkl (doomgeneric)",
+      "id Software",
+      "the Freedoom project"
+    ],
+    "license": "GPL-2.0-only AND BSD-3-Clause",
+    "source_url": "https://github.com/wojciech-graj/doom-ascii",
+    "version": "git 940528f1"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "doom-ascii-940528f1.tar",
+    "source_sha256": "e1f600c0b585991cb45bd1cc6280c96ab53480aefb43f67edce2b498fe2e01dd"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_doom_ascii",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        30
+      ],
+      "preferred": [
+        80,
+        30
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "doom.v1",
+  "keys": [
+    {
+      "label": "1",
+      "text": "1"
+    },
+    {
+      "label": "2",
+      "text": "2"
+    },
+    {
+      "label": "3",
+      "text": "3"
+    },
+    {
+      "label": "4",
+      "text": "4"
+    },
+    {
+      "label": "5",
+      "text": "5"
+    },
+    {
+      "label": "6",
+      "text": "6"
+    },
+    {
+      "label": "7",
+      "text": "7"
+    },
+    {
+      "label": "Run",
+      "text": "]"
+    },
+    {
+      "label": "Map",
+      "key": "TAB"
+    }
+  ],
+  "art": {
+    "rows": [
+      "~~ll::II::::--,,::;;II::ll++>>",
+      "{{jj>><<,,::~~ll::II::::^^II::",
+      "::ll::IIIIii~~::::,,::::::,,>>",
+      "]]{{ll,,,,;;~~::::::::::::II,,",
+      ",,II::ii::::--::::IIII,,::,,--",
+      ";;::>>,,ll::--II::::II::IIII::",
+      "  ;;::IIII::??ll::\"\"II::::,,++",
+      "ii^^>>;;^^::--::II::IIII::II::"
+    ],
+    "fg": [
+      "001122332222445522663322778899",
+      "aabb99cc5522007722332222dd3322",
+      "2277223333ee002222552222225599",
+      "ffaagg555566002222222222223355",
+      "hh3322ee22224422223333552255ii",
+      "662299551122443322223322333322",
+      "jj6622333322kk7722ll3322225588",
+      "mmdd9966dd22442233223333223322"
+    ],
+    "bg": [
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      ".............................."
+    ],
+    "palette": [
+      "#383838",
+      "#382414",
+      "#1c1c1c",
+      "#242424",
+      "#444444",
+      "#20180c",
+      "#2c2410",
+      "#282828",
+      "#544020",
+      "#44341c",
+      "#585858",
+      "#787878",
+      "#4c381c",
+      "#181008",
+      "#303030",
+      "#4c4c4c",
+      "#342c14",
+      "#440101",
+      "#604424",
+      "#010101",
+      "#484848",
+      "#141414",
+      "#402c1c"
+    ]
+  },
+  "saves": {
+    "paths": [
+      "savegame/doomsav0.dsg",
+      "savegame/doomsav1.dsg",
+      "savegame/doomsav2.dsg",
+      "savegame/doomsav3.dsg",
+      "savegame/doomsav4.dsg",
+      "savegame/doomsav5.dsg"
+    ],
+    "notes": "Saved games (six slots)"
+  },
+  "data_files": [
+    {
+      "asset": "games/doom-ascii/default.cfg",
+      "dest": "default.cfg",
+      "sha256": "e68185ec58cbf49e86e03094aa9243049d8671b15200fcf3874fd2fcd1dfb517"
+    },
+    {
+      "asset": "games/doom-ascii/freedoom1.wad",
+      "dest": "freedoom1.wad",
+      "sha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d"
+    }
+  ],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: title, new game, first level rendered, moves and fires."
+  }
+}

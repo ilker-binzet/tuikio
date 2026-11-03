@@ -581,6 +581,15 @@
       "git": "https://github.com/thomas-mauran/chess-tui",
       "commit": "c0fcb9eeee7fd629a9117ae2c796ade1bb3a684f",
       "sha256": "f933bf6686e73da0b131a6f622721ad09962f96fdd5c1d0f20edf839d6aeff96"
+    },
+    "doom-ascii-940528f1.tar": {
+      "git": "https://github.com/wojciech-graj/doom-ascii",
+      "commit": "940528f138e12431e5a1417351863709f1620078",
+      "sha256": "e1f600c0b585991cb45bd1cc6280c96ab53480aefb43f67edce2b498fe2e01dd"
+    },
+    "freedoom-0.13.0.zip": {
+      "url": "https://github.com/freedoom/freedoom/releases/download/v0.13.0/freedoom-0.13.0.zip",
+      "sha256": "3f9b264f3e3ce503b4fb7f6bdcb1f419d93c7b546f4df3e874dd878db9688f59"
     }
   }
 }

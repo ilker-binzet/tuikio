@@ -821,6 +821,20 @@
       "type:l",
       "wait:80",
       "expect:│ S ││ L ││ _ │"
+    ],
+    "doom-ascii": [
+      "wait:3000",
+      "key:ENTER",
+      "wait:700",
+      "key:ENTER",
+      "wait:700",
+      "key:ENTER",
+      "wait:700",
+      "key:ENTER",
+      "wait:2500",
+      "type: ",
+      "key:UP",
+      "wait:500"
     ]
   }
 }

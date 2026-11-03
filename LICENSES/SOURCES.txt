@@ -147,6 +147,10 @@ curseofwar_1.1.8.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/c/curseofwar/curseofwar_1.1.8.orig.tar.gz
   sha256 89f8ded9833a0bc2fbbc69bcdffb515d4d8622f8c4cfe9c64fc2a3bf71d23d0d
 
+doom-ascii-940528f1.tar
+  https://github.com/wojciech-graj/doom-ascii @ 940528f138e12431e5a1417351863709f1620078
+  sha256 e1f600c0b585991cb45bd1cc6280c96ab53480aefb43f67edce2b498fe2e01dd
+
 empire_1.16-2.debian.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/universe/e/empire/empire_1.16-2.debian.tar.xz
   sha256 80ba64d851e26fa1ffb52cac957b3f6a95289dd25c374761dbaa5273a5352ac8
@@ -158,6 +162,10 @@ empire_1.16.orig.tar.gz
 freecell-ng-e1d0f912.tar
   https://github.com/ostrosablin/freecell @ e1d0f91275ea1e8bfb35e8c9b404a80a47715325
   sha256 b1cbce52e522aac831623dd4ee01c27d59eab768d21922ba7976827899d6fb73
+
+freedoom-0.13.0.zip
+  https://github.com/freedoom/freedoom/releases/download/v0.13.0/freedoom-0.13.0.zip
+  sha256 3f9b264f3e3ce503b4fb7f6bdcb1f419d93c7b546f4df3e874dd878db9688f59
 
 freesweep_1.0.2.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/f/freesweep/freesweep_1.0.2.orig.tar.gz

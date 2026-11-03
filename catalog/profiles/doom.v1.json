@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "profile_id": "doom.v1",
+  "title": "Doom",
+  "help": "The pad moves and turns; Fire shoots, Use opens doors and presses switches. Menu is Esc, OK confirms.",
+  "orientation": "landscape",
+  "actions": [
+    {
+      "id": "up",
+      "label": "Forward",
+      "icon": "arrow_up",
+      "output": {
+        "key": "UP"
+      },
+      "repeat": {
+        "delay_ms": 60,
+        "interval_ms": 40
+      }
+    },
+    {
+      "id": "down",
+      "label": "Back",
+      "icon": "arrow_down",
+      "output": {
+        "key": "DOWN"
+      },
+      "repeat": {
+        "delay_ms": 60,
+        "interval_ms": 40
+      }
+    },
+    {
+      "id": "left",
+      "label": "Turn left",
+      "icon": "arrow_left",
+      "output": {
+        "key": "LEFT"
+      },
+      "repeat": {
+        "delay_ms": 60,
+        "interval_ms": 40
+      }
+    },
+    {
+      "id": "right",
+      "label": "Turn right",
+      "icon": "arrow_right",
+      "output": {
+        "key": "RIGHT"
+      },
+      "repeat": {
+        "delay_ms": 60,
+        "interval_ms": 40
+      }
+    },
+    {
+      "id": "fire",
+      "label": "Fire",
+      "icon": "spark",
+      "output": {
+        "text": " "
+      },
+      "repeat": {
+        "delay_ms": 150,
+        "interval_ms": 120
+      },
+      "haptic": "click"
+    },
+    {
+      "id": "use",
+      "label": "Use",
+      "icon": "check",
+      "output": {
+        "text": "e"
+      }
+    },
+    {
+      "id": "strafel",
+      "label": "Strafe left",
+      "icon": "arrow_left",
+      "output": {
+        "text": ","
+      },
+      "repeat": {
+        "delay_ms": 60,
+        "interval_ms": 40
+      }
+    },
+    {
+      "id": "strafer",
+      "label": "Strafe right",
+      "icon": "arrow_right",
+      "output": {
+        "text": "."
+      },
+      "repeat": {
+        "delay_ms": 60,
+        "interval_ms": 40
+      }
+    },
+    {
+      "id": "menu",
+      "label": "Menu",
+      "icon": "close",
+      "output": {
+        "key": "ESCAPE"
+      }
+    },
+    {
+      "id": "ok",
+      "label": "OK",
+      "icon": "check",
+      "output": {
+        "key": "ENTER"
+      }
+    }
+  ],
+  "layout": {
+    "portrait": [
+      {
+        "type": "dpad4",
+        "anchor": "bottom_start",
+        "size": 184,
+        "bind": {
+          "up": "up",
+          "down": "down",
+          "left": "left",
+          "right": "right"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "bottom_end",
+        "size": 84,
+        "bind": {
+          "press": "fire"
+        },
+        "style": "primary"
+      },
+      {
+        "type": "button",
+        "anchor": "center_end",
+        "size": 60,
+        "bind": {
+          "press": "use"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "center_end",
+        "size": 48,
+        "bind": {
+          "press": "strafer"
+        },
+        "offset": [
+          0,
+          -70
+        ]
+      },
+      {
+        "type": "button",
+        "anchor": "center_start",
+        "size": 48,
+        "bind": {
+          "press": "strafel"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "top_end",
+        "size": 48,
+        "bind": {
+          "press": "menu"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "top_end",
+        "size": 48,
+        "bind": {
+          "press": "ok"
+        },
+        "offset": [
+          0,
+          60
+        ]
+      },
+      {
+        "type": "keyboard",
+        "anchor": "top_start",
+        "size": 48
+      }
+    ],
+    "landscape": [
+      {
+        "type": "dpad4",
+        "anchor": "center_start",
+        "size": 176,
+        "bind": {
+          "up": "up",
+          "down": "down",
+          "left": "left",
+          "right": "right"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "center_end",
+        "size": 80,
+        "bind": {
+          "press": "fire"
+        },
+        "style": "primary"
+      },
+      {
+        "type": "button",
+        "anchor": "bottom_end",
+        "size": 56,
+        "bind": {
+          "press": "use"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "bottom_end",
+        "size": 48,
+        "bind": {
+          "press": "strafer"
+        },
+        "offset": [
+          0,
+          -64
+        ]
+      },
+      {
+        "type": "button",
+        "anchor": "bottom_start",
+        "size": 48,
+        "bind": {
+          "press": "strafel"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "top_end",
+        "size": 48,
+        "bind": {
+          "press": "menu"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "top_end",
+        "size": 48,
+        "bind": {
+          "press": "ok"
+        },
+        "offset": [
+          0,
+          60
+        ]
+      },
+      {
+        "type": "keyboard",
+        "anchor": "top_start",
+        "size": 48
+      }
+    ]
+  }
+}

@@ -194,4 +194,15 @@ GAMES = [
        description="Each zombie carries a word; type it to stop it. Ten waves, three lives.",
        category="words", tags=["typing", "zombies", "words", "shell games"],
        test_notes="Host test: zombies with words, typing kills them."),
+    dict(id="doom-ascii", title="Doom (ASCII)", exe="game_doom_ascii", controls="doom.v1",
+         keys=["#1-7", "Run=]", "Map=<TAB>"], **size(80, 30),
+         summary="Doom, drawn in coloured text, with the free Freedoom levels.",
+         description="The full Doom engine (doomgeneric) renders every frame as coloured characters. It plays "
+                     "Freedoom: Phase 1, a free, complete replacement for the original episodes. Fire shoots, Use opens "
+                     "doors, 1-7 pick weapons, Map toggles the automap.",
+         category="arcade", tags=["fps", "doom", "shooter", "freedoom"],
+         authors=["Wojciech Graj", "ozkl (doomgeneric)", "id Software", "the Freedoom project"],
+         license="GPL-2.0-only AND BSD-3-Clause", **gh("wojciech-graj/doom-ascii", "940528f1"),
+         saves=([f"savegame/doomsav{i}.dsg" for i in range(6)], "Saved games (six slots)"),
+         test_notes="Host test: title, new game, first level rendered, moves and fires."),
 ]

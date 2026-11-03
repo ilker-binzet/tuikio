@@ -3,8 +3,8 @@ plugins {
 }
 
 tuikioAndroid {
-    versionCode.set(7)
-    versionName.set("0.1.6")
+    versionCode.set(8)
+    versionName.set("0.2.0")
     minSdk.set(26)
     targetSdk.set(36)
     nativeLibsDir.set(rootProject.layout.projectDirectory.dir("native/build/out"))
