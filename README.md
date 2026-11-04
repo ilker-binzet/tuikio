@@ -333,6 +333,6 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [Terminal Phase](https://gitlab.com/dustyweb/terminal-phase)
 - [Terminal Space Program](https://github.com/jasonfen/terminal-space-program)
 - [Wolfentext3D](https://github.com/AtomicPair/wolfentext3d)
-- [Zoridor](https://github.com/ringtailsoftware/zoridor)
+- [Zoridor](https://github.com/ringtailsoftware/zoridor) (MIT)
 
 <!-- credits:end -->
