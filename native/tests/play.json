@@ -555,6 +555,17 @@
       "expect:Move:",
       "type:oo",
       "expect:Klondike"
+    ],
+    "nchess": [
+      "expect:New Game",
+      "key:ENTER",
+      "wait:500",
+      "key:UP",
+      "type: ",
+      "key:UP",
+      "key:UP",
+      "type: ",
+      "expect:1. a2a4"
     ]
   }
 }

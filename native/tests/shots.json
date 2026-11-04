@@ -548,6 +548,31 @@
       "wait:800",
       "text:oo",
       "wait:600"
+    ],
+    "nchess": [
+      "expect:New Game",
+      "key:ENTER",
+      "wait:500",
+      "key:UP",
+      "key:RIGHT",
+      "key:RIGHT",
+      "key:RIGHT",
+      "key:RIGHT",
+      "text: ",
+      "key:UP",
+      "key:UP",
+      "text: ",
+      "wait:300",
+      "key:DOWN",
+      "key:DOWN",
+      "key:DOWN",
+      "key:DOWN",
+      "key:DOWN",
+      "text: ",
+      "key:DOWN",
+      "key:DOWN",
+      "text: ",
+      "wait:500"
     ]
   }
 }
