@@ -19,6 +19,10 @@ mirror disappears.
   https://raw.githubusercontent.com/mevdschee/2048.c/main/2048.c
   sha256 90f794c675a696aa10980dd120d1f0503ee4ed33a61fef92c7df8f443f5b18a8
 
+angband-e473720e.tar
+  https://github.com/angband/angband @ e473720ed88a0f0c7ca66815cef3000eb4a38bc3
+  sha256 d8944ceaa4fdc42f3ef18999caa917f9afae41d556838cd449f349accce714d5
+
 angband_4.2.5+dfsg1-1.debian.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/universe/a/angband/angband_4.2.5+dfsg1-1.debian.tar.xz
   sha256 9dc197db197caf307ec6a1d5de69f76f25f682a1380b65c34a4b8e46fbb3b6f4
@@ -94,6 +98,10 @@ boost1.83_1.83.0.orig.tar.xz
 brogue-ce-1ba4240b.tar
   https://github.com/tmewett/BrogueCE @ 1ba4240b7a928ddf0ffb772717bf1d433cd63804
   sha256 f0094775a94cfde71048d0dfddfc5438b670653bc891a7cf867aa3c507bf3547
+
+brogue-ce-363440c4.tar
+  https://github.com/tmewett/BrogueCE @ 363440c454ee65bb7c1d8eb6c51b65de2a86426c
+  sha256 f5798d59381d3b17bed54e0d26ba20b59a76f169a2ab1428621a124db6ac39e0
 
 bsdgames_2.17-33.debian.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/universe/b/bsdgames/bsdgames_2.17-33.debian.tar.xz
@@ -335,6 +343,10 @@ omega-rpg_0.90-pa9.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/o/omega-rpg/omega-rpg_0.90-pa9.orig.tar.gz
   sha256 1c91efa6939a9ca550cd0fad910fcc94c735893f33f6f80974632a65cca6fc42
 
+open-adventure-e6160529.tar
+  https://gitlab.com/esr/open-adventure.git @ e6160529e70a8c7a06b9a5f190d69aa35c4c62f5
+  sha256 0dc485fef71f6cac34a4819ead87646b063ad29da35b38c0d690f4d58ad837a0
+
 open-adventure_1.12-1.debian.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/universe/o/open-adventure/open-adventure_1.12-1.debian.tar.xz
   sha256 559688cd958097d804788997e847c3ea31312324d0ab2ae9e1fcc6f4f0dfb223
@@ -494,6 +506,10 @@ unipac-dc0f6d0b.tar
 unix-aliens-94b5eb2e.tar
   https://github.com/troglobit/aliens @ 94b5eb2e1fb054b25d6daf5ac0ead3adc3672ee4
   sha256 7940d23bbe6d8bd9ebd88b4c5856668971fbb6ad606423c751166bf9fbf4a4e2
+
+viper-edd02980.tar
+  https://github.com/girst/viper @ edd02980f70019b1d01508467c671282561ed778
+  sha256 a6511619cab49f28abb0961b6cf1ba4afe1ca53e930fdaf78ae25f006725b619
 
 vitetris_0.59.1.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/v/vitetris/vitetris_0.59.1.orig.tar.gz

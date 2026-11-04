@@ -1,0 +1,9 @@
+{
+  "connect4": {"license": "UNKNOWN", "notes": "No licence anywhere in the repository (no licence file, no headers, no README statement): all rights reserved, so it can't be redistributed."},
+  "rummy": {"license": "UNKNOWN", "notes": "No licence anywhere in the repository: all rights reserved, so it can't be redistributed."},
+  "brickgame-4bit": {"license": "ISC", "notes": "An emulator for a Brick Game handheld: it plays only a dump of the console's ROM, which is not free and can't be shipped."},
+  "katamascii": {"license": "GPL-3.0-only", "notes": "Needs the Chipmunk physics engine, libcaca and GLib on top of curses; not ported in this round for the size and build cost of those libraries."},
+  "ascii-patrol": {"license": "GPL-3.0-only", "notes": "Its Linux build reads the keyboard through X11 (Xi) and plays sound through PulseAudio, so it can't run in a terminal."},
+  "gnu-go": {"license": "GPL-3.0-or-later", "notes": "Built for all three ABIs, but it stops with its internal \"You stepped on a bug\" error on the first move in this toolchain (musl, clang); not shipped until that's found."},
+  "gnu-chess": {"license": "GPL-3.0-or-later", "notes": "Built, but its engine (a thread fed through pipes) never answers a move in the app's terminal; not shipped until that's found. nchess plays chess against a built-in engine meanwhile."}
+}

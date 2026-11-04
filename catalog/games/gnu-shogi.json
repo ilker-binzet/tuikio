@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "gnu-shogi",
+  "title": "GNU Shogi",
+  "summary": "Japanese chess against the computer, on a curses board.",
+  "description": "Pick a level (1 is quickest), then type moves as from and to squares, such as 7g7f; drop a captured piece with its letter and a square, such as P*5e. Hint suggests a move.",
+  "category": "strategy",
+  "tags": [
+    "shogi",
+    "japanese chess",
+    "strategy"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Matthias Mutz",
+      "Mike Vanier",
+      "Yann Dirson",
+      "the GNU Chess team"
+    ],
+    "license": "GPL-3.0-or-later",
+    "source_url": "https://www.gnu.org/software/gnushogi/",
+    "version": "1.5~git20140725"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/gnu.py",
+    "source_archive": "gnushogi_1.5~git20140725.orig.tar.gz",
+    "source_sha256": "bd69e9fe7a2dd0d965b585149b59a95374fcd46f099bef10a5c12db448ab3da7"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_gnushogi",
+    "args": [
+      "-C"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape",
+    "input": "typing"
+  },
+  "controls": "text.v1",
+  "keys": [
+    {
+      "label": "Hint",
+      "text": "hint\r"
+    },
+    {
+      "label": "Undo",
+      "text": "undo\r"
+    },
+    {
+      "label": "Switch",
+      "text": "switch\r"
+    },
+    {
+      "label": "New",
+      "text": "new\r"
+    }
+  ],
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test: level, board, a move and the computer's reply."
+  }
+}

@@ -867,6 +867,35 @@
       "type:l",
       "wait:80",
       "expect:│ S ││ L ││ _ │"
+    ],
+    "gnu-shogi": [
+      "expect:Enter Level",
+      "type:1\n",
+      "expect:Your move",
+      "type:7g7f\n",
+      "expect:2:"
+    ],
+    "brogue-community-edition": [
+      "expect:New Game",
+      "type:n",
+      "expect:Dungeons of Doom",
+      "type:x",
+      "wait:800",
+      "expect:Depth: 1"
+    ],
+    "viper-snake": [
+      "expect:0000",
+      "key:UP",
+      "wait:400",
+      "key:LEFT",
+      "wait:300"
+    ],
+    "open-adventure": [
+      "expect:instructions",
+      "type:n\n",
+      "expect:end of a road",
+      "type:enter building\n",
+      "expect:brass lamp"
     ]
   }
 }

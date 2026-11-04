@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "brogue-community-edition",
+  "title": "Brogue: Community Edition",
+  "summary": "A tight, beautiful roguelike: 26 floors down for the Amulet of Yendor.",
+  "description": "Brogue's dungeons are full of light, gas, fire and allies. The pad walks (diagonals too); Explore walks to unexplored ground on its own; Down (>) travels to the stairs. The bar at the bottom of the screen can be tapped.",
+  "category": "roguelike",
+  "tags": [
+    "roguelike",
+    "dungeon",
+    "brogue"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Brian Walker",
+      "the Brogue CE team"
+    ],
+    "license": "AGPL-3.0-or-later",
+    "source_url": "https://github.com/tmewett/BrogueCE",
+    "version": "git 363440c4"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/more.py",
+    "source_archive": "brogue-ce-363440c4.tar",
+    "source_sha256": "f5798d59381d3b17bed54e0d26ba20b59a76f169a2ab1428621a124db6ac39e0"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_brogue",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        100,
+        34
+      ],
+      "preferred": [
+        100,
+        34
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "dungeon8.v1",
+  "control_hide": [
+    "pickup"
+  ],
+  "keys": [
+    {
+      "label": "Explore",
+      "text": "x"
+    },
+    {
+      "label": "Rest",
+      "text": "z"
+    },
+    {
+      "label": "Equip",
+      "text": "e"
+    },
+    {
+      "label": "Remove",
+      "text": "r"
+    },
+    {
+      "label": "Apply",
+      "text": "a"
+    },
+    {
+      "label": "Throw",
+      "text": "t"
+    },
+    {
+      "label": "Drop",
+      "text": "d"
+    },
+    {
+      "label": "Help",
+      "text": "?"
+    }
+  ],
+  "saves": {
+    "paths": [
+      "BrogueHighScores.txt",
+      "LastGame.broguesave"
+    ],
+    "notes": "High scores and the saved game"
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test: new game, first floor, a step and explore."
+  }
+}

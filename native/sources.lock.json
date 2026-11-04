@@ -590,6 +590,26 @@
     "freedoom-0.13.0.zip": {
       "url": "https://github.com/freedoom/freedoom/releases/download/v0.13.0/freedoom-0.13.0.zip",
       "sha256": "3f9b264f3e3ce503b4fb7f6bdcb1f419d93c7b546f4df3e874dd878db9688f59"
+    },
+    "brogue-ce-363440c4.tar": {
+      "git": "https://github.com/tmewett/BrogueCE",
+      "commit": "363440c454ee65bb7c1d8eb6c51b65de2a86426c",
+      "sha256": "f5798d59381d3b17bed54e0d26ba20b59a76f169a2ab1428621a124db6ac39e0"
+    },
+    "open-adventure-e6160529.tar": {
+      "git": "https://gitlab.com/esr/open-adventure.git",
+      "commit": "e6160529e70a8c7a06b9a5f190d69aa35c4c62f5",
+      "sha256": "0dc485fef71f6cac34a4819ead87646b063ad29da35b38c0d690f4d58ad837a0"
+    },
+    "viper-edd02980.tar": {
+      "git": "https://github.com/girst/viper",
+      "commit": "edd02980f70019b1d01508467c671282561ed778",
+      "sha256": "a6511619cab49f28abb0961b6cf1ba4afe1ca53e930fdaf78ae25f006725b619"
+    },
+    "angband-e473720e.tar": {
+      "git": "https://github.com/angband/angband",
+      "commit": "e473720ed88a0f0c7ca66815cef3000eb4a38bc3",
+      "sha256": "d8944ceaa4fdc42f3ef18999caa917f9afae41d556838cd449f349accce714d5"
     }
   }
 }
