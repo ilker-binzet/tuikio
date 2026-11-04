@@ -31,6 +31,7 @@ class SuspendResumeTest {
     @Test
     fun everyGameSurvivesSuspendAndResume() {
         val manifests = File(root, "catalog/games").listFiles { f -> f.name.endsWith(".json") }!!.sortedBy { it.name }.map { GameManifest.parse(it.readText()) }
+            .filter { it.online == null } // online games need their server: OnlineClientsTest
         assumeTrue(File(out, "libtuikio_pty.so").canExecute() || System.getProperty("tuikio.requireNative") == "true")
         val problems = ArrayList<String>()
         for (m in manifests) {

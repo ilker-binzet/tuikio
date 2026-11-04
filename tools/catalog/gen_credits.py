@@ -43,13 +43,18 @@ def render():
     else:
         out.append(f"{credits['contributors_note']} Be the first: suggest a game from the app's Create tab.")
 
-    out += ["", f"### Games ({len(games)} playable)", "",
+    out += ["", f"### Games ({len(games)} playable, {sum(1 for g in games if g.get('online'))} of them online)", "",
             "Every game is the work of its authors; Tuikio only ports and packages it. Licenses link to the full text shipped in the app.", "",
             "| Game | Authors | License | Source | Status |", "|---|---|---|---|---|"]
     for g in games:
         up = g["upstream"]
         file = "tuikio-GPL-3.0.txt" if g["origin"] == "tuikio_original" else (g.get("port") or {}).get("license_file") or f"{g['id']}.txt"
-        out.append(f"| {md(g['title'])} | {md(', '.join(up['authors']))} | {license_link(file, up['license'])} | [{md(up['source_url'].removeprefix('https://'))}]({up['source_url']}) | {g['status']} |")
+        if g.get("online"):  # nothing of the game is bundled: only the client, whose licence is linked
+            o = g["online"]
+            lic = f"{md(up['license'])} (server); played online over {o['protocol']}, client: {license_link(file, 'licence')}"
+        else:
+            lic = license_link(file, up["license"])
+        out.append(f"| {md(g['title'])} | {md(', '.join(up['authors']))} | {lic} | [{md(up['source_url'].removeprefix('https://'))}]({up['source_url']}) | {g['status']} |")
 
     out += ["", "### Inside the app", "", "| Component | By | License | Used for |", "|---|---|---|---|"]
     for c in credits["components"]:

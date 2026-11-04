@@ -21,9 +21,12 @@ Only when you ask:
 | Suggest a source / publish a game | Tuikio's submission server | what the preview showed: link, title, note, credit, and for games the description |
 | Check a suggestion's status | Tuikio's submission server | the receipt secret |
 | Sign in to GitHub | github.com in your browser, then Tuikio's server | the one-time code and PKCE verifier |
+| Play an online game (only after you turn on **Online games** in You) | that game's server, named on its page and in the question asked before the first one (for example `ssh late.sh`, `telnet telehack.com`); your phone's DNS resolver, to find it | an SSH or telnet session: your key presses, your terminal size and type. The server's operator, not Tuikio, decides what they keep. |
 
 There are no analytics, advertising or crash-reporting SDKs, and no background network
-activity. Games marked `network: none` (all current games) never use the network.
+activity. Games marked `network: none` never use the network: the Python games' interpreter has
+no socket module at all. Online games (`network: required`) connect only while you play them,
+only to their own server, and never while **Online games** is off (the default).
 
 ## Anonymous suggestions
 

@@ -44,7 +44,7 @@ jobs:
         run: |
           pip install ziglang==0.17.0
           echo "ZIG=$(python -c 'import ziglang, os; print(os.path.join(os.path.dirname(ziglang.__file__), "zig"))')" >> "$GITHUB_ENV"
-          sudo apt-get update && sudo apt-get install -y qemu-user-static flex bison libncurses-dev
+          sudo apt-get update && sudo apt-get install -y qemu-user-static flex bison libncurses-dev zlib1g-dev
       - name: Rust (pinned, with the musl targets of the three ABIs)
         run: |
           rustup toolchain install 1.97.0 --profile minimal \

@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "id": "pokete",
+  "title": "Pokete",
+  "summary": "A Pokémon-like adventure in the terminal: catch Poketes, train them and battle other trainers.",
+  "description": "Walk with the pad, OK talks and confirms, Back cancels. In battle 1-4 pick an attack; on the map 1 opens your deck, 3 the map, 4 the inventory, 5 the Pokedex. Menu has settings and saving. Version 0.9.2 without music (the player is a desktop library) and without trading over the network (Tuikio games are offline).",
+  "category": "adventure",
+  "tags": [
+    "rpg",
+    "monsters",
+    "python"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "lxgr-linux"
+    ],
+    "license": "GPL-3.0-only",
+    "source_url": "https://github.com/lxgr-linux/pokete",
+    "version": "git fc28e8a9"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/python.py",
+    "source_archive": "pokete-fc28e8a9.tar",
+    "source_sha256": "4fb41fec51b4ef9b6e895e4bbe7d0d04bd9b2477b70e30f33b50cf1c34e3f9ce"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_python",
+    "args": [
+      "pokete"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        70,
+        20
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "wasd4.v1",
+  "control_labels": {
+    "quit": "Back"
+  },
+  "keys": [
+    {
+      "label": "OK",
+      "key": "ENTER"
+    },
+    {
+      "label": "Menu",
+      "text": "e"
+    },
+    {
+      "label": "1",
+      "text": "1"
+    },
+    {
+      "label": "2",
+      "text": "2"
+    },
+    {
+      "label": "3",
+      "text": "3"
+    },
+    {
+      "label": "4",
+      "text": "4"
+    },
+    {
+      "label": "5",
+      "text": "5"
+    },
+    {
+      "label": "6",
+      "text": "6"
+    },
+    {
+      "label": "Help",
+      "text": "?"
+    }
+  ],
+  "art": {
+    "rows": [
+      "_________________    ",
+      "|_______________|    ",
+      "|a < Hello, my child.",
+      "|               |    ",
+      "|a              |    ",
+      "|_______ _______|    "
+    ],
+    "fg": [
+      ".....................",
+      ".....................",
+      ".....................",
+      ".....................",
+      ".....................",
+      "....................."
+    ],
+    "bg": [
+      ".....................",
+      ".....................",
+      ".....................",
+      ".....................",
+      ".....................",
+      "....................."
+    ],
+    "palette": []
+  },
+  "saves": {
+    "paths": [
+      "pokete/pokete.json"
+    ],
+    "notes": "Your trainer, Poketes and progress"
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test in a PTY at 80x24: loading screen, the house, naming the trainer. Music and LAN trading removed; the old save format that ran Python code is never loaded."
+  }
+}

@@ -92,7 +92,7 @@ class DetailsScreen(private val gameId: String) : Screen() {
                     "Runtime" to "Native port · $abi",
                     "Saves" to game.saveNotes.ifBlank { "Stays on this phone" },
                     "License" to game.upstream.license,
-                    "Network" to if (game.network == dev.tuikio.catalog.NetworkUse.NONE) "None" else game.network.id,
+                    "Network" to (game.online?.let { "Online: ${it.display}" } ?: "None"),
                     "Screen" to "${game.runtime.minTerminal.cols}×${game.runtime.minTerminal.rows} or larger · ${game.runtime.orientation.id}",
                 )
                 rows.chunked(2).forEach { pair ->

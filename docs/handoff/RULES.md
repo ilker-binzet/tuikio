@@ -32,8 +32,12 @@ requirements, not suggestions.
 4. **No dark patterns** (no fake urgency, no hidden opt-outs, no nagging).
 5. **Never execute arbitrary downloaded binaries.** Build everything from pinned source. Official
    toolchains (Zig from PyPI, rustup, Go) are fine. Running the games you built is fine.
-6. **Games are offline.** No network at runtime (`"network": "none"`). Online games need an opt-in,
-   clearly labelled network mode that the owner hasn't decided on.
+6. **Ported games are offline** (`"network": "none"`); the Python interpreter even lacks sockets.
+   **Online games** were approved by the owner on 2026-11-04 ("the online games need an internet
+   mode"): `"network": "required"` plus an `"online"` endpoint, played through the bundled SSH or
+   telnet client, **only after the player turns on Online games** (off by default), only to that
+   one public server, with arguments built from the endpoint alone. Keep those guarantees
+   (docs/RUNTIME.md, "Online games"); never let an offline game reach the network.
 7. **Prevent SSRF, path traversal and zip bombs** wherever data is fetched or unpacked
    (`tk.unpack` checks archives; the community server has SSRF tests; save import has traversal and
    zip-bomb tests).

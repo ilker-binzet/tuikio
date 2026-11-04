@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "pythrees",
+  "title": "PyThrees",
+  "summary": "Threes in Python: slide the board, add 1 and 2 to make 3, then match the threes.",
+  "description": "Every move slides the whole board one step and a new tile comes in (shown on top). 1 and 2 make 3; from then on only equal numbers merge.",
+  "category": "puzzle",
+  "tags": [
+    "threes",
+    "numbers",
+    "sliding",
+    "python"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Yuan Cao"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/yth/pythrees",
+    "version": "git 3610a53a"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/python.py",
+    "source_archive": "pythrees-3610a53a.tar",
+    "source_sha256": "e5f3c6fc1835e91eca40e22b2d758b14e6c2ef1ec4a0fb61bef0c5c44b2cafff"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_python",
+    "args": [
+      "pythrees"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        33,
+        24
+      ],
+      "preferred": [
+        40,
+        26
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "arrows4.v1",
+  "art": {
+    "rows": [
+      "|      |      |      |      |│",
+      "|  3   |  2   |  1   |      |│",
+      "|      |      |      |      |│",
+      "+------+------+------+------+│",
+      "|      |      |      |      |│",
+      "|  6   |      |  3   |  2   |│",
+      "|      |      |      |      |│",
+      "+------+------+------+------+│"
+    ],
+    "fg": [
+      "011111100000000000000000000000",
+      "011111100000000000000000000000",
+      "011111100000000000000000000000",
+      "000000000000000000000000000000",
+      "011111100000000111111000000000",
+      "011111100000000111111000000000",
+      "011111100000000111111000000000",
+      "000000000000000000000000000000"
+    ],
+    "bg": [
+      "100000012222221333333111111111",
+      "100000012222221333333111111111",
+      "100000012222221333333111111111",
+      "111111111111111111111111111111",
+      "100000011111111000000122222211",
+      "100000011111111000000122222211",
+      "100000011111111000000122222211",
+      "111111111111111111111111111111"
+    ],
+    "palette": [
+      "a7",
+      "a0",
+      "a1",
+      "a4"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test in a PTY at 80x24: board, next tile, moves."
+  }
+}

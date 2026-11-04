@@ -121,6 +121,13 @@ class ScreensUiTest {
                 val intent = Intent(app, GameActivity::class.java).putExtra(GameLauncher.EXTRA_GAME, game.id)
                 val c = Robolectric.buildActivity(GameActivity::class.java, intent).setup()
                 val a = c.get()
+                if (game.online != null) {
+                    // Online games are off by default: nothing connects, the player is told why.
+                    idle()
+                    if (texts(a.window.decorView).none { it.startsWith("Online games are off") }) failures += "${game.id}: started while online games are off"
+                    c.pause().stop().destroy()
+                    continue
+                }
                 waitFor("${game.id} to draw") { screenText(a).isNotBlank() }
                 for (landscape in listOf(true, false)) {
                     val cfg = Configuration(a.resources.configuration).apply {
@@ -142,6 +149,21 @@ class ScreensUiTest {
         }
         Motion.setUserReduced(app, false)
         assertTrue(failures.joinToString("\n"), failures.isEmpty())
+    }
+
+    @Test
+    fun onlineGamesAskBeforeConnecting() {
+        val a = main()
+        val game = app.catalog.games.first { it.online != null }
+        app.prefs.onlineGames = false
+        GameLauncher.launch(a, game.id)
+        idle()
+        val shown = texts(a.window.decorView)
+        assertTrue(shown.toString(), shown.any { it == "${game.title} is played online" })
+        assertTrue(shown.toString(), shown.any { it.contains(game.online!!.host) })
+        click(a.window.decorView, "Not now")
+        idle()
+        assertTrue(!app.prefs.onlineGames)
     }
 
     @Test

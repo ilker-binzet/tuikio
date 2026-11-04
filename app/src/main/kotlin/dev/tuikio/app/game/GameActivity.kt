@@ -59,7 +59,37 @@ object GameLauncher {
     const val EXTRA_GAME = "game"
 
     fun launch(context: Context, gameId: String) {
+        val app = TuikioApp.instance
+        val online = app.catalog.game(gameId)?.online
+        if (online != null && !app.prefs.onlineGames && context is dev.tuikio.app.MainActivity) {
+            OnlineConsent.ask(context, app.catalog.game(gameId)!!) { start(context, gameId) }
+            return
+        }
+        start(context, gameId)
+    }
+
+    private fun start(context: Context, gameId: String) {
         context.startActivity(Intent(context, GameActivity::class.java).putExtra(EXTRA_GAME, gameId))
+    }
+}
+
+/** Asked before the first online game: what connecting means, in plain words. */
+object OnlineConsent {
+    fun ask(activity: dev.tuikio.app.MainActivity, game: GameManifest, onAllow: () -> Unit) {
+        val o = game.online ?: return
+        val ctx = activity
+        lateinit var sheet: Sheet
+        val content = ctx.vstack(12) {
+            addView(T.title(ctx, "${game.title} is played online", 21f))
+            addView(T.soft(ctx, "It runs on ${o.host}, a server Tuikio doesn't run. Tuikio connects (${o.display}) only " +
+                "while you play, and what you type goes to that server. Other players may see your name and messages. " +
+                "Online games are off until you turn them on; you can turn them off again in You."))
+            addView(TButton(ctx, "Turn on online games and play").apply {
+                setOnClickListener { TuikioApp.instance.prefs.onlineGames = true; sheet.dismiss(); onAllow() }
+            }, lp(MATCH, WRAP))
+            addView(TButton(ctx, "Not now", ButtonStyle.GHOST).apply { setOnClickListener { sheet.dismiss() } }, lp(MATCH, WRAP))
+        }
+        sheet = Sheet(activity.nav.overlay, content).show()
     }
 }
 
@@ -135,10 +165,27 @@ class GameActivity : Activity() {
         }
     }
 
-    private fun startSession() {
+    private fun startSession(address: String? = null) {
         val app = TuikioApp.instance
+        val online = game.online
+        if (online != null && address == null) {
+            // Never connects unless the player turned online games on (GameLauncher asks first).
+            if (!app.prefs.onlineGames) {
+                showEnded("Online games are off. Turn them on in You to play ${game.title}.")
+                return
+            }
+            terminal.emulator = null
+            app.io.execute {
+                val result = runCatching { dev.tuikio.runtime.OnlineAddress.resolve(online.host) }
+                uiHandler.post {
+                    if (isFinishing) return@post
+                    result.fold({ startSession(it) }, { showEnded(it.message ?: "Couldn't reach ${online.host}.") })
+                }
+            }
+            return
+        }
         val spec = try {
-            LaunchSpec.forManifest(game, java.io.File(applicationInfo.nativeLibraryDir), app.library.homeOf(game.id))
+            LaunchSpec.forManifest(game, java.io.File(applicationInfo.nativeLibraryDir), app.library.homeOf(game.id), address)
         } catch (e: Exception) {
             showEnded("Couldn't start ${game.title}: ${e.message}")
             return

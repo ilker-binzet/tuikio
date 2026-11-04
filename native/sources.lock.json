@@ -629,6 +629,51 @@
     "npush-0.7.tgz": {
       "url": "https://downloads.sourceforge.net/project/npush/npush/0.7/npush-0.7.tgz",
       "sha256": "f216d2b3279e8737784f77d4843c9e6f223fa131ce1ebddaf00ad802aba2bcd9"
+    },
+    "cpython-cbc944f4.tar": {
+      "git": "https://github.com/python/cpython",
+      "commit": "cbc944f4bc59639a444dd971c737788ba2283a91",
+      "sha256": "ae3a8baed31faa90fe1724b78df3b70f0e8d4e216eeaa0ea4600d604b4b45f98"
+    },
+    "dropbear-b1b4e349.tar": {
+      "git": "https://github.com/mkj/dropbear",
+      "commit": "b1b4e349f06762754b5525eedab1b1e696b6ffbb",
+      "sha256": "ddee40eeaceeed59ea3e0f5e241cc2f4343edc9dca84f2a13c5ed01c66a845c1"
+    },
+    "lightcycle-48897113.tar": {
+      "git": "https://github.com/gsobell/lightcycle",
+      "commit": "488971132743d0e67ee0d6b5bbaaaa5b27396266",
+      "sha256": "4ec5ca33d9769b1ee1307733b8e7a45e35308fcdc02e4c54a5e23f86e1d97719"
+    },
+    "pythrees-3610a53a.tar": {
+      "git": "https://github.com/yth/pythrees",
+      "commit": "3610a53aed26f92fa32698d66420065838929acf",
+      "sha256": "e5f3c6fc1835e91eca40e22b2d758b14e6c2ef1ec4a0fb61bef0c5c44b2cafff"
+    },
+    "penney-9e3fd77c.tar": {
+      "git": "https://github.com/sepandhaghighi/penney",
+      "commit": "9e3fd77c39c43ed29966c52740729576d646ddbb",
+      "sha256": "0a3ddc0b5e0fe1f625e1361797a7cabbe56e36201aff73fd7cde8d3a9c66dcf5"
+    },
+    "dango-18d2f72b.tar": {
+      "git": "https://github.com/gsobell/dango",
+      "commit": "18d2f72be930cdff5f6d739d976da452c12b56a2",
+      "sha256": "90a0101eff167e3af41dc6bddbca5a4634ba6aaef438dc671618db8ecc34974f"
+    },
+    "art-3917a898.tar": {
+      "git": "https://github.com/sepandhaghighi/art",
+      "commit": "3917a898faeb7490d3043a1158b13a5d9b51e273",
+      "sha256": "f19ac526a3e5fce2be0d7f75d79bff99ba58f65b4350fb3e36b81ca51717b008"
+    },
+    "pokete-fc28e8a9.tar": {
+      "git": "https://github.com/lxgr-linux/pokete",
+      "commit": "fc28e8a92ad99ab40db7fa7182146958f6522a83",
+      "sha256": "4fb41fec51b4ef9b6e895e4bbe7d0d04bd9b2477b70e30f33b50cf1c34e3f9ce"
+    },
+    "scrap_engine-9ba3878b.tar": {
+      "git": "https://github.com/lxgr-linux/scrap_engine",
+      "commit": "9ba3878bb8910d8023c6a524b564f1c58eec5d17",
+      "sha256": "303528e20119bb5807ab06b254007f6ec26125e54a1f9c66e9796f2dfa553dff"
     }
   }
 }

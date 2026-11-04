@@ -89,6 +89,35 @@ class CatalogTest {
     }
 
     @Test
+    fun onlineGamesDeclareTheirServerAndNothingElse() {
+        val online = manifest
+            .replace("\"game_vitetris\"", "\"game_ssh\"")
+            .replace("\"paths\": [\".vitetris\"]", "\"paths\": []")
+            .replace("\"network\": \"none\"", "\"network\": \"required\", \"online\": {\"protocol\": \"ssh\", \"host\": \"late.sh\", \"user\": \"kio\"}")
+        val m = GameManifest.parse(online)
+        assertEquals(listOf("-y", "-p", "22", "-l", "kio", "late.sh"), m.launchArgs)
+        assertEquals("ssh kio@late.sh", m.online!!.display)
+        assertEquals(m, GameManifest.parse(m.toJson().write(pretty = true)))
+        val telnet = online.replace("\"game_ssh\"", "\"game_telnet\"")
+            .replace("{\"protocol\": \"ssh\", \"host\": \"late.sh\", \"user\": \"kio\"}", "{\"protocol\": \"telnet\", \"host\": \"telehack.com\"}")
+        assertEquals(listOf("telehack.com", "23"), GameManifest.parse(telnet).launchArgs)
+
+        fun bad(from: String, to: String) =
+            assertFailsWith<JsonReader.InvalidException>("$from -> $to") { GameManifest.parse(online.replace(from, to)) }
+        bad("\"late.sh\"", "\"192.168.1.1\"")          // no IP literals
+        bad("\"late.sh\"", "\"router.local\"")         // no local names
+        bad("\"late.sh\"", "\"late.sh -oProxyCommand=x\"")
+        bad("\"kio\"", "\"-oProxyCommand=sh\"")       // no options smuggled in as a user
+        bad("\"args\": []", "\"args\": [\"-L\", \"8080:x:80\"]")
+        bad("\"game_ssh\"", "\"game_telnet\"")         // the client must match the protocol
+        bad("\"paths\": []", "\"paths\": [\"x\"]")   // nothing kept on the phone
+        bad(", \"online\": {\"protocol\": \"ssh\", \"host\": \"late.sh\", \"user\": \"kio\"}", "")
+        bad("\"env\": {}", "\"env\": {\"TUIKIO_ADDR\": \"10.0.0.1\"}")
+        // An offline game can't run a network client.
+        assertFailsWith<JsonReader.InvalidException> { GameManifest.parse(manifest.replace("\"game_vitetris\"", "\"game_telnet\"")) }
+    }
+
+    @Test
     fun androidTestedNeedsEvidence() {
         val ok = manifest.replace("\"PORTABLE\"", "\"ANDROID_TESTED\"").replace("\"android_tested\": null", "\"android_tested\": \"2026-10-22 Pixel 8\"")
         assertEquals(VerificationStatus.ANDROID_TESTED, GameManifest.parse(ok).status)

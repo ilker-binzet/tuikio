@@ -75,6 +75,42 @@ data class PortInfo(
 
 data class TerminalSize(val cols: Int, val rows: Int)
 
+/**
+ * The server an online game is played on (manifest "online"; network "required"). The app starts
+ * the bundled client for [protocol] with arguments built only from these fields
+ * ([GameManifest.launchArgs]), and only after the player has turned online games on.
+ */
+data class OnlineEndpoint(val protocol: String, val host: String, val port: Int, val user: String?) {
+    /** The executable that speaks [protocol]. */
+    val executable: String get() = CLIENTS.getValue(protocol)
+
+    /** What the player is shown before connecting: `ssh late.sh`, `telnet telehack.com`. */
+    val display: String
+        get() = "$protocol " + (user?.let { "$it@" } ?: "") + host + (if (port != DEFAULT_PORTS[protocol]) " (port $port)" else "")
+
+    companion object {
+        val CLIENTS = mapOf("ssh" to "game_ssh", "telnet" to "game_telnet")
+        val DEFAULT_PORTS = mapOf("ssh" to 22, "telnet" to 23)
+        /** A public DNS name: letters, digits, hyphens, dots; no IP literals, no local names. */
+        val HOST = Regex("^(?=.{4,253}$)([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)+[a-z]{2,63}$")
+        val USER = Regex("^[a-z_][a-z0-9_-]{0,31}$")
+        private val LOCAL_SUFFIXES = listOf(".local", ".localhost", ".internal", ".lan", ".home", ".arpa", ".test", ".invalid", ".example")
+
+        fun parse(r: JsonReader): OnlineEndpoint {
+            r.requireOnly("protocol", "host", "port", "user")
+            val protocol = r.string("protocol")
+            if (protocol !in CLIENTS) r.fail("online.protocol must be one of ${CLIENTS.keys}")
+            val host = r.string("host")
+            if (!HOST.matches(host) || LOCAL_SUFFIXES.any { host.endsWith(it) }) r.fail("online.host must be a public DNS name")
+            val port = r.intOrNull("port") ?: DEFAULT_PORTS.getValue(protocol)
+            if (port !in 1..65535) r.fail("online.port out of range")
+            val user = r.stringOrNull("user")
+            if (user != null && (protocol != "ssh" || !USER.matches(user))) r.fail("online.user must be a plain user name (ssh only)")
+            return OnlineEndpoint(protocol, host, port, user)
+        }
+    }
+}
+
 data class RuntimeSpec(
     val backend: String,
     /** Name of the packaged executable; resolved to `lib<executable>.so` in nativeLibraryDir. */
@@ -152,7 +188,19 @@ data class GameManifest(
     val network: NetworkUse,
     val status: VerificationStatus,
     val verification: Verification,
+    /** The server of an online game (network "required"); null for every offline game. */
+    val online: OnlineEndpoint? = null,
 ) {
+    /** The arguments the game's executable is started with. For an online game they come only
+     *  from [online]: `-y` accepts a server's key the first time and refuses it if it changes. */
+    val launchArgs: List<String>
+        get() = online?.let { o ->
+            when (o.protocol) {
+                "ssh" -> listOf("-y", "-p", o.port.toString()) + (o.user?.let { listOf("-l", it) } ?: emptyList()) + listOf(o.host)
+                else -> listOf(o.host, o.port.toString())
+            }
+        } ?: runtime.args
+
     /** The license text under LICENSES/ (bundled as assets/licenses/) that covers this game. */
     val licenseFile: String
         get() = if (origin == Origin.TUIKIO_ORIGINAL) "tuikio-GPL-3.0.txt" else port?.licenseFile ?: "$id.txt"
@@ -169,7 +217,7 @@ data class GameManifest(
         /** Variables the runtime owns; a manifest may never override them. */
         private val RESERVED_ENV = setOf(
             "HOME", "PATH", "TERM", "TERMINFO", "TERMINFO_DIRS", "TMPDIR", "SHELL", "USER", "LOGNAME",
-            "LANG", "LC_ALL", "COLORTERM", "ESCDELAY", "PWD",
+            "LANG", "LC_ALL", "COLORTERM", "ESCDELAY", "PWD", "TUIKIO_ADDR",
         )
 
         fun parse(text: String): GameManifest = fromJson(JsonReader.parse(text))
@@ -177,7 +225,7 @@ data class GameManifest(
         fun fromJson(r: JsonReader): GameManifest {
             r.requireOnly(
                 "schema_version", "id", "title", "summary", "description", "category", "tags", "players",
-                "origin", "upstream", "port", "runtime", "controls", "control_labels", "control_hide", "keys", "art", "saves", "data_files", "network",
+                "origin", "upstream", "port", "runtime", "controls", "control_labels", "control_hide", "keys", "art", "saves", "data_files", "network", "online",
                 "status", "verification",
             )
             val version = r.int("schema_version")
@@ -304,6 +352,18 @@ data class GameManifest(
                 r.fail("status $status requires verification.android_tested evidence")
             }
 
+            val network = NetworkUse.parse(r.stringOrNull("network") ?: "none")
+            val online = r.objOrNull("online")?.let { OnlineEndpoint.parse(it) }
+            if ((network == NetworkUse.REQUIRED) != (online != null)) r.fail("network \"required\" and \"online\" go together")
+            if (network == NetworkUse.OPTIONAL) r.fail("network \"optional\" is not supported: a game is offline or online")
+            if (online != null) {
+                if (exe != online.executable) r.fail("an online ${online.protocol} game runs ${online.executable}")
+                if (args.isNotEmpty()) r.fail("an online game's arguments come from \"online\"; runtime.args must be empty")
+                if (savePaths.isNotEmpty() || dataFiles.isNotEmpty()) r.fail("an online game keeps nothing on the phone")
+            } else if (exe in OnlineEndpoint.CLIENTS.values) {
+                r.fail("$exe is a network client: only online games may run it")
+            }
+
             return GameManifest(
                 id = id,
                 title = r.string("title").also { if (it.isBlank() || it.length > 60) r.fail("title must be 1..60 characters") },
@@ -324,9 +384,10 @@ data class GameManifest(
                 savePaths = savePaths,
                 saveNotes = saves?.stringOrNull("notes").orEmpty(),
                 dataFiles = dataFiles,
-                network = NetworkUse.parse(r.stringOrNull("network") ?: "none"),
+                network = network,
                 status = status,
                 verification = verification,
+                online = online,
             )
         }
     }
@@ -375,6 +436,7 @@ data class GameManifest(
         "saves" to Json.obj("paths" to savePaths, "notes" to saveNotes),
         "data_files" to dataFiles.map { Json.obj("asset" to it.asset, "dest" to it.dest, "sha256" to it.sha256) },
         "network" to network.id,
+        "online" to online?.let { Json.obj("protocol" to it.protocol, "host" to it.host, "port" to it.port, "user" to it.user) },
         "status" to status.name,
         "verification" to Json.obj(
             "host_tested" to verification.hostTested,

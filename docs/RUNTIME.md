@@ -82,8 +82,58 @@ shown as it is.
 
 Games run with the app's own Linux user and SELinux domain. They can read their own home and
 nothing outside the app's sandbox. Network access is technically possible because the app
-holds `INTERNET`, so the catalog records each game's `network` use (`none` for all current
-games), and reviewers check it before a game can reach STORE_READY.
+holds `INTERNET`, so the catalog records each game's `network` use: `none` for every ported
+game, `required` for the online games below. Reviewers check it before a game can reach
+STORE_READY.
+
+## Python games
+
+`native/recipes/python.py`. One CPython 3.13 (`libgame_python.so`) serves every Python game:
+
+- A static CPython built from pinned source (GitHub tag v3.13.16) with the built-in modules the
+  games need, curses linked against Tuikio's ncursesw, and zlib. **There is no `_socket`,
+  `_posixsubprocess`, `_ctypes` or `_ssl`**: Python games can't open connections, start
+  programs or load native code.
+- The compiled standard library, the launcher module `_tuikio_run` and every Python game's code
+  are a zip archive **appended to the executable**. `native/ports/python/tuikio_python.c`
+  replaces `main`: isolated mode, no `site`, `sys.path` = the executable only. The executable
+  sits read-only in the native library directory, so nothing in a game's home (and nothing a
+  save archive brings in) can be imported as code. Patches remove `exec()` of save files
+  (Pokete's oldest save format).
+- Manifests run `game_python <game id>`; `_tuikio_run` looks the id up (generated from
+  `PY_GAMES`) and runs the game with its home as working directory.
+- Cross-compiling needs a CPython of the same version on the build machine: the recipe builds
+  one from the same source first (`native/build/host/cpython`, cached), and uses it to compile
+  the archive's bytecode.
+- Locale: the launcher sets `configure_locale` so `LC_ALL=C.UTF-8` reaches curses (the
+  isolated preset skips it, and box-drawing characters break).
+
+## Online games
+
+`native/recipes/online.py`. A game with `"network": "required"` has an `"online"` endpoint
+(`protocol` ssh or telnet, `host`, optional `port` and `user`) and runs `game_ssh` (Dropbear's
+`dbclient`) or `game_telnet` (`native/ports/online/tuikio_telnet.c`):
+
+- **Opt-in.** The You screen's **Online games** switch is off by default. Starting an online
+  game while it's off shows a sheet naming the server and what connecting means;
+  `GameActivity` refuses to connect while it's off, whichever way it was started.
+- **Arguments come only from the endpoint** (`GameManifest.launchArgs`): the manifest's own
+  `args` must be empty, the host must be a public DNS name, the user a plain name, and
+  `TUIKIO_ADDR` is reserved. An offline game may not run a network client. An online game keeps
+  no saves or data files on the phone.
+- **DNS in the app.** A static musl program can't use Android's resolver (there is no
+  `/etc/resolv.conf`), so the app resolves the host (`OnlineAddress`), **refuses private,
+  loopback, link-local, CGNAT and other non-public addresses**, and passes one address in
+  `TUIKIO_ADDR`. The clients connect there and keep the host name for display and, in SSH, for
+  the known-hosts check.
+- **SSH**: Dropbear with local/remote/agent forwarding, proxy commands, netcat mode, X11 and
+  user algorithm lists compiled out. `-y` accepts a server's key the first time (stored in the
+  game's home, `~/.ssh/known_hosts`) and refuses the connection if it later changes.
+- **Telnet**: raw terminal, answers only terminal type (`xterm-256color`), window size (and
+  updates on resize), echo and suppress-go-ahead; refuses every other option.
+- Tests: `OnlineClientsTest` runs the telnet client against a local server; the SSH client was
+  checked by hand against a local Dropbear server (address from `TUIKIO_ADDR`, host-name key
+  check, `TERM`, window size). The real servers were never reached from the build machine.
 
 ## Terminal emulator
 

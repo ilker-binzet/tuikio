@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "ssh-hattrick",
+  "title": "SSH Hattrick",
+  "summary": "Two-player arcade football over SSH, from the frittura.org game server.",
+  "description": "Pick sshattrick in the server's menu (Select). The pad runs, Space shoots. The game needs a 160x50 screen, so the text is small: turn the phone sideways.",
+  "category": "arcade",
+  "tags": [
+    "football",
+    "multiplayer",
+    "online"
+  ],
+  "players": "2",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "ricott1"
+    ],
+    "license": "GPL-3.0-only",
+    "source_url": "https://github.com/ricott1/sshattrick",
+    "version": null
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/online.py",
+    "source_archive": "dropbear-b1b4e349.tar",
+    "source_sha256": "ddee40eeaceeed59ea3e0f5e241cc2f4343edc9dca84f2a13c5ed01c66a845c1",
+    "license_file": "dropbear.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_ssh",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        160,
+        50
+      ],
+      "preferred": [
+        160,
+        50
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows.v1",
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "required",
+  "online": {
+    "protocol": "ssh",
+    "host": "frittura.org"
+  },
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Not played from the build machine (it can't reach the server). The client was tested against a local server: connecting by the app-resolved address, terminal type and size, input and output."
+  }
+}

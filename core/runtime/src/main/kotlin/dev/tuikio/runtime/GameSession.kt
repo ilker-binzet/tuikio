@@ -63,15 +63,18 @@ data class LaunchSpec(
          * `lib*.so` files there from the signed APK and the directory is read-only to the app,
          * which is what makes executing them permissible on API 29+.
          */
-        fun forManifest(manifest: GameManifest, nativeLibDir: File, home: File): LaunchSpec {
+        fun forManifest(manifest: GameManifest, nativeLibDir: File, home: File, address: String? = null): LaunchSpec {
             val exe = File(nativeLibDir, "lib${manifest.runtime.executable}.so")
             val helper = File(nativeLibDir, PTY_HELPER)
             require(exe.parentFile.canonicalPath == nativeLibDir.canonicalPath) { "executable escapes the native library directory" }
             if (!exe.isFile) throw IOException("${manifest.title} is not part of this build (${exe.name} missing)")
             if (!helper.isFile) throw IOException("runtime helper missing (${helper.name})")
             val pager = File(nativeLibDir, PAGER)
-            val extra = (if (pager.isFile) mapOf("PAGER" to pager.absolutePath) else emptyMap()) + manifest.runtime.env
-            return LaunchSpec(helper, exe, manifest.runtime.args, home, GameEnvironment.build(home, extra))
+            val online = manifest.online
+            if (online != null && address == null) throw IOException("${manifest.title} is online: resolve its server first")
+            val extra = (if (pager.isFile) mapOf("PAGER" to pager.absolutePath) else emptyMap()) + manifest.runtime.env +
+                (if (online != null) mapOf("TUIKIO_ADDR" to address!!) else emptyMap())
+            return LaunchSpec(helper, exe, manifest.launchArgs, home, GameEnvironment.build(home, extra))
         }
     }
 }

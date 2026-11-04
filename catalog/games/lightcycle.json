@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "id": "lightcycle",
+  "title": "Lightcycle",
+  "summary": "Light cycles on the grid: box in the computer's trail before it boxes in yours.",
+  "description": "The pad steers; you can't turn back on yourself. Go starts from the menu, where you can also pick colours, speed and the computer's skill.",
+  "category": "arcade",
+  "tags": [
+    "tron",
+    "snake",
+    "python"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "gsobell"
+    ],
+    "license": "GPL-3.0-only",
+    "source_url": "https://github.com/gsobell/lightcycle",
+    "version": "git 48897113"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/python.py",
+    "source_archive": "lightcycle-48897113.tar",
+    "source_sha256": "4ec5ca33d9769b1ee1307733b8e7a45e35308fcdc02e4c54a5e23f86e1d97719"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_python",
+    "args": [
+      "lightcycle"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows.v1",
+  "control_labels": {
+    "select": "Go"
+  },
+  "control_hide": [
+    "back"
+  ],
+  "keys": [
+    {
+      "label": "Quit",
+      "text": "q"
+    }
+  ],
+  "art": {
+    "rows": [
+      "  USER:0 PROGRAM:1    ",
+      "─────Play again?──────",
+      "        Yes No        ",
+      "         ^            ",
+      "                      ",
+      "                      "
+    ],
+    "fg": [
+      "..1111111111111111....",
+      "2222233333333333333333",
+      "........111422........",
+      ".........4............",
+      "......................",
+      "......................"
+    ],
+    "bg": [
+      "0000000000000000000000",
+      "0000000000000000000000",
+      "0000000000000000000000",
+      "0000000000000000000000",
+      "0000000000000000000000",
+      "0000000000000000000000"
+    ],
+    "palette": [
+      "a0",
+      "a4",
+      "a1",
+      "a6",
+      "a7"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test in a PTY at 80x24: menu, start, steering, crash."
+  }
+}

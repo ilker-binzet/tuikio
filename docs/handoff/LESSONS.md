@@ -30,6 +30,17 @@
   Host tests may write to `/root/...`; clean up.
 - **A per-ABI APK installs one ABI even when the phone supports several.** Choose checksums by the
   installed files, not by `Build.SUPPORTED_ABIS[0]`.
+- **Static musl programs can't resolve DNS on Android** (no `/etc/resolv.conf`; Android uses
+  netd). Resolve in the app and pass an address (`TUIKIO_ADDR`), as the online games do.
+- **CPython's isolated preset skips `setlocale`**: curses then thinks the terminal isn't UTF-8
+  and box-drawing turns into garbage. Set `PyPreConfig.configure_locale = 1`.
+- **Cross-building CPython** needs a same-version build Python (`--with-build-python`); its
+  `LDFLAGS` are applied twice (pass `CONFIGURE_LDFLAGS=` to make, or the compat shim's `--wrap`
+  symbols collide); `__DATE__` breaks reproducible builds (patch `getbuildinfo.c`).
+- **Read what a Python game does with save files**: Pokete's oldest save format was a Python file
+  it `exec()`ed. Saves are data, never code.
+- `SuspendResumeTest` can fail on moon-buggy (`GAME ABORTED (signal 18)`) when the machine is
+  loaded by a parallel build or test run; it passes alone. Rerun it alone before chasing it.
 - ncurses here is built with an **opaque `WINDOW`**: code poking `win->_cury` needs `wmove` (Rogue).
 - C++ from the 2000s: `register` is an error in C++17 (`-Wno-register`). Old K&R C needs `LEGACY`
   flags and `-fcommon`.

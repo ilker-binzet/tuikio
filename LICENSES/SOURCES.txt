@@ -31,6 +31,10 @@ angband_4.2.5+dfsg1.orig.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/universe/a/angband/angband_4.2.5+dfsg1.orig.tar.xz
   sha256 687c0b18b8fc10de7e7ba75cf9e2d7e910de9319d9de21f91b7cbfee42a32014
 
+art-3917a898.tar
+  https://github.com/sepandhaghighi/art @ 3917a898faeb7490d3043a1158b13a5d9b51e273
+  sha256 f19ac526a3e5fce2be0d7f75d79bff99ba58f65b4350fb3e36b81ca51717b008
+
 ascii-chess-f8cb9f10.tar
   https://github.com/Parigyan/ASCII-Chess @ f8cb9f102caa9188bbac511fe7c6df4f5759e821
   sha256 a235a0d83291bddf3ab40fc22098d652743946f3eea2a7e883fda9086f27ddb5
@@ -143,6 +147,10 @@ cpat-1.4.2.tar.gz
   https://downloads.sourceforge.net/project/cpat/v1.4.2/cpat-1.4.2.tar.gz
   sha256 be255b694db5b48e2553ed16a12cd15bcd5a50fcc222424a8c947f04f1053b67
 
+cpython-cbc944f4.tar
+  https://github.com/python/cpython @ cbc944f4bc59639a444dd971c737788ba2283a91
+  sha256 ae3a8baed31faa90fe1724b78df3b70f0e8d4e216eeaa0ea4600d604b4b45f98
+
 csol-b3bd1938.tar
   https://github.com/nielssp/csol @ b3bd1938e20d890b5eafe9d620d74621aef1bf80
   sha256 723df4951d4aa7a22e6148a9da7f2b62fed6560872d89fba04293909c1ac4b09
@@ -159,9 +167,17 @@ curseofwar_1.1.8.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/c/curseofwar/curseofwar_1.1.8.orig.tar.gz
   sha256 89f8ded9833a0bc2fbbc69bcdffb515d4d8622f8c4cfe9c64fc2a3bf71d23d0d
 
+dango-18d2f72b.tar
+  https://github.com/gsobell/dango @ 18d2f72be930cdff5f6d739d976da452c12b56a2
+  sha256 90a0101eff167e3af41dc6bddbca5a4634ba6aaef438dc671618db8ecc34974f
+
 doom-ascii-940528f1.tar
   https://github.com/wojciech-graj/doom-ascii @ 940528f138e12431e5a1417351863709f1620078
   sha256 e1f600c0b585991cb45bd1cc6280c96ab53480aefb43f67edce2b498fe2e01dd
+
+dropbear-b1b4e349.tar
+  https://github.com/mkj/dropbear @ b1b4e349f06762754b5525eedab1b1e696b6ffbb
+  sha256 ddee40eeaceeed59ea3e0f5e241cc2f4343edc9dca84f2a13c5ed01c66a845c1
 
 empire_1.16-2.debian.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/universe/e/empire/empire_1.16-2.debian.tar.xz
@@ -242,6 +258,10 @@ hamurabi-994563d7.tar
 inertia-80886289.tar
   https://github.com/aclfe/inertia @ 80886289ed4165134e4c650aa69c22933b7b28b9
   sha256 685a5a2398988c5fb6616ee73b5e8696c7ac880fb242fdea64c42a77cdd095f2
+
+lightcycle-48897113.tar
+  https://github.com/gsobell/lightcycle @ 488971132743d0e67ee0d6b5bbaaaa5b27396266
+  sha256 4ec5ca33d9769b1ee1307733b8e7a45e35308fcdc02e4c54a5e23f86e1d97719
 
 mibu-be3713ff.tar
   https://github.com/xyaman/mibu @ be3713ff04e7db3584669e679253ef388e426dc6
@@ -375,6 +395,10 @@ pacman4console_1.3.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/p/pacman4console/pacman4console_1.3.orig.tar.gz
   sha256 9a5c4a96395ce4a3b26a9896343a2cdf488182da1b96374a13bf5d811679eb90
 
+penney-9e3fd77c.tar
+  https://github.com/sepandhaghighi/penney @ 9e3fd77c39c43ed29966c52740729576d646ddbb
+  sha256 0a3ddc0b5e0fe1f625e1361797a7cabbe56e36201aff73fd7cde8d3a9c66dcf5
+
 petris_1.0.1-11.debian.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/universe/p/petris/petris_1.0.1-11.debian.tar.xz
   sha256 adac85873f4054c1aadd3db9de5d449258eb9bd8b9c993e46201a56c8f65879b
@@ -387,9 +411,17 @@ piu-piu-sh-c7da41c0.tar
   https://github.com/vaniacer/piu-piu-SH @ c7da41c07a924b5a074d595efbbad2f0271575a3
   sha256 188b490be9abe9c321351ac63feea0fd499564e5af138a1420a7b16b77fe2475
 
+pokete-fc28e8a9.tar
+  https://github.com/lxgr-linux/pokete @ fc28e8a92ad99ab40db7fa7182146958f6522a83
+  sha256 4fb41fec51b4ef9b6e895e4bbe7d0d04bd9b2477b70e30f33b50cf1c34e3f9ce
+
 python3.12_3.12.3.orig.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/main/p/python3.12/python3.12_3.12.3.orig.tar.xz
   sha256 56bfef1fdfc1221ce6720e43a661e3eb41785dd914ce99698d8c7896af4bdaa1
+
+pythrees-3610a53a.tar
+  https://github.com/yth/pythrees @ 3610a53aed26f92fa32698d66420065838929acf
+  sha256 e5f3c6fc1835e91eca40e22b2d758b14e6c2ef1ec4a0fb61bef0c5c44b2cafff
 
 rhex-dd1b6b66.tar
   https://github.com/dpc/rhex @ dd1b6b66b051d8eccc7ff4ba2edd82b165daa133
@@ -410,6 +442,10 @@ scowl_2020.12.07-2.debian.tar.xz
 scowl_2020.12.07.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/main/s/scowl/scowl_2020.12.07.orig.tar.gz
   sha256 5587667caa20c4891390c2d42dbb4d5c4c3f41bee77af1457ece3ba23fb859cc
+
+scrap_engine-9ba3878b.tar
+  https://github.com/lxgr-linux/scrap_engine @ 9ba3878bb8910d8023c6a524b564f1c58eec5d17
+  sha256 303528e20119bb5807ab06b254007f6ec26125e54a1f9c66e9796f2dfa553dff
 
 shellgame-dd1aa485.tar
   https://github.com/MCookinho/shellgame @ dd1aa485f564b879a974e7a1b2640c5d2a698321

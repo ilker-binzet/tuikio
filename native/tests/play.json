@@ -877,11 +877,11 @@
     ],
     "brogue-community-edition": [
       "expect:New Game",
+      "wait:5000",
+      "type:n",
       "wait:3000",
       "type:n",
-      "wait:2000",
-      "type:n",
-      "wait:2500",
+      "wait:4000",
       "expect:Depth: 1"
     ],
     "viper-snake": [
@@ -936,6 +936,45 @@
       "expect:Gold and Exit",
       "key:LEFT",
       "wait:300"
+    ],
+    "pokete": [
+      "wait:2500",
+      "expect:Welcome to Pokete!",
+      "type:Kio",
+      "key:ENTER",
+      "wait:1500",
+      "expect:1: Deck"
+    ],
+    "lightcycle": [
+      "expect:> Start <",
+      "key:ENTER",
+      "wait:800",
+      "key:UP",
+      "wait:300"
+    ],
+    "pythrees": [
+      "expect:+------+------+------+------+",
+      "key:LEFT",
+      "wait:300",
+      "key:UP",
+      "expect:+------+------+------+------+"
+    ],
+    "penneys-game": [
+      "expect:Please select",
+      "type:1",
+      "wait:800"
+    ],
+    "dango": [
+      "expect:Start",
+      "key:ENTER",
+      "expect:A B C D E F G H J",
+      "wait:500",
+      "type: ",
+      "wait:300",
+      "key:LEFT",
+      "expect:Black to play",
+      "type: ",
+      "expect:White to play"
     ]
   }
 }

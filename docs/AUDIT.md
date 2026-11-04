@@ -178,11 +178,22 @@ licence), brickgame-4bit (non-free ROM), ASCII Patrol (X11 input), bash-dungeon 
 shell), katamascii, dopewars, shell-tanks, zoridor (dependencies), GNU Go and GNU Chess (built, but
 broken in this toolchain). See `docs/handoff/` for what remains.
 
+## Round 6: Python and online games (2026-11-04)
+
+Ported on a new bundled CPython 3.13 (no sockets, imports only its own archive): Pokete 0.9.2 (music
+and LAN trading removed, saves in `~/pokete`, the save format that ran Python code never loaded),
+Lightcycle, PyThrees, Penney's Game, Dango. Added as online games, behind the off-by-default Online
+games switch: SSHTron, SSH Hattrick, Late.sh, NetHack on alt.org (SSH, Dropbear) and Telehack
+(telnet). The online games were not played against their servers (no egress from the build
+machine); their text size is not measured because nothing draws until a server answers.
+Declined: terminal-frogger, oregon-trail, hammurabi-python (no licence), just-asteroids (needs
+root input devices), chs (starts Stockfish), onx (no public server), ssh-games (domain gone).
+
 ## Every game
 
-Text size and buttons are from the round 2 to 5 shots: past the title screen where a script gets there.
+Text size and buttons are from the round 2 to 6 shots: past the title screen where a script gets there.
 
-| Game | Orientation | Terminal | Controls | Text (dp) | Buttons under the game (audited screen) | Fixed (rounds 1 to 5) |
+| Game | Orientation | Terminal | Controls | Text (dp) | Buttons under the game (audited screen) | Fixed (rounds 1 to 6) |
 |---|---|---|---|---|---|---|
 | 2048 (cli) | portrait | 80×24 | arrows4 | 30 | - | Every first game began with "Failed to parse highscore file". Fixed. |
 | 2048 | portrait | 40×20 | grid4 | 30 | - |  |
@@ -218,6 +229,7 @@ Text size and buttons are from the round 2 to 5 shots: past the title screen whe
 | CTRIS | landscape | 80×24 | blocks | 17 | - | Landscape (it refuses to start below 80×24). |
 | Curse of War | landscape | 82×26 | arrows | 13 | Build, Faster, Slower, Pause, Clear flags, Halve flags, Quit, X Remove all, C Remove, P Pause | 82x26 on a 19x17 map: the map's right side, prices and key legend were cut off. Build, speed and flag buttons. |
 | Dots and Boxes | landscape | 40×18 | vikeys8 | 26 | Quit | 8×6 board (was 3×3) in a 40×18 terminal, score beside it. Space reads Draw; Quit button. |
+| Dango (Go board) | landscape | 80×24 | arrows | 15 | Pass, Undo, Quit | New in round 6 (Python): two players on one phone. |
 | Darrt | landscape | 80×24 | text | 12 | Quit | Quit button; unused buttons gone. |
 | Doom (ASCII) | landscape | 80×30 | doom | 11 | 1, 2, 3, 4, 5, 6, 7, Run, Map |  |
 | Empire | landscape | 80×24 | text | 14 | - | Keyboard up at the start. |
@@ -236,6 +248,8 @@ Text size and buttons are from the round 2 to 5 shots: past the title screen whe
 | Inertia | landscape | 80×24 | arrows | 14 | Box, Sphere, Star, Gravity, Wind, Clear, Zoom in, Zoom out, Help, d Place | New (Rust). Pause and Quit named; spawn keys (Box, Sphere, Star, Gravity, Wind...) as buttons. |
 | Jewels | portrait | 40×24 | jkl-blocks | 24 | - | 40×24 instead of 80×24. |
 | Kio: Lantern Tide | portrait | 34×21 | lantern | 26 | - |  |
+| Late.sh | landscape | 80×24 | arrows | - | - | New in round 6 (online, ssh). Public chat. Not played against the real server. |
+| Lightcycle | landscape | 80×24 | arrows | 19 | Quit | New in round 6 (Python). |
 | Memory Blocks | landscape | 80×24 | nbsd | 26 | Quit | Enter named for what it does; Quit button. |
 | Miketron | landscape | 80×24 | nbsd | 14 | Quit | Quit button; unused buttons gone. |
 | Mille Bornes | landscape | 80×24 | text | 18 | Pick, Use, Discard, 1, 2, 3, 4, 5, 6, q Quit, o Order hand, s Save, w Toggle, r Reprint | Its command legend as chips. Pick, Use, Discard and card 1-6 buttons. |
@@ -250,6 +264,7 @@ Text size and buttons are from the round 2 to 5 shots: past the title screen whe
 | msnake | landscape | 80×24 | snake | 14 | - |  |
 | Muncher | landscape | 80×24 | nbsd | 14 | Quit | Quit button; unused buttons gone. |
 | NChess | landscape | 62×20 | arrows | 25 | - |  |
+| NetHack (alt.org server) | landscape | 80×24 | roguelike | - | - | New in round 6 (online, ssh). Not played against the real server. |
 | NetHack | landscape | 80×24 | dungeon8 | 14 | Wield, Wear, Take off, Put on, Remove, Eat, Quaff, Read, Zap, Cast, Apply, Fire, Drop, Kick, Pray, Help |  |
 | Netris | landscape | 80×24 | jkl-blocks | 15 | - | Landscape: its title wraps over the board below 77 columns. |
 | netToe | landscape | 80×24 | text | 20 | a1, a2, a3, b1, b2, b3, c1, c2, c3 | Menu entries as chips. Screens were cleared bright red (terminfo colour 9); a1-c3 move buttons; menu chips send Enter. |
@@ -261,10 +276,13 @@ Text size and buttons are from the round 2 to 5 shots: past the title screen whe
 | Nuzzle | landscape | 80×24 | arrows | 14 | Next, Quit | Menu readable (was black on navy). Next (Tab) and Quit; Enter reads Drop. |
 | Open Adventure | portrait | 48×32 | text | 19 | - |  |
 | Pacman for Console | portrait | 32×32 | arrows | 19 | Pause, Quit | Did not start: looked for its levels in /usr/share. Fixed. Pause and Quit; unused buttons gone. |
+| Penney's Game | portrait | 48×30 | text | 18 | - | New in round 6 (Python): typing, word wrap. |
 | Petris | portrait | 50×24 | petris | 21 | - | 50×24 instead of 80×24: the well is much larger. |
 | Phantasia | landscape | 80×24 | text | 13 | Yes, No, Q Quit | Class menu, [123456] and [Q = Quit] as chips; keyboard up. |
 | Pipes | landscape | 80×24 | nbsd | 21 | Go, Fast, Pause, Quit | Go, Fast, Pause, Quit; Enter reads Place. |
 | piu-piu | landscape | 80×24 | piu-piu | 14 | - |  |
+| Pokete | landscape | 80×24 | wasd4 | 14 | OK, Menu, 1, 2, 3, 4, 5, 6, Help | New in round 6 (Python). Music and LAN trading removed; save path un-hidden; the exec()-a-save-file path removed. |
+| PyThrees | portrait | 40×26 | arrows4 | 27 | - | New in round 6 (Python). |
 | Quiz | portrait | 48×32 | text | 19 | - | Portrait, 48 columns, word wrap. Subject list paged without a shell; keyboard up. |
 | Rabbithole | landscape | 80×24 | nbsd | 15 | Quit | Quit button; unused buttons gone. |
 | Red Square | landscape | 80×24 | nbsd | 15 | Quit | Quit button; unused buttons gone. |
@@ -309,10 +327,13 @@ Text size and buttons are from the round 2 to 5 shots: past the title screen whe
 | solVItaire Spider | portrait | 51×40 | space-select | 18 | Join here, Undo, New, Restart, Quit |  |
 | solVItaire Klondike | portrait | 36×40 | space-select | 24 | Join here, Undo, New, Restart, Quit |  |
 | SOS | landscape | 80×24 | sos-nb | 30 | Quit | Quit button; unused buttons gone. |
+| SSH Hattrick | landscape | 160×50 | arrows | - | - | New in round 6 (online, ssh). Needs 160x50: very small text. Not played against the real server. |
+| SSHTron | landscape | 80×24 | arrows4 | - | - | New in round 6 (online, ssh). Not played against the real server. |
 | Sudoku | landscape | 80×24 | nbsd | 21 | 1, 2, 3, 4, 5, 6, 7, 8, 9, New, Restart, Quit | Digit buttons, New, Restart, Quit; Space reads Clear. |
 | Sudoku (rs) | portrait | 56×41 | arrows | 13 | 1, 2, 3, 4, 5, 6, 7, 8, 9, Beginner, Easy, Hard, Give up, Quit | New (Rust). 56×41 shows its side panel; 1–9, Clear and the difficulty keys as buttons. |
 | Su-Do-Ku | landscape | 80×24 | arrows | 14 | 1, 2, 3, 4, 5, 6, 7, 8, 9, Clear, Undo, Hint, New, Restart, Quit, c Clear board, d Redraw, f Fix squares, v Solve | Digit buttons, Clear, Undo, Hint, New, Restart, Quit. |
 | Backgammon Tutor | landscape | 80×24 | text | 18 | Continue | Landscape: the board needs 80 columns. Digits, dash and comma for moves; Continue at its "-->" prompt. |
+| Telehack | portrait | 80×24 | text | - | - | New in round 6 (online, telnet). Not played against the real server. |
 | Terminal Pong | landscape | 80×24 | pong | 14 | P2 up, P2 down, P2 power, Theme |  |
 | Termrex | landscape | 140×28 | dino | 10 | - |  |
 | Tetris (berk76) | landscape | 80×24 | berk-tetris | 14 | - |  |

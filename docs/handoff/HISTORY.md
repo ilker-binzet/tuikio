@@ -152,6 +152,18 @@ rules, perspectives), so another Claude Code session or another AI can continue.
 That is this folder. Version 1.0.0 (code 9), 159 games, signed APKs (universal and per-ABI), and
 a `v1.0.0` tag. The signing key was handed to the owner separately.
 
+## 11. "Do it: Python, and the online games need an internet mode." (2026-11-04)
+
+The owner approved both open decisions from the handoff. Done in 1.1.0:
+- **Python runtime**: static CPython 3.13.16 (from the GitHub tag; python.org was blocked) with
+  the stdlib and games zipped onto the executable, isolated, no sockets/subprocess/ctypes.
+  Pokete (0.9.2: the dev branch needs protobuf codegen), Lightcycle, PyThrees, Penney's Game,
+  Dango. Five candidates declined.
+- **Online games**: manifest `online` endpoint + `network: required`; bundled Dropbear and a
+  small telnet client; an **Online games** switch (off by default) and a consent sheet; DNS done
+  by the app with private addresses refused. SSHTron, SSH Hattrick, Late.sh, NetHack (alt.org),
+  Telehack. Not tested against the real servers (no egress from the build machine).
+
 ## Recurring themes from the owner
 
 - Wants **everything fully working**, not partial. Gets frustrated by half-done ports.

@@ -16,6 +16,7 @@ ProGuard (release), d8 (or dx), zipalign and apksigner. Everything else is plain
 | Rust | 1.97.0 with the targets `aarch64-unknown-linux-musl`, `armv7-unknown-linux-musleabihf`, `x86_64-unknown-linux-musl` | The Rust games (cargo links them with Zig's `cc`) |
 | Android SDK | platform `android-36`, build-tools 36.x | aapt2, d8, zipalign, apksigner, `android.jar` |
 | gcc, make, flex, bison, ncurses headers | any | Host tools that generate game data during the build (bsd-games) |
+| zlib headers (`zlib1g-dev`) | any | The build machine's own CPython 3.13, which `native/recipes/python.py` builds from the pinned source (once, cached in `native/build/host`) to cross-compile the Python runtime |
 | qemu-user-static | optional | Running the arm smoke tests on an x86_64 host |
 
 The SDK is found through `sdk.dir` in `local.properties`, or `ANDROID_HOME` /

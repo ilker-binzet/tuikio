@@ -87,6 +87,7 @@ class YouScreen : Screen() {
         addView(switchRow(ctx, "Left-handed layout", "Mirror on-screen controls.", prefs.leftHanded) { prefs.leftHanded = it })
         addView(choiceRow(ctx, "Control size", listOf("Small" to 0.85f, "Medium" to 1f, "Large" to 1.2f), prefs.controlScale) { prefs.controlScale = it })
         addView(choiceRow(ctx, "Game text size", listOf("Small" to 0.8f, "Medium" to 1f, "Large" to 1.3f), prefs.terminalTextScale) { prefs.terminalTextScale = it })
+        addView(switchRow(ctx, "Online games", "Let games marked online connect to their servers, run by other people. Off: Tuikio never connects for a game.", prefs.onlineGames) { prefs.onlineGames = it })
         addView(switchRow(ctx, "Show games not ported yet", "Keep discovery links in Discover and Search.", prefs.showDiscoverOnly) { prefs.showDiscoverOnly = it })
 
         sectionHeader("Catalog")
@@ -321,7 +322,7 @@ class AboutScreen(private val privacy: Boolean = false) : Screen() {
             listOf(
                 "No accounts" to "Browsing, installing and playing never need an account.",
                 "No analytics" to "Tuikio has no analytics or advertising SDKs and sends no usage data.",
-                "Network only when you ask" to "Checking the catalog, previewing a source, signing in to GitHub and sending a suggestion are the only times Tuikio goes online. Games marked offline never use the network.",
+                "Network only when you ask" to "Checking the catalog, previewing a source, signing in to GitHub and sending a suggestion are the only times Tuikio goes online. Games marked offline never use the network. Games marked online connect to their own server, only while you play them and only once you turn on online games.",
                 "Anonymous suggestions" to "They carry no name or account. The submission server sees your network address while handling the request and keeps only a short-lived hashed form for spam limits.",
                 "GitHub" to "If you connect GitHub, your token is encrypted with a key kept in Android's Keystore. Disconnecting deletes it from this phone.",
                 "Your pictures" to "A custom logo is cropped and re-saved on this phone without its metadata. It is never uploaded.",

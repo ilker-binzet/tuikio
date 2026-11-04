@@ -1,4 +1,4 @@
-# Status report: Tuikio 1.0.0 (2026-11-04)
+# Status report: Tuikio 1.1.0 (2026-11-04)
 
 Statuses:
 - **IMPLEMENTED_AND_TESTED**: built, and an automated or manual test was actually run.
@@ -13,7 +13,8 @@ repository.
 | Feature | Status | Evidence | Next action |
 |---|---|---|---|
 | Native runtime: PTY helper, static-PIE musl games, W^X-compliant packaging as `lib*.so` in `nativeLibraryDir` | IMPLEMENTED_AND_TESTED | 11 end-to-end tests run the real x86_64 binaries through helper + frames + emulator (`RealGamesTest`). PTY smoke test passes on x86_64, arm64 and armv7 (qemu-user) | Run Diagnostics on an arm64 phone |
-| 159 playable games (158 ports + original Lantern Tide), 3 ABIs | IMPLEMENTED_AND_TESTED (host) | All `PORTABLE`. C/C++ with Zig, Rust with cargo, Go, and bash games on a bundled, script-pinned bash; all static PIEs. Every game has a play script run against the real x86_64 binary (`PlayScriptsTest`, 150 scripts), and the UI test starts every game on the game screen. Sources pinned by SHA-256. Audit of controls, sizes and screens: `docs/AUDIT.md` | Play each on a device; record `android_tested`; only then raise to `ANDROID_TESTED` |
+| 164 playable offline games (163 ports + original Lantern Tide), 3 ABIs | IMPLEMENTED_AND_TESTED (host) | All `PORTABLE`. C/C++ with Zig, Rust with cargo, Go, bash games on a bundled, script-pinned bash, and Python games on a bundled CPython 3.13 that imports only code built into it (no sockets); all static PIEs. Every game has a play script run against the real x86_64 binary (`PlayScriptsTest`, 155 scripts), and the UI test starts every game on the game screen. Sources pinned by SHA-256. Audit of controls, sizes and screens: `docs/AUDIT.md` | Play each on a device; record `android_tested`; only then raise to `ANDROID_TESTED` |
+| 5 online games (SSH: SSHTron, SSH Hattrick, Late.sh, NetHack on alt.org; telnet: Telehack), opt-in Online games switch | PARTIAL | Manifest rules, address filtering and the consent sheet are unit/UI tested; the telnet client is tested against a local server (`OnlineClientsTest`), the SSH client (Dropbear) by hand against a local Dropbear. **No real server was reachable from the build machine** (no DNS or SSH/telnet egress) | On a phone: turn on Online games, play each; drop any whose server is gone |
 | No false `ANDROID_TESTED` claims | IMPLEMENTED_AND_TESTED | The validator rejects `ANDROID_TESTED`/`STORE_READY` without evidence. The app labels games "Preview port" | — |
 | Terminal emulator (xterm/VT500, UTF-8, wide chars, 256/truecolor, mouse, alt screen) | IMPLEMENTED_AND_TESTED | 37 unit tests; parse benchmark | — |
 | Control profiles (dpad4/8, buttons, gestures, repeat, confirm) + dispatcher, per-game keys and labels, answer chips | IMPLEMENTED_AND_TESTED (engine + Robolectric) | 57 profiles; manifest `keys`/`control_labels`/`control_hide`; prompt and key-hint chips; unit and UI tests | Tune layouts on real screens |
@@ -24,7 +25,7 @@ repository.
 | Mascot Kio in launcher icon (adaptive + monochrome) | IMPLEMENTED_UNTESTED | Vector icons in the APK; rendered in the canvas | Check on Pixel and Samsung launchers, including themed icons |
 | Brand packs: 6 required + Phosphor (accessibility), Brand Studio, custom brand | IMPLEMENTED_UNTESTED | Compiles; previews in the canvas | Device test of each pack |
 | Launcher identity switching (activity-aliases; atomic on API 33+) and pinned shortcut for custom names/logos | IMPLEMENTED_UNTESTED | Manifest verified: 6 aliases, 1 enabled | Test on API 26, 30 and 34+ launchers |
-| Catalog: 159 manifests, 240 discovery entries, validator, JSON Schemas | IMPLEMENTED_AND_TESTED | Catalog tests; `catalog-cli validate`; card pictures from each game's real screen (`tools/catalog/capture_art.py`) | Port or decline the remaining candidates (Python, Ruby and closed-source ones need a decision) |
+| Catalog: 169 manifests, 241 discovery entries, validator, JSON Schemas | IMPLEMENTED_AND_TESTED | Catalog tests; `catalog-cli validate`; card pictures from each game's real screen (`tools/catalog/capture_art.py`) | Port or decline the remaining candidates (see docs/handoff/README.md) |
 | Signed remote catalog sync (ECDSA P-256, version check) | PARTIAL | Signing and verification code exists; signing is wired into `catalog-cli` | Owner creates a catalog signing key and hosting; add key and URL to `config.json` |
 | Community server: challenge/PoW, submissions, receipts, dedupe, rate limits, bot PRs, webhook, PKCE exchange, SSRF-safe preview | IMPLEMENTED_AND_TESTED | 15 tests against a fake GitHub (incl. forged/replayed/expired proofs, private-address and redirect SSRF cases) | Deploy (`docs/COMMUNITY.md`) |
 | Server deployment, GitHub App, OAuth client | BLOCKED | Needs the owner's GitHub App, OAuth credentials and hosting (account and cost decisions) | Owner creates them; then add `submissions_url` and `github_client_id` to `config.json` |

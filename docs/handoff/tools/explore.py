@@ -23,6 +23,8 @@ os.makedirs(os.path.join(home, ".tmp"), exist_ok=True)
 env = {"HOME": home, "PWD": home, "TMPDIR": home + "/.tmp", "TERM": "xterm-256color", "USER": "kio", "LOGNAME": "kio",
        "LANG": "C.UTF-8", "PATH": "/nonexistent", "COLUMNS": str(cols), "LINES": str(rows), "SHELL": "/nonexistent",
        "PAGER": os.path.join(ROOT, "x86_64", "libtuikio_pager.so")}
+if os.environ.get("TUIKIO_ADDR"):  # online games: the address the app would resolve
+    env["TUIKIO_ADDR"] = os.environ["TUIKIO_ADDR"]
 args = os.environ.get("ARGS", "").split()
 pid, fd = pty.fork()
 if pid == 0:

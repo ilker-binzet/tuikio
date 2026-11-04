@@ -25,10 +25,12 @@ an original design language with a mascot, **Kio**, plus brand packs, a catalog 
 statuses, community suggestion/publishing features (server code exists, not deployed), saves
 export/import, and credits for every game.
 
-At 1.0.0 there are **159 playable games**: 158 ports plus the original **Kio: Lantern Tide**. They
-cover BSD games, the New BSD Games, Ubuntu packages, GitHub C/C++/Rust/Go/Zig games, NetHack,
-Angband, Brogue, Rogue, Doom (ASCII with Freedoom), 25 Shell Games, two bash games and an awk
-raycaster. Every game is labelled **"Preview port"** because none has been confirmed on a real
+At 1.1.0 there are **169 games**: 163 offline ports, the original **Kio: Lantern Tide**, and 5
+online games. They cover BSD games, the New BSD Games, Ubuntu packages, GitHub
+C/C++/Rust/Go/Zig games, NetHack, Angband, Brogue, Rogue, Doom (ASCII with Freedoom), 25 Shell
+Games, two bash games, an awk raycaster, five Python games (Pokete, Lightcycle, PyThrees,
+Penney's Game, Dango) on a bundled CPython, and online games over SSH/telnet behind an opt-in
+switch (docs/RUNTIME.md, "Python games" and "Online games"). Every game is labelled **"Preview port"** because none has been confirmed on a real
 phone yet (see RULES.md: no false `ANDROID_TESTED` claims).
 
 ## Where things are
@@ -87,10 +89,13 @@ CI logs, or put it in the APK. `docs/RELEASE.md` explains the signing setup; `si
 points at the key file and password file. Copy it into the repo root only for the release build,
 and delete it right after (`.gitignore` excludes it anyway).
 
-## Current state (1.0.0, 2026-11-04)
+## Current state (1.1.0, 2026-11-04)
 
-- 159 playable games; 57 control profiles; 240 discovery entries.
-- Version 1.0.0 (versionCode 9). Signed APKs: universal (~95 MB) and per-ABI (~40 MB each:
+- 1.1.0 (versionCode 10) adds the Python runtime (5 games) and online games (5, opt-in). 169
+  games; 57 control profiles; 241 discovery entries. The online games were **never connected to
+  their real servers** (the build machine had no DNS or SSH/telnet egress): test them on a phone
+  first and drop any whose server is gone.
+- 1.0.0 history: version 1.0.0 (versionCode 9). Signed APKs: universal (~95 MB) and per-ABI (~40 MB each:
   arm64-v8a is the one for almost every phone). The release commit is `d0c7606` on the branch. The
   `v1.0.0` tag could not be pushed from that environment (only the branch could): create it with
   `git tag -a v1.0.0 d0c7606 -m "Tuikio 1.0.0" && git push origin v1.0.0`. **No GitHub Release page
@@ -118,16 +123,21 @@ and delete it right after (`.gitignore` excludes it anyway).
      Cataclysm (very large; likely decline).
    - Rust/Go: chess-tui (needs an in-process engine; no exec), gittype (must work offline),
      rebels-in-the-sky (needs an offline mode), solar-system-explorer, terminal-space-program.
-   - Python games (pokete, pythrees, oregon-trail, hammurabi-python, chs, dango, penneys-game,
-     just-asteroids, terminal-frogger, lightcycle, anonymine): need a static CPython with curses
-     bundled like the bash runtime (`native/recipes/scripts.py` shows the pattern: an interpreter
-     as `lib*.so`, pinned scripts, a SHA-256 check). That's a big job; decide with the owner.
+   - Python: **done in 1.1.0** (`native/recipes/python.py`). Ported: Pokete, Lightcycle,
+     PyThrees, Penney's Game, Dango. Declined with reasons (round6 triage): no licence
+     (terminal-frogger, oregon-trail, hammurabi-python), root input devices (just-asteroids),
+     spawns Stockfish (chs). Left: anonymine (source on oskog97.com; check licence and fetch).
+     To add one: pin it, add a `py_game(...)` to `PY_GAMES`, check its imports against
+     `MODULES`/`STDLIB_SKIP`, patch out sockets/subprocess/exec of files, add a family entry.
    - Ruby/Racket/Java (floodit, wolfentext3d, dukedomrb, terminal-phase, letrain): decline unless a
      small interpreter runs them unchanged.
    - Closed or non-free (adom, alienrl, frozen-depths, stugan, dmagnetic data, gearhead/doomrl in
      Pascal): decline with reasons via `tools/ports/triage/*.json`.
-   - Online services (sshtron, onx, ssh-hattrick, late-sh, roguelike-gallery, telehack, ssh-games):
-     they need an opt-in, clearly labelled network mode. **That's the owner's decision.**
+   - Online: **done in 1.1.0** (`native/recipes/online.py`, `tools/ports/families/online.py`):
+     SSHTron, SSH Hattrick, Late.sh, NetHack on alt.org (ssh) and Telehack (telnet). Declined:
+     onx (no public server), ssh-games (its .gq domain is gone). roguelike-gallery: confirm its
+     endpoint, then add it. More public servers (crawl.akrasiac.org, etc.) are one family entry
+     each; never add one you haven't confirmed is up and free to play.
    - Built but broken: GNU Go (internal "stepped on a bug" crash on the first move) and GNU Chess
      (the engine never answers). Their sources are pinned (Ubuntu packages); debugging them is
      optional.

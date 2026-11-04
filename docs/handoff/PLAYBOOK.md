@@ -80,7 +80,7 @@ Then run `python3 docs/handoff/tools/apply_triage.py <date>`. That updates
 `catalog/discovery.json` and keeps the status `CANDIDATE`, with `last_checked` set and the notes
 explaining why.
 
-## Interpreters (bash, awk; Python if ever)
+## Interpreters (bash, awk, Python)
 
 See `native/recipes/scripts.py` and `docs/RUNTIME.md`:
 - GNU Bash built from source runs only the game scripts whose SHA-256 is compiled in;
@@ -90,8 +90,18 @@ See `native/recipes/scripts.py` and `docs/RUNTIME.md`:
 - `/dev/tcp` is compiled out;
 - awkaster uses GNU Awk as an extra runtime output.
 
-A Python runtime would follow the same pattern: static CPython, curses linked against our
-ncurses, stdlib zipped as data, scripts pinned.
+Python (`native/recipes/python.py`, docs/RUNTIME.md "Python games"): one static CPython with
+the stdlib and every game's code zipped onto the executable. To add a game: pin it, add a
+`py_game(...)` to `PY_GAMES` (package map, entry point, `subst` patches, `libs`), make sure its
+imports exist (no socket/subprocess/ctypes/multiprocessing: patch them out), never let it load
+code from its home, add a family entry in `tools/ports/families/python.py` and a play script.
+
+## Online games
+
+`tools/ports/families/online.py`: one `dict(...)` per server with `online={"protocol", "host",
+"port", "user"}` and `**SSH` or `**TELNET`, plus its id in `ONLINE_GAMES` in
+`native/recipes/online.py`. Only add servers you have confirmed are up, public and free to play,
+and say in the description what the player shares (chat, a name).
 
 ## Other toolchains
 

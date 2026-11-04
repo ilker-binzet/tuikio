@@ -119,6 +119,7 @@ def manifest(fam, g, lock):
         "saves": {"paths": saves, "notes": save_notes},
         "data_files": data_files(d["id"], old.get("data_files", [])),
         "network": d.get("network", "none"),
+        **({"online": d["online"]} if d.get("online") else {}),
         "status": "PORTABLE",
         "verification": {
             "host_tested": d["host_tested"],

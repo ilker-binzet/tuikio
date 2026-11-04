@@ -60,7 +60,7 @@ the SIL Open Font License 1.1.
 
 Everyone whose suggestion, port or correction is accepted through the app or a pull request is listed here, by GitHub login or as an anonymous community contributor. Be the first: suggest a game from the app's Create tab.
 
-### Games (159 playable)
+### Games (169 playable, 5 of them online)
 
 Every game is the work of its authors; Tuikio only ports and packages it. Licenses link to the full text shipped in the app.
 
@@ -108,6 +108,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 | csol | Niels Sonnich Poulsen | [MIT](LICENSES/csol.txt) | [github.com/nielssp/csol](https://github.com/nielssp/csol) | PORTABLE |
 | CTRIS | Dominik Hackl | [GPL-2.0-only](LICENSES/ctris.txt) | [github.com/dominikhackl/ctris](https://github.com/dominikhackl/ctris) | PORTABLE |
 | Curse of War | Alexey Nikolaev | [GPL-3.0-or-later](LICENSES/curseofwar.txt) | [a-nikolaev.github.io/curseofwar/](https://a-nikolaev.github.io/curseofwar/) | PORTABLE |
+| Dango (Go board) | gsobell | [GPL-3.0-only](LICENSES/dango.txt) | [github.com/gsobell/dango](https://github.com/gsobell/dango) | PORTABLE |
 | Darrt | abakh | [CC0-1.0 OR Apache-2.0](LICENSES/nbsdgames.txt) | [github.com/abakh/nbsdgames](https://github.com/abakh/nbsdgames) | PORTABLE |
 | Dig Dug (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
 | Donkey Kong (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
@@ -135,6 +136,8 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 | Inertia | Kairav Mittal | [MIT OR Apache-2.0](LICENSES/inertia.txt) | [github.com/aclfe/inertia](https://github.com/aclfe/inertia) | PORTABLE |
 | Jewels | abakh | [CC0-1.0 OR Apache-2.0](LICENSES/nbsdgames.txt) | [github.com/abakh/nbsdgames](https://github.com/abakh/nbsdgames) | PORTABLE |
 | Kio: Lantern Tide | Ömer SÜSİN, Claude Code | [GPL-3.0-or-later](LICENSES/tuikio-GPL-3.0.txt) | [github.com/omersusin/tuikio/tree/main/native/original/lantern-tide](https://github.com/omersusin/tuikio/tree/main/native/original/lantern-tide) | PORTABLE |
+| Late.sh | Mateusz Piórowski | FSL-1.1-MIT (server); played online over ssh, client: [licence](LICENSES/dropbear.txt) | [github.com/mpiorowski/late-sh](https://github.com/mpiorowski/late-sh) | PORTABLE |
+| Lightcycle | gsobell | [GPL-3.0-only](LICENSES/lightcycle.txt) | [github.com/gsobell/lightcycle](https://github.com/gsobell/lightcycle) | PORTABLE |
 | Memory Blocks | abakh | [CC0-1.0 OR Apache-2.0](LICENSES/nbsdgames.txt) | [github.com/abakh/nbsdgames](https://github.com/abakh/nbsdgames) | PORTABLE |
 | Miketron | abakh | [CC0-1.0 OR Apache-2.0](LICENSES/nbsdgames.txt) | [github.com/abakh/nbsdgames](https://github.com/abakh/nbsdgames) | PORTABLE |
 | Mille Bornes | Ken Arnold | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
@@ -149,6 +152,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 | Muncher | abakh | [CC0-1.0 OR Apache-2.0](LICENSES/nbsdgames.txt) | [github.com/abakh/nbsdgames](https://github.com/abakh/nbsdgames) | PORTABLE |
 | NChess | Billy Vinning | [GPL-3.0-only](LICENSES/nchess.txt) | [github.com/billyvinning/nchess](https://github.com/billyvinning/nchess) | PORTABLE |
 | NetHack | The NetHack DevTeam, Stichting Mathematisch Centrum, M. Stephenson | [NGPL](LICENSES/nethack.txt) | [www.nethack.org/](https://www.nethack.org/) | PORTABLE |
+| NetHack (alt.org server) | NetHack DevTeam, alt.org | NGPL (server); played online over ssh, client: [licence](LICENSES/dropbear.txt) | [alt.org/nethack/](https://alt.org/nethack/) | PORTABLE |
 | Netris | Mark H. Weaver | [GPL-2.0-or-later](LICENSES/netris.txt) | [github.com/naclander/netris](https://github.com/naclander/netris) | PORTABLE |
 | netToe | Gabriele Giorgetti, Mats Erik Andersson | [GPL-2.0-or-later](LICENSES/nettoe.txt) | [nettoe.sourceforge.net/](https://nettoe.sourceforge.net/) | PORTABLE |
 | nInvaders | Dettus | [GPL-2.0-or-later](LICENSES/ninvaders.txt) | [ninvaders.sourceforge.net/](https://ninvaders.sourceforge.net/) | PORTABLE |
@@ -160,11 +164,14 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 | Open Adventure | Will Crowther, Don Woods, Eric S. Raymond | [BSD-2-Clause](LICENSES/open-adventure.txt) | [gitlab.com/esr/open-adventure](https://gitlab.com/esr/open-adventure) | PORTABLE |
 | Pac-Man (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
 | Pacman for Console | Michael Billars | [GPL-2.0-or-later](LICENSES/pacman4console.txt) | [sites.google.com/site/doctormike/pacman.html](https://sites.google.com/site/doctormike/pacman.html) | PORTABLE |
+| Penney's Game | Sepand Haghighi | [MIT](LICENSES/penneys-game.txt) | [github.com/sepandhaghighi/penney](https://github.com/sepandhaghighi/penney) | PORTABLE |
 | Petris | Peter Seidler | [LicenseRef-Public-Domain OR MIT](LICENSES/petris.txt) | [packages.debian.org/source/sid/petris](https://packages.debian.org/source/sid/petris) | PORTABLE |
 | Phantasia | Edward Estes, Chris Robertson | [LicenseRef-Public-Domain](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
 | Pipes | abakh | [CC0-1.0 OR Apache-2.0](LICENSES/nbsdgames.txt) | [github.com/abakh/nbsdgames](https://github.com/abakh/nbsdgames) | PORTABLE |
 | piu-piu | Ivan Marov (vaniacer) | [MIT](LICENSES/piu-piu-sh.txt) | [github.com/vaniacer/piu-piu-SH](https://github.com/vaniacer/piu-piu-SH) | PORTABLE |
+| Pokete | lxgr-linux | [GPL-3.0-only](LICENSES/pokete.txt) | [github.com/lxgr-linux/pokete](https://github.com/lxgr-linux/pokete) | PORTABLE |
 | Pong (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
+| PyThrees | Yuan Cao | [MIT](LICENSES/pythrees.txt) | [github.com/yth/pythrees](https://github.com/yth/pythrees) | PORTABLE |
 | Q*Bert (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
 | Quiz | Jim R. Oldroyd, Keith Gabryelski | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
 | Rabbithole | abakh | [CC0-1.0 OR Apache-2.0](LICENSES/nbsdgames.txt) | [github.com/abakh/nbsdgames](https://github.com/abakh/nbsdgames) | PORTABLE |
@@ -189,12 +196,15 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 | SOS | abakh | [CC0-1.0 OR Apache-2.0](LICENSES/nbsdgames.txt) | [github.com/abakh/nbsdgames](https://github.com/abakh/nbsdgames) | PORTABLE |
 | Spire Ascent (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
 | Square Jump | abakh | [CC0-1.0 OR Apache-2.0](LICENSES/nbsdgames.txt) | [github.com/abakh/nbsdgames](https://github.com/abakh/nbsdgames) | PORTABLE |
+| SSH Hattrick | ricott1 | GPL-3.0-only (server); played online over ssh, client: [licence](LICENSES/dropbear.txt) | [github.com/ricott1/sshattrick](https://github.com/ricott1/sshattrick) | PORTABLE |
+| SSHTron | Zach Latta, Max Wofford | MIT (server); played online over ssh, client: [licence](LICENSES/dropbear.txt) | [github.com/zachlatta/sshtron](https://github.com/zachlatta/sshtron) | PORTABLE |
 | Star Traders | John Zaitseff | [GPL-3.0-or-later](LICENSES/trader.txt) | [www.zap.org.au/projects/trader/](https://www.zap.org.au/projects/trader/) | PORTABLE |
 | Star Trek | Eric Allman | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
 | Su-Do-Ku | Michael Kennett | [LicenseRef-Public-Domain](LICENSES/sudoku.txt) | [packages.debian.org/source/sid/sudoku](https://packages.debian.org/source/sid/sudoku) | PORTABLE |
 | Sudoku | abakh | [CC0-1.0 OR Apache-2.0](LICENSES/nbsdgames.txt) | [github.com/abakh/nbsdgames](https://github.com/abakh/nbsdgames) | PORTABLE |
 | Sudoku (rs) | Mitchel Paulin | [GPL-3.0-only](LICENSES/sudoku-rs.txt) | [github.com/MitchelPaulin/sudoku-rs](https://github.com/MitchelPaulin/sudoku-rs) | PORTABLE |
 | Super Auto Pets (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
+| Telehack | Telehack | LicenseRef-online-service (server); played online over telnet, client: [licence](LICENSES/tuikio-GPL-3.0.txt) | [telehack.com/telehack.html](https://telehack.com/telehack.html) | PORTABLE |
 | Terminal Pong | IshmamR | [MIT](LICENSES/terminal-pong.txt) | [github.com/IshmamR/terminal.pong](https://github.com/IshmamR/terminal.pong) | PORTABLE |
 | Termrex | Satya Pr. Dahal | [MIT](LICENSES/termrex.txt) | [github.com/SATYADAHAL/termrex](https://github.com/SATYADAHAL/termrex) | PORTABLE |
 | Tetris (berk76) | Jaroslav Beran | [GPL-3.0-or-later](LICENSES/tetris-berk76.txt) | [github.com/berk76/tetris](https://github.com/berk76/tetris) | PORTABLE |
@@ -256,7 +266,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 - [Termux packages](https://github.com/termux/termux-packages) by The Termux maintainers
 - [Debian and Ubuntu archives](https://packages.debian.org/) by The Debian and Ubuntu maintainers
 
-### Also in the catalog (74 links)
+### Also in the catalog (65 links)
 
 Listed in the app with a link to their authors' pages; not bundled (yet). Licenses are their authors'.
 
@@ -275,12 +285,11 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [Cataclysm: Dark Days Ahead](https://github.com/CleverRaven/Cataclysm-DDA)
 - [Cemetery Escape](https://github.com/tom-on-the-internet/cemetery-escape)
 - [Chess TUI](https://github.com/thomas-mauran/chess-tui)
-- [CHS](https://github.com/nickzuber/chs)
+- [CHS](https://github.com/nickzuber/chs) (MIT)
 - [Cnibbles](http://cnibbles.sourceforge.net)
 - [Connect4](https://github.com/badescunicu/connect4)
 - [Conquest (Beej)](https://github.com/beejjorgensen/conquest)
 - [Conquest (Jtrulson)](https://github.com/jtrulson/conquest/)
-- [Dango (Go board)](https://github.com/gsobell/dango)
 - [dMagnetic (interactive fiction interpreter)](https://www.dettus.net/dMagnetic)
 - [DoomRL / DRL](https://drl.chaosforge.org/)
 - [Dopewars](https://dopewars.sourceforge.io/) (GPL-2.0-or-later)
@@ -297,11 +306,9 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [Gnuski](https://sourceforge.net/projects/gnuski/)
 - [Hammurabi Python](https://github.com/wzhishen/hammurabi)
 - [Hydra Slayer](http://www.roguetemple.com/z/hydra/)
-- [Just Asteroids](https://github.com/gabrielvictorcf/just-asteroids)
+- [Just Asteroids](https://github.com/gabrielvictorcf/just-asteroids) (MIT)
 - [Katamascii](https://github.com/taviso/katamascii) (GPL-3.0-only)
-- [Late.sh (includes games)](https://github.com/mpiorowski/late-sh)
 - [LeTrain](https://github.com/antoniovazquezaraujo/LeTrain)
-- [Lightcycle](https://github.com/gsobell/lightcycle)
 - [Minecurses](https://github.com/christosmarg/minecurses)
 - [MyMan (Pac-Man)](https://myman.sourceforge.io/)
 - [NBSD Games (18 games)](https://github.com/abakh/nbsdgames) (CC0-1.0 OR Apache-2.0)
@@ -311,9 +318,6 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [Omega](http://www.alcyone.com/max/projects/omega/)
 - [Onx (online tic-tac-toe)](https://github.com/jerkyworks/onx)
 - [Oregon Trail](https://github.com/yudonglin/Oregon-Trail)
-- [Penney's Game](https://github.com/sepandhaghighi/penney)
-- [Pokete](https://github.com/lxgr-linux/pokete)
-- [PyThrees](https://github.com/yth/pythrees)
 - [Rebels in the Sky](https://github.com/ricott1/rebels-in-the-sky)
 - [Roguelike Gallery](https://rlgallery.org)
 - [Rummy](https://github.com/ljc2154/Rummy)
@@ -324,11 +328,8 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [Spire Ascent (Shell Games)](https://github.com/MCookinho/shellgame) (MIT)
 - [SporkHack](https://github.com/NHTangles/sporkhack)
 - [SSH games (Milek7)](https://github.com/Milek7/telnet-games)
-- [SSH Hattrick](https://github.com/ricott1/sshattrick)
-- [SSHTron](https://github.com/zachlatta/sshtron)
 - [Starlanes](http://www.barnsdle.demon.co.uk/game/starlanes.html)
 - [Stugan](https://github.com/jhbaarnh/stugan)
-- [Telehack Z-Code games](http://telehack.com/telehack.html)
 - [Terminal Frogger](https://github.com/mfey619/Terminal-Frogger)
 - [Terminal Phase](https://gitlab.com/dustyweb/terminal-phase)
 - [Terminal Space Program](https://github.com/jasonfen/terminal-space-program)

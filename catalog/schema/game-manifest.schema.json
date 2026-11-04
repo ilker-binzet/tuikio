@@ -320,6 +320,18 @@
         }
       }
     },
+    "online": {
+      "type": "object",
+      "description": "The server an online game is played on (network \"required\"). The app builds the client's arguments from these fields only.",
+      "additionalProperties": false,
+      "required": ["protocol", "host"],
+      "properties": {
+        "protocol": { "enum": ["ssh", "telnet"] },
+        "host": { "type": "string", "pattern": "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)+[a-z]{2,63}$" },
+        "port": { "type": "integer", "minimum": 1, "maximum": 65535 },
+        "user": { "type": "string", "pattern": "^[a-z_][a-z0-9_-]{0,31}$" }
+      }
+    },
     "network": {
       "enum": [
         "none",

@@ -1,0 +1,10 @@
+{
+  "terminal-frogger": {"license": "UNKNOWN", "notes": "Declined 2026-11-04: the repository has no licence, so it can't be redistributed."},
+  "oregon-trail": {"license": "UNKNOWN", "notes": "Declined 2026-11-04: the repository (yudonglin/Oregon-Trail) has no licence, so it can't be redistributed."},
+  "hammurabi-python": {"license": "UNKNOWN", "notes": "Declined 2026-11-04: the repository has no licence. Tuikio already has a Hamurabi (hamurabi, from bsdgames' BASIC lineage)."},
+  "just-asteroids": {"license": "MIT", "notes": "Declined 2026-11-04: it reads keys with the `keyboard` library, which needs root access to /dev/input; a phone game process has neither."},
+  "chs": {"license": "MIT", "notes": "Declined 2026-11-04: it plays by starting a bundled Stockfish executable (python-chess SimpleEngine.popen_uci); games can't start programs. nchess and ASCII Chess are in the catalog."},
+  "onx": {"license": "UNKNOWN", "notes": "Declined 2026-11-04: there is no public server to connect to (players run their own); online games need one."},
+  "ssh-games": {"license": "UNKNOWN", "notes": "Declined 2026-11-04: its only server was milek7.gq, and free .gq domains were taken back by the registry in 2023; no reachable server is documented."},
+  "roguelike-gallery": {"license": "UNKNOWN", "notes": "Not added 2026-11-04: rlgallery.org's site couldn't be reached from the build machine to confirm its SSH or telnet endpoint. Add it to tools/ports/families/online.py once the endpoint is confirmed."}
+}

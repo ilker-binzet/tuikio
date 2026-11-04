@@ -204,6 +204,10 @@ class Prefs(context: Context) {
     var gameSounds: Boolean
         get() = p.getBoolean("game_sounds", true)
         set(v) = p.edit().putBoolean("game_sounds", v).apply()
+    /** Online games (network "required") connect to a server only when this is on. Off by default. */
+    var onlineGames: Boolean
+        get() = p.getBoolean("online_games", false)
+        set(v) = p.edit().putBoolean("online_games", v).apply()
     var leftHanded: Boolean
         get() = p.getBoolean("left_handed", false)
         set(v) = p.edit().putBoolean("left_handed", v).apply()
