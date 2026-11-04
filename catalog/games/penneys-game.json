@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "id": "penneys-game",
+  "title": "Penney's Game",
+  "summary": "Penney's coin game: pick a heads-and-tails sequence and see whose shows up first.",
+  "description": "You and the computer (or friends) each choose a sequence like HTH; a coin is tossed until one appears. Type your answers and press Enter.",
+  "category": "puzzle",
+  "tags": [
+    "coins",
+    "probability",
+    "python"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Sepand Haghighi"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/sepandhaghighi/penney",
+    "version": "git 9e3fd77c"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/python.py",
+    "source_archive": "penney-9e3fd77c.tar",
+    "source_sha256": "0a3ddc0b5e0fe1f625e1361797a7cabbe56e36201aff73fd7cde8d3a9c66dcf5"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_python",
+    "args": [
+      "penneys-game"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        48,
+        24
+      ],
+      "preferred": [
+        48,
+        30
+      ]
+    },
+    "orientation": "portrait",
+    "wrap": "words",
+    "input": "typing"
+  },
+  "controls": "text.v1",
+  "art": {
+    "rows": [
+      "##############################",
+      "##############################",
+      "####                          ",
+      " __  __  _____  _   _  _   _  ",
+      "|  \\/  || ____|| \\ | || | | | ",
+      "| |\\/| ||  _|  |  \\| || | | | ",
+      "| |  | || |___ | |\\  || |_| | ",
+      "|_|  |_||_____||_| \\_| \\___/  "
+    ],
+    "fg": [
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      ".............................."
+    ],
+    "bg": [
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      ".............................."
+    ],
+    "palette": []
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test in a PTY: description, the ASCII-art menu, a game against the computer."
+  }
+}

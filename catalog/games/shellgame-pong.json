@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-pong",
+  "title": "Pong (Shell Games)",
+  "summary": "Table tennis against the computer or a friend: first to five wins.",
+  "description": "Pick a mode with the arrows and OK. Player 1 is the left paddle (left buttons), player 2 or the computer the right one (right buttons). Restart goes back to the mode menu.",
+  "category": "arcade",
+  "tags": [
+    "pong",
+    "two players",
+    "classic",
+    "shell games"
+  ],
+  "players": "1-2",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "pong"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        60,
+        28
+      ],
+      "preferred": [
+        60,
+        28
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "pong2.v1",
+  "art": {
+    "rows": [
+      "                      ",
+      "######################",
+      "                      ",
+      "P1: W/S    P2: UP/DOWN",
+      "R: restart | Q: quit  ",
+      "First to 5 wins!      "
+    ],
+    "fg": [
+      ".................1....",
+      "2222222222222222222222",
+      "......................",
+      "1111111111111111111111",
+      "11111111111111111111..",
+      "1111111111111111......"
+    ],
+    "bg": [
+      "0000000000000000000000",
+      "0000000000000000000000",
+      "0000000000000000000000",
+      "0000000000000000000000",
+      "0000000000000000000000",
+      "0000000000000000000000"
+    ],
+    "palette": [
+      "a0",
+      "a7",
+      "a2"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: mode menu, a game against the computer."
+  }
+}

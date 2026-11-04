@@ -1,0 +1,45 @@
+# Status report: Tuikio 1.1.0 (2026-11-04)
+
+Statuses:
+- **IMPLEMENTED_AND_TESTED**: built, and an automated or manual test was actually run.
+- **IMPLEMENTED_UNTESTED**: built and compiles, but nothing has run it (mostly Android UI,
+  because no device or emulator was available).
+- **PARTIAL**: some of it works and is tested, some is missing.
+- **BLOCKED**: cannot proceed without something outside this environment, usually the owner.
+
+The environment had no Android device or emulator (no KVM) and no access to Google's Maven
+repository.
+
+| Feature | Status | Evidence | Next action |
+|---|---|---|---|
+| Native runtime: PTY helper, static-PIE musl games, W^X-compliant packaging as `lib*.so` in `nativeLibraryDir` | IMPLEMENTED_AND_TESTED | 11 end-to-end tests run the real x86_64 binaries through helper + frames + emulator (`RealGamesTest`). PTY smoke test passes on x86_64, arm64 and armv7 (qemu-user) | Run Diagnostics on an arm64 phone |
+| 164 playable offline games (163 ports + original Lantern Tide), 3 ABIs | IMPLEMENTED_AND_TESTED (host) | All `PORTABLE`. C/C++ with Zig, Rust with cargo, Go, bash games on a bundled, script-pinned bash, and Python games on a bundled CPython 3.13 that imports only code built into it (no sockets); all static PIEs. Every game has a play script run against the real x86_64 binary (`PlayScriptsTest`, 155 scripts), and the UI test starts every game on the game screen. Sources pinned by SHA-256. Audit of controls, sizes and screens: `docs/AUDIT.md` | Play each on a device; record `android_tested`; only then raise to `ANDROID_TESTED` |
+| 5 online games (SSH: SSHTron, SSH Hattrick, Late.sh, NetHack on alt.org; telnet: Telehack), opt-in Online games switch | PARTIAL | Manifest rules, address filtering and the consent sheet are unit/UI tested; the telnet client is tested against a local server (`OnlineClientsTest`), the SSH client (Dropbear) by hand against a local Dropbear. **No real server was reachable from the build machine** (no DNS or SSH/telnet egress) | On a phone: turn on Online games, play each; drop any whose server is gone |
+| No false `ANDROID_TESTED` claims | IMPLEMENTED_AND_TESTED | The validator rejects `ANDROID_TESTED`/`STORE_READY` without evidence. The app labels games "Preview port" | — |
+| Terminal emulator (xterm/VT500, UTF-8, wide chars, 256/truecolor, mouse, alt screen) | IMPLEMENTED_AND_TESTED | 37 unit tests; parse benchmark | — |
+| Control profiles (dpad4/8, buttons, gestures, repeat, confirm) + dispatcher, per-game keys and labels, answer chips | IMPLEMENTED_AND_TESTED (engine + Robolectric) | 57 profiles; manifest `keys`/`control_labels`/`control_hide`; prompt and key-hint chips; unit and UI tests | Tune layouts on real screens |
+| On-screen controls, keyboard/IME, gamepad (D-pad, hat, stick), mouse taps | IMPLEMENTED_UNTESTED | Compiles; in the APK | Device test with a touch screen and a Bluetooth gamepad |
+| App screens: Discover, Search, Details, Library, Create/My Sources, Publish, You, About/Licenses, Diagnostics | PARTIAL (first device run) | First device run on a POCO F5 (Android 17, arm64): the app launches, browsing works, and installing a game succeeds (binary hash checked on device). Opening the game screen crashed in 0.1.0 (`GameActivity` used the insets controller before `setContentView`); fixed in 0.1.1, not yet re-run | Re-run 0.1.1 on the phone; then Diagnostics and one game per profile |
+| Original design language (no Material/AndroidX), light/dark/high-contrast, reduced motion | IMPLEMENTED_UNTESTED | Code + design canvas | Device screenshots; TalkBack pass |
+| Visual direction approval (owner review gate) | BLOCKED | Design canvas with 11 artboards and a playable prototype was published and shared; no owner feedback received | Owner reviews the canvas and approves or redirects |
+| Mascot Kio in launcher icon (adaptive + monochrome) | IMPLEMENTED_UNTESTED | Vector icons in the APK; rendered in the canvas | Check on Pixel and Samsung launchers, including themed icons |
+| Brand packs: 6 required + Phosphor (accessibility), Brand Studio, custom brand | IMPLEMENTED_UNTESTED | Compiles; previews in the canvas | Device test of each pack |
+| Launcher identity switching (activity-aliases; atomic on API 33+) and pinned shortcut for custom names/logos | IMPLEMENTED_UNTESTED | Manifest verified: 6 aliases, 1 enabled | Test on API 26, 30 and 34+ launchers |
+| Catalog: 169 manifests, 241 discovery entries, validator, JSON Schemas | IMPLEMENTED_AND_TESTED | Catalog tests; `catalog-cli validate`; card pictures from each game's real screen (`tools/catalog/capture_art.py`) | Port or decline the remaining candidates (see docs/handoff/README.md) |
+| Signed remote catalog sync (ECDSA P-256, version check) | PARTIAL | Signing and verification code exists; signing is wired into `catalog-cli` | Owner creates a catalog signing key and hosting; add key and URL to `config.json` |
+| Community server: challenge/PoW, submissions, receipts, dedupe, rate limits, bot PRs, webhook, PKCE exchange, SSRF-safe preview | IMPLEMENTED_AND_TESTED | 15 tests against a fake GitHub (incl. forged/replayed/expired proofs, private-address and redirect SSRF cases) | Deploy (`docs/COMMUNITY.md`) |
+| Server deployment, GitHub App, OAuth client | BLOCKED | Needs the owner's GitHub App, OAuth credentials and hosting (account and cost decisions) | Owner creates them; then add `submissions_url` and `github_client_id` to `config.json` |
+| My Sources + Suggest to community (anonymous / GitHub credit), status follow-up | IMPLEMENTED_UNTESTED (app) | App side compiles; the request it sends passes the server tests | E2E once the server is deployed |
+| GitHub sign-in (PKCE, Keystore-encrypted token, verified credit as co-author) | PARTIAL | Server exchange and verification tested; app flow untested; no client ID yet | Configure OAuth; device test |
+| Creator publishing (ownership check, draft validation) | PARTIAL | Draft validation and admin check tested server-side; UI untested. PRs are opened by the bot with co-author credit, not from the creator's fork | Device + live GitHub test |
+| Save export/import | IMPLEMENTED_AND_TESTED (core) | Round trip, traversal, foreign archive, zip bomb and oversized-marker tests | Device test of the system file picker |
+| Security: no downloaded code, SSRF, path traversal, zip bombs, bounded parsing, no secrets in APK | IMPLEMENTED_AND_TESTED | Backend and runtime tests; `check_apk.py` secret scan | External review before public launch |
+| License compliance (texts + exact sources for every bundled binary) | IMPLEMENTED_AND_TESTED | 16 files in `assets/licenses`, checked by `check_apk.py`; in-app viewer | Attach source archives to each release |
+| Performance: measured optimizations | IMPLEMENTED_AND_TESTED | Output coalescing cut nInvaders wakeups 339→50/s (−85%); dex −85%; display font −37%; data in `docs/perf/` | — |
+| Battery, thermal, frame time on device | NOT_IMPLEMENTED (unmeasured) | Methods documented in `docs/PERFORMANCE.md` | Measure with `dumpsys gfxinfo/batterystats/thermalservice` |
+| Shrinking with R8 | BLOCKED | R8 is distributed via Google Maven, which the network policy blocks. ProGuard 7.10 is used instead (dex 3.37 MB → 514 KB) | Switch the jar in `build-logic` where Google Maven is reachable |
+| Release keystore + signed, verified APKs (universal and one per ABI) | IMPLEMENTED_AND_TESTED | Preview key (RSA 4096) made outside Git; v2+v3 verified; cert SHA-256 `d8ea95d3e2e4e6c65983e8a42f613695fd4a668bb42f5b62d06fca2405be0874`; `./gradlew :app:assembleReleaseApk :app:assembleReleaseSplitApks` | The key lives only outside Git: the owner must keep a safe copy. For public releases, create the key locally (`tools/release/make-keystore.sh`) |
+| Release smoke test | PARTIAL | Static checks pass on every APK (`check_apk.py`, `apksigner verify`); earlier versions installed and launched on a POCO F5 (Android 17); 1.0.0 not yet run on a device | Install on a device; run the `docs/RELEASE.md` checklist |
+| CI (JVM tests, catalog, native build with Zig, Rust and Go + smoke + runtime tests, UI tests, debug APK) | IMPLEMENTED_AND_TESTED | GitHub Actions on every push to the working branch, all 3 jobs green | — |
+| Docs (build, architecture, runtime, catalog, community, privacy, performance, release) | IMPLEMENTED_AND_TESTED | `docs/`; claims were checked against the code, which surfaced and fixed real gaps (backup exclusion, receipt follow-up, gamepad sticks, preview wiring, an unbounded read, over-promising UI text) | — |
+| Publishing (Play / F-Droid / GitHub Release) | BLOCKED | Requires the owner's explicit approval (and accounts) | Owner decision |

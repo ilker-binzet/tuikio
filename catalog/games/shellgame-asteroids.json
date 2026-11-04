@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-asteroids",
+  "title": "Asteroids (Shell Games)",
+  "summary": "Turn, thrust and blast the asteroids before they hit your ship.",
+  "description": "Left and right turn the ship, up thrusts and Fire shoots. Big asteroids split into smaller, faster ones. Fast and unforgiving: the rocks wrap around the screen. Fire starts again after a crash.",
+  "category": "arcade",
+  "tags": [
+    "shooter",
+    "asteroids",
+    "space",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "asteroids"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "pad-fire.v1",
+  "control_labels": {
+    "up": "Thrust",
+    "left": "Turn left",
+    "right": "Turn right"
+  },
+  "control_hide": [
+    "ok"
+  ],
+  "art": {
+    "rows": [
+      "Level: 1             ASTEROIDS",
+      "                              ",
+      "                              ",
+      "                              ",
+      "                              ",
+      "                              ",
+      "                     \\        ",
+      "                           O  "
+    ],
+    "fg": [
+      "00000000.............222222222",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      ".....................3........",
+      "...........................4.."
+    ],
+    "bg": [
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111"
+    ],
+    "palette": [
+      "a6",
+      "a0",
+      "a11",
+      "a10",
+      "a14"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: field, turning, thrust and shots at 80x24 (it uses the whole terminal)."
+  }
+}

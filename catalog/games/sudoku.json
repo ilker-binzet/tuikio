@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "id": "sudoku",
+  "title": "Su-Do-Ku",
+  "summary": "Generated Sudoku puzzles from easy to fiendish, with hints.",
+  "description": "Move with the pad and tap a digit under the board; Clear empties a square. The full key list is beside the board.",
+  "category": "puzzle",
+  "tags": [
+    "sudoku",
+    "logic",
+    "numbers"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Michael Kennett"
+    ],
+    "license": "LicenseRef-Public-Domain",
+    "source_url": "https://packages.debian.org/source/sid/sudoku",
+    "version": "1.0.5"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/ubuntu.py",
+    "source_archive": "sudoku_1.0.5.orig.tar.gz",
+    "source_sha256": "3ce6d9b237546d4ac7cdb7a6bb0e47d5c99e696a710b8935bce40dc706d32ff2"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_sudoku",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows.v1",
+  "control_hide": [
+    "select",
+    "space",
+    "back"
+  ],
+  "keys": [
+    {
+      "label": "1",
+      "text": "1"
+    },
+    {
+      "label": "2",
+      "text": "2"
+    },
+    {
+      "label": "3",
+      "text": "3"
+    },
+    {
+      "label": "4",
+      "text": "4"
+    },
+    {
+      "label": "5",
+      "text": "5"
+    },
+    {
+      "label": "6",
+      "text": "6"
+    },
+    {
+      "label": "7",
+      "text": "7"
+    },
+    {
+      "label": "8",
+      "text": "8"
+    },
+    {
+      "label": "9",
+      "text": "9"
+    },
+    {
+      "label": "Clear",
+      "text": "0"
+    },
+    {
+      "label": "Undo",
+      "text": "u"
+    },
+    {
+      "label": "Hint",
+      "text": "?"
+    },
+    {
+      "label": "New",
+      "text": "n"
+    },
+    {
+      "label": "Restart",
+      "text": "r"
+    },
+    {
+      "label": "Quit",
+      "text": "q"
+    }
+  ],
+  "art": {
+    "rows": [
+      "| 6 . . | 9 . . | . 5 . |",
+      "+-------+-------+-------+",
+      "| 7 . . | . 8 . | . . 1 |",
+      "| . . 9 | . . . | 2 . . |",
+      "| 3 . . | . 5 . | . . 6 |",
+      "+-------+-------+-------+",
+      "| . 4 . | . . 6 | . . 7 |"
+    ],
+    "fg": [
+      ".........................",
+      ".........................",
+      ".........................",
+      ".........................",
+      ".........................",
+      ".........................",
+      "........................."
+    ],
+    "bg": [
+      ".........................",
+      ".........................",
+      ".........................",
+      ".........................",
+      ".........................",
+      ".........................",
+      "........................."
+    ],
+    "palette": []
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [
+    {
+      "asset": "games/sudoku/template",
+      "dest": "template",
+      "sha256": "92f4cb075b725becd7bf27e1a16584b2ca7d53581a9c28f7e1db5a4c1ddf0f4e"
+    }
+  ],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-23",
+    "android_tested": null,
+    "notes": "Host test: generated board and key help."
+  }
+}

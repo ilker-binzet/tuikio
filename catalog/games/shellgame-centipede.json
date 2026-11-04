@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-centipede",
+  "title": "Centipede (Shell Games)",
+  "summary": "Shoot the centipede as it winds down through the mushrooms.",
+  "description": "Slide your gun along the bottom and fire up at the centipede. Every segment you hit counts; mushrooms take four shots. Clear three levels.",
+  "category": "arcade",
+  "tags": [
+    "shooter",
+    "centipede",
+    "classic",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "centipede"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        46,
+        24
+      ],
+      "preferred": [
+        46,
+        24
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "shooter.v1",
+  "keys": [
+    {
+      "label": "Again",
+      "key": "ENTER"
+    }
+  ],
+  "art": {
+    "rows": [
+      "|                        |",
+      "|                        |",
+      "|          /A\\           |",
+      "--------------------------",
+      "                          ",
+      "Score: 0  Lives: 3  Level:",
+      "<- ->: move | Space: shoot"
+    ],
+    "fg": [
+      "0...........0............0",
+      "0...........0............0",
+      "0..........2220..........0",
+      "00000000000000000000000000",
+      "..........................",
+      "33333333333333333333333333",
+      "33333333333333333333333333"
+    ],
+    "bg": [
+      "11111111111111111111111111",
+      "11111111111111111111111111",
+      "11111111111111111111111111",
+      "11111111111111111111111111",
+      "11111111111111111111111111",
+      "11111111111111111111111111",
+      "11111111111111111111111111"
+    ],
+    "palette": [
+      "a7",
+      "a0",
+      "a11",
+      "a6"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: field, centipede, gun moves and fires."
+  }
+}

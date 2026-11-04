@@ -1,0 +1,38 @@
+# Build outputs (anchored to module roots: a bare "build/" would also hide source
+# packages such as build-logic/src/main/kotlin/dev/tuikio/build/)
+/build/
+/*/build/
+/*/*/build/
+.gradle/
+.kotlin/
+/out/
+*.apk
+*.aab
+*.idsig
+local.properties
+
+# Signing material never enters git (see docs/RELEASE.md)
+*.jks
+*.keystore
+*.p12
+signing.properties
+keystore.properties
+
+# Native build trees
+native/build/
+native/.cache/
+
+# Editors
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# Secrets for the backend
+.env
+.env.*
+!.env.example
+__pycache__/
+
+# Subagent worktrees (Claude Code)
+/.claude/worktrees/

@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "id": "nsuds",
+  "title": "nsuds",
+  "summary": "Sudoku against the clock, with 30 levels and pencil marks.",
+  "description": "Choose a difficulty, then fill the grid before the timer runs out: move with the pad and tap a digit. Mark followed by a digit pencils it in; Help lists every command.",
+  "category": "puzzle",
+  "tags": [
+    "sudoku",
+    "logic",
+    "numbers"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Vincent Launchbury"
+    ],
+    "license": "GPL-2.0-or-later",
+    "source_url": "https://sourceforge.net/projects/nsuds/",
+    "version": "0.7B"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/boards.py",
+    "source_archive": "nsuds-0.7B.tar.gz",
+    "source_sha256": "6d9b3e53f3cf45e9aa29f742f6a3f7bc83a1290099a62d9b8ba421879076926e"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_nsuds",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        66,
+        22
+      ],
+      "preferred": [
+        66,
+        22
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows.v1",
+  "control_labels": {
+    "select": "OK"
+  },
+  "control_hide": [
+    "space",
+    "back"
+  ],
+  "keys": [
+    {
+      "label": "1",
+      "text": "1"
+    },
+    {
+      "label": "2",
+      "text": "2"
+    },
+    {
+      "label": "3",
+      "text": "3"
+    },
+    {
+      "label": "4",
+      "text": "4"
+    },
+    {
+      "label": "5",
+      "text": "5"
+    },
+    {
+      "label": "6",
+      "text": "6"
+    },
+    {
+      "label": "7",
+      "text": "7"
+    },
+    {
+      "label": "8",
+      "text": "8"
+    },
+    {
+      "label": "9",
+      "text": "9"
+    },
+    {
+      "label": "Delete",
+      "text": "x"
+    },
+    {
+      "label": "Mark",
+      "text": "m"
+    },
+    {
+      "label": "Pause",
+      "text": "p"
+    },
+    {
+      "label": "New",
+      "text": "n"
+    },
+    {
+      "label": "Scores",
+      "text": "H"
+    },
+    {
+      "label": "Help",
+      "text": "?"
+    },
+    {
+      "label": "Quit",
+      "text": "q"
+    }
+  ],
+  "art": {
+    "rows": [
+      "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒",
+      "┐▒▒┌───────────┬───────────┬──",
+      "│▒▒│ 9 | 8 |   │ 6 | 4 |   │  ",
+      "│▒▒│---|---|---│---|---|---│--",
+      "│▒▒│   | 1 | 4 │   | 9 | 7 │  ",
+      "│▒▒│---|---|---│---|---|---│--",
+      "┘▒▒│ 2 |   |   │ 8 | 5 |   │ 9",
+      "┐▒▒├───────────┼───────────┼──"
+    ],
+    "fg": [
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000"
+    ],
+    "bg": [
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111"
+    ],
+    "palette": [
+      "a7",
+      "a0"
+    ]
+  },
+  "saves": {
+    "paths": [
+      "nsuds/high_scores"
+    ],
+    "notes": "High scores"
+  },
+  "data_files": [
+    {
+      "asset": "games/nsuds/nsuds/high_scores",
+      "dest": "nsuds/high_scores",
+      "sha256": "b39c48e9fddff79c2f8e95c4ba06eaa1efad43fe70b0edd3bd4df55ab037bace"
+    },
+    {
+      "asset": "games/nsuds/nsuds/main",
+      "dest": "nsuds/main",
+      "sha256": "b543583da767c30b840cc0f9d4826e5af10514b7496a998547e176feaab3b28e"
+    }
+  ],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: difficulty menu, a number entered and deleted, pause, help and the quit dialog at 66x22."
+  }
+}

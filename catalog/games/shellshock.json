@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "id": "shellshock",
+  "title": "ShellShock",
+  "summary": "A top-down space shooter in bash: blast the falling rocks before they hit your ship.",
+  "description": "Fire starts the game and shoots; the pad flies the ship. Auto toggles autofire, Pause pauses, and Quit goes back to the title screen. Your best score is kept.",
+  "category": "arcade",
+  "tags": [
+    "shooter",
+    "space",
+    "bash"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Øyvind 'bolt' Hvidsten"
+    ],
+    "license": "GPL-2.0-only",
+    "source_url": "https://github.com/PacAnimal/shellshock",
+    "version": "git 6b072c66"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/scripts.py",
+    "source_archive": "shellshock-6b072c66.tar",
+    "source_sha256": "8578c9bfc78aef22f35638186ea0e57a881a6e23e2b37394e41c74551e685632"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_bash",
+    "args": [
+      "shellshock"
+    ],
+    "env": {
+      "BASH_ENV": "tuikio-bash.sh"
+    },
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "shellshock.v1",
+  "art": {
+    "rows": [
+      "      _|/_/]=[\\_\\|_   ",
+      "    _/     | |     \\_ ",
+      "   |_____. | | ._____|",
+      "       \\_________/    ",
+      "        |@|   |@|     ",
+      "######################"
+    ],
+    "fg": [
+      "...1111111111111111111",
+      "..11111111111111111111",
+      "..11111111111111111111",
+      "..11111111111111111111",
+      "......1112111112111111",
+      "2222222222222222222322"
+    ],
+    "bg": [
+      "0000000000000000000000",
+      "0000000000000000000000",
+      "0000000000000000000000",
+      "0000000000000000000000",
+      "0000000000000000000000",
+      "0000000000000000000000"
+    ],
+    "palette": [
+      "a0",
+      "a15",
+      "a1",
+      "a2"
+    ]
+  },
+  "saves": {
+    "paths": [
+      ".shellshock"
+    ],
+    "notes": "Best score"
+  },
+  "data_files": [
+    {
+      "asset": "games/shellshock/shellshock",
+      "dest": "shellshock",
+      "sha256": "34697985971e8b4f9dc5af11e57dba2e7b36eb70b76528f9c79f8979a24c52c2"
+    },
+    {
+      "asset": "games/shellshock/tuikio-bash.sh",
+      "dest": "tuikio-bash.sh",
+      "sha256": "19274c2265f9de41b41047f81ff12cf8d2da90732a05ab503c906f3a2f505718"
+    }
+  ],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-02",
+    "android_tested": null,
+    "notes": "Host test in a PTY at 80x24: title, start, flying, firing, rocks and score; the high score file is read as a number only."
+  }
+}

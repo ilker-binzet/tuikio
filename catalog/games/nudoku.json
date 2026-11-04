@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "id": "nudoku",
+  "title": "nudoku",
+  "summary": "A clean Sudoku with three difficulty levels and hints.",
+  "description": "Move with the pad and tap a digit under the board; Delete, Check, Hint and New are there too.",
+  "category": "puzzle",
+  "tags": [
+    "sudoku",
+    "logic",
+    "numbers"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Michael \"jubalh\" Vetter"
+    ],
+    "license": "GPL-3.0-or-later",
+    "source_url": "https://jubalh.github.io/nudoku/",
+    "version": "2.1.0"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/ubuntu.py",
+    "source_archive": "nudoku_2.1.0.orig.tar.gz",
+    "source_sha256": "eeff7f3adea5bfe7b88bf7683d68e9a597aabd1442d1621f21760c746400b924"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_nudoku",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows.v1",
+  "control_hide": [
+    "select",
+    "space",
+    "back"
+  ],
+  "keys": [
+    {
+      "label": "1",
+      "text": "1"
+    },
+    {
+      "label": "2",
+      "text": "2"
+    },
+    {
+      "label": "3",
+      "text": "3"
+    },
+    {
+      "label": "4",
+      "text": "4"
+    },
+    {
+      "label": "5",
+      "text": "5"
+    },
+    {
+      "label": "6",
+      "text": "6"
+    },
+    {
+      "label": "7",
+      "text": "7"
+    },
+    {
+      "label": "8",
+      "text": "8"
+    },
+    {
+      "label": "9",
+      "text": "9"
+    },
+    {
+      "label": "Delete",
+      "text": "x"
+    },
+    {
+      "label": "Check",
+      "text": "c"
+    },
+    {
+      "label": "Hint",
+      "text": "H"
+    },
+    {
+      "label": "New",
+      "text": "N"
+    },
+    {
+      "label": "Quit",
+      "text": "Q"
+    }
+  ],
+  "art": {
+    "rows": [
+      "┌───┬───┬───┬───┬───┬───┬─",
+      "│ 1 │ 5 │ 5 │ 3 │ 4 │ 6 │ ",
+      "├───┼───┼───┼───┼───┼───┼─",
+      "│   │   │ 6 │   │ 9 │ 8 │ ",
+      "├───┼───┼───┼───┼───┼───┼─",
+      "│ 9 │ 8 │   │ 2 │ 7 │ 5 │ ",
+      "├───┼───┼───┼───┼───┼───┼─"
+    ],
+    "fg": [
+      "00000000000000000000000000",
+      "01.1112110.001.111.110.001",
+      "01111111111101111111111101",
+      "0121112110.0012111.110.001",
+      "01111111111101111111111101",
+      "01.111.1102001.111.110.001",
+      "00000000000000000000000000"
+    ],
+    "bg": [
+      "..........................",
+      "..........................",
+      "..........................",
+      "..........................",
+      "..........................",
+      "..........................",
+      ".........................."
+    ],
+    "palette": [
+      "a12",
+      "a10",
+      "a6"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-23",
+    "android_tested": null,
+    "notes": "Host test: board and key list."
+  }
+}

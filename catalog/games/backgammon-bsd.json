@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "id": "backgammon-bsd",
+  "title": "Backgammon",
+  "summary": "Backgammon against the computer, the BSD way.",
+  "description": "Move your pieces home and bear them off before the computer does. Moves are typed as from-to pairs such as 1-5 or 12-18.",
+  "category": "strategy",
+  "tags": [
+    "board",
+    "dice",
+    "classic"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Alan Char"
+    ],
+    "license": "BSD-3-Clause",
+    "source_url": "https://salsa.debian.org/debian/bsdgames",
+    "version": "2.17 (Debian 2.17-33)"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/bsdgames.py",
+    "source_archive": "bsdgames_2.17.orig.tar.gz",
+    "source_sha256": "066f924aef6c1c5ea946f588e36f303021f5dfc093944738f025d8edbc6fff60",
+    "license_file": "bsdgames.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_backgammon_bsd",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        40,
+        16
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "text.v1",
+  "keys": [
+    {
+      "label": "0",
+      "text": "0"
+    },
+    {
+      "label": "1",
+      "text": "1"
+    },
+    {
+      "label": "2",
+      "text": "2"
+    },
+    {
+      "label": "3",
+      "text": "3"
+    },
+    {
+      "label": "4",
+      "text": "4"
+    },
+    {
+      "label": "5",
+      "text": "5"
+    },
+    {
+      "label": "6",
+      "text": "6"
+    },
+    {
+      "label": "7",
+      "text": "7"
+    },
+    {
+      "label": "8",
+      "text": "8"
+    },
+    {
+      "label": "9",
+      "text": "9"
+    },
+    {
+      "label": "Dash",
+      "text": "-"
+    },
+    {
+      "label": "Comma",
+      "text": ","
+    },
+    {
+      "label": "Double",
+      "text": "D"
+    },
+    {
+      "label": "Save",
+      "text": "S"
+    },
+    {
+      "label": "Quit",
+      "text": "Q"
+    }
+  ],
+  "art": {
+    "rows": [
+      "_____________________________",
+      "|                       |   |",
+      "|13  14  15  16  17  18 |   |",
+      "| w               r     |   |",
+      "| w               r     |   |",
+      "| w               r     |   |",
+      "| w                     |   |",
+      "| w                     |   |",
+      "|                       |BAR|"
+    ],
+    "fg": [
+      ".............................",
+      ".............................",
+      ".............................",
+      ".............................",
+      ".............................",
+      ".............................",
+      ".............................",
+      ".............................",
+      "............................."
+    ],
+    "bg": [
+      ".............................",
+      ".............................",
+      ".............................",
+      ".............................",
+      ".............................",
+      ".............................",
+      ".............................",
+      ".............................",
+      "............................."
+    ],
+    "palette": []
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-23",
+    "android_tested": null,
+    "notes": "Host test: rules prompt."
+  }
+}

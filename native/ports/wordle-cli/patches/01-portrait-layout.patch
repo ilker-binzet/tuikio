@@ -1,0 +1,44 @@
+Tuikio: stack the board, the letter keyboard and the end-of-game panels vertically instead of
+side by side, so the game fits an upright phone (about 52 columns) instead of needing 84. The
+key legend is split over two lines for the same reason. Only the layout changes.
+
+--- a/game/blocks.go
++++ b/game/blocks.go
+@@ -35,10 +35,13 @@
+ }
+ 
+ func (m *AppModel) renderTrailingBlock() string {
+-	return lipgloss.JoinHorizontal(
+-		lipgloss.Left,
+-		lipgloss.NewStyle().Padding(0, 2).Render("ctrl+c - quit"),
+-		lipgloss.NewStyle().Padding(0, 2).Render("enter - submit word"),
++	return lipgloss.JoinVertical(
++		lipgloss.Center,
++		lipgloss.JoinHorizontal(
++			lipgloss.Left,
++			lipgloss.NewStyle().Padding(0, 2).Render("ctrl+c - quit"),
++			lipgloss.NewStyle().Padding(0, 2).Render("enter - submit word"),
++		),
+ 		lipgloss.NewStyle().Padding(0, 2).Render("backspace - remove last"),
+ 	)
+ }
+--- a/game/model.go
++++ b/game/model.go
+@@ -93,14 +93,14 @@
+ 			finalBlock = m.renderFinalMessageBlock()
+ 		}
+ 
+-		return lipgloss.JoinHorizontal(lipgloss.Top, grid, finalBlock)
++		return lipgloss.JoinVertical(lipgloss.Center, grid, finalBlock)
+ 	}
+ 
+ 	keyboard := m.renderKeyboard()
+ 
+-	trailing := lipgloss.NewStyle().Padding(2, 0).Render(m.renderTrailingBlock())
++	trailing := lipgloss.NewStyle().Padding(1, 0).Render(m.renderTrailingBlock())
+ 
+-	game := lipgloss.JoinHorizontal(lipgloss.Top, grid, keyboard)
++	game := lipgloss.JoinVertical(lipgloss.Center, grid, keyboard)
+ 	return lipgloss.JoinVertical(lipgloss.Center, game, trailing)
+ }
+ 

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "profile_id": "qbert.v1",
+  "title": "Diagonal hops",
+  "help": "The pad hops diagonally, the way the cubes are stacked: up-left (u), up-right (i), down-left (j) and down-right (k). Again is Enter.",
+  "orientation": "any",
+  "actions": [
+    {"id": "upleft", "label": "Up-left", "output": {"text": "u"}, "haptic": "tick"},
+    {"id": "upright", "label": "Up-right", "output": {"text": "i"}, "haptic": "tick"},
+    {"id": "downleft", "label": "Down-left", "output": {"text": "j"}, "haptic": "tick"},
+    {"id": "downright", "label": "Down-right", "output": {"text": "k"}, "haptic": "tick"},
+    {"id": "again", "label": "Again", "icon": "check", "output": {"key": "ENTER"}},
+    {"id": "quit", "label": "Quit", "icon": "close", "output": {"text": "q"}, "confirm": true}
+  ],
+  "layout": {
+    "portrait": [
+      {"type": "dpad8", "anchor": "bottom_start", "size": 200, "bind": {"up_left": "upleft", "up_right": "upright", "down_left": "downleft", "down_right": "downright"}},
+      {"type": "button", "anchor": "bottom_end", "size": 72, "bind": {"press": "again"}},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "quit"}}
+    ],
+    "landscape": [
+      {"type": "dpad8", "anchor": "center_start", "size": 192, "bind": {"up_left": "upleft", "up_right": "upright", "down_left": "downleft", "down_right": "downright"}},
+      {"type": "button", "anchor": "center_end", "size": 72, "bind": {"press": "again"}},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "quit"}}
+    ]
+  },
+  "pointer": "none",
+  "keyboard": true
+}

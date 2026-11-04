@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-chess",
+  "title": "Chess (Shell Games)",
+  "summary": "Chess for two players on one phone, with legal-move hints.",
+  "description": "Move the cursor with the pad, Select a piece and its valid squares light up, then Select the target. Check, checkmate and stalemate are detected. Pieces switches between symbols and letters.",
+  "category": "strategy",
+  "tags": [
+    "chess",
+    "board",
+    "two players",
+    "shell games"
+  ],
+  "players": "2",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "chess"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        56,
+        23
+      ],
+      "preferred": [
+        56,
+        23
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows.v1",
+  "control_labels": {
+    "select": "Select"
+  },
+  "control_hide": [
+    "space",
+    "back"
+  ],
+  "keys": [
+    {
+      "label": "Pieces",
+      "text": "u"
+    }
+  ],
+  "art": {
+    "rows": [
+      "8 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜ 8   CHESS   ",
+      "7 ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟ 7           ",
+      "6   ·   ·   ·   · 6   Turn: Bl",
+      "5 ·   ·   ·   ·   5           ",
+      "4   ·   · ♙ ·   · 4           ",
+      "3 ·   ·   ·   ·   3           ",
+      "2 ♙ ♙ ♙ ♙   ♙ ♙ ♙ 2           ",
+      "1 ♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖ 1           "
+    ],
+    "fg": [
+      "000000000000000000000022222...",
+      "0000000000000000000...........",
+      "000000000000000000000000000000",
+      "0000000010000000000...........",
+      "0000000000000000000...........",
+      "0000000000000000000...........",
+      "0000000000000000000...........",
+      "0000000000000000000..........."
+    ],
+    "bg": [
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111110111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111"
+    ],
+    "palette": [
+      "a7",
+      "a0",
+      "a11"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: board, e2-e4. Fixed: the info panel ran off the screen."
+  }
+}

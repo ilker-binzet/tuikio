@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-breakout",
+  "title": "Breakout (Shell Games)",
+  "summary": "Bounce the ball off your paddle and break every brick.",
+  "description": "Slide the paddle with left and right to keep the ball in play. Launch serves the ball, and starts a new game when it's over. Three lives, levels of bricks.",
+  "category": "arcade",
+  "tags": [
+    "breakout",
+    "paddle",
+    "bricks",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "breakout"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        42,
+        30
+      ],
+      "preferred": [
+        42,
+        30
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "shooter.v1",
+  "control_labels": {
+    "fire": "Launch"
+  },
+  "art": {
+    "rows": [
+      "|-----------------------------",
+      "|                             ",
+      "|[#] [#] [#] [#] [#] [#] [#] [",
+      "|[#] [#] [#] [#] [#] [#] [#] [",
+      "|[#] [#] [#] [#] [#] [#] [#] [",
+      "|[#] [#] [#] [#] [#] [#] [#] [",
+      "|[#] [#] [#] [#] [#] [#] [#] [",
+      "|[#] [#]     [#] [#] [#] [#]  "
+    ],
+    "fg": [
+      "000000000000000000000000000000",
+      "0.............................",
+      "022202220222022202220222022202",
+      "033303330333033303330333033303",
+      "044404440444044404440444044404",
+      "055505550555055505550555055505",
+      "066606660666066606660666066606",
+      "077707770000077707770777077700"
+    ],
+    "bg": [
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111"
+    ],
+    "palette": [
+      "a7",
+      "a0",
+      "a9",
+      "a11",
+      "a13",
+      "a10",
+      "a14",
+      "a15"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: bricks, paddle moves, ball in play."
+  }
+}

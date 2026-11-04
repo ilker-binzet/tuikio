@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-hangman",
+  "title": "Hangman (Shell Games)",
+  "summary": "Guess the word one letter at a time before the man is hanged.",
+  "description": "Type a letter to guess it. Six wrong guesses and the game is lost. Enter starts a new word.",
+  "category": "words",
+  "tags": [
+    "hangman",
+    "words",
+    "letters",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "hangman"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape",
+    "input": "typing"
+  },
+  "controls": "text.v1",
+  "control_labels": {
+    "enter": "New word"
+  },
+  "control_hide": [
+    "erase"
+  ],
+  "art": {
+    "rows": [
+      "  +---+                       ",
+      "  |   |                       ",
+      "  O   |       __a_o_          ",
+      "  |   |                       ",
+      "      |       Wrong:          ",
+      "      |       e t             ",
+      "=========                     ",
+      "              Attempts left: 4"
+    ],
+    "fg": [
+      ".111111.......................",
+      ".111111.......................",
+      "..1..111111111222222..........",
+      "..1..11.......................",
+      ".....111111111333333..........",
+      ".....11.......4.4.............",
+      "111111111.....................",
+      ".............15555555555555555"
+    ],
+    "bg": [
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000"
+    ],
+    "palette": [
+      "a0",
+      "a7",
+      "a15",
+      "a1",
+      "a9",
+      "a5"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: gallows and word; letters guessed. Fixed: q quit at once, so words with a q (queen) couldn't be finished; Esc quits now."
+  }
+}

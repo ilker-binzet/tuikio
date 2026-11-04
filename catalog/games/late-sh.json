@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "id": "late-sh",
+  "title": "Late.sh",
+  "summary": "A cozy terminal clubhouse over SSH: chat, news and an arcade of small games.",
+  "description": "Move between screens with the pad and Select; the keyboard is up for chatting. It includes public chat with strangers: what you write there, everyone sees.",
+  "category": "arcade",
+  "tags": [
+    "social",
+    "chat",
+    "arcade",
+    "online"
+  ],
+  "players": "many",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Mateusz Piórowski"
+    ],
+    "license": "FSL-1.1-MIT",
+    "source_url": "https://github.com/mpiorowski/late-sh",
+    "version": null
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/online.py",
+    "source_archive": "dropbear-b1b4e349.tar",
+    "source_sha256": "ddee40eeaceeed59ea3e0f5e241cc2f4343edc9dca84f2a13c5ed01c66a845c1",
+    "license_file": "dropbear.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_ssh",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape",
+    "input": "typing"
+  },
+  "controls": "arrows.v1",
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "required",
+  "online": {
+    "protocol": "ssh",
+    "host": "late.sh"
+  },
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Not played from the build machine (it can't reach the server). The client was tested against a local server: connecting by the app-resolved address, terminal type and size, input and output."
+  }
+}

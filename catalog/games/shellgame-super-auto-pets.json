@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-super-auto-pets",
+  "title": "Super Auto Pets (Shell Games)",
+  "summary": "Buy pets, build a team and watch it battle.",
+  "description": "Buy pets and food from the shop with a to f, sell a pet with Sell and its number, and Battle when your team is ready. Ten lives; each win brings more gold.",
+  "category": "strategy",
+  "tags": [
+    "auto battler",
+    "pets",
+    "shop",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "superautopets"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        63,
+        23
+      ],
+      "preferred": [
+        63,
+        23
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "text.v1",
+  "control_labels": {
+    "enter": "Battle"
+  },
+  "control_hide": [
+    "space",
+    "erase"
+  ],
+  "keys": [
+    {
+      "label": "a",
+      "text": "a"
+    },
+    {
+      "label": "b",
+      "text": "b"
+    },
+    {
+      "label": "c",
+      "text": "c"
+    },
+    {
+      "label": "d",
+      "text": "d"
+    },
+    {
+      "label": "e",
+      "text": "e"
+    },
+    {
+      "label": "f",
+      "text": "f"
+    },
+    {
+      "label": "Sell",
+      "text": "s"
+    },
+    {
+      "label": "1",
+      "text": "1"
+    },
+    {
+      "label": "2",
+      "text": "2"
+    },
+    {
+      "label": "3",
+      "text": "3"
+    },
+    {
+      "label": "4",
+      "text": "4"
+    },
+    {
+      "label": "5",
+      "text": "5"
+    }
+  ],
+  "art": {
+    "rows": [
+      "SUPER AUTO PETS — Round 1     ",
+      "  Gold: 8     Lives: 10     St",
+      "------------------------------",
+      ":                             ",
+      " Ant [2/1]            [#######",
+      " Fish [2/2]           [#######",
+      " Mosquito [2/2]       [#######",
+      " Cricket [1/2]        [#######"
+    ],
+    "fg": [
+      "0000000000000000000000000.....",
+      ".23333333333333333333333333333",
+      "222222222222222222222222222222",
+      "4.............................",
+      "555555555522222222222226666666",
+      "555555555552222222222226666666",
+      "555555555555555222222226666666",
+      "55555555555555........26666666"
+    ],
+    "bg": [
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111"
+    ],
+    "palette": [
+      "a11",
+      "a0",
+      "a7",
+      "a6",
+      "a13",
+      "a9",
+      "a2"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: shop, buying, a battle."
+  }
+}

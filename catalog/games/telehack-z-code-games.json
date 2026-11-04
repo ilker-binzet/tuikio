@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "telehack-z-code-games",
+  "title": "Telehack",
+  "summary": "A recreation of the 1980s ARPANET and Usenet, with dozens of text games (Zork, adventure, and more).",
+  "description": "Type commands and press Enter: `help` lists them, `zork` or `advent` starts a game, `games` lists the rest. Other people are online too.",
+  "category": "adventure",
+  "tags": [
+    "text adventure",
+    "zork",
+    "retro",
+    "online"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Telehack"
+    ],
+    "license": "LicenseRef-online-service",
+    "source_url": "https://telehack.com/telehack.html",
+    "version": null
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/online.py",
+    "source_archive": null,
+    "source_sha256": null,
+    "license_file": "tuikio-GPL-3.0.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_telnet",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        48,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "portrait",
+    "wrap": "words",
+    "input": "typing"
+  },
+  "controls": "text.v1",
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "required",
+  "online": {
+    "protocol": "telnet",
+    "host": "telehack.com"
+  },
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Not played from the build machine (it can't reach the server). The client was tested against a local server: connecting by the app-resolved address, terminal type and size, input and output."
+  }
+}

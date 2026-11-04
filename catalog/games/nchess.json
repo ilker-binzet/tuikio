@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "id": "nchess",
+  "title": "NChess",
+  "summary": "Two-player chess on one screen, with the moves listed beside the board.",
+  "description": "For two players taking turns: move the cursor with the pad, Pick a piece and Pick the square it goes to. Only legal moves are allowed. Menu pauses with Resume, Restart and Exit.",
+  "category": "strategy",
+  "tags": [
+    "chess",
+    "board",
+    "two players"
+  ],
+  "players": "2",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Billy Vinning"
+    ],
+    "license": "GPL-3.0-only",
+    "source_url": "https://github.com/billyvinning/nchess",
+    "version": "git 74897115"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/boards.py",
+    "source_archive": "nchess-74897115.tar",
+    "source_sha256": "15fa4a6b517d7154b6872cffba0e3018b61593c14936da792b497aa0efcaa74b"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_nchess",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        62,
+        20
+      ],
+      "preferred": [
+        62,
+        20
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows.v1",
+  "control_labels": {
+    "select": "OK",
+    "space": "Pick",
+    "back": "Menu"
+  },
+  "art": {
+    "rows": [
+      "│ p  p  p  p     p  p  p │ │  ",
+      "│                        │ │  ",
+      "│             p          │ │  ",
+      "│             p          │ │  ",
+      "│                        │ │  ",
+      "│ p  p  p  p     p  p  p │ │  ",
+      "│ R  k  B  Q  K  B  k  R │ │  ",
+      "└────────────────────────┘ └──"
+    ],
+    "fg": [
+      "0222222222222333222222222000..",
+      "0333333333333333333333333000..",
+      "0333333333333000333333333000..",
+      "0333333333333333333333333000..",
+      "0333333333333333333333333000..",
+      "0333333333333333333333333000..",
+      "0333333333333333333333333000..",
+      "000000000000000000000000000000"
+    ],
+    "bg": [
+      "100011100011100011100011111111",
+      "111100011100011100011100011111",
+      "100011100011122211100011111111",
+      "111100011100011100011100011111",
+      "100011100011100011100011111111",
+      "111100011100011100011100011111",
+      "100011100011100011100011111111",
+      "111111111111111111111111111111"
+    ],
+    "palette": [
+      "a7",
+      "a0",
+      "a1",
+      "a4"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: menu, a2a4 played and listed, the pause menu at 62x20."
+  }
+}

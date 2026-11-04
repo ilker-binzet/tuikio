@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "id": "yetris",
+  "title": "yetris",
+  "summary": "A full-featured Tetris clone: hold, ghost piece, statistics and colourful menus.",
+  "description": "Pick Single Player, then Start Game. Up turns the piece, Drop hard-drops it, Hold keeps it for later and OK pauses with a menu. Game settings set the starting level, noise and more; your profile keeps scores and statistics.",
+  "category": "arcade",
+  "tags": [
+    "blocks",
+    "tetris",
+    "hold"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Alexandre Dantas"
+    ],
+    "license": "GPL-3.0-or-later",
+    "source_url": "https://github.com/alexdantas/yetris",
+    "version": "git cf3fee6c"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/boards.py",
+    "source_archive": "yetris-cf3fee6c.tar",
+    "source_sha256": "cc81bce294b3a26f36721b59e7f436ad4dfc94664469f92fe27ad6920f149080"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_yetris",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "blocks.v1",
+  "control_labels": {
+    "ok": "OK"
+  },
+  "control_hide": [
+    "back"
+  ],
+  "keys": [
+    {
+      "label": "Hold",
+      "text": "c"
+    },
+    {
+      "label": "Turn left",
+      "text": "z"
+    },
+    {
+      "label": "Pause",
+      "text": "p"
+    },
+    {
+      "label": "Help",
+      "text": "h"
+    }
+  ],
+  "art": {
+    "rows": [
+      "             ││        ││ ",
+      "][][][]      ││        ││ ",
+      "             ││        ││ ",
+      "             ││        ││ ",
+      "             ││        ││y",
+      "─────────────┘└────────┘└─",
+      "──────────────────────────"
+    ],
+    "fg": [
+      ".............0122......11.",
+      "1111111......01222222..11.",
+      ".44444422....01........11.",
+      ".44....2222..01....44..11.",
+      "222....22....01444444..117",
+      "00000000000000111111111111",
+      "00000000000000000000000000"
+    ],
+    "bg": [
+      "...............33.........",
+      "2222222........333333.....",
+      ".55555566.................",
+      ".55....6666........55.....",
+      "333....66......555555.....",
+      "..........................",
+      ".........................."
+    ],
+    "palette": [
+      "a0",
+      "a8",
+      "a7",
+      "a4",
+      "a15",
+      "a3",
+      "a5",
+      "a6"
+    ]
+  },
+  "saves": {
+    "paths": [
+      ".local/share/yetris"
+    ],
+    "notes": "Profile: settings, high scores and statistics"
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: first-run profile prompt, main menu, a game with rotation, pause menu, game over and restart at 80x24."
+  }
+}

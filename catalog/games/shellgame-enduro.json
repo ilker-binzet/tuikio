@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-enduro",
+  "title": "Enduro (Shell Games)",
+  "summary": "Weave through traffic for four days on the open road.",
+  "description": "Steer left and right to pass the cars ahead without touching them. Survive four days to win.",
+  "category": "arcade",
+  "tags": [
+    "racing",
+    "enduro",
+    "classic",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "enduro"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        28,
+        27
+      ],
+      "preferred": [
+        28,
+        27
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "shooter.v1",
+  "control_hide": [
+    "fire"
+  ],
+  "keys": [
+    {
+      "label": "Again",
+      "key": "ENTER"
+    }
+  ],
+  "art": {
+    "rows": [
+      "''''|      ||      |  ''''",
+      "''''|  [#] ||      |  ''''",
+      "''''|      ||      |  ''''",
+      "''''|         [#]  |  ''''",
+      "''''|              |  ''''",
+      "''''|              |  ''''",
+      "''''|      ||      |  ''''"
+    ],
+    "fg": [
+      "00002..3333333333..2220000",
+      "00002334443333333332220000",
+      "00002333333333333332220000",
+      "00002333333333444332220000",
+      "00002......33......2220000",
+      "00002......33......2220000",
+      "00002......33......2220000"
+    ],
+    "bg": [
+      "11111111111111111111111111",
+      "11111111111111111111111111",
+      "11111111111111111111111111",
+      "11111111111111111111111111",
+      "11111111111111111111111111",
+      "11111111111111111111111111",
+      "11111111111111111111111111"
+    ],
+    "palette": [
+      "a2",
+      "a0",
+      "a7",
+      "a4",
+      "a9"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: road, traffic, steering."
+  }
+}

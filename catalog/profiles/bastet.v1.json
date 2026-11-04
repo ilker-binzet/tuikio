@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "profile_id": "bastet.v1",
+  "title": "Bastet",
+  "help": "Left and right slide the piece, Down drops it a row, Up turns it to the left and Turn to the right. Drop sends it to the floor. In the menus the pad chooses and OK picks.",
+  "orientation": "portrait",
+  "actions": [
+    {
+      "id": "left",
+      "label": "Left",
+      "icon": "arrow_left",
+      "output": {
+        "key": "LEFT"
+      },
+      "repeat": {
+        "delay_ms": 170,
+        "interval_ms": 55
+      }
+    },
+    {
+      "id": "right",
+      "label": "Right",
+      "icon": "arrow_right",
+      "output": {
+        "key": "RIGHT"
+      },
+      "repeat": {
+        "delay_ms": 170,
+        "interval_ms": 55
+      }
+    },
+    {
+      "id": "rotate",
+      "label": "Turn left",
+      "icon": "rotate",
+      "output": {
+        "key": "UP"
+      }
+    },
+    {
+      "id": "soft",
+      "label": "Down",
+      "icon": "arrow_down",
+      "output": {
+        "key": "DOWN"
+      },
+      "repeat": {
+        "delay_ms": 120,
+        "interval_ms": 45
+      }
+    },
+    {
+      "id": "drop",
+      "label": "Drop",
+      "icon": "drop",
+      "output": {
+        "key": "ENTER"
+      },
+      "haptic": "heavy",
+      "states": [
+        {
+          "when": "Play! \\(normal version\\)|\\*\\*(Normal|Hard) difficulty\\*\\*|Press SPACE or ENTER|Press the key you wish",
+          "label": "OK"
+        }
+      ]
+    },
+    {
+      "id": "turn",
+      "label": "Turn",
+      "icon": "rotate",
+      "output": {
+        "text": " "
+      }
+    },
+    {
+      "id": "pause",
+      "label": "Pause",
+      "icon": "pause",
+      "output": {
+        "text": "p"
+      },
+      "states": [
+        {
+          "when": "resume the game",
+          "label": "Resume",
+          "icon": "play",
+          "output": {
+            "key": "ENTER"
+          }
+        }
+      ]
+    }
+  ],
+  "layout": {
+    "portrait": [
+      {
+        "type": "dpad4",
+        "anchor": "bottom_start",
+        "size": 184,
+        "bind": {
+          "up": "rotate",
+          "down": "soft",
+          "left": "left",
+          "right": "right"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "bottom_end",
+        "size": 96,
+        "bind": {
+          "press": "drop"
+        },
+        "style": "primary"
+      },
+      {
+        "type": "button",
+        "anchor": "center_end",
+        "offset": [
+          0,
+          -20
+        ],
+        "size": 64,
+        "bind": {
+          "press": "turn"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "top_end",
+        "size": 52,
+        "bind": {
+          "press": "pause"
+        }
+      }
+    ],
+    "landscape": [
+      {
+        "type": "dpad4",
+        "anchor": "center_start",
+        "size": 176,
+        "bind": {
+          "up": "rotate",
+          "down": "soft",
+          "left": "left",
+          "right": "right"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "center_end",
+        "size": 92,
+        "bind": {
+          "press": "drop"
+        },
+        "style": "primary"
+      },
+      {
+        "type": "button",
+        "anchor": "bottom_end",
+        "size": 56,
+        "bind": {
+          "press": "turn"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "top_end",
+        "size": 52,
+        "bind": {
+          "press": "pause"
+        }
+      }
+    ]
+  },
+  "gestures": {
+    "swipe_up": "rotate",
+    "swipe_down": "drop",
+    "swipe_left": "left",
+    "swipe_right": "right"
+  },
+  "pointer": "none",
+  "keyboard": true
+}

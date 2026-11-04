@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "id": "npush",
+  "title": "nPush",
+  "summary": "Push rocks, collect gold, blow your way out with dynamite: 18 hand-made puzzles.",
+  "description": "A Sokoban-like puzzle game: gather every piece of gold, then reach the exit. Rocks can be pushed or blasted; some levels give you several characters to switch between. Undo takes a move back.",
+  "category": "puzzle",
+  "tags": [
+    "sokoban",
+    "puzzle",
+    "dynamite"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "the nPush developers"
+    ],
+    "license": "GPL-2.0-or-later",
+    "source_url": "https://npush.sourceforge.net/",
+    "version": "0.7"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/more.py",
+    "source_archive": "npush-0.7.tgz",
+    "source_sha256": "f216d2b3279e8737784f77d4843c9e6f223fa131ce1ebddaf00ad802aba2bcd9"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_npush",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows.v1",
+  "control_labels": {
+    "select": "Action"
+  },
+  "control_hide": [
+    "space",
+    "back"
+  ],
+  "keys": [
+    {
+      "label": "Switch",
+      "key": "TAB"
+    },
+    {
+      "label": "Undo",
+      "text": "u"
+    },
+    {
+      "label": "Quit",
+      "text": "q"
+    }
+  ],
+  "art": {
+    "rows": [
+      "Level 1 - Gold and Exit       ",
+      "                              ",
+      "###############      Game Elem",
+      "#             #               ",
+      "# $         $ #      @ - playe",
+      "#             #      # - wall ",
+      "#     @       #      $ - gold ",
+      "#             #      x - exit "
+    ],
+    "fg": [
+      "00000000000000000000000.......",
+      "..............................",
+      "222222222222222......333333333",
+      "2.............2...............",
+      "234.........432......333333333",
+      "2.............2......333333333",
+      "2333335.......2......33333333.",
+      "2.............2......333333333"
+    ],
+    "bg": [
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111"
+    ],
+    "palette": [
+      "a15",
+      "a0",
+      "a3",
+      "a7",
+      "a11",
+      "a12"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [
+    {
+      "asset": "games/npush/levels/Level_01_-_Gold_and_Exit",
+      "dest": "levels/Level_01_-_Gold_and_Exit",
+      "sha256": "544fd4989524f83a107974bfb3cfb3c11a896988b1125fea9a6f6e0aaee3cdec"
+    },
+    {
+      "asset": "games/npush/levels/Level_02_-_Rocks",
+      "dest": "levels/Level_02_-_Rocks",
+      "sha256": "209f48ac9ef7ae4b06446c4eb9f49226b9545146fa0c11eb3c6ca553fd5b8b3d"
+    },
+    {
+      "asset": "games/npush/levels/Level_03_-_Dynamite",
+      "dest": "levels/Level_03_-_Dynamite",
+      "sha256": "f41dd8bc8ff439987f6105c577ed0dea89af62e139e8bde716f4dc1680b58ecc"
+    },
+    {
+      "asset": "games/npush/levels/Level_04_-_The_Show_Starts",
+      "dest": "levels/Level_04_-_The_Show_Starts",
+      "sha256": "0bf2db5a33ea27a9805d6f0379c6f4684e5df48cfabdd3e4b87778916e61e956"
+    },
+    {
+      "asset": "games/npush/levels/Level_05_-_The_Triangle",
+      "dest": "levels/Level_05_-_The_Triangle",
+      "sha256": "10d2f49a4cd73bcaefaf567de848badf292549f67366cacd92720782fe567b10"
+    },
+    {
+      "asset": "games/npush/levels/Level_06_-_Moving_along",
+      "dest": "levels/Level_06_-_Moving_along",
+      "sha256": "2f5a27b98de330b990591c57258687e9b4e2a53ec810fe81f2fe6bc3bb9c2bf9"
+    },
+    {
+      "asset": "games/npush/levels/Level_07_-_Duality",
+      "dest": "levels/Level_07_-_Duality",
+      "sha256": "c2503b97585d1d723bc4d5bfea1fb2565e428b1bd04a7eb28e8cd6d94c17c870"
+    },
+    {
+      "asset": "games/npush/levels/Level_08_-_Traps_and_Treasure",
+      "dest": "levels/Level_08_-_Traps_and_Treasure",
+      "sha256": "6ddac092b0fa684f1a0650eb0a71e946de256a6b225764abab2f48ff1433f5c7"
+    },
+    {
+      "asset": "games/npush/levels/Level_09_-_Cooperation",
+      "dest": "levels/Level_09_-_Cooperation",
+      "sha256": "345b421bcbe8f14dc1ed5a3cbfdc07f1555c9db68c230d5ce13d2702c4502030"
+    },
+    {
+      "asset": "games/npush/levels/Level_10_-_Golden_Age",
+      "dest": "levels/Level_10_-_Golden_Age",
+      "sha256": "2fd4bca83d4c2ebcb61bae2b16c0da8489ffe24a0f2f1e1b8f102ab742122637"
+    },
+    {
+      "asset": "games/npush/levels/Level_11_-_Story_of_a_lifetime",
+      "dest": "levels/Level_11_-_Story_of_a_lifetime",
+      "sha256": "61337c01930cfd638640917a1fa2b6fe9d2150bbe74ddef4a591a0f7ebf6b904"
+    },
+    {
+      "asset": "games/npush/levels/Level_12_-_In_the_Mine",
+      "dest": "levels/Level_12_-_In_the_Mine",
+      "sha256": "0d98fa400b1a9969a403b66d815d22ea77360c2752b1a0a0f4054607d9ceadc8"
+    },
+    {
+      "asset": "games/npush/levels/Level_13_-_Warm-up",
+      "dest": "levels/Level_13_-_Warm-up",
+      "sha256": "4c4cf9ebf41dd8894d979d9740f5bdd9653ffe9e1e034ffa17c8f901f1d71171"
+    },
+    {
+      "asset": "games/npush/levels/Level_14_-_To_and_fro",
+      "dest": "levels/Level_14_-_To_and_fro",
+      "sha256": "b6e61345a6274dbd5829337c6c070dbf24a57b1f765c4a6a67dae1712247d0ce"
+    },
+    {
+      "asset": "games/npush/levels/Level_15_-_Little_by_little",
+      "dest": "levels/Level_15_-_Little_by_little",
+      "sha256": "6380203877fe8d3059cd92f642924c0f559638d4515a0f812e0aa53b05ac7dfd"
+    },
+    {
+      "asset": "games/npush/levels/Level_16_-_The_break_in",
+      "dest": "levels/Level_16_-_The_break_in",
+      "sha256": "3fb14683f1cbbed0a8652c33a946830866064a761502af67db041603a8533788"
+    },
+    {
+      "asset": "games/npush/levels/Level_17_-_The_great_escape",
+      "dest": "levels/Level_17_-_The_great_escape",
+      "sha256": "28d1688951358f275ea4cce72a0dc6d57fbdce6d89a665dac792ce43dd533de1"
+    },
+    {
+      "asset": "games/npush/levels/Level_18_-_The_one_road",
+      "dest": "levels/Level_18_-_The_one_road",
+      "sha256": "52111cb4af7c3ea3173c85f2ffdd8d8299dd8c13dbe25f554126a20bdf1e6059"
+    }
+  ],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test: level list, level 1, moving."
+  }
+}

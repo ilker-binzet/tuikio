@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "id": "bastet",
+  "title": "Bastet",
+  "summary": "Bastard Tetris: it always picks the piece you least want.",
+  "description": "A falling-blocks game whose block chooser studies the well and hands you the worst possible piece. Left and right slide, Up and Turn rotate, Drop sends the piece down, Pause stops the clock. The harder version doesn't even show the next piece.",
+  "category": "arcade",
+  "tags": [
+    "blocks",
+    "tetris",
+    "evil"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Federico Poloni"
+    ],
+    "license": "GPL-3.0-or-later",
+    "source_url": "https://fph.altervista.org/prog/bastet.html",
+    "version": "0.43"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/boards.py",
+    "source_archive": "bastet_0.43.orig.tar.gz",
+    "source_sha256": "e208c68684cc9b818a08b0d3f5f1e7ef381b1e4d8bc801a90b5ff6a8f00d8168"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_bastet",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        54,
+        24
+      ],
+      "preferred": [
+        54,
+        24
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "bastet.v1",
+  "art": {
+    "rows": [
+      "────────────┐ ┌──────────────┐",
+      "            │ │ Next block:  │",
+      "            │ │              │",
+      "            │ │              │",
+      "            │ │              │",
+      "            │ │              │",
+      "            │ └──────────────┘",
+      "            │ ┌──────────────┐"
+    ],
+    "fg": [
+      "0000000000000.0000000000000000",
+      "000000......0.0222222222222000",
+      "0000000000..0.0..............0",
+      "1111........0.0......1100....0",
+      "1111........0.0....11111100..0",
+      "............0.0..............0",
+      "............0.0000000000000000",
+      "............0.0000000000000000"
+    ],
+    "bg": [
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "000011111111111111111331111111",
+      "000011111111111111133333311111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111"
+    ],
+    "palette": [
+      "a7",
+      "a0",
+      "a1",
+      "a5"
+    ]
+  },
+  "saves": {
+    "paths": [
+      "bastet.scores2",
+      ".bastetrc"
+    ],
+    "notes": "High scores and key settings"
+  },
+  "data_files": [
+    {
+      "asset": "games/bastet/bastet.scores2",
+      "dest": "bastet.scores2",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: menu, a game played to the end with Drop, the high score table, back to the menu. Boost 1.83 (headers and Program_options) is built in."
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "id": "open-adventure",
+  "title": "Open Adventure",
+  "summary": "Colossal Cave Adventure, the 430-point version, kept alive by its original authors' blessing.",
+  "description": "The 1977 adventure that started it all, in the version Crowther and Woods last released, maintained by Eric S. Raymond. Type commands of one or two words: north, take lamp, xyzzy. Save and resume cost a few points, as in the original.",
+  "category": "adventure",
+  "tags": [
+    "text adventure",
+    "interactive fiction",
+    "classic"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Will Crowther",
+      "Don Woods",
+      "Eric S. Raymond"
+    ],
+    "license": "BSD-2-Clause",
+    "source_url": "https://gitlab.com/esr/open-adventure",
+    "version": "git e6160529"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/more.py",
+    "source_archive": "open-adventure-e6160529.tar",
+    "source_sha256": "0dc485fef71f6cac34a4819ead87646b063ad29da35b38c0d690f4d58ad837a0"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_advent",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        48,
+        32
+      ],
+      "preferred": [
+        48,
+        32
+      ]
+    },
+    "orientation": "portrait",
+    "wrap": "words",
+    "input": "typing"
+  },
+  "controls": "text.v1",
+  "art": {
+    "rows": [
+      "You are standing at the en",
+      "small brick building.     ",
+      "Around you is a forest.  A",
+      "out of the building and   ",
+      "down a gully.             ",
+      "                          ",
+      "> enter building          "
+    ],
+    "fg": [
+      "..........................",
+      "..........................",
+      "..........................",
+      "..........................",
+      "..........................",
+      "..........................",
+      ".........................."
+    ],
+    "bg": [
+      "..........................",
+      "..........................",
+      "..........................",
+      "..........................",
+      "..........................",
+      "..........................",
+      ".........................."
+    ],
+    "palette": []
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test: instructions, building, inventory, save prompt."
+  }
+}

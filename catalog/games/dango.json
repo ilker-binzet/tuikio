@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "id": "dango",
+  "title": "Dango (Go board)",
+  "summary": "A Go board for two players on one phone, with captures, ko and scoring.",
+  "description": "Move the cursor with the pad and Place puts a stone; players take turns. Pass twice to end the game. Choose the board size (9, 13, 19) and komi in the menu.",
+  "category": "strategy",
+  "tags": [
+    "go",
+    "baduk",
+    "two-player",
+    "python"
+  ],
+  "players": "2",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "gsobell"
+    ],
+    "license": "GPL-3.0-only",
+    "source_url": "https://github.com/gsobell/dango",
+    "version": "git 18d2f72b"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/python.py",
+    "source_archive": "dango-18d2f72b.tar",
+    "source_sha256": "90a0101eff167e3af41dc6bddbca5a4634ba6aaef438dc671618db8ecc34974f"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_python",
+    "args": [
+      "dango"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows.v1",
+  "control_labels": {
+    "select": "Place"
+  },
+  "control_hide": [
+    "back"
+  ],
+  "keys": [
+    {
+      "label": "Pass",
+      "text": "p"
+    },
+    {
+      "label": "Undo",
+      "text": "u"
+    },
+    {
+      "label": "Quit",
+      "text": "q"
+    }
+  ],
+  "art": {
+    "rows": [
+      " · · · · · · · · · · · · · · ·",
+      " · · · · · · · · · · · · · · ·",
+      " · · · · · · · · · · · · · · ·",
+      " · · · · · · · · · · · · · · ·",
+      " · · · · · · · · · · · · · · ·",
+      " · · · · · · · · · · · · · · ·",
+      " · · · · · · · · · · · · · · ·",
+      " · · · · · · · · · · · · · · ·"
+    ],
+    "fg": [
+      "011111111111111111111111111111",
+      "011111111111111111111111111111",
+      "011111111111111111111111111111",
+      "011111111111111111111111111111",
+      "011111111111111111111111111111",
+      "011111111111111111111111111111",
+      "011111111111111111111111111111",
+      "011111111111111111111111111111"
+    ],
+    "bg": [
+      "122222222222222222222222222222",
+      "122222222222222222222222222222",
+      "122222222222222222222222222222",
+      "122222222222222222222222222222",
+      "122222222222222222222222222222",
+      "122222222222222222222222222222",
+      "122222222222222222222222222222",
+      "122222222222222222222222222222"
+    ],
+    "palette": [
+      "a7",
+      "a0",
+      "a3"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test in a PTY at 80x24: menu, the 19x19 board, placing stones."
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "sshtron",
+  "title": "SSHTron",
+  "summary": "Multiplayer light cycles over SSH: steer your trail and make the others crash into it.",
+  "description": "Everyone connected plays on the same arena. The pad steers. Leave from the pause menu.",
+  "category": "arcade",
+  "tags": [
+    "tron",
+    "multiplayer",
+    "online"
+  ],
+  "players": "2+",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Zach Latta",
+      "Max Wofford"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/zachlatta/sshtron",
+    "version": null
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/online.py",
+    "source_archive": "dropbear-b1b4e349.tar",
+    "source_sha256": "ddee40eeaceeed59ea3e0f5e241cc2f4343edc9dca84f2a13c5ed01c66a845c1",
+    "license_file": "dropbear.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_ssh",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows4.v1",
+  "control_hide": [
+    "quit"
+  ],
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "required",
+  "online": {
+    "protocol": "ssh",
+    "host": "sshtron.zachlatta.com"
+  },
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Not played from the build machine (it can't reach the server). The client was tested against a local server: connecting by the app-resolved address, terminal type and size, input and output."
+  }
+}

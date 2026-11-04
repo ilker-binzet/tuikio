@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "id": "threes-c",
+  "title": "Threes",
+  "summary": "Threes in C: slide the board, add 1 and 2 to make 3, then match the threes.",
+  "description": "Every move slides the whole board one step. 1 and 2 make 3; from then on only equal numbers merge.",
+  "category": "puzzle",
+  "tags": [
+    "threes",
+    "numbers",
+    "sliding"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Harsh Vakharia"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/harshjv/threes-c",
+    "version": "git 369a0087"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/github.py",
+    "source_archive": "threes-c-369a0087.tar",
+    "source_sha256": "6aea9575f0916df9174fed3519968e576c1bb96fc40d98b5015e3b642c1c0d2b"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_threes",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "wasd4.v1",
+  "art": {
+    "rows": [
+      "                          ",
+      "                          ",
+      "                          ",
+      "6           1           2 ",
+      "                          ",
+      "                          ",
+      "                          "
+    ],
+    "fg": [
+      "00000221111111111221111111",
+      "00000221111111111221111111",
+      "00000221111111111221111111",
+      "00000221111111111221111111",
+      "00000221111111111221111111",
+      "00000221111111111221111111",
+      "00000221111111111221111111"
+    ],
+    "bg": [
+      "11111223333333333224444444",
+      "11111223333333333224444444",
+      "11111223333333333224444444",
+      "11111223333333333224444444",
+      "11111223333333333224444444",
+      "11111223333333333224444444",
+      "55555226666666666227777777"
+    ],
+    "palette": [
+      "a0",
+      "x255",
+      "x153",
+      "x69",
+      "x207",
+      "a11",
+      "x63",
+      "x201"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-23",
+    "android_tested": null,
+    "notes": "Host test: board and moves."
+  }
+}

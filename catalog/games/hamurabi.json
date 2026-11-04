@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "id": "hamurabi",
+  "title": "Hamurabi",
+  "summary": "Rule ancient Sumeria for ten years: buy land, feed people, plant grain.",
+  "description": "Answer each question with a number and Enter. Don't starve your people.",
+  "category": "strategy",
+  "tags": [
+    "simulation",
+    "classic",
+    "text"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Brian L. Troutwine"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/blt/hamurabi",
+    "version": "git 994563d7"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/github.py",
+    "source_archive": "hamurabi-994563d7.tar",
+    "source_sha256": "0e7def1b45fd59dd6d95430338badba76f68fa1e667f35eacabd7a904a105ca6"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_hamurabi",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        48,
+        32
+      ],
+      "preferred": [
+        48,
+        32
+      ]
+    },
+    "orientation": "portrait",
+    "wrap": "words"
+  },
+  "controls": "text.v1",
+  "control_hide": [
+    "space"
+  ],
+  "keys": [
+    {
+      "label": "0",
+      "text": "0"
+    },
+    {
+      "label": "1",
+      "text": "1"
+    },
+    {
+      "label": "2",
+      "text": "2"
+    },
+    {
+      "label": "3",
+      "text": "3"
+    },
+    {
+      "label": "4",
+      "text": "4"
+    },
+    {
+      "label": "5",
+      "text": "5"
+    },
+    {
+      "label": "6",
+      "text": "6"
+    },
+    {
+      "label": "7",
+      "text": "7"
+    },
+    {
+      "label": "8",
+      "text": "8"
+    },
+    {
+      "label": "9",
+      "text": "9"
+    }
+  ],
+  "art": {
+    "rows": [
+      "Hamurabi: I beg to report to y",
+      "in year 0, 0 people starved 5 ",
+      "A horrible plague struck! Many",
+      "                              ",
+      "Population is now 80          ",
+      "The city now owns 1000 acres  ",
+      "You have harvested 3 bushels p",
+      "Rats ate 200 bushels.         "
+    ],
+    "fg": [
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      ".............................."
+    ],
+    "bg": [
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      ".............................."
+    ],
+    "palette": []
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-23",
+    "android_tested": null,
+    "notes": "Host test: a full year of answers."
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "id": "brogue-community-edition",
+  "title": "Brogue: Community Edition",
+  "summary": "A tight, beautiful roguelike: 26 floors down for the Amulet of Yendor.",
+  "description": "Brogue's dungeons are full of light, gas, fire and allies. The pad walks (diagonals too); Explore walks to unexplored ground on its own; Down (>) travels to the stairs. The bar at the bottom of the screen can be tapped.",
+  "category": "roguelike",
+  "tags": [
+    "roguelike",
+    "dungeon",
+    "brogue"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Brian Walker",
+      "the Brogue CE team"
+    ],
+    "license": "AGPL-3.0-or-later",
+    "source_url": "https://github.com/tmewett/BrogueCE",
+    "version": "git 363440c4"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/more.py",
+    "source_archive": "brogue-ce-363440c4.tar",
+    "source_sha256": "f5798d59381d3b17bed54e0d26ba20b59a76f169a2ab1428621a124db6ac39e0"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_brogue",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        100,
+        34
+      ],
+      "preferred": [
+        100,
+        34
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "dungeon8.v1",
+  "control_hide": [
+    "pickup"
+  ],
+  "keys": [
+    {
+      "label": "Explore",
+      "text": "x"
+    },
+    {
+      "label": "Rest",
+      "text": "z"
+    },
+    {
+      "label": "Equip",
+      "text": "e"
+    },
+    {
+      "label": "Remove",
+      "text": "r"
+    },
+    {
+      "label": "Apply",
+      "text": "a"
+    },
+    {
+      "label": "Throw",
+      "text": "t"
+    },
+    {
+      "label": "Drop",
+      "text": "d"
+    },
+    {
+      "label": "Help",
+      "text": "?"
+    }
+  ],
+  "art": {
+    "rows": [
+      "                              ",
+      "                 Play         ",
+      "                              ",
+      "                 View         ",
+      "                              ",
+      "                 Quit         ",
+      "                              ",
+      "                     CE 1.15.1"
+    ],
+    "fg": [
+      "000000000000000000000000000000",
+      "00000000000000000z000000000000",
+      "000000000000000000000000000000",
+      "00000000000000000z000000000000",
+      "000000000000000000000000000000",
+      "00000000000000000z000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000........."
+    ],
+    "bg": [
+      "123456789abbbbbcccccddeeefffgh",
+      "ijklmnopqrstuvwxyAAAAyxwvutsBC",
+      "DEFGHIJKLMNbOObbbbbccdeeeeefPQ",
+      "RSTUVWXYZ.stuvwxyAAAAyxwvuts..",
+      ".............OOb....bcccc.ee..",
+      "..........stuvwxyAAAAyxwvuts..",
+      "..............................",
+      ".............................."
+    ],
+    "palette": [
+      "#ffffff",
+      "#d96166",
+      "#cc5761",
+      "#bd5254",
+      "#b0524a",
+      "#a35740",
+      "#96573d",
+      "#8c4f38",
+      "#784738",
+      "#5e3830",
+      "#170d0d",
+      "#080303",
+      "#050303",
+      "#050300",
+      "#050000",
+      "#030000",
+      "#0a0300",
+      "#2b0d05",
+      "#eb6e75",
+      "#db6170",
+      "#cf5761",
+      "#c25452",
+      "#b55947",
+      "#ab5940",
+      "#9e543d",
+      "#874d40",
+      "#663b36",
+      "#1a0d0d",
+      "#1c1226",
+      "#21142b",
+      "#261733",
+      "#2b1c38",
+      "#301f40",
+      "#332142",
+      "#362447",
+      "#ffff80",
+      "#38244a",
+      "#0d0300",
+      "#330f05",
+      "#eb7885",
+      "#e86980",
+      "#e65c6b",
+      "#d95759",
+      "#c95c4d",
+      "#bf5c45",
+      "#b35442",
+      "#964f47",
+      "#6e3d3d",
+      "#1c0f0f",
+      "#080305",
+      "#080503",
+      "#0d0303",
+      "#380f0a",
+      "#eb858f",
+      "#e8738a",
+      "#e66175",
+      "#e05c63",
+      "#db6157",
+      "#d4614a",
+      "#c7574a",
+      "#a3524d",
+      "#754045"
+    ]
+  },
+  "saves": {
+    "paths": [
+      "BrogueHighScores.txt",
+      "LastGame.broguesave"
+    ],
+    "notes": "High scores and the saved game"
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test: new game, first floor, a step and explore."
+  }
+}

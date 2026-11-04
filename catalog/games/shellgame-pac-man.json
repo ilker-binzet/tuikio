@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-pac-man",
+  "title": "Pac-Man (Shell Games)",
+  "summary": "Eat all the dots and dodge the four ghosts.",
+  "description": "Steer through the maze with the pad. Power pellets turn the ghosts blue for a while, and then you can eat them.",
+  "category": "arcade",
+  "tags": [
+    "maze",
+    "pac-man",
+    "classic",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "pacman"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        56,
+        28
+      ],
+      "preferred": [
+        56,
+        28
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "snake.v1",
+  "control_labels": {
+    "ok": "Again"
+  },
+  "control_hide": [
+    "back",
+    "pause"
+  ],
+  "art": {
+    "rows": [
+      "  O         .           .     ",
+      "  . . . . . . . . . . . . . . ",
+      "  .         .     .           ",
+      "  . . . . . .     . . . .     ",
+      "            .                 ",
+      "            .                 ",
+      "            .                 ",
+      "            .             G G "
+    ],
+    "fg": [
+      "002200000000330000000000330000",
+      "003333333333333333333333333333",
+      "003300000000330000330000000000",
+      "003333333333330000333333330000",
+      "000000000000330000000000330000",
+      "..........00330000000000330000",
+      "000000000000330000............",
+      "............330000330000..435."
+    ],
+    "bg": [
+      "110011111111001111111111001111",
+      "110000000000000000000000000000",
+      "110011111111001111001111111111",
+      "110000000000001111000000001111",
+      "111111111111001111111111001111",
+      "000000000011001111111111001111",
+      "111111111111001111000000000000",
+      "000000000000001111001111000000"
+    ],
+    "palette": [
+      "a0",
+      "a6",
+      "a15",
+      "a7",
+      "a12",
+      "a14"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: maze, ghosts, Pac-Man moves and eats."
+  }
+}

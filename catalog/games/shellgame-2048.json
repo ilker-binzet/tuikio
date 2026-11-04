@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-2048",
+  "title": "2048 (Shell Games)",
+  "summary": "Slide and merge the tiles to reach 2048.",
+  "description": "Slide every tile with the pad; two equal tiles merge into their sum. Reach 2048 before the board fills up.",
+  "category": "puzzle",
+  "tags": [
+    "2048",
+    "numbers",
+    "sliding",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "game2048"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        34,
+        20
+      ],
+      "preferred": [
+        34,
+        20
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "snake.v1",
+  "control_labels": {
+    "ok": "Again"
+  },
+  "control_hide": [
+    "back",
+    "pause"
+  ],
+  "art": {
+    "rows": [
+      "     2048                     ",
+      "                              ",
+      "                              ",
+      "         4    4    4          ",
+      "                              ",
+      "                              ",
+      "              2    2          ",
+      "                              "
+    ],
+    "fg": [
+      "....12222.....................",
+      "..............................",
+      "..1...........................",
+      "........444444444444444.......",
+      "........444444444444444.......",
+      "..1...........................",
+      ".............4444444444.......",
+      ".............4444444444......."
+    ],
+    "bg": [
+      "000003333000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000005555555555555550000000",
+      "000000005555555555555550000000",
+      "000000000000000000000000000000",
+      "000000000000011111111110000000",
+      "000000000000011111111110000000"
+    ],
+    "palette": [
+      "a0",
+      "a7",
+      "a15",
+      "a1",
+      "a8",
+      "a3"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: board, slides in all four directions."
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "nethack-alt-org",
+  "title": "NetHack (alt.org server)",
+  "summary": "Play NetHack on nethack.alt.org, the public server: shared high scores and watching other games.",
+  "description": "Register or log in in the server's menu, then play. Your game is saved on the server. The same keys as Tuikio's own NetHack.",
+  "category": "roguelike",
+  "tags": [
+    "nethack",
+    "roguelike",
+    "online"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "NetHack DevTeam",
+      "alt.org"
+    ],
+    "license": "NGPL",
+    "source_url": "https://alt.org/nethack/",
+    "version": null
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/online.py",
+    "source_archive": "dropbear-b1b4e349.tar",
+    "source_sha256": "ddee40eeaceeed59ea3e0f5e241cc2f4343edc9dca84f2a13c5ed01c66a845c1",
+    "license_file": "dropbear.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_ssh",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape",
+    "input": "typing"
+  },
+  "controls": "roguelike.v1",
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "required",
+  "online": {
+    "protocol": "ssh",
+    "host": "alt.org",
+    "user": "nethack"
+  },
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Not played from the build machine (it can't reach the server). The client was tested against a local server: connecting by the app-resolved address, terminal type and size, input and output."
+  }
+}

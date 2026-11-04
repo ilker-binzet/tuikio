@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "id": "viper-snake",
+  "title": "VIper",
+  "summary": "Snake in Unicode, with fruit, bonuses and a speed that keeps rising.",
+  "description": "Steer with the pad and eat the fruit; some foods slow you down or shorten the snake. Restart after a crash.",
+  "category": "arcade",
+  "tags": [
+    "snake",
+    "classic"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Tobias Girstmair"
+    ],
+    "license": "GPL-3.0-only",
+    "source_url": "https://github.com/girst/viper",
+    "version": "git edd02980"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/more.py",
+    "source_archive": "viper-edd02980.tar",
+    "source_sha256": "a6511619cab49f28abb0961b6cf1ba4afe1ca53e930fdaf78ae25f006725b619"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_viper",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        40,
+        24
+      ],
+      "preferred": [
+        40,
+        24
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "arrows4.v1",
+  "keys": [
+    {
+      "label": "Restart",
+      "text": "r"
+    },
+    {
+      "label": "Pause",
+      "text": "p"
+    }
+  ],
+  "art": {
+    "rows": [
+      "╔══════════════╗      ",
+      "║  GAME  OVER  ║      ",
+      "║ `r' restart  ║⣉⣉⣉⣉⣉⣉",
+      "║ `q' quit     ║      ",
+      "╚══════════════╝      "
+    ],
+    "fg": [
+      "......................",
+      "......................",
+      "................001100",
+      "......................",
+      "......................"
+    ],
+    "bg": [
+      "......................",
+      "......................",
+      "......................",
+      "......................",
+      "......................"
+    ],
+    "palette": [
+      "a10",
+      "a2"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test: field, food, steering, game over and restart."
+  }
+}

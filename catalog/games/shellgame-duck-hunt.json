@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-duck-hunt",
+  "title": "Duck Hunt (Shell Games)",
+  "summary": "Aim the crosshair and shoot the ducks: three shots a round.",
+  "description": "Move the crosshair with the pad (hold to keep moving) and Shoot when a duck is under it. Every round has more ducks and less time; miss one and the dog laughs.",
+  "category": "arcade",
+  "tags": [
+    "shooting",
+    "duck hunt",
+    "classic",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "duckhunt"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        52,
+        26
+      ],
+      "preferred": [
+        52,
+        26
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "pad-fire.v1",
+  "control_labels": {
+    "fire": "Shoot",
+    "ok": "Again"
+  },
+  "art": {
+    "rows": [
+      "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+      "----------------------",
+      "                      ",
+      "                      ",
+      "                      ",
+      " aim  Space: shoot  Q:"
+    ],
+    "fg": [
+      "0000000000000000000000",
+      "2222222222222222222222",
+      "......................",
+      "......................",
+      "......................",
+      "3333333333333333333333"
+    ],
+    "bg": [
+      "1111111111111111111111",
+      "1111111111111111111111",
+      "1111111111111111111111",
+      "1111111111111111111111",
+      "1111111111111111111111",
+      "1111111111111111111111"
+    ],
+    "palette": [
+      "a2",
+      "a0",
+      "a7",
+      "a5"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: round start, aiming and a shot. Played with the keyboard; no light gun or mouse."
+  }
+}

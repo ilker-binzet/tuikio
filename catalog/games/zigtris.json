@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "zigtris",
+  "title": "Zigtris",
+  "summary": "A compact Tetris written in Zig.",
+  "description": "Left and right slide, up rotates, down drops faster and Drop sends the piece down.",
+  "category": "arcade",
+  "tags": [
+    "blocks",
+    "tetris",
+    "zig"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Ringtail Software"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/ringtailsoftware/zigtris",
+    "version": "git 60206d8f"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/more.py",
+    "source_archive": "zigtris-60206d8f.tar",
+    "source_sha256": "b51962a8ceba9cdc71cfed2c62da8abeda49e9bbf6abc2288fa73ccb0c4e5761"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_zigtris",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        40,
+        24
+      ],
+      "preferred": [
+        40,
+        24
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "blocks.v1",
+  "control_hide": [
+    "ok",
+    "back",
+    "pause"
+  ],
+  "art": {
+    "rows": [
+      "                          ",
+      "                          ",
+      "                          ",
+      "                          ",
+      "                          ",
+      "                          ",
+      "                          "
+    ],
+    "fg": [
+      "00000000000000000000000000",
+      "00000000000000000000000000",
+      "00000000000000000000000000",
+      "00000000000000000000000000",
+      "00000000000000000000000000",
+      "00000000000000000000000000",
+      "00000000000000000000000000"
+    ],
+    "bg": [
+      "11111111111122222222222222",
+      "11111111111122222222222222",
+      "11333311111122222222222222",
+      "11333300111122222222222222",
+      "11001111111122222222222222",
+      "11001111111122222222222222",
+      "22222222222222222222222222"
+    ],
+    "palette": [
+      "a15",
+      "a0",
+      "a12",
+      "a5"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test: well, pieces fall, moves and drops."
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "clidle",
+  "title": "Clidle",
+  "summary": "Wordle with a running score: guess the five-letter word in six tries.",
+  "description": "Type a word and press Enter. Green letters are in the right place, yellow ones are in the word but elsewhere, grey ones aren't in it; the keyboard below keeps track. A win scores 100 for one guess down to 50 for six, added to your total. New word starts another game.",
+  "category": "words",
+  "tags": [
+    "wordle",
+    "words",
+    "puzzle"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Ajeet D'Souza"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/ajeetdsouza/clidle",
+    "version": "git fb05b782"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/rustgo.py",
+    "source_archive": "clidle-fb05b782.tar",
+    "source_sha256": "10b93e6674554d2d34cbb921d6d390f2dcfad22d53365a0a9d93d37845cfed18"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_clidle",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        58,
+        30
+      ],
+      "preferred": [
+        58,
+        30
+      ]
+    },
+    "orientation": "portrait",
+    "input": "typing"
+  },
+  "controls": "clidle.v1",
+  "art": {
+    "rows": [
+      "──────────────────────────────",
+      "──┐┌───┐┌───┐┌───┐┌───┐┌───┐┌─",
+      "Q ││ W ││ E ││ R ││ T ││ Y ││ ",
+      "──┘└───┘└───┘└───┘└───┘└───┘└─",
+      "┌───┐┌───┐┌───┐┌───┐┌───┐┌───┐",
+      "│ A ││ S ││ D ││ F ││ G ││ H │",
+      "└───┘└───┘└───┘└───┘└───┘└───┘",
+      "────┐┌───┐┌───┐┌───┐┌───┐┌───┐"
+    ],
+    "fg": [
+      "000000000000000000000000000000",
+      "000000001111111111111110000011",
+      "0.00.0.01.1.11.1.11.1.10.0.01.",
+      "000000001111111111111110000011",
+      "222221111100000000000000011111",
+      "2.2.21.1.10.0.00.0.00.0.01.1.1",
+      "222221111100000000000000011111",
+      "000000000000000111110000000000"
+    ],
+    "bg": [
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      ".............................."
+    ],
+    "palette": [
+      "#d7dadc",
+      "#616161",
+      "#b59f3b"
+    ]
+  },
+  "saves": {
+    "paths": [
+      ".local/share/clidle"
+    ],
+    "notes": "Every game and guess, for the running total score."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: six guesses to the end of a game at 58x30, its saved history, and a new game."
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-donkey-kong",
+  "title": "Donkey Kong (Shell Games)",
+  "summary": "Climb the ladders and jump the barrels to reach the top.",
+  "description": "Run left and right, climb ladders with up and down, and jump over the barrels rolling down the platforms. Reach the top to win.",
+  "category": "arcade",
+  "tags": [
+    "platform",
+    "donkey kong",
+    "classic",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "donkeykong"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        41,
+        28
+      ],
+      "preferred": [
+        41,
+        28
+      ]
+    },
+    "orientation": "portrait"
+  },
+  "controls": "pad-fire.v1",
+  "control_labels": {
+    "fire": "Jump",
+    "ok": "Again"
+  },
+  "art": {
+    "rows": [
+      "        L     D           ",
+      "                          ",
+      "        HH        B     B ",
+      "        HH                ",
+      "                          ",
+      "  HH                      ",
+      "  HH                      "
+    ],
+    "fg": [
+      "00000000200000300000000000",
+      "..........................",
+      "........44111111115111115.",
+      "00000000440000000000000000",
+      "..........................",
+      "..44......................",
+      "004400000000000000000000.."
+    ],
+    "bg": [
+      "11111111011111011111111111",
+      "00000000000000000000000000",
+      "00000000000000000000000000",
+      "11111111001111111111111111",
+      "00000000000000000000000000",
+      "00000000000000000000000000",
+      "11001111111111111111111100"
+    ],
+    "palette": [
+      "a0",
+      "a7",
+      "a13",
+      "a9",
+      "a12",
+      "a11"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: platforms, ladders, barrels, a jump."
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "id": "shellgame-q-bert",
+  "title": "Q*Bert (Shell Games)",
+  "summary": "Hop down the pyramid and change every cube's colour.",
+  "description": "The pad hops diagonally, the way the cubes are stacked. Land on every cube to change its colour, and don't hop off the edge.",
+  "category": "arcade",
+  "tags": [
+    "q*bert",
+    "pyramid",
+    "classic",
+    "shell games"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Peu Borges"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/MCookinho/shellgame",
+    "version": "git dd1aa485"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/arcade.py",
+    "source_archive": "shellgame-dd1aa485.tar",
+    "source_sha256": "1c0358a5ce2436408e93c82bd49b720b839382635eb115394566064863c17fb0",
+    "license_file": "shell-games.txt"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_shellgame",
+    "args": [
+      "qbert"
+    ],
+    "env": {},
+    "terminal": {
+      "min": [
+        70,
+        17
+      ],
+      "preferred": [
+        70,
+        17
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "qbert.v1",
+  "art": {
+    "rows": [
+      " Q*BERT                       ",
+      " Lv 1  Score: 75  Lives: 3    ",
+      " Cubes: 3/28                  ",
+      "                              ",
+      "               ○              ",
+      "             ○   ●            ",
+      "           ○   ●   ○          ",
+      "         ○   ○   @   ○        "
+    ],
+    "fg": [
+      "0222222.......................",
+      "03333333333333333333333333....",
+      "044444444444..................",
+      "..............................",
+      "..............00..............",
+      "............000005............",
+      "..........0000050000..........",
+      "........00000000066000........"
+    ],
+    "bg": [
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111"
+    ],
+    "palette": [
+      "a7",
+      "a0",
+      "a13",
+      "a3",
+      "a5",
+      "a10",
+      "a11"
+    ]
+  },
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-10-24",
+    "android_tested": null,
+    "notes": "Host test: pyramid and hops."
+  }
+}
