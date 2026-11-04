@@ -98,6 +98,9 @@ object OnlineConsent {
  * frozen (SIGSTOP) while the activity is in the background and resumed (SIGCONT) on return,
  * so a real-time game neither burns battery nor runs on unattended. Leaving always ends it.
  */
+/** A game showing its own pause: "Paused", "PAUSED", "P A U S E D", "[ pause ]". */
+private val GAME_PAUSED = Regex("(?i)\\b(paused|p a u s e d?|game paused)\\b|\\[\\s*pause\\s*\\]")
+
 /** Height of the strip kept free under the game for answer chips. */
 private const val CHIP_STRIP_DP = 54
 
@@ -292,7 +295,13 @@ class GameActivity : Activity() {
             // are on the alternate screen and read single keys, plain programs read lines.
             lineMode = s.lineInput ?: !emu.isAltScreen
         }
-        controls.updateStates(lines.joinToString("\n"))
+        val text = lines.joinToString("\n")
+        controls.updateStates(text)
+        val gp = GAME_PAUSED.containsMatchIn(text)
+        if (gp != gamePaused) {
+            gamePaused = gp
+            updatePauseUi()
+        }
         val answers = PromptChips.detect(lines, row, col, lineMode)
         // While the game asks a question, only its answers (and keys the screen names) are offered;
         // otherwise the game's own keys stay in the strip.
@@ -414,10 +423,18 @@ class GameActivity : Activity() {
         if (paused) { pauseHolds.clear(); pauseHolds += "sheet" }
         pauseSheet = null
         pauseButtons.clear()
+        quitButtons.clear()
         fun pauseButton() = iconButton(if (paused) Icon.PLAY else Icon.PAUSE, if (paused) "Resume" else "Pause", fill = Theme.palette.surfaceAlt) {
             pauseSheet?.dismiss() ?: showPauseSheet()
         }.also { pauseButtons += it }
+        // Shown next to Pause while the game is paused (by Tuikio or by the game itself), so
+        // leaving is never a hunt.
+        fun quitButton() = iconButton(Icon.CLOSE, "Quit ${game.title}", fill = Theme.palette.surfaceAlt) { quitGame() }
+            .also { quitButtons += it; it.visibility = View.GONE }
+        keyboardButtons.clear()
+        topLandscape = landscape
         fun keyboardButton() = iconButton(Icon.KEYBOARD, "Show keyboard", fill = Theme.palette.surfaceAlt) { toggleKeyboard() }
+            .also { keyboardButtons += it }
         val top: View = if (landscape) {
             // The side column is narrow: buttons on one row, the title under them (two lines at most).
             vstack(4) {
@@ -425,6 +442,7 @@ class GameActivity : Activity() {
                 addView(hstack(10) {
                     gravity = Gravity.CENTER
                     addView(pauseButton())
+                    addView(quitButton())
                     if (profile.keyboard) addView(keyboardButton())
                 }, lp(MATCH, WRAP))
                 addView(T.body(context, game.title, 14f, Theme.palette.screenInk, 800).apply {
@@ -437,6 +455,7 @@ class GameActivity : Activity() {
             hstack(10) {
                 setPadding(dp(12), dp(10), dp(12), dp(6))
                 addView(pauseButton())
+                addView(quitButton())
                 addView(T.body(context, game.title, 16f, Theme.palette.screenInk, 800).apply {
                     gravity = Gravity.CENTER
                     maxLines = 1
@@ -464,6 +483,7 @@ class GameActivity : Activity() {
             if (shownChips.isNotEmpty()) placeChips()
         }
         applyTypingLayout()
+        updatePauseUi()
         if (paused) showPauseSheet()
     }
 
@@ -515,6 +535,32 @@ class GameActivity : Activity() {
     /** What keeps the game paused (the pause sheet, the help opened from it); it runs when empty. */
     private val pauseHolds = HashSet<String>()
     private val pauseButtons = ArrayList<IconButton>()
+    private val quitButtons = ArrayList<IconButton>()
+    private val keyboardButtons = ArrayList<IconButton>()
+    private var topLandscape = false
+    /** The game shows it is paused (its own pause key): "Paused", "PAUSE", "P A U S E D". */
+    private var gamePaused = false
+
+    /** Pause lights up and Quit appears while the game is paused, whoever paused it. */
+    private fun updatePauseUi() {
+        val on = pauseHolds.isNotEmpty() || gamePaused
+        pauseButtons.forEach { it.setActive(on) }
+        val showQuit = on && !exited
+        quitButtons.forEach { it.visibility = if (showQuit) View.VISIBLE else View.GONE }
+        // The landscape side column fits two buttons: Quit takes the keyboard's place while paused.
+        if (topLandscape) keyboardButtons.forEach { it.visibility = if (showQuit) View.GONE else View.VISIBLE }
+    }
+
+    /** Asks the game to quit its own way first (so it can write scores and saves), then leaves. */
+    private fun quitGame() {
+        pauseSheet?.dismiss()
+        val quit = profile.actions["quit"]
+        if (quit != null && session?.isRunning == true) {
+            session?.resume()
+            dispatcher.emit(quit.output)
+        }
+        uiHandler.postDelayed({ finish() }, if (quit != null) 600 else 0)
+    }
     private var pauseSheet: Sheet? = null
     private val thaw = Runnable { terminal.frozen = false }
 
@@ -527,6 +573,7 @@ class GameActivity : Activity() {
         controls.releaseAll()
         session?.suspend()
         pauseButtons.forEach { it.show(Icon.PLAY, "Resume") }
+        updatePauseUi()
     }
 
     private fun releasePause(by: String) {
@@ -535,6 +582,7 @@ class GameActivity : Activity() {
         // A curses game redraws its whole screen as it continues; show it again once it has.
         uiHandler.postDelayed(thaw, 250)
         pauseButtons.forEach { it.show(Icon.PAUSE, "Pause") }
+        updatePauseUi()
     }
 
     private fun showPauseSheet() {
@@ -553,13 +601,8 @@ class GameActivity : Activity() {
             })
             addView(TButton(context, "Resume", icon = Icon.PLAY).apply { setOnClickListener { sheet.dismiss() } }, lp(MATCH, WRAP))
             val quit = profile.actions["quit"]
-            addView(TButton(context, if (quit != null) "Save and quit" else "Quit", ButtonStyle.SECONDARY).apply {
-                setOnClickListener {
-                    sheet.dismiss()
-                    // Ask the game to quit its own way first, so it can write scores and saves.
-                    quit?.let { dispatcher.emit(it.output) }
-                    uiHandler.postDelayed({ finish() }, if (quit != null) 600 else 0)
-                }
+            addView(TButton(context, if (quit != null) "Save and quit" else "Quit", ButtonStyle.SECONDARY, Icon.CLOSE).apply {
+                setOnClickListener { sheet.dismiss(); quitGame() }
             }, lp(MATCH, WRAP))
             addView(hstack(8) {
                 addView(TButton(context, "Keyboard", ButtonStyle.SECONDARY, Icon.KEYBOARD).apply {

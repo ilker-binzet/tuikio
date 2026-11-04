@@ -459,9 +459,13 @@ class StripeProgress(context: Context) : View(context) {
 fun Context.iconButton(icon: Icon, description: String, fill: Int = Theme.palette.surface, ink: Int = Theme.palette.ink, onClick: () -> Unit): IconButton =
     IconButton(this, icon, description, fill, ink, onClick)
 
-class IconButton(ctx: Context, icon: Icon, description: String, fill: Int, private val ink: Int, onClick: () -> Unit) : View(ctx) {
+class IconButton(ctx: Context, icon: Icon, description: String, private val fill: Int, private var ink: Int, onClick: () -> Unit) : View(ctx) {
     private val d = StickerDrawable(ctx, fill = fill, shadowDp = 0f, cornerDp = -1f, outlineDp = Math.max(Theme.shapes.outlineDp, 1.5f))
     private var ic = IconDrawable(icon, ink, 2.6f)
+    private val baseInk = ink
+    private var pulse: android.animation.ObjectAnimator? = null
+    var active = false
+        private set
     var icon: Icon = icon
         private set
 
@@ -483,6 +487,36 @@ class IconButton(ctx: Context, icon: Icon, description: String, fill: Int, priva
         ic = IconDrawable(icon, ink, 2.6f)
         contentDescription = description
         invalidate()
+    }
+
+    /** Marks a toggle that is on (a paused game): accent fill and, unless motion is reduced, a slow pulse. */
+    fun setActive(on: Boolean) {
+        if (on == active) return
+        active = on
+        d.fill = if (on) Theme.palette.accent else fill
+        ink = if (on) Theme.palette.onAccent else baseInk
+        ic = IconDrawable(icon, ink, 2.6f)
+        pulse?.cancel()
+        pulse = null
+        scaleX = 1f
+        scaleY = 1f
+        if (on && !Motion.reduced) {
+            pulse = android.animation.ObjectAnimator.ofPropertyValuesHolder(this,
+                android.animation.PropertyValuesHolder.ofFloat(View.SCALE_X, 1f, 1.1f),
+                android.animation.PropertyValuesHolder.ofFloat(View.SCALE_Y, 1f, 1.1f)).apply {
+                duration = 700
+                repeatCount = android.animation.ValueAnimator.INFINITE
+                repeatMode = android.animation.ValueAnimator.REVERSE
+                start()
+            }
+        }
+        d.invalidateSelf()
+        invalidate()
+    }
+
+    override fun onDetachedFromWindow() {
+        pulse?.cancel()
+        super.onDetachedFromWindow()
     }
 
     override fun onMeasure(w: Int, h: Int) = setMeasuredDimension(dp(48), dp(48))

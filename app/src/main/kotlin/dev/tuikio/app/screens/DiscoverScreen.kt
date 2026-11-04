@@ -72,36 +72,14 @@ class DiscoverScreen : Screen() {
             })
         }
 
-        // Genre filter
-        val shelfHolder = ctx.vstack()
-        val chipsRow = ctx.hstack(8)
-        val cats = listOf("all" to "All", "arcade" to "Arcade", "puzzle" to "Puzzle", "adventure" to "Adventure")
-        fun renderShelf() {
-            shelfHolder.removeAllViews()
-            val games = app.catalog.games.filter { app.catalog.isBundled(it) && (category == "all" || it.category == category) }
-            shelfHolder.addView(ctx.shelf(games) { nav.push(DetailsScreen(it.id)) })
-            for (i in 0 until chipsRow.childCount) {
-                val v = chipsRow.getChildAt(i) as TButton
-                v.isSelected = v.tag == category
-            }
-        }
-        cats.forEach { (id, label) ->
-            val selected = id == category
-            chipsRow.addView(TButton(ctx, label, if (selected) ButtonStyle.MINT else ButtonStyle.SECONDARY).apply {
-                tag = id
-                minHeight = ctx.dp(44)
-                setOnClickListener {
-                    category = id
-                    nav.rebuild()
-                }
-                contentDescription = "$label games" + if (selected) ", selected" else ""
-            })
-        }
-        addView(HorizontalScrollView(ctx).apply { isHorizontalScrollBarEnabled = false; addView(chipsRow) })
-        val playable = app.catalog.games.count { app.catalog.isBundled(it) }
-        sectionHeader("Plays on ${Theme.displayName}", "$playable games")
-        addView(shelfHolder)
-        renderShelf()
+        // Genre filter: every category the catalog has, with counts; the row scrolls sideways.
+        val bundled = app.catalog.games.filter { app.catalog.isBundled(it) }
+        addView(categoryChips(ctx, bundled, category) { category = it; nav.rebuild() })
+        val games = bundled.filter { inCategory(it, category) }
+        sectionHeader("Plays on ${Theme.displayName}", "${games.size} games ›") { nav.push(AllGamesScreen(category)) }
+        // A shelf of the first ones, then a card that opens them all.
+        addView(ctx.shelf(games.take(SHELF_SIZE), if (games.size > SHELF_SIZE) games.size else null,
+            onAll = { nav.push(AllGamesScreen(category)) }) { nav.push(DetailsScreen(it.id)) })
 
         // Honest "coming" list: discovery links, not installable.
         if (app.prefs.showDiscoverOnly) {
@@ -119,6 +97,63 @@ class DiscoverScreen : Screen() {
             addView(T.title(ctx, "Every game keeps its own terminal", 19f, onDark))
             addView(T.body(ctx, "Games run as real programs in a private terminal Tuikio draws for you. Controls send exactly the keys the game expects, so the rules never change.", 15f, onDark))
         })
+    }
+}
+
+private const val SHELF_SIZE = 12
+
+/** "online" is a filter of its own (network games); the rest are manifest categories. */
+fun inCategory(g: dev.tuikio.catalog.GameManifest, c: String) = when (c) {
+    "all" -> true
+    "online" -> g.online != null
+    else -> g.category == c && g.online == null
+}
+
+/** One sideways-scrolling row of category chips, each with its game count. */
+fun categoryChips(ctx: Context, games: List<dev.tuikio.catalog.GameManifest>, selected: String, onPick: (String) -> Unit): View {
+    val order = listOf("arcade", "puzzle", "roguelike", "adventure", "strategy", "cards", "words", "simulation")
+    val cats = listOf("all") + order.filter { c -> games.any { inCategory(it, c) } } +
+        (if (games.any { it.online != null }) listOf("online") else emptyList())
+    val row = ctx.hstack(8) {
+        setPadding(0, 0, ctx.dp(18), ctx.dp(4))
+        cats.forEach { c ->
+            val n = games.count { inCategory(it, c) }
+            val label = c.replaceFirstChar { it.uppercase() }
+            addView(TButton(ctx, "$label $n", if (c == selected) ButtonStyle.MINT else ButtonStyle.SECONDARY).apply {
+                minHeight = ctx.dp(44)
+                contentDescription = "$label, $n games" + if (c == selected) ", selected" else ""
+                setOnClickListener { onPick(c) }
+            })
+        }
+    }
+    return HorizontalScrollView(ctx).apply {
+        isHorizontalScrollBarEnabled = false
+        clipToPadding = false
+        addView(row)
+        // Keep the selected chip in view after a rebuild.
+        post {
+            val i = cats.indexOf(selected)
+            if (i > 0) row.getChildAt(i)?.let { smoothScrollTo((it.left - ctx.dp(24)).coerceAtLeast(0), 0) }
+        }
+    }
+}
+
+/** Every playable game, two to a row, filtered by category: what "N games" opens. */
+class AllGamesScreen(private var category: String = "all") : Screen() {
+    override val tab = Tab.DISCOVER
+
+    override fun build(ctx: Context): View = ctx.page(gapDp = 14) {
+        val bundled = app.catalog.games.filter { app.catalog.isBundled(it) }.sortedBy { it.title.lowercase() }
+        topBar(nav, "All games")
+        addView(categoryChips(ctx, bundled, category) { category = it; nav.rebuild() })
+        val games = bundled.filter { inCategory(it, category) }
+        addView(T.soft(ctx, "${games.size} games · A to Z"))
+        games.chunked(2).forEach { pair ->
+            addView(ctx.hstack(14) {
+                pair.forEach { g -> addView(Cartridge(ctx, g) { nav.push(DetailsScreen(g.id)) }, lp(0, WRAP, 1f)) }
+                if (pair.size == 1) addView(View(ctx), lp(0, 1, 1f))
+            })
+        }
     }
 }
 

@@ -13,11 +13,13 @@ class OnlineAddressTest {
 
     @Test
     fun onlyPublicAddresses() {
-        for (s in listOf("127.0.0.1", "10.1.2.3", "172.16.0.1", "192.168.1.1", "169.254.1.1", "100.64.0.1", "0.0.0.0",
+        for (s in listOf("127.0.0.1", "10.1.2.3", "172.16.0.1", "192.168.1.1", "169.254.1.1", "0.0.0.0",
                          "224.0.0.1", "::1", "fe80::1", "fd00::1", "::ffff:10.0.0.1", "2001:db8::1")) {
             assertFalse(OnlineAddress.isPublic(ip(s)), s)
         }
-        for (s in listOf("1.1.1.1", "93.184.216.34", "2606:4700::1111")) assertTrue(OnlineAddress.isPublic(ip(s)), s)
+        // Public, and what VPN apps hand out: Clash/v2ray fake IPs, Tailscale, NAT64.
+        for (s in listOf("1.1.1.1", "93.184.216.34", "2606:4700::1111", "198.18.0.7", "100.100.1.2", "64:ff9b::5db8:d822"))
+            assertTrue(OnlineAddress.isPublic(ip(s)), s)
     }
 
     @Test

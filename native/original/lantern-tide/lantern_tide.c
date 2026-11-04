@@ -279,7 +279,7 @@ static void draw(void) {
     /* Status line, centered under the board. Every message fits in W + 2 columns. */
     const char *msg; int mcols;
     if (game_over) { msg = "\033[1;38;5;209mThe tide won! R retry \xc2\xb7 Q quit"; mcols = 30; }
-    else if (paused) { msg = "\033[1;38;5;222mPaused \xc2\xb7 P play \xc2\xb7 Q quit"; mcols = 24; }
+    else if (paused) { msg = "\033[1;38;5;222mPaused \xc2\xb7 P play \xc2\xb7 R retry \xc2\xb7 Q quit"; mcols = 34; }
     else if (lanterns_left == 0) { msg = "\033[38;5;48mAll lanterns lit! Home to \xe2\x8c\x82"; mcols = 27; }
     else { msg = "\033[38;5;146mArrows move \xc2\xb7 P pause \xc2\xb7 Q quit"; mcols = 30; }
     /* Reset colors first: ESC[2K erases with the current background. */
@@ -382,7 +382,8 @@ int main(int argc, char **argv) {
             case 'h': case 'a': case 'A': case 'H': move_kio(-1, 0); break;
             case 'l': case 'd': case 'D': case 'L': move_kio(1, 0); break;
             case 'p': case 'P': case ' ': if (!game_over) paused = !paused; break;
-            case 'r': case 'R': if (game_over) new_game(); break;
+            /* Retry: after a game over, or from the pause screen (the button is always shown). */
+            case 'r': case 'R': if (game_over || paused) new_game(); break;
             case 'q': case 'Q': stop_requested = 1; break;
         }
         /* Fixed-rate simulation: input never speeds the tide up or slows it down. */
