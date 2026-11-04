@@ -20,6 +20,18 @@ GO_NOTES = ("Ported to Tuikio from the upstream repository, pinned by commit; bu
             "for Android's musl targets.")
 
 GAMES = [
+    # Local play only (no SSH server) and its score history in a JSON file instead of SQLite (patch):
+    # 4 MB instead of 8 MB per binary. Its layout is already upright: 58x30.
+    dict(id="clidle", title="Clidle", exe="game_clidle", controls="clidle.v1", input="typing",
+         orientation="portrait", terminal=((58, 30), (58, 30)),
+         saves=([".local/share/clidle"], "Every game and guess, for the running total score."),
+         summary="Wordle with a running score: guess the five-letter word in six tries.",
+         description="Type a word and press Enter. Green letters are in the right place, yellow ones are in the "
+                     "word but elsewhere, grey ones aren't in it; the keyboard below keeps track. A win scores "
+                     "100 for one guess down to 50 for six, added to your total. New word starts another game.",
+         category="words", tags=["wordle", "words", "puzzle"], authors=["Ajeet D'Souza"], license="MIT",
+         **gh("ajeetdsouza/clidle", "fb05b782"), discovery_notes=GO_NOTES,
+         test_notes="Host test: six guesses to the end of a game at 58x30, its saved history, and a new game."),
     # Upstream wanted a 130x28 terminal; the court now follows the terminal (patch): 80x24 sideways.
     dict(id="terminal-pong", title="Terminal Pong", exe="game_terminal_pong", controls="pong.v1",
          keys=["P2 up=w", "P2 down=s", "P2 power= ", "Theme=d"],

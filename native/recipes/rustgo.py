@@ -155,6 +155,8 @@ def golang(lock, exe, *, pkg=".", notice="LICENSE", data=()):
 
 
 GO = {
+    # Local play only: the patch leaves out its SSH server.
+    "clidle": golang("clidle-fb05b782.tar", "game_clidle"),
     "wordle-cli": golang("wordle-cli-90f3c622.tar", "game_wordle_cli"),
 }
 

@@ -92,6 +92,27 @@
     "chroma": [
       "expect:Press any key to play"
     ],
+    "clidle": [
+      "expect:ctrl+r restart",
+      "type:c",
+      "wait:80",
+      "type:r",
+      "wait:80",
+      "type:a",
+      "wait:80",
+      "type:n",
+      "wait:80",
+      "type:e",
+      "wait:80",
+      "expect:│ C ││ R ││ A ││ N ││ E │",
+      "type:\n",
+      "wait:300",
+      "type:s",
+      "wait:80",
+      "type:l",
+      "wait:80",
+      "expect:│ S ││ L ││ _ │"
+    ],
     "clines": [
       "expect:|-----------------------------------|",
       "key:RIGHT",

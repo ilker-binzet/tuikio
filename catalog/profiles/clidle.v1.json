@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "profile_id": "clidle.v1",
+  "title": "Type your guess",
+  "help": "Type a five-letter word with the keyboard and press Enter; Erase removes the last letter. New word starts another game (the one in progress is given up), and Quit leaves.",
+  "orientation": "portrait",
+  "actions": [
+    {"id": "enter", "label": "Enter", "icon": "check", "output": {"key": "ENTER"}},
+    {"id": "erase", "label": "Erase", "icon": "back", "output": {"key": "BACKSPACE"}, "repeat": {"delay_ms": 350, "interval_ms": 80}},
+    {"id": "new", "label": "New word", "output": {"text": "r", "mods": ["ctrl"]}, "confirm": true},
+    {"id": "quit", "label": "Quit", "output": {"text": "c", "mods": ["ctrl"]}, "confirm": true}
+  ],
+  "layout": {
+    "portrait": [
+      {"type": "keyboard", "anchor": "bottom_center", "size": 104, "style": "primary"},
+      {"type": "button", "anchor": "bottom_end", "size": 80, "bind": {"press": "enter"}},
+      {"type": "button", "anchor": "bottom_start", "size": 64, "bind": {"press": "erase"}},
+      {"type": "button", "anchor": "top_end", "size": 56, "bind": {"press": "new"}},
+      {"type": "button", "anchor": "top_start", "size": 52, "bind": {"press": "quit"}}
+    ],
+    "landscape": [
+      {"type": "keyboard", "anchor": "center_start", "size": 96, "style": "primary"},
+      {"type": "button", "anchor": "center_end", "size": 84, "bind": {"press": "enter"}},
+      {"type": "button", "anchor": "bottom_start", "size": 56, "bind": {"press": "erase"}},
+      {"type": "button", "anchor": "bottom_end", "size": 56, "bind": {"press": "new"}},
+      {"type": "button", "anchor": "top_end", "size": 52, "bind": {"press": "quit"}}
+    ]
+  },
+  "pointer": "none",
+  "keyboard": true
+}
