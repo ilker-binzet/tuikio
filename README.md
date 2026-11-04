@@ -66,6 +66,7 @@ the SIL Open Font License 1.1.
 ### Made by
 
 - **Ömer SÜSİN** ([@omersusin](https://github.com/omersusin)): Creator and owner
+- **İlker Binzet** ([@ilker-binzet](https://github.com/ilker-binzet)): Maintainer
 - **Claude Code** ([claude.com/claude-code](https://claude.com/claude-code)): AI pair programmer (Anthropic): engineering, ports, design
 
 ### Community contributors

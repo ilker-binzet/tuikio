@@ -8,6 +8,12 @@
       "url": "https://github.com/omersusin"
     },
     {
+      "name": "İlker Binzet",
+      "login": "ilker-binzet",
+      "role": "Maintainer",
+      "url": "https://github.com/ilker-binzet"
+    },
+    {
       "name": "Claude Code",
       "role": "AI pair programmer (Anthropic): engineering, ports, design",
       "url": "https://claude.com/claude-code"
