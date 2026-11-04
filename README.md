@@ -1,6 +1,6 @@
 # Tuikio
 
-<p align="center"><img src="docs/images/banner.png" alt="tuikio: Terminal games, carried home. Kio the hermit crab beside a NetHack terminal and 2048 and Tetris cards."Terminal games, carried home.", and phones playing Kio: Lantern Tide, Doom (ASCII) and Klondike solitaire." width="100%"></p>
+<p align="center"><img src="docs/images/banner.png" alt="tuikio: Terminal games, carried home. Kio the hermit crab beside a NetHack terminal and 2048 and Tetris cards." width="100%"></p>
 
 Tuikio (tuıkıo) is an Android app for discovering, installing and playing terminal games:
 the real C/C++ programs, running on a real pseudo-terminal, with touch controls designed for
