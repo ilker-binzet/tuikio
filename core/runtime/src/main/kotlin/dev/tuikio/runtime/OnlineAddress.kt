@@ -9,7 +9,8 @@ import java.net.InetAddress
  * Resolves an online game's server for its client (docs/RUNTIME.md, "Online games"). The game
  * clients are static musl programs that can't use Android's resolver, so the app resolves the
  * host and hands the client one address. Only public unicast addresses are accepted: a catalog
- * entry (or a DNS answer) must never point a client at the phone itself or the local network.
+ * entry (or a DNS answer) must never point a client at the phone itself or the local network
+ * (loopback, 10/8, 172.16/12, 192.168/16, link-local, unique-local IPv6).
  */
 object OnlineAddress {
     /** Blocking (DNS): call it off the UI thread. */
@@ -20,7 +21,11 @@ object OnlineAddress {
             throw IOException("Couldn't find $host. Are you online?")
         }
         val ok = all.filter { isPublic(it) }
-        if (ok.isEmpty()) throw IOException("$host doesn't point to a public internet address; Tuikio won't connect to it.")
+        if (ok.isEmpty()) {
+            val seen = all.joinToString { it.hostAddress?.substringBefore('%') ?: "?" }
+            throw IOException("$host resolved to $seen, an address on this phone or its local network, so Tuikio won't connect. " +
+                "A DNS filter or Private DNS setting may be blocking it.")
+        }
         // IPv4 first: phones on IPv6-less networks still get an AAAA answer at times.
         return (ok.firstOrNull { it is Inet4Address } ?: ok.first()).hostAddress!!.substringBefore('%')
     }
@@ -32,10 +37,11 @@ object OnlineAddress {
             is Inet4Address -> {
                 val o0 = b[0].toInt() and 0xff
                 val o1 = b[1].toInt() and 0xff
+                // 100.64/10 (Tailscale, carrier NAT) and 198.18/15 ("fake IP" of Clash, v2ray,
+                // sing-box VPN apps) are allowed: a VPN on the phone maps them to the real server,
+                // and they are never a home or office network.
                 !(o0 == 0 || o0 >= 224 ||
-                    (o0 == 100 && o1 in 64..127) ||      // carrier-grade NAT
-                    (o0 == 192 && o1 == 0 && (b[2].toInt() and 0xff) == 0) ||
-                    (o0 == 198 && o1 in 18..19))           // benchmarking
+                    (o0 == 192 && o1 == 0 && (b[2].toInt() and 0xff) == 0))
             }
             is Inet6Address -> {
                 val o0 = b[0].toInt() and 0xff
