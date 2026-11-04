@@ -59,42 +59,52 @@ def vector_to_svg(name):
 
 
 def page(W, H, L, d):
+    """The Design Review's identity board (Tidepool palette, sticker outlines, Unbounded/Figtree)."""
     s = lambda n: f"file://{SHOTS}/{n}.png"  # noqa: E731
     return f'''<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{{font-family:Unb;src:url(file://{FONTS}/Unbounded-Variable.ttf)}}
 @font-face{{font-family:Fig;src:url(file://{FONTS}/Figtree-Variable.ttf)}}
 @font-face{{font-family:Mono;src:url(file://{FONTS}/JetBrainsMono-Variable.ttf)}}
 html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden}}
-body{{background:#1E1A3A;position:relative;font-family:Fig;color:#F3F0FF}}
-.glow{{position:absolute;inset:0;background:radial-gradient(circle at {L['gx']}% 55%,rgba(255,107,74,.28),transparent 42%),radial-gradient(circle at 18% 12%,rgba(59,227,176,.16),transparent 38%)}}
-.grid{{position:absolute;inset:0;background-image:radial-gradient(rgba(243,240,255,.10) 1.4px,transparent 1.6px);background-size:28px 28px}}
-.txt{{position:absolute;left:{L['tx']}px;top:{L['ty']}px}}
-.wm{{height:150px;display:block}}
-.tag{{font-size:74px;font-weight:700;line-height:1.12;margin:40px 0 30px;letter-spacing:-.01em}}
-.tag b{{color:#3BE3B0;font-weight:700}}
-.sub{{font-family:Mono;font-size:27px;color:#DCD6EA;font-weight:500;line-height:1.5;white-space:nowrap}}
-.sub i{{font-style:normal;color:#FFC93C}} .p{{color:#3BE3B0;font-weight:700}}
-.phone{{position:absolute;background:#0E0B22;border-radius:34px;padding:12px;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 3px rgba(243,240,255,.14)}}
-.phone img{{display:block;border-radius:22px}}
-.kio{{position:absolute;left:{L['kx']}px;top:{L['ky']}px;width:{L['ks']}px}}
-</style></head><body><div class="glow"></div><div class="grid"></div>
+body{{background:#F6F3FB;position:relative;font-family:Fig;color:#1E1A3A}}
+.grid{{position:absolute;inset:0;background-image:radial-gradient(rgba(30,26,58,.10) 1.6px,transparent 1.8px);background-size:30px 30px}}
+.blob{{position:absolute;border-radius:50%}}
+.txt{{position:absolute;left:{L['tx']}px;top:{L['ty']}px;display:flex;flex-direction:column;gap:26px}}
+.wm{{height:{L['wm']}px;align-self:flex-start}}
+.tag{{font-size:{L['fs']}px;font-weight:800;line-height:1.08;letter-spacing:-.01em}}
+.tag b{{background:#2BD9A0;padding:0 14px;border-radius:18px;border:3px solid #1E1A3A;box-shadow:0 5px 0 #1E1A3A;display:inline-block;margin-top:8px}}
+.chips{{display:flex;gap:14px;flex-wrap:wrap}}
+.chip{{display:inline-flex;align-items:center;height:52px;padding:0 22px;border-radius:999px;font-weight:800;font-size:23px;border:3px solid #1E1A3A;box-shadow:0 4px 0 #1E1A3A}}
+.term{{font-family:Mono;font-size:24px;background:#1B1838;color:#E9E6FF;border-radius:16px;padding:14px 20px;border:3px solid #1E1A3A;box-shadow:0 6px 0 #1E1A3A;align-self:flex-start}}
+.term i{{font-style:normal;color:#3BE3B0}} .term u{{text-decoration:none;color:#FF6B4A}}
+.phone{{position:absolute;background:#1E1A3A;border-radius:38px;padding:12px;border:3px solid #1E1A3A;box-shadow:0 10px 0 #1E1A3A}}
+.phone img{{display:block;border-radius:26px}}
+.peb{{position:absolute;left:{L['kx']}px;top:{L['ky']}px;width:{L['ks']}px;height:{L['ks']}px;background:#DDF8EE;border:3px solid #1E1A3A;border-radius:44px;box-shadow:0 8px 0 #1E1A3A;display:flex;align-items:center;justify-content:center;transform:rotate(-4deg)}}
+.peb img{{width:84%}}
+</style></head><body><div class="grid"></div>
+<div class="blob" style="left:{L['b1x']}px;top:{L['b1y']}px;width:{L['b1s']}px;height:{L['b1s']}px;background:#FFE6DF"></div>
+<div class="blob" style="left:{L['b2x']}px;top:{L['b2y']}px;width:{L['b2s']}px;height:{L['b2s']}px;background:#E6E3FF"></div>
 <div class="txt"><img class="wm" src="file://{d}/wordmark.svg">
-<div class="tag">Real terminal games,<br><b>on your phone.</b></div>
-<div class="sub"><span class="p">$</span> {L['count']} games: <i>NetHack</i>, <i>Brogue</i>, <i>Doom</i>, <i>Pokete</i>…<br>&nbsp;&nbsp;native ports · touch controls · open source</div></div>
+<div class="tag">Terminal games,<br><b>carried home.</b></div>
+<div class="chips"><span class="chip" style="background:#FFC93C">{L['count']} games</span><span class="chip" style="background:#2BD9A0">Plays offline</span><span class="chip" style="background:#FFFFFF">Open source</span></div>
+<div class="term"><i>&gt;</i> nethack · brogue · doom · pokete<u>▌</u></div></div>
 <div class="phone" style="left:{L['lx']}px;top:{L['ly']}px;transform:rotate(-4deg)"><img src="{s('doom-ascii-land')}" style="width:{L['lw']}px"></div>
 <div class="phone" style="left:{L['l2x']}px;top:{L['l2y']}px;transform:rotate(3deg)"><img src="{s('solvitaire-land')}" style="width:{L['lw']}px"></div>
 <div class="phone" style="left:{L['px']}px;top:{L['py']}px"><img src="{s('lantern-tide-port')}" style="height:{L['ph']}px"></div>
-<img class="kio" src="file://{d}/kio.svg"></body></html>'''
+<div class="peb"><img src="file://{d}/kio.svg"></div></body></html>'''
 
 
 def main():
     count = len([f for f in os.listdir(os.path.join(ROOT, "catalog/games")) if f.endswith(".json")])
     layouts = {
-        "banner": (1800, 1200, dict(gx=70, tx=110, ty=120, lx=930, ly=470, l2x=870, l2y=820, lw=760, px=1310, py=140, ph=920, kx=90, ky=820, ks=330)),
-        "banner-16x9": (1920, 1080, dict(gx=72, tx=120, ty=150, lx=930, ly=120, l2x=880, l2y=560, lw=740, px=1430, py=110, ph=860, kx=110, ky=700, ks=320)),
+        "banner": (1800, 1200, dict(tx=110, ty=110, wm=130, fs=70, lx=960, ly=470, l2x=900, l2y=830, lw=720, px=1330, py=120, ph=900,
+                                    kx=200, ky=730, ks=300, b1x=1100, b1y=-200, b1s=760, b2x=-200, b2y=780, b2s=620)),
+        "banner-16x9": (1920, 1080, dict(tx=120, ty=120, wm=130, fs=70, lx=960, ly=110, l2x=900, l2y=560, lw=720, px=1450, py=100, ph=860,
+                                         kx=210, ky=660, ks=290, b1x=1250, b1y=-260, b1s=760, b2x=-220, b2y=700, b2s=600)),
     }
     with tempfile.TemporaryDirectory() as d:
         open(os.path.join(d, "kio.svg"), "w").write(vector_to_svg("kio"))
-        open(os.path.join(d, "wordmark.svg"), "w").write(vector_to_svg("wordmark_tuikio").replace('fill="#1E1A3A"', 'fill="#F3F0FF"'))
+        open(os.path.join(d, "wordmark.svg"), "w").write(vector_to_svg("wordmark_tuikio"))
         jobs = []
         for name, (W, H, L) in layouts.items():
             L["count"] = count
