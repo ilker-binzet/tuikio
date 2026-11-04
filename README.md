@@ -60,7 +60,7 @@ the SIL Open Font License 1.1.
 
 Everyone whose suggestion, port or correction is accepted through the app or a pull request is listed here, by GitHub login or as an anonymous community contributor. Be the first: suggest a game from the app's Create tab.
 
-### Games (156 playable)
+### Games (158 playable)
 
 Every game is the work of its authors; Tuikio only ports and packages it. Licenses link to the full text shipped in the app.
 
@@ -71,6 +71,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 | 2048 (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
 | 4D Minesweeper | itabesamesa | [MIT](LICENSES/minesweeper-4d.txt) | [github.com/itabesamesa/minesweeper_4d_rs](https://github.com/itabesamesa/minesweeper_4d_rs) | PORTABLE |
 | Air Traffic Controller | Ed James | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
+| Angband | Robert Alan Koeneke, Ben Harrison, the Angband team | [GPL-2.0-only](LICENSES/angband.txt) | [github.com/angband/angband](https://github.com/angband/angband) | PORTABLE |
 | Arithmetic | Eamonn McManus | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
 | ASCII Invaders | Thomas Munro | [GPL-2.0-or-later](LICENSES/ascii-invaders.txt) | [github.com/macdice/ascii-invaders](https://github.com/macdice/ascii-invaders) | PORTABLE |
 | ASCII Pacman | Steven Goodwin | [GPL-2.0-only](LICENSES/ascii-pacman.txt) | [github.com/MarquisdeGeek/pacman](https://github.com/MarquisdeGeek/pacman) | PORTABLE |
@@ -173,6 +174,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 | Rhythm Spire (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
 | robotfindskitten | Leonard Richardson | [GPL-2.0-or-later](LICENSES/robotfindskitten.txt) | [http://robotfindskitten.org/](http://robotfindskitten.org/) | PORTABLE |
 | Robots | Ken Arnold, Christos Zoulas | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
+| Rogue | Michael Toy, Glenn Wichman, Ken Arnold | [BSD-3-Clause](LICENSES/rogue.txt) | [github.com/Davidslv/rogue](https://github.com/Davidslv/rogue) | PORTABLE |
 | Sail | Dave Riggle, Craig Leres | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
 | Scissor | abakh | [CC0-1.0 OR Apache-2.0](LICENSES/nbsdgames.txt) | [github.com/abakh/nbsdgames](https://github.com/abakh/nbsdgames) | PORTABLE |
 | ShellShock | Øyvind 'bolt' Hvidsten | [GPL-2.0-only](LICENSES/shellshock.txt) | [github.com/PacAnimal/shellshock](https://github.com/PacAnimal/shellshock) | PORTABLE |
@@ -253,7 +255,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 - [Termux packages](https://github.com/termux/termux-packages) by The Termux maintainers
 - [Debian and Ubuntu archives](https://packages.debian.org/) by The Debian and Ubuntu maintainers
 
-### Also in the catalog (77 links)
+### Also in the catalog (75 links)
 
 Listed in the app with a link to their authors' pages; not bundled (yet). Licenses are their authors'.
 
@@ -261,7 +263,6 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [ADOM](https://www.adom.de/)
 - [AlienRL](https://alien.chaosforge.org/)
 - [Alienwave](https://www.alessandropira.org/alienwave/aw.html)
-- [Angband](https://rephial.org/)
 - [Anonymine](https://oskog97.com/projects/anonymine/)
 - [ASCII Dash](https://sourceforge.net/projects/ascii-dash/)
 - [ASCII Patrol](http://ascii-patrol.com/) (GPL-3.0-only)
@@ -314,7 +315,6 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [Pokete](https://github.com/lxgr-linux/pokete)
 - [PyThrees](https://github.com/yth/pythrees)
 - [Rebels in the Sky](https://github.com/ricott1/rebels-in-the-sky)
-- [Rogue (BSD)](https://man.netbsd.org/rogue.6)
 - [Roguelike Gallery](https://rlgallery.org)
 - [Rummy](https://github.com/ljc2154/Rummy)
 - [Shell Games](https://github.com/MCookinho/shellgame)

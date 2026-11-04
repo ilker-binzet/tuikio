@@ -395,6 +395,10 @@ robotfindskitten_2.8284271.702.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/r/robotfindskitten/robotfindskitten_2.8284271.702.orig.tar.gz
   sha256 020172e4f4630f7c4f62c03b6ffe2eeeba5637b60374d3e6952ae5816a9f99af
 
+rogue-f4653c2a.tar
+  https://github.com/Davidslv/rogue @ f4653c2a2ee6981a73abe9dfda055134285e1e79
+  sha256 fd241a652cf98f89ec65ebab31f2ad03eb41aaa7b4593c1d89a403df18489a72
+
 scowl_2020.12.07-2.debian.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/main/s/scowl/scowl_2020.12.07-2.debian.tar.xz
   sha256 17a60633b2ec2b1af1595e1c48008a9deeb9ce8f12754a4ef9c6594daa194df2

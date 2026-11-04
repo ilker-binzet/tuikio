@@ -3,13 +3,13 @@ from the file list its upstream makefile compiles."""
 import glob
 import os
 
-from tk import EXTRA_NOTICES, HERE, BuildError, cc, game, replace_in, run, unpack
+from tk import EXTRA_NOTICES, HERE, BuildError, autotools, cc, game, install_asset, replace_in, run, unpack
 
 
 def files(src, *patterns):
     out = []
     for p in patterns:
-        out += sorted(glob.glob(os.path.join(src, p)))
+        out += sorted(glob.glob(os.path.join(src, p), recursive=True))
     if not out:
         raise BuildError(f"no sources match {patterns}")
     return out
@@ -86,3 +86,43 @@ def build_zigtris(abi):
         f"--cache-dir {os.path.join(work, 'cache')} --global-cache-dir {os.path.join(work, 'gcache')}", src)
     EXTRA_NOTICES["zigtris"] = "\n\n---- mibu ----\n\n" + open(os.path.join(mibu, "LICENSE")).read()
     return {"game_zigtris": os.path.join(src, "zig-out", "bin", "zigtris")}
+
+
+ANGBAND_DATA = ("customize", "gamedata", "help", "screens", "user")
+
+
+@game("angband", notice=("angband-e473720e.tar", "docs/copying.rst"))
+def build_angband(abi):
+    """Angband 4.2 with its curses front end (main-gcu.c) only: no X11, SDL, sound or tiles. Its
+    text data (game data, help, screens, preferences) is installed under lib/ in the game's home;
+    the player's files go in ~/angband, also in the home."""
+    work = abi.work("angband")
+    src = unpack("angband-e473720e.tar", os.path.join(work, "src"))
+    # The roguelike keyset by default: the pad sends h/j/k/l/y/u/b/n, which the original keyset
+    # doesn't use for walking (it needs a numeric keypad for diagonals).
+    replace_in(os.path.join(src, "src", "list-options.h"),
+               'OP(rogue_like_commands,   "Use the roguelike command keyset",\nINTERFACE, false)',
+               'OP(rogue_like_commands,   "Use the roguelike command keyset",\nINTERFACE, true)')
+    srcs = [f for f in files(src, "src/*.c")
+            if not os.path.basename(f).startswith(("main-", "snd-")) or os.path.basename(f) == "main-gcu.c"]
+    exe = os.path.join(work, "game_angband")
+    cc(abi, srcs, exe, '-std=gnu99 -Isrc -DUSE_GCU -DUSE_NCURSES -DGAMEDATA_IN_LIB -DPRIVATE_USER_PATH=\\"~/angband\\" -DDEFAULT_CONFIG_PATH=\\"lib/customize/\\" '
+       '-DDEFAULT_LIB_PATH=\\"lib/\\" -DDEFAULT_DATA_PATH=\\"lib/\\"', f"{abi.curses_libs} -lm", cwd=src)
+    if abi.name == "x86_64":  # the data is the same for every ABI
+        for d in ANGBAND_DATA:
+            for path in files(os.path.join(src, "lib", d), "**/*"):
+                if os.path.isfile(path) and "/." not in path[len(src):]:
+                    install_asset(f"games/angband/lib/{d}/{os.path.relpath(path, os.path.join(src, 'lib', d))}", path)
+    return {"game_angband": exe}
+
+
+@game("rogue", notice=("rogue-f4653c2a.tar", "LICENSE.TXT"))
+def build_rogue(abi):
+    """Rogue 5.4.4, the 1980 original: score file and lock in the working directory (the home)."""
+    src = unpack("rogue-f4653c2a.tar", os.path.join(abi.work("rogue"), "src"))
+    # It sets curscr's cursor fields directly; this ncurses keeps WINDOW opaque.
+    replace_in(os.path.join(src, "main.c"), "    curscr->_cury = oy;\n    curscr->_curx = ox;\n",
+               "    wmove(curscr, oy, ox);\n")
+    autotools(abi, src, "--enable-scorefile=rogue.scr --enable-lockfile=rogue.lck --disable-setgid --enable-wizardmode=no",
+              cflags="-fcommon -D_GNU_SOURCE", make="make -j4 rogue")
+    return {"game_rogue": os.path.join(src, "rogue")}

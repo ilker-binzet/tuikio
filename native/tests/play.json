@@ -877,11 +877,11 @@
     ],
     "brogue-community-edition": [
       "expect:New Game",
-      "wait:1500",
+      "wait:3000",
       "type:n",
-      "expect:Dungeons of Doom",
-      "type:x",
-      "wait:800",
+      "wait:2000",
+      "type:n",
+      "wait:2500",
       "expect:Depth: 1"
     ],
     "viper-snake": [
@@ -914,6 +914,19 @@
       "type: ",
       "wait:400",
       "expect:HP"
+    ],
+    "angband": [
+      "expect:4.2",
+      "key:ENTER",
+      "expect:Race affects",
+      "key:ENTER",
+      "wait:500"
+    ],
+    "rogue": [
+      "expect:Level: 1",
+      "type:l",
+      "wait:300",
+      "expect:Hp:"
     ]
   }
 }

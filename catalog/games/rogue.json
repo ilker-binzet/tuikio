@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "id": "rogue",
+  "title": "Rogue",
+  "summary": "The 1980 original that named a genre: find the Amulet of Yendor.",
+  "description": "Rogue 5.4.4. The pad walks, diagonals too; the buttons cover its one-letter commands, and Save keeps your game for later.",
+  "category": "roguelike",
+  "tags": [
+    "roguelike",
+    "dungeon",
+    "classic"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Michael Toy",
+      "Glenn Wichman",
+      "Ken Arnold"
+    ],
+    "license": "BSD-3-Clause",
+    "source_url": "https://github.com/Davidslv/rogue",
+    "version": "git f4653c2a"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/more.py",
+    "source_archive": "rogue-f4653c2a.tar",
+    "source_sha256": "fd241a652cf98f89ec65ebab31f2ad03eb41aaa7b4593c1d89a403df18489a72"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_rogue",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "dungeon8.v1",
+  "control_hide": [
+    "more"
+  ],
+  "keys": [
+    {
+      "label": "Quaff",
+      "text": "q"
+    },
+    {
+      "label": "Read",
+      "text": "r"
+    },
+    {
+      "label": "Eat",
+      "text": "e"
+    },
+    {
+      "label": "Wield",
+      "text": "w"
+    },
+    {
+      "label": "Wear",
+      "text": "W"
+    },
+    {
+      "label": "Take off",
+      "text": "T"
+    },
+    {
+      "label": "Ring on",
+      "text": "P"
+    },
+    {
+      "label": "Ring off",
+      "text": "R"
+    },
+    {
+      "label": "Throw",
+      "text": "t"
+    },
+    {
+      "label": "Zap",
+      "text": "z"
+    },
+    {
+      "label": "Save",
+      "text": "S"
+    },
+    {
+      "label": "Help",
+      "text": "?"
+    }
+  ],
+  "saves": {
+    "paths": [
+      "rogue.save",
+      "rogue.scr"
+    ],
+    "notes": "Saved game and scores"
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test: first room, walking, status line."
+  }
+}

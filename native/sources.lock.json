@@ -620,6 +620,11 @@
       "git": "https://github.com/TheMozg/awk-raycaster",
       "commit": "ac7f1b03554ca1c662ea2951cdd9f0b586075890",
       "sha256": "e49025fcb307124f70b882669496a1bc0cc884b29ad6c5d32f81913d18692421"
+    },
+    "rogue-f4653c2a.tar": {
+      "git": "https://github.com/Davidslv/rogue",
+      "commit": "f4653c2a2ee6981a73abe9dfda055134285e1e79",
+      "sha256": "fd241a652cf98f89ec65ebab31f2ad03eb41aaa7b4593c1d89a403df18489a72"
     }
   }
 }
