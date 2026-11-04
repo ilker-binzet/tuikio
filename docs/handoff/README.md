@@ -91,10 +91,11 @@ and delete it right after (`.gitignore` excludes it anyway).
 
 - 159 playable games; 57 control profiles; 240 discovery entries.
 - Version 1.0.0 (versionCode 9). Signed APKs: universal (~95 MB) and per-ABI (~40 MB each:
-  arm64-v8a is the one for almost every phone). The `v1.0.0` git tag is on the release commit. **No
-  GitHub Release page was created** (no API for it in that environment): create one from the tag
-  and attach the APKs if you want public downloads. That needs the owner's approval: publishing is
-  their decision.
+  arm64-v8a is the one for almost every phone). The release commit is `d0c7606` on the branch. The
+  `v1.0.0` tag could not be pushed from that environment (only the branch could): create it with
+  `git tag -a v1.0.0 d0c7606 -m "Tuikio 1.0.0" && git push origin v1.0.0`. **No GitHub Release page
+  was created**: make one from the tag and attach the APKs if you want public downloads. That needs
+  the owner's approval: publishing is their decision.
 - All tests pass locally. CI was green at the last runs checked; check the latest run on the branch.
 - Work happened on branch `claude/new-session-h45p5a` (no PR was opened; `main` is behind). Merging to
   `main` is the owner's call.
