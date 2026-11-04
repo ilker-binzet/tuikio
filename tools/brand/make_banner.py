@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Renders docs/images/banner.png (3:2, 1800x1200) and banner-16x9.png (1920x1080) from the
-app's own assets: the Kio mascot and light wordmark (app/src/main/res/drawable, converted to
-SVG), its fonts, and real game screens from RenderShotsTest (app/build/shots: run
-`./gradlew :app:test --tests '*RenderShotsTest.portrait' --tests '*RenderShotsTest.landscape'
--Pshots=lantern-tide,doom-ascii,solvitaire` first). Needs Playwright (Node) and Pillow.
+"""Renders docs/images/banner.png (3:2, 1800x1200) and banner-16x9.png (1920x1080) in the style
+of the Design Review's identity board (docs/design/boards/Main.png), from the app's own assets:
+the Kio mascot and wordmark (app/src/main/res/drawable, converted to SVG) and its fonts. The
+game count comes from catalog/games. Needs Playwright (Node) and Pillow.
 
     python3 tools/brand/make_banner.py
 """
@@ -17,7 +16,6 @@ from PIL import Image
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 RES = os.path.join(ROOT, "app/src/main/res/drawable")
 FONTS = os.path.join(ROOT, "app/src/main/assets/fonts")
-SHOTS = os.path.join(ROOT, "app/build/shots")
 A = "{http://schemas.android.com/apk/res/android}"
 
 
@@ -58,49 +56,87 @@ def vector_to_svg(name):
             f'{r.get(A + "viewportHeight")}">' + conv(r) + "</svg>")
 
 
+NETHACK = """\
+ <y>You see here a gold piece.</y>
+
+   ---------           --------
+   |.......|           |......|
+   |...<b>@</b>...+###########+..<r>d</r>...|
+   |..<y>$</y>....|     #     |....<m>&gt;</m>.|
+   ----+----     #     --------
+       #         #
+       ##########<g>%</g>##########
+"""
+
+
 def page(W, H, L, d):
-    """The Design Review's identity board (Tidepool palette, sticker outlines, Unbounded/Figtree)."""
-    s = lambda n: f"file://{SHOTS}/{n}.png"  # noqa: E731
-    return f'''<!doctype html><html><head><meta charset="utf-8"><style>
+    """In the style of the Design Review's identity board: Tidepool palette, ink outlines with a
+    hard drop, Unbounded/Figtree/JetBrains Mono, Kio."""
+    nethack = (NETHACK.replace("<y>", '<span style="color:#FFC93C">').replace("</y>", "</span>")
+               .replace("<b>", '<span style="color:#FFFFFF;background:#FF6B4A;border-radius:3px">').replace("</b>", "</span>")
+               .replace("<r>", '<span style="color:#FF8A6E">').replace("</r>", "</span>")
+               .replace("<m>", '<span style="color:#3BE3B0">').replace("</m>", "</span>")
+               .replace("<g>", '<span style="color:#B9A6FF">').replace("</g>", "</span>"))
+    return f"""<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{{font-family:Unb;src:url(file://{FONTS}/Unbounded-Variable.ttf)}}
 @font-face{{font-family:Fig;src:url(file://{FONTS}/Figtree-Variable.ttf)}}
 @font-face{{font-family:Mono;src:url(file://{FONTS}/JetBrainsMono-Variable.ttf)}}
 html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden}}
 body{{background:#F6F3FB;position:relative;font-family:Fig;color:#1E1A3A}}
-.grid{{position:absolute;inset:0;background-image:radial-gradient(rgba(30,26,58,.10) 1.6px,transparent 1.8px);background-size:30px 30px}}
-.blob{{position:absolute;border-radius:50%}}
-.txt{{position:absolute;left:{L['tx']}px;top:{L['ty']}px;display:flex;flex-direction:column;gap:26px}}
-.wm{{height:{L['wm']}px;align-self:flex-start}}
-.tag{{font-size:{L['fs']}px;font-weight:800;line-height:1.08;letter-spacing:-.01em}}
-.tag b{{background:#2BD9A0;padding:0 14px;border-radius:18px;border:3px solid #1E1A3A;box-shadow:0 5px 0 #1E1A3A;display:inline-block;margin-top:8px}}
-.chips{{display:flex;gap:14px;flex-wrap:wrap}}
-.chip{{display:inline-flex;align-items:center;height:52px;padding:0 22px;border-radius:999px;font-weight:800;font-size:23px;border:3px solid #1E1A3A;box-shadow:0 4px 0 #1E1A3A}}
-.term{{font-family:Mono;font-size:24px;background:#1B1838;color:#E9E6FF;border-radius:16px;padding:14px 20px;border:3px solid #1E1A3A;box-shadow:0 6px 0 #1E1A3A;align-self:flex-start}}
-.term i{{font-style:normal;color:#3BE3B0}} .term u{{text-decoration:none;color:#FF6B4A}}
-.phone{{position:absolute;background:#1E1A3A;border-radius:38px;padding:12px;border:3px solid #1E1A3A;box-shadow:0 10px 0 #1E1A3A}}
-.phone img{{display:block;border-radius:26px}}
-.peb{{position:absolute;left:{L['kx']}px;top:{L['ky']}px;width:{L['ks']}px;height:{L['ks']}px;background:#DDF8EE;border:3px solid #1E1A3A;border-radius:44px;box-shadow:0 8px 0 #1E1A3A;display:flex;align-items:center;justify-content:center;transform:rotate(-4deg)}}
-.peb img{{width:84%}}
-</style></head><body><div class="grid"></div>
-<div class="blob" style="left:{L['b1x']}px;top:{L['b1y']}px;width:{L['b1s']}px;height:{L['b1s']}px;background:#FFE6DF"></div>
-<div class="blob" style="left:{L['b2x']}px;top:{L['b2y']}px;width:{L['b2s']}px;height:{L['b2s']}px;background:#E6E3FF"></div>
+.dots{{position:absolute;inset:0;background-image:radial-gradient(rgba(30,26,58,.09) 1.6px,transparent 1.8px);background-size:32px 32px}}
+.txt{{position:absolute;left:{L['tx']}px;top:{L['ty']}px;width:{L['tw']}px}}
+.wm{{height:{L['wm']}px;display:block}}
+.tag{{font:800 {L['fs']}px/1.06 Unb;letter-spacing:-.02em;margin:{L['fs']*0.55}px 0 {L['fs']*0.4}px}}
+.tag em{{font-style:normal;color:#FF6B4A}}
+.lede{{font:600 {L['fs']*0.4}px/1.4 Fig;color:#4A4566;max-width:{L['tw']}px}}
+.chips{{display:flex;gap:14px;margin-top:{L['fs']*0.5}px}}
+.chip{{display:inline-flex;align-items:center;gap:10px;height:{L['ch']}px;padding:0 {L['ch']*0.42}px;border-radius:999px;font:800 {L['ch']*0.42}px Fig;border:3px solid #1E1A3A;box-shadow:0 4px 0 #1E1A3A}}
+.card{{position:absolute;background:#1B1838;border:4px solid #1E1A3A;border-radius:34px;box-shadow:0 12px 0 #1E1A3A;overflow:hidden}}
+.bar{{height:56px;background:#2A2550;display:flex;align-items:center;gap:12px;padding:0 22px;border-bottom:4px solid #1E1A3A}}
+.bar i{{width:18px;height:18px;border-radius:50%;border:3px solid #1E1A3A}}
+.bar b{{margin-left:auto;font:700 20px Mono;color:#C9C4E8}}
+.scr{{font:600 {L['mono']}px/1.3 Mono;color:#E9E6FF;white-space:pre;padding:22px 28px}}
+.stat{{font:700 {L['mono']*0.82}px Mono;color:#B9B3DA;padding:0 28px 22px;display:flex;justify-content:space-between}}
+.cart{{position:absolute;border:4px solid #1E1A3A;border-radius:28px;box-shadow:0 10px 0 #1E1A3A;overflow:hidden;background:#FFFFFF}}
+.cart .s{{background:#1B1838;font:700 {L['cm']}px/1.15 Mono;white-space:pre;padding:18px 22px;border-bottom:4px solid #1E1A3A}}
+.cart .t{{padding:12px 20px 16px;font:800 {L['cm']*0.95}px Fig;display:flex;align-items:center;justify-content:space-between;gap:10px}}
+.pill{{font:800 {L['cm']*0.6}px Fig;padding:5px 12px;border-radius:999px;border:3px solid #1E1A3A;background:#2BD9A0}}
+.kio{{position:absolute;left:{L['kx']}px;top:{L['ky']}px;width:{L['ks']}px}}
+</style></head><body><div class="dots"></div>
+<div class="cart" style="left:{L['c1x']}px;top:{L['c1y']}px;transform:rotate(-7deg)"><div class="s" style="color:#3BE3B0">┌────┬────┬────┐
+│  2 │  4 │  8 │
+├────┼────┼────┤
+│ 16 │ 32 │  2 │
+├────┼────┼────┤
+│128 │ 64 │  4 │
+└────┴────┴────┘</div><div class="t">2048<span class="pill">Plays here</span></div></div>
+<div class="cart" style="left:{L['c2x']}px;top:{L['c2y']}px;transform:rotate(6deg)"><div class="s" style="color:#B9A6FF">│      ▓▓      │
+│     ▓▓       │
+│              │
+│ ░░       ▒▒  │
+│░░░░▒▒▒▒▒▒▒▒░░│
+└──────────────┘</div><div class="t">Tetris<span class="pill">Plays here</span></div></div>
+<div class="card" style="left:{L['mx']}px;top:{L['my']}px;width:{L['mw']}px">
+<div class="bar"><i style="background:#FF6B4A"></i><i style="background:#FFC93C"></i><i style="background:#2BD9A0"></i><b>nethack</b></div>
+<div class="scr">{nethack}</div>
+<div class="stat"><span>Dlvl:1  $:14  HP:12(12)</span><span>T:418</span></div></div>
+<img class="kio" src="file://{d}/kio.svg">
 <div class="txt"><img class="wm" src="file://{d}/wordmark.svg">
-<div class="tag">Terminal games,<br><b>carried home.</b></div>
-<div class="chips"><span class="chip" style="background:#FFC93C">{L['count']} games</span><span class="chip" style="background:#2BD9A0">Plays offline</span><span class="chip" style="background:#FFFFFF">Open source</span></div>
-<div class="term"><i>&gt;</i> nethack · brogue · doom · pokete<u>▌</u></div></div>
-<div class="phone" style="left:{L['lx']}px;top:{L['ly']}px;transform:rotate(-4deg)"><img src="{s('doom-ascii-land')}" style="width:{L['lw']}px"></div>
-<div class="phone" style="left:{L['l2x']}px;top:{L['l2y']}px;transform:rotate(3deg)"><img src="{s('solvitaire-land')}" style="width:{L['lw']}px"></div>
-<div class="phone" style="left:{L['px']}px;top:{L['py']}px"><img src="{s('lantern-tide-port')}" style="height:{L['ph']}px"></div>
-<div class="peb"><img src="file://{d}/kio.svg"></div></body></html>'''
+<div class="tag">Terminal games,<br><em>carried home.</em></div>
+<div class="lede">{L['count']} real terminal games for Android: native ports with touch controls made for each one.</div>
+<div class="chips"><span class="chip" style="background:#FFC93C">{L['count']} games</span><span class="chip" style="background:#2BD9A0">Plays offline</span><span class="chip" style="background:#FFFFFF">Open source</span></div></div>
+</body></html>"""
 
 
 def main():
     count = len([f for f in os.listdir(os.path.join(ROOT, "catalog/games")) if f.endswith(".json")])
     layouts = {
-        "banner": (1800, 1200, dict(tx=110, ty=110, wm=130, fs=70, lx=960, ly=470, l2x=900, l2y=830, lw=720, px=1330, py=120, ph=900,
-                                    kx=200, ky=730, ks=300, b1x=1100, b1y=-200, b1s=760, b2x=-200, b2y=780, b2s=620)),
-        "banner-16x9": (1920, 1080, dict(tx=120, ty=120, wm=130, fs=70, lx=960, ly=110, l2x=900, l2y=560, lw=720, px=1450, py=100, ph=860,
-                                         kx=210, ky=660, ks=290, b1x=1250, b1y=-260, b1s=760, b2x=-220, b2y=700, b2s=600)),
+        "banner": (1800, 1200, dict(tx=120, ty=170, tw=760, wm=150, fs=70, ch=60, mono=24, cm=22,
+                                    mx=960, my=400, mw=740, cw=0, c1x=1000, c1y=110, c2x=1350, c2y=80,
+                                    kx=640, ky=780, ks=330)),
+        "banner-16x9": (1920, 1080, dict(tx=130, ty=170, tw=800, wm=140, fs=70, ch=58, mono=23, cm=21,
+                                         mx=1060, my=330, mw=720, cw=0, c1x=1080, c1y=70, c2x=1430, c2y=50,
+                                         kx=720, ky=700, ks=310)),
     }
     with tempfile.TemporaryDirectory() as d:
         open(os.path.join(d, "kio.svg"), "w").write(vector_to_svg("kio"))
