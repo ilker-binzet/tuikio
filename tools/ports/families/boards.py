@@ -124,4 +124,14 @@ GAMES += [
          version="1.4.2", archive="cpat-1.4.2.tar.gz", saves=([".cpat_scores"], "High scores and statistics"),
          discovery_notes="Ported to Tuikio from the 1.4.2 release tarball on SourceForge.",
          test_notes="Host test: menu, Klondike dealt, a deal from the stock and the quit menu at 80x24."),
+    # The 26-column board is centred and its move list hangs 18 columns off its right side: 62 wide.
+    dict(id="nchess", title="NChess", exe="game_nchess", controls="arrows.v1", terminal=((62, 20), (62, 20)),
+         labels={"select": "OK", "space": "Pick", "back": "Menu"}, players="2",
+         summary="Two-player chess on one screen, with the moves listed beside the board.",
+         description="For two players taking turns: move the cursor with the pad, Pick a piece and Pick the square "
+                     "it goes to. Only legal moves are allowed. Menu pauses with Resume, Restart and Exit.",
+         category="strategy", tags=["chess", "board", "two players"], authors=["Billy Vinning"],
+         license="GPL-3.0-only",
+         **git("https://github.com/billyvinning/nchess", "7489711575df0e6bb816724319854767a923039d", "nchess-74897115.tar"),
+         test_notes="Host test: menu, a2a4 played and listed, the pause menu at 62x20."),
 ]

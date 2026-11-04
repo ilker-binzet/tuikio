@@ -218,3 +218,14 @@ def cpat(abi):
     autotools(abi, src, "", make="make -j4")
     exe = os.path.join(src, "src", "cpat")
     return {"game_cpat": exe}
+
+
+# ---------------------------------------------------------------- NChess
+
+@game("nchess", notice=("nchess-74897115.tar", "COPYING.rst"))
+def nchess(abi):
+    src = tree(abi, "nchess", "nchess-74897115.tar")  # patch: no argp in musl
+    exe = os.path.join(src, "nchess")
+    cc(abi, [os.path.join(src, "src", "main.c")], exe, f"-std=gnu99 -I{src}/src/engine -I{src}/src/tui",
+       f"{abi.curses_libs} -lm", cwd=src)
+    return {"game_nchess": exe}
