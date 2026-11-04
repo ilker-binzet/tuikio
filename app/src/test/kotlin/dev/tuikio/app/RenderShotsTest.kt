@@ -162,6 +162,41 @@ class RenderShotsTest {
         }
     }
 
+    /** -Pshots=screens: the app's own screens (Discover, All games) and a game paused by its own key. */
+    @Test
+    fun screens() {
+        assumeTrue("pass -Pshots=screens", wanted == "screens")
+        RuntimeEnvironment.setQualifiers("w411dp-h914dp-port-xxhdpi")
+        val app = setUpApp()
+        Motion.setUserReduced(app, true)
+        val out = File(System.getProperty("tuikio.shotsDir", "build/shots")).apply { mkdirs() }
+        fun save(v: View, name: String) {
+            val b = Bitmap.createBitmap(v.width.coerceAtLeast(1), v.height.coerceAtLeast(1), Bitmap.Config.ARGB_8888)
+            v.draw(Canvas(b))
+            File(out, "screen-$name.png").outputStream().use { b.compress(Bitmap.CompressFormat.PNG, 100, it) }
+        }
+        val m = Robolectric.buildActivity(MainActivity::class.java).setup().get()
+        idle(500)
+        save(m.window.decorView, "discover")
+        m.nav.push(dev.tuikio.app.screens.AllGamesScreen())
+        idle(500)
+        save(m.window.decorView, "all-games")
+        m.nav.push(dev.tuikio.app.screens.AllGamesScreen("online"))
+        idle(500)
+        save(m.window.decorView, "all-games-online")
+        val game = app.catalog.games.first { it.id == "lantern-tide" }
+        app.installer.install(game) {}
+        val a = Robolectric.buildActivity(GameActivity::class.java, Intent(app, GameActivity::class.java).putExtra(GameLauncher.EXTRA_GAME, game.id)).setup().get()
+        val term = views(a.window.decorView).filterIsInstance<TerminalView>().first()
+        frameView = term
+        settle(2000)
+        term.onText?.invoke(" ") // the first key starts the game
+        settle(1200)
+        term.onText?.invoke("p")
+        settle(1500)
+        save(a.window.decorView, "lantern-paused")
+    }
+
     @Test
     fun portrait() = shoot("port", "w411dp-h914dp-port-xxhdpi")
 

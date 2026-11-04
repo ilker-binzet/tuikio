@@ -152,6 +152,39 @@ class ScreensUiTest {
     }
 
     @Test
+    fun pausedGamesShowAQuitButtonNextToPause() {
+        val game = app.catalog.games.first { it.id == "lantern-tide" }
+        app.installer.install(game) {}
+        val intent = Intent(app, GameActivity::class.java).putExtra(GameLauncher.EXTRA_GAME, game.id)
+        val c = Robolectric.buildActivity(GameActivity::class.java, intent).also { opened += it }.setup()
+        val a = c.get()
+        waitFor("the game to draw") { screenText(a).isNotBlank() }
+        val quit = views(a.window.decorView).first { it.contentDescription == "Quit ${game.title}" }
+        assertTrue("Quit hidden while playing", quit.visibility != View.VISIBLE)
+        click(a.window.decorView, "Pause")
+        assertTrue("Quit shown while paused", quit.visibility == View.VISIBLE)
+        val pause = views(a.window.decorView).filterIsInstance<dev.tuikio.app.ui.IconButton>().first { it.contentDescription == "Resume" }
+        assertTrue("Pause lit while paused", pause.active)
+        quit.performClick()
+        idle(900)
+        assertTrue("left the game", a.isFinishing)
+    }
+
+    @Test
+    fun theGameCountOpensEveryGame() {
+        val a = main()
+        val n = app.catalog.games.count { app.catalog.isBundled(it) }
+        click(a.window.decorView, "$n games ›")
+        val shown = texts(a.window.decorView)
+        assertTrue(shown.toString(), shown.contains("All games"))
+        val carts = views(a.window.decorView).filterIsInstance<dev.tuikio.app.screens.Cartridge>().count()
+        assertTrue("$carts of $n cartridges", carts == n)
+        click(a.window.decorView, "Puzzle", exact = false)
+        val puzzles = app.catalog.games.count { app.catalog.isBundled(it) && it.category == "puzzle" && it.online == null }
+        assertTrue(views(a.window.decorView).filterIsInstance<dev.tuikio.app.screens.Cartridge>().count() == puzzles)
+    }
+
+    @Test
     fun onlineGamesAskBeforeConnecting() {
         val a = main()
         val game = app.catalog.games.first { it.online != null }

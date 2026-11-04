@@ -258,13 +258,29 @@ class Cartridge(context: Context, val game: GameManifest, onOpen: () -> Unit) : 
 }
 
 /** A horizontally scrolling shelf of cartridges. */
-fun Context.shelf(games: List<GameManifest>, onOpen: (GameManifest) -> Unit): View {
+fun Context.shelf(games: List<GameManifest>, total: Int? = null, onAll: (() -> Unit)? = null, onOpen: (GameManifest) -> Unit): View {
     val row = hstack(14) {
         setPadding(0, dp(2), dp(18), dp(6))
         games.forEachIndexed { i, g ->
             val c = Cartridge(this@shelf, g) { onOpen(g) }
             addView(c, LinearLayout.LayoutParams(dp(152), WRAP))
             dev.tuikio.app.ui.Motion.enter(c, i)
+        }
+        if (total != null && onAll != null) {
+            // The end of the shelf: one card that opens the whole list.
+            val ctx = this@shelf
+            addView(vstack(10) {
+                gravity = Gravity.CENTER
+                background = StickerDrawable(ctx, fill = Theme.palette.surfaceAlt)
+                setPadding(dp(12), dp(16), dp(12), dp(16))
+                isClickable = true
+                isFocusable = true
+                contentDescription = "See all $total games"
+                setOnClickListener { onAll() }
+                addView(T.title(ctx, "$total", 30f).apply { gravity = Gravity.CENTER }, lp(MATCH, WRAP))
+                addView(T.body(ctx, "See all games", 15f, Theme.palette.ink, 800).apply { gravity = Gravity.CENTER }, lp(MATCH, WRAP))
+                addView(dev.tuikio.app.ui.IconButton(ctx, dev.tuikio.app.ui.Icon.CHEVRON, "See all", Theme.palette.accent, Theme.palette.onAccent) { onAll() })
+            }, LinearLayout.LayoutParams(dp(152), MATCH))
         }
     }
     return HorizontalScrollView(this).apply {
