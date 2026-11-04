@@ -46,4 +46,11 @@ GAMES = [
          source_url="https://gitlab.com/esr/open-adventure", version="git e6160529",
          archive="open-adventure-e6160529.tar", discovery="open-adventure",
          test_notes="Host test: instructions, building, inventory, save prompt."),
+    dict(id="zigtris", title="Zigtris", exe="game_zigtris", controls="blocks.v1", orientation="portrait", hide=["ok", "back", "pause"],
+         terminal=((40, 24), (40, 24)),
+         summary="A compact Tetris written in Zig.",
+         description="Left and right slide, up rotates, down drops faster and Drop sends the piece down.",
+         category="arcade", tags=["blocks", "tetris", "zig"], authors=["Ringtail Software"], license="MIT",
+         **gh("ringtailsoftware/zigtris", "60206d8f"), discovery="zigtris",
+         test_notes="Host test: well, pieces fall, moves and drops."),
 ]

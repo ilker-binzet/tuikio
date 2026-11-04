@@ -59,6 +59,10 @@ ascii-tetris-f983b048.tar
   https://github.com/Gregwar/ASCII-Tetris @ f983b0488a43bfea9ab1637f31596bbb94a1135e
   sha256 8ee152355565f58c5f40bbfe33248c08547a62969e618b9cc3bcb7a92eb35fa0
 
+awkaster-ac7f1b03.tar
+  https://github.com/TheMozg/awk-raycaster @ ac7f1b03554ca1c662ea2951cdd9f0b586075890
+  sha256 e49025fcb307124f70b882669496a1bc0cc884b29ad6c5d32f81913d18692421
+
 balatrotui-01bbb9ac.tar
   https://github.com/Passeriform/BalatroTUI @ 01bbb9ac1b62f6dba4c9c737329034e82d30c81d
   sha256 b0561097bd11f510dce6a20c5a7fe33886271e3b35ee4c7e45977f1f4b3af76b
@@ -238,6 +242,10 @@ hamurabi-994563d7.tar
 inertia-80886289.tar
   https://github.com/aclfe/inertia @ 80886289ed4165134e4c650aa69c22933b7b28b9
   sha256 685a5a2398988c5fb6616ee73b5e8696c7ac880fb242fdea64c42a77cdd095f2
+
+mibu-be3713ff.tar
+  https://github.com/xyaman/mibu @ be3713ff04e7db3584669e679253ef388e426dc6
+  sha256 5382197fb1be05f52d86cac0bb0b30fdc66d46080116a0b7d1cb9d8d560a7be5
 
 minesviiper-f39a17cd.tar
   https://github.com/girst/minesviiper @ f39a17cdae0c4c5986f8b3f12146910300727b63

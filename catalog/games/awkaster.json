@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "id": "awkaster",
+  "title": "awkaster",
+  "summary": "A first-person raycaster shooter, written in awk.",
+  "description": "Walk the maze, shoot the monsters and find the lift: the pad walks and steps sideways, the turn buttons turn, Lift calls the elevator (it takes a while to arrive). 1-4 change the colours.",
+  "category": "arcade",
+  "tags": [
+    "raycaster",
+    "fps",
+    "awk"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Fedor Kalugin"
+    ],
+    "license": "MIT",
+    "source_url": "https://github.com/TheMozg/awk-raycaster",
+    "version": "git ac7f1b03"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/scripts.py",
+    "source_archive": "awkaster-ac7f1b03.tar",
+    "source_sha256": "e49025fcb307124f70b882669496a1bc0cc884b29ad6c5d32f81913d18692421"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_bash",
+    "args": [
+      "awkaster.sh"
+    ],
+    "env": {
+      "BASH_ENV": "tuikio-bash.sh"
+    },
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "awkaster.v1",
+  "keys": [
+    {
+      "label": "1",
+      "text": "1"
+    },
+    {
+      "label": "2",
+      "text": "2"
+    },
+    {
+      "label": "3",
+      "text": "3"
+    },
+    {
+      "label": "4",
+      "text": "4"
+    }
+  ],
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [
+    {
+      "asset": "games/awkaster/awkaster.sh",
+      "dest": "awkaster.sh",
+      "sha256": "d96c9bb0f69c46655b0eafb8a437066572fa5eb1a096b12b23bd598311cb6314"
+    },
+    {
+      "asset": "games/awkaster/tuikio-bash.sh",
+      "dest": "tuikio-bash.sh",
+      "sha256": "19274c2265f9de41b41047f81ff12cf8d2da90732a05ab503c906f3a2f505718"
+    }
+  ],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-02",
+    "android_tested": null,
+    "notes": "Host test in a PTY at 80x24: the 3D view, walking, turning and shooting."
+  }
+}

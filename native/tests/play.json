@@ -877,6 +877,7 @@
     ],
     "brogue-community-edition": [
       "expect:New Game",
+      "wait:1500",
       "type:n",
       "expect:Dungeons of Doom",
       "type:x",
@@ -896,6 +897,23 @@
       "expect:end of a road",
       "type:enter building\n",
       "expect:brass lamp"
+    ],
+    "zigtris": [
+      "expect:(q)uit",
+      "key:LEFT",
+      "type: ",
+      "wait:600",
+      "expect:Score:"
+    ],
+    "awkaster": [
+      "expect:HP",
+      "type:w",
+      "wait:300",
+      "type:l",
+      "wait:300",
+      "type: ",
+      "wait:400",
+      "expect:HP"
     ]
   }
 }

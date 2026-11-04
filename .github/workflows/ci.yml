@@ -50,6 +50,10 @@ jobs:
           rustup toolchain install 1.97.0 --profile minimal \
             --target aarch64-unknown-linux-musl,armv7-unknown-linux-musleabihf,x86_64-unknown-linux-musl
           rustup default 1.97.0
+      - name: Zig 0.15.1 for the Zig games (they pin the release they were written for)
+        run: |
+          pip install --target "$RUNNER_TEMP/zig-0.15" ziglang==0.15.1
+          echo "ZIG_0_15=$RUNNER_TEMP/zig-0.15/ziglang/zig" >> "$GITHUB_ENV"
       - uses: actions/setup-go@v5
         with:
           go-version: "1.24.7"

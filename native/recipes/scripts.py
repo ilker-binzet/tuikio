@@ -40,9 +40,21 @@ def _cached(out, key, build):
 
 # ---------------------------------------------------------------- bash games
 
-def bash_game(lock, notice, files, run_files, *, subst=(), data=()):
-    """[files]: source path -> path in the game's home; [run_files]: the ones bash runs (pinned)."""
-    return dict(lock=lock, notice=notice, files=files, run=run_files, subst=subst, data=data)
+def bash_game(lock, notice, files, run_files, *, subst=(), generate=None, extra=()):
+    """[files]: source path -> path in the game's home; [run_files]: the ones bash runs (pinned);
+    [generate](src) writes files (a launcher) into the source tree first; [extra] names more
+    runtime outputs the game needs (built by RUNTIME_EXTRAS)."""
+    return dict(lock=lock, notice=notice, files=files, run=run_files, subst=subst, generate=generate, extra=extra)
+
+
+def generate_awkaster(src):
+    """awkaster.sh: the launcher (native/ports/awkaster/awkaster.sh) carrying the awk program."""
+    program = open(os.path.join(src, "awkaster.awk"), encoding="utf-8").read()
+    if "\nAWKASTER\n" in "\n" + program + "\n":
+        raise BuildError("awkaster.awk contains the launcher's here-document terminator")
+    template = open(os.path.join(PORTS, "awkaster", "awkaster.sh"), encoding="utf-8").read()
+    with open(os.path.join(src, "awkaster.sh"), "w", encoding="utf-8") as fh:
+        fh.write(template.replace("@AWKASTER_AWK@\n", program if program.endswith("\n") else program + "\n"))
 
 
 BASH_GAMES = {
@@ -65,10 +77,34 @@ BASH_GAMES = {
             ("shellshock", 'highscore=$(command cat "${HOME}/.shellshock" 2>/dev/null)',
              '{ highscore=$(<"${HOME}/.shellshock"); } 2>/dev/null; [[ $highscore =~ ^[0-9]{1,15}$ ]] || highscore=0'),
         ]),
+    "awkaster": bash_game(
+        "awkaster-ac7f1b03.tar", "LICENSE", {"awkaster.sh": "awkaster.sh"}, ["awkaster.sh"],
+        generate=generate_awkaster, extra=["tuikio_gawk"],
+        subst=[
+            # 40x23 "pixels" of two characters fill an 80x24 screen (upstream: 64x48, 128 columns;
+            # its README invites changing w and h). The last row stays free for the cursor.
+            ("awkaster.awk", "  w=64\n  h=48\n", "  w=40\n  h=23\n"),
+            # Keys arrive one per line on standard input from the launcher, instead of through a
+            # /bin/sh pipeline running stty and dd for every key.
+            ("awkaster.awk",
+             '    system("stty -echo")\n    #avoids depending on bash and gawk\n    #by izabera from #bash on freenode\n'
+             '    cmd = "saved=$(stty -g); stty raw; var=$(dd bs=1 count=1 2>/dev/null); stty \\"$saved\\"; echo \\"$var\\""\n'
+             '    cmd | getline input\n    close(cmd)\n    system("stty echo")\n',
+             "    if ((getline input) <= 0)\n      break\n"),
+            # The two status lines must fit in 80 columns, or they wrap and scroll the view.
+            ("awkaster.awk", 'info = "ELEVATOR COMING " moves " | HP "', 'info = "LIFT " moves " | HP "'),
+            ("awkaster.awk", 'info = info "RELOADING"', 'info = info "RELOAD"'),
+            ("awkaster.awk", 'info = info " | WAIT FOR ELEVATOR"', 'info = info " | WAIT FOR LIFT"'),
+            ("awkaster.awk", 'info = info " | find an elevator and press " toupper(UWIN_KEY)',
+             'info = info " | find a lift, press " toupper(UWIN_KEY)'),
+            ("awkaster.awk", '"- turn left/right (shift = quicker)"', '" - turn (shift: faster)"'),
+            ("awkaster.awk", 'help = help ", 1-4 - change color mode"', 'help = help ", 1-4 - colours"'),
+        ]),
 }
 
 # Extra notice text per game (appended to its LICENSES/<id>.txt).
 BASH_NOTICES = {
+    "awkaster": "awkaster runs on GNU Awk (GPL-3.0-or-later, see gawk.txt), started by a Tuikio launcher script.\n",
     "shellshock": "ShellShock is Copyright 2012 Øyvind 'bolt' Hvidsten <bolt@dhampir.no>, released under the GNU General "
                   "Public License version 2 (stated in the header of the script; the text is above).\n",
 }
@@ -89,6 +125,8 @@ def stage_bash():
             src = unpack(e["lock"], os.path.join(STAGE, gid, "src"))
             for rel, old, new, *count in e["subst"]:
                 replace_in(os.path.join(src, rel), old, new, *count)
+            if e["generate"]:
+                e["generate"](src)
             for rel, dest in e["files"].items():
                 path = install_asset(f"games/{gid}/{dest}", os.path.join(src, rel))
                 if dest in e["run"]:
@@ -237,6 +275,9 @@ def write_runtime_notices():
             ("toybox", "toybox_0.8.9+dfsg.orig.tar.xz", "LICENSE",
              "toybox 0.8.9 (libtuikio_toybox.so: stty, sleep, date, uname, cat, rm, mktemp) for the bash games.\n"
              "License: 0BSD.\n\n"),
+            ("gawk", "gawk_5.2.1.orig.tar.xz", "COPYING",
+             "GNU Awk 5.2.1 (libtuikio_gawk.so), the interpreter of awkaster.\n"
+             "Copyright (C) Free Software Foundation, Inc. License: GPL-3.0-or-later.\n\n"),
         ):
             path = os.path.join(tk.LICENSES, f"{name}.txt")
             body = head + archive_text(lock, rel)
@@ -246,8 +287,30 @@ def write_runtime_notices():
                     fh.write(body)
 
 
+def build_gawk(abi):
+    """GNU awk for awkaster (arrays of arrays, PROCINFO["sorted_in"]): no dynamic extensions,
+    readline, MPFR or translations. It only runs the program awkaster's pinned launcher hands it."""
+    work = abi.work("tuikio-gawk")
+    config = "--disable-nls --disable-extensions --disable-mpfr --disable-pma --without-readline"
+
+    def build():
+        src = unpack("gawk_5.2.1.orig.tar.xz", os.path.join(work, "src"))
+        # Its LDADD and AM_LDFLAGS repeat $(LDFLAGS), which would link the compat shim three times.
+        tk.autotools(abi, src, config, make="make -j2 -C support && make -j2 gawk LDADD=support/libsupport.a AM_LDFLAGS=")
+        return os.path.join(src, "gawk")
+
+    return _cached(os.path.join(work, "gawk"), "gawk 5.2.1 " + config, build)
+
+
+RUNTIME_EXTRAS = {"tuikio_gawk": build_gawk}
+_extra_locks = {name: threading.Lock() for name in tk.ABIS}
+
+
 def build_bash_game(abi, gid):
     out = bash_runtime(abi)
+    with _extra_locks[abi.name]:
+        for name in BASH_GAMES[gid]["extra"]:
+            out[name] = RUNTIME_EXTRAS[name](abi)
     write_runtime_notices()
     with _notice_lock:
         tk.EXTRA_NOTICES[gid] = ("\n\n" + "=" * 72 + "\n" + BASH_NOTICES.get(gid, "") +

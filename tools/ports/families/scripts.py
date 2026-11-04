@@ -40,4 +40,12 @@ GAMES = [
                          "as dhampir.no/stuff/bash/shellshock), pinned by commit; runs on the bundled GNU Bash.",
          test_notes="Host test in a PTY at 80x24: title, start, flying, firing, rocks and score; the high score file "
                     "is read as a number only."),
+    dict(id="awkaster", title="awkaster", exe="game_bash", args=["awkaster.sh"], env=BASH_ENV, controls="awkaster.v1",
+         keys=["#1-4"],
+         summary="A first-person raycaster shooter, written in awk.",
+         description="Walk the maze, shoot the monsters and find the lift: the pad walks and steps sideways, the "
+                     "turn buttons turn, Lift calls the elevator (it takes a while to arrive). 1-4 change the colours.",
+         category="arcade", tags=["raycaster", "fps", "awk"], authors=["Fedor Kalugin"], license="MIT",
+         **gh("TheMozg/awk-raycaster", "ac7f1b03", "awkaster"), discovery="awkaster",
+         test_notes="Host test in a PTY at 80x24: the 3D view, walking, turning and shooting."),
 ]

@@ -60,7 +60,7 @@ the SIL Open Font License 1.1.
 
 Everyone whose suggestion, port or correction is accepted through the app or a pull request is listed here, by GitHub login or as an anonymous community contributor. Be the first: suggest a game from the app's Create tab.
 
-### Games (154 playable)
+### Games (156 playable)
 
 Every game is the work of its authors; Tuikio only ports and packages it. Licenses link to the full text shipped in the app.
 
@@ -78,6 +78,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 | ASCII-Chess | Parigyan Chandra Goyal, Sharat Shankar | [GPL-3.0-or-later](LICENSES/ascii-chess.txt) | [github.com/Parigyan/ASCII-Chess](https://github.com/Parigyan/ASCII-Chess) | PORTABLE |
 | ASCII-Tetris | Grégoire Passault | [MIT](LICENSES/ascii-tetris.txt) | [github.com/Gregwar/ASCII-Tetris](https://github.com/Gregwar/ASCII-Tetris) | PORTABLE |
 | Asteroids (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
+| awkaster | Fedor Kalugin | [MIT](LICENSES/awkaster.txt) | [github.com/TheMozg/awk-raycaster](https://github.com/TheMozg/awk-raycaster) | PORTABLE |
 | Backgammon | Alan Char | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
 | Backgammon Tutor | Alan Char | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
 | Balatro TUI | Utkarsh Bhardwaj (Passeriform) | [GPL-3.0-only](LICENSES/balatro-tui.txt) | [github.com/Passeriform/BalatroTUI](https://github.com/Passeriform/BalatroTUI) | PORTABLE |
@@ -220,6 +221,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 | Worm | Michael Toy | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
 | Xonitix | Breno G. de Oliveira | [MIT](LICENSES/xonitix.txt) | [github.com/garu/Xonitix](https://github.com/garu/Xonitix) | PORTABLE |
 | yetris | Alexandre Dantas | [GPL-3.0-or-later](LICENSES/yetris.txt) | [github.com/alexdantas/yetris](https://github.com/alexdantas/yetris) | PORTABLE |
+| Zigtris | Ringtail Software | [MIT](LICENSES/zigtris.txt) | [github.com/ringtailsoftware/zigtris](https://github.com/ringtailsoftware/zigtris) | PORTABLE |
 
 ### Inside the app
 
@@ -251,7 +253,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 - [Termux packages](https://github.com/termux/termux-packages) by The Termux maintainers
 - [Debian and Ubuntu archives](https://packages.debian.org/) by The Debian and Ubuntu maintainers
 
-### Also in the catalog (79 links)
+### Also in the catalog (77 links)
 
 Listed in the app with a link to their authors' pages; not bundled (yet). Licenses are their authors'.
 
@@ -265,7 +267,6 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [ASCII Patrol](http://ascii-patrol.com/) (GPL-3.0-only)
 - [ASCIIpOrtal](https://github.com/cymonsgames/ASCIIpOrtal)
 - [Astwar](https://savannah.nongnu.org/projects/astwar)
-- [Awkaster (raycasting)](https://github.com/TheMozg/awk-raycaster)
 - [Bash Dungeon](https://github.com/wolandark/bash-dungeon)
 - [Bashmaze](https://github.com/phoemur/bashmaze)
 - [Brickgame 4bit](https://github.com/ilyakurdyukov/brickgame-4bit) (ISC)
@@ -332,7 +333,6 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [Terminal Phase](https://gitlab.com/dustyweb/terminal-phase)
 - [Terminal Space Program](https://github.com/jasonfen/terminal-space-program)
 - [Wolfentext3D](https://github.com/AtomicPair/wolfentext3d)
-- [Zigtris](https://github.com/ringtailsoftware/zigtris)
 - [Zoridor](https://github.com/ringtailsoftware/zoridor)
 
 <!-- credits:end -->

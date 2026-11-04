@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "profile_id": "awkaster.v1",
+  "title": "awkaster",
+  "help": "The pad walks and steps sideways; the turn buttons turn. Shoot fires, Lift calls the elevator.",
+  "orientation": "landscape",
+  "actions": [
+    {
+      "id": "up",
+      "label": "Forward",
+      "icon": "arrow_up",
+      "output": {
+        "text": "w"
+      },
+      "repeat": {
+        "delay_ms": 80,
+        "interval_ms": 60
+      }
+    },
+    {
+      "id": "down",
+      "label": "Back",
+      "icon": "arrow_down",
+      "output": {
+        "text": "s"
+      },
+      "repeat": {
+        "delay_ms": 80,
+        "interval_ms": 60
+      }
+    },
+    {
+      "id": "left",
+      "label": "Step left",
+      "icon": "arrow_left",
+      "output": {
+        "text": "a"
+      },
+      "repeat": {
+        "delay_ms": 80,
+        "interval_ms": 60
+      }
+    },
+    {
+      "id": "right",
+      "label": "Step right",
+      "icon": "arrow_right",
+      "output": {
+        "text": "d"
+      },
+      "repeat": {
+        "delay_ms": 80,
+        "interval_ms": 60
+      }
+    },
+    {
+      "id": "fire",
+      "label": "Shoot",
+      "icon": "spark",
+      "output": {
+        "text": " "
+      },
+      "haptic": "click"
+    },
+    {
+      "id": "turnl",
+      "label": "Turn left",
+      "icon": "rotate",
+      "output": {
+        "text": "j"
+      },
+      "repeat": {
+        "delay_ms": 80,
+        "interval_ms": 60
+      }
+    },
+    {
+      "id": "turnr",
+      "label": "Turn right",
+      "icon": "rotate",
+      "output": {
+        "text": "l"
+      },
+      "repeat": {
+        "delay_ms": 80,
+        "interval_ms": 60
+      }
+    },
+    {
+      "id": "lift",
+      "label": "Lift",
+      "icon": "stairs",
+      "output": {
+        "text": "x"
+      }
+    }
+  ],
+  "layout": {
+    "portrait": [
+      {
+        "type": "dpad4",
+        "anchor": "bottom_start",
+        "size": 176,
+        "bind": {
+          "up": "up",
+          "down": "down",
+          "left": "left",
+          "right": "right"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "bottom_end",
+        "size": 80,
+        "bind": {
+          "press": "fire"
+        },
+        "style": "primary"
+      },
+      {
+        "type": "button",
+        "anchor": "center_end",
+        "size": 56,
+        "bind": {
+          "press": "turnr"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "center_end",
+        "size": 56,
+        "bind": {
+          "press": "turnl"
+        },
+        "offset": [
+          -66,
+          0
+        ]
+      },
+      {
+        "type": "button",
+        "anchor": "top_end",
+        "size": 48,
+        "bind": {
+          "press": "lift"
+        }
+      },
+      {
+        "type": "keyboard",
+        "anchor": "top_start",
+        "size": 48
+      }
+    ],
+    "landscape": [
+      {
+        "type": "dpad4",
+        "anchor": "center_start",
+        "size": 168,
+        "bind": {
+          "up": "up",
+          "down": "down",
+          "left": "left",
+          "right": "right"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "center_end",
+        "size": 76,
+        "bind": {
+          "press": "fire"
+        },
+        "style": "primary"
+      },
+      {
+        "type": "button",
+        "anchor": "bottom_end",
+        "size": 52,
+        "bind": {
+          "press": "turnr"
+        }
+      },
+      {
+        "type": "button",
+        "anchor": "bottom_end",
+        "size": 52,
+        "bind": {
+          "press": "turnl"
+        },
+        "offset": [
+          -62,
+          0
+        ]
+      },
+      {
+        "type": "button",
+        "anchor": "top_end",
+        "size": 48,
+        "bind": {
+          "press": "lift"
+        }
+      },
+      {
+        "type": "keyboard",
+        "anchor": "top_start",
+        "size": 48
+      }
+    ]
+  }
+}

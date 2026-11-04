@@ -610,6 +610,16 @@
       "git": "https://github.com/angband/angband",
       "commit": "e473720ed88a0f0c7ca66815cef3000eb4a38bc3",
       "sha256": "d8944ceaa4fdc42f3ef18999caa917f9afae41d556838cd449f349accce714d5"
+    },
+    "mibu-be3713ff.tar": {
+      "git": "https://github.com/xyaman/mibu",
+      "commit": "be3713ff04e7db3584669e679253ef388e426dc6",
+      "sha256": "5382197fb1be05f52d86cac0bb0b30fdc66d46080116a0b7d1cb9d8d560a7be5"
+    },
+    "awkaster-ac7f1b03.tar": {
+      "git": "https://github.com/TheMozg/awk-raycaster",
+      "commit": "ac7f1b03554ca1c662ea2951cdd9f0b586075890",
+      "sha256": "e49025fcb307124f70b882669496a1bc0cc884b29ad6c5d32f81913d18692421"
     }
   }
 }
