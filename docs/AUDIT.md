@@ -167,15 +167,27 @@ phone.
 - Shell Games' Snake moves from the first frame and usually crashes before the screenshot tool
   can steer it, so its card shows its game-over screen.
 
+## Round 5: eleven more, and the candidates assessed (2026-11-04)
+
+Ported: Brogue CE (curses front end, 100×34), Angband 4.2 (curses, roguelike keyset by default so the
+pad walks, player files in `~/angband`), Rogue 5.4.4, Open Adventure (a small stand-in for libedit's
+readline), GNU Shogi, nchess, nPush (level files renamed without spaces), VIper, Zigtris (built with
+Zig 0.15.1, the release it targets), awkaster (GNU Awk on the bundled bash) and clidle (local game only).
+Declined with the reason in `catalog/discovery.json`: connect4, Rummy, cemetery-escape, bashmaze (no
+licence), brickgame-4bit (non-free ROM), ASCII Patrol (X11 input), bash-dungeon (played in your own
+shell), katamascii, dopewars, shell-tanks, zoridor (dependencies), GNU Go and GNU Chess (built, but
+broken in this toolchain). See `docs/handoff/` for what remains.
+
 ## Every game
 
-Text size and buttons are from the round 2 to 4 shots: past the title screen where a script gets there.
+Text size and buttons are from the round 2 to 5 shots: past the title screen where a script gets there.
 
-| Game | Orientation | Terminal | Controls | Text (dp) | Buttons under the game (audited screen) | Fixed (rounds 1 to 4) |
+| Game | Orientation | Terminal | Controls | Text (dp) | Buttons under the game (audited screen) | Fixed (rounds 1 to 5) |
 |---|---|---|---|---|---|---|
 | 2048 (cli) | portrait | 80×24 | arrows4 | 30 | - | Every first game began with "Failed to parse highscore file". Fixed. |
 | 2048 | portrait | 40×20 | grid4 | 30 | - |  |
 | Colossal Cave Adventure | portrait | 48×32 | text | 19 | - | Portrait, 48 columns, word wrap (was 80 columns: tiny upright). Keyboard up at the start. |
+| Angband | landscape | 80×24 | dungeon8 | 14 | Wield, Take off, Eat, Quaff, Read, Fire, Cast, Look, Map, Rest, Character, Help, a Human, c Elf, d Hobbit, e Gnome, f Dwarf, g Half-Orc |  |
 | Arithmetic | any | 80×24 | text | 30 / 30 | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, Minus | Digit buttons and minus. |
 | ASCII-Chess | portrait | 72×40 | text | 13 | - | Keyboard up at the start. |
 | ASCII Invaders | landscape | 80×24 | shooter | 16 | - |  |
@@ -183,6 +195,7 @@ Text size and buttons are from the round 2 to 4 shots: past the title screen whe
 | ASCII Snake | portrait | 40×26 | arrows4 | 25 | - |  |
 | ASCII-Tetris | portrait | 80×24 | qsd-blocks | 30 | - |  |
 | Air Traffic Controller | landscape | 80×24 | text | 14 | - | Keyboard up at the start. |
+| awkaster | landscape | 80×24 | awkaster | 14 | 1, 2, 3, 4 |  |
 | Backgammon | landscape | 80×24 | text | 18 | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, Dash, Comma, Double, Save, Quit | Landscape: the board needs 80 columns. Digits, dash and comma for moves; Double, Save, Quit; its questions as chips. |
 | Balatro TUI | landscape | 112×40 | balatro | 10 | - | New (Rust). Runs at 112×40: at 80×24 its cards' values are cut off. Play and Discard buttons. |
 | Bastet | portrait | 54×24 | bastet | 22 | - |  |
@@ -192,10 +205,12 @@ Text size and buttons are from the round 2 to 4 shots: past the title screen whe
 | Blue Moon | landscape | 80×24 | text | 14 | a, b, d |  |
 | Boggle | landscape | 80×24 | text | 30 | ? Help | Keyboard up at the start. |
 | Bombardier | landscape | 80×25 | bomber | 16 | - | Its own controls (Bomb, Pause, Quit) instead of an unused pad. |
+| Brogue: Community Edition | landscape | 100×34 | dungeon8 | 10 | Explore, Rest, Equip, Remove, Apply, Throw, Drop, Help |  |
 | Canfield | landscape | 80×24 | text | 17 | Stock, Talon, Hand, 1, 2, 3, 4, Foundation, c Toggle card, b Present, q Quit | Its command legend as chips. Stock, Talon, Hand, 1-4 and Foundation buttons. |
 | Cavez of Phear | landscape | 80×25 | arrows | 13 | Bomb, Detonate, Give up, Quit | "Continue" no longer covers the title. Bomb, Detonate, Give up and Quit buttons. |
 | Checkers | landscape | 80×24 | nbsd | 26 | Quit | Enter named for what it does; Quit button. |
 | Chroma | landscape | 80×24 | arrows | 14 | Undo, Redo, Fast, Pause | Menu readable; H/E/D/Q as chips. Undo, Redo, Fast, Pause; Enter reads Swap. |
+| Clidle | portrait | 58×30 | clidle | 15 | - |  |
 | Color Lines | portrait | 37×37 | space-select | 16 | Quit | 40×24: the board fills the screen. 37x37: balls drawn 3x3 instead of one character. |
 | CPat | landscape | 80×24 | text | 15 | a, b, c, d, e, f, g, h, i, j, p, o, Undo, Help |  |
 | Cribbage | landscape | 80×24 | text | 15 | - | Quit when asked for instructions (no shell for its pager); keyboard up; Long/Short chips. |
@@ -210,6 +225,7 @@ Text size and buttons are from the round 2 to 4 shots: past the title screen whe
 | Fisher | landscape | 80×24 | nbsd | 14 | Quit | Quit button; unused buttons gone. |
 | Freecell | landscape | 80×24 | text | 24 | a, b, c, d, e, f, g, h, Undo, Quit, Help | Column buttons a-h, Undo, Quit, Help; Space and Enter read Free cell and Home. |
 | Freesweep | portrait | 60×24 | mines | 15 | ? Help | A 12x15 board: a third of the 15x15 one was off screen. |
+| GNU Shogi | landscape | 80×24 | text | 13 | Hint, Undo, Switch, New, 2 Black |  |
 | Go Fish | portrait | 48×32 | text | 22 | - | Portrait, 48 columns, word wrap. Instructions paged without a shell; keyboard up. |
 | Gomoku | landscape | 80×24 | text | 12 | Black, White | Keyboard up at the start. |
 | Greed | landscape | 80×24 | greed | 13 | ? Help |  |
@@ -233,14 +249,17 @@ Text size and buttons are from the round 2 to 4 shots: past the title screen whe
 | Morpion Solitaire | portrait | 80×46 | morpion | 12 | - |  |
 | msnake | landscape | 80×24 | snake | 14 | - |  |
 | Muncher | landscape | 80×24 | nbsd | 14 | Quit | Quit button; unused buttons gone. |
+| NChess | landscape | 62×20 | arrows | 25 | - |  |
 | NetHack | landscape | 80×24 | dungeon8 | 14 | Wield, Wear, Take off, Put on, Remove, Eat, Quaff, Read, Zap, Cast, Apply, Fire, Drop, Kick, Pray, Help |  |
 | Netris | landscape | 80×24 | jkl-blocks | 15 | - | Landscape: its title wraps over the board below 77 columns. |
 | netToe | landscape | 80×24 | text | 20 | a1, a2, a3, b1, b2, b3, c1, c2, c3 | Menu entries as chips. Screens were cleared bright red (terminfo colour 9); a1-c3 move buttons; menu chips send Enter. |
 | nInvaders | landscape | 80×24 | invaders | 16 | - |  |
+| nPush | landscape | 80×24 | arrows | 14 | Switch, Undo, Quit, x Exit |  |
 | nSnake | landscape | 80×24 | snake | 14 | - |  |
 | nsuds | landscape | 66×22 | arrows | 15 | 1, 2, 3, 4, 5, 6, 7, 8, 9, Delete, Mark, Pause, New, Scores, Help, Quit |  |
 | nudoku | landscape | 80×24 | arrows | 18 | 1, 2, 3, 4, 5, 6, 7, 8, 9, Delete, Check, Hint, New, Quit, m Toggle marks, r Redraw, S Solve puzzle | Its commands as chips (moves stay on the pad). Digit buttons, Delete, Check, Hint, New, Quit. |
 | Nuzzle | landscape | 80×24 | arrows | 14 | Next, Quit | Menu readable (was black on navy). Next (Tab) and Quit; Enter reads Drop. |
+| Open Adventure | portrait | 48×32 | text | 19 | - |  |
 | Pacman for Console | portrait | 32×32 | arrows | 19 | Pause, Quit | Did not start: looked for its levels in /usr/share. Fixed. Pause and Quit; unused buttons gone. |
 | Petris | portrait | 50×24 | petris | 21 | - | 50×24 instead of 80×24: the well is much larger. |
 | Phantasia | landscape | 80×24 | text | 13 | Yes, No, Q Quit | Class menu, [123456] and [Q = Quit] as chips; keyboard up. |
@@ -254,6 +273,7 @@ Text size and buttons are from the round 2 to 4 shots: past the title screen whe
 | rhex | landscape | 80×24 | rhex | 14 | - | New (Rust). Turn, step and wait buttons for its hex grid. |
 | robotfindskitten | landscape | 80×24 | kitten | 13 | - |  |
 | Robots | landscape | 80×24 | robots | 13 | q Quit |  |
+| Rogue | landscape | 80×24 | dungeon8 | 15 | Quaff, Read, Eat, Wield, Wear, Take off, Ring on, Ring off, Throw, Zap, Save, Help |  |
 | Sail | landscape | 80×24 | text | 14 | - | Keyboard up at the start. |
 | Scissor | landscape | 80×24 | nbsd | 14 | Pause, Quit | Quit button; unused buttons gone. |
 | 2048 (Shell Games) | portrait | 34×20 | snake | 30 | Q Quit |  |
@@ -314,6 +334,7 @@ Text size and buttons are from the round 2 to 4 shots: past the title screen whe
 | Ularn | landscape | 80×24 | roguelike | 14 | Continue | "Continue" no longer covers the text. 10 command buttons. |
 | UniPac | portrait | 64×33 | unipac | 14 | - |  |
 | UNIX Aliens | landscape | 80×24 | aliens | 16 | - | Game modes 1-4 as chips. |
+| VIper | portrait | 40×24 | arrows4 | 22 | Restart, Pause |  |
 | Vitetris | portrait | 48×25 | blocks | 20 | - | 48x25: the well's bottom was cut off. |
 | Wander | portrait | 48×32 | text | 18 | - | Portrait, 48 columns, word wrap. Keyboard up at the start. |
 | Wordle CLI | portrait | 52×37 | wordle | 18 | - |  |
@@ -321,3 +342,4 @@ Text size and buttons are from the round 2 to 4 shots: past the title screen whe
 | Hunt the Wumpus | portrait | 48×32 | text | 18 | m, s | Portrait, 48 columns, word wrap; "(m-s)" answers as chips. Instructions paged without a shell; digits for rooms; keyboard up. |
 | Xonitix | landscape | 80×24 | xonitix | 21 | - |  |
 | yetris | landscape | 80×24 | blocks | 14 | Hold, Turn left, Pause, Help, I X, T X, L X, J X, S X, Z X |  |
+| Zigtris | portrait | 40×24 | blocks | 24 | q Quit |  |

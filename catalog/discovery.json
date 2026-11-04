@@ -190,7 +190,7 @@
     "kind": "collection",
     "category": "arcade",
     "status": "CANDIDATE",
-    "upstream_license": "UNKNOWN",
+    "upstream_license": "MIT",
     "gameplay_actions": [],
     "expected_terminal_size": [],
     "preferred_orientation": null,
@@ -198,13 +198,13 @@
     "backend": "undecided",
     "platform_support": null,
     "import_date": "2026-10-22",
-    "last_checked": null,
+    "last_checked": "2026-11-04",
     "version": null,
     "dependencies": [],
     "screenshot_provenance": null,
     "build_recipe": null,
     "game_id": null,
-    "notes": "25 bash games in one repository; needs a bundled shell interpreter."
+    "notes": "Ported as 25 separate catalog games (the shellgame-* entries), all built into one executable."
   },
   {
     "id": "0verkill",
@@ -2628,7 +2628,7 @@
     "kind": "game",
     "category": "adventure",
     "status": "CANDIDATE",
-    "upstream_license": "UNKNOWN",
+    "upstream_license": "MIT",
     "gameplay_actions": [],
     "expected_terminal_size": [],
     "preferred_orientation": null,
@@ -2636,13 +2636,13 @@
     "backend": "undecided",
     "platform_support": null,
     "import_date": "2026-10-22",
-    "last_checked": null,
+    "last_checked": "2026-11-04",
     "version": null,
     "dependencies": [],
     "screenshot_provenance": null,
     "build_recipe": null,
     "game_id": null,
-    "notes": "Not yet assessed: license, build and controls unverified."
+    "notes": "Ported as part of Shell Games: see shellgame-spire-ascent."
   },
   {
     "id": "chess-tui",

@@ -131,6 +131,8 @@ def art_from(screen, r0, c0, w, h, squash=False):
         if col == none:
             return "."
         if col not in palette:
+            if len(palette) == len(CODES):  # a truecolour screen: the rest keep the default colour
+                return "."
             palette.append(col)
         return CODES[palette.index(col)]
 

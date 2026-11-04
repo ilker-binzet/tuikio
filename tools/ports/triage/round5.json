@@ -50,5 +50,13 @@
   "dopewars": {
     "license": "GPL-2.0-or-later",
     "notes": "Its curses client needs GLib, which no other game uses; not ported in this round for that library's size and build."
+  },
+  "shell-games": {
+    "license": "MIT",
+    "notes": "Ported as 25 separate catalog games (the shellgame-* entries), all built into one executable."
+  },
+  "spire-ascent": {
+    "license": "MIT",
+    "notes": "Ported as part of Shell Games: see shellgame-spire-ascent."
   }
 }
