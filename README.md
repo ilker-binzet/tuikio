@@ -1,5 +1,7 @@
 # Tuikio
 
+<p align="center"><img src="docs/images/banner.png" alt="tuikio: Terminal games, carried home. Kio the hermit crab beside a NetHack terminal and 2048 and Tetris cards." width="100%"></p>
+
 Tuikio (tuıkıo) is an Android app for discovering, installing and playing terminal games:
 the real C/C++ programs, running on a real pseudo-terminal, with touch controls designed for
 each game. Its mascot is Kio, a hermit crab that lives in a terminal.
@@ -13,6 +15,16 @@ each game. Its mascot is Kio, a hermit crab that lives in a terminal.
   accessibility pack, and launcher identities you can switch in Brand Studio.
 - **Community.** Save sources on your phone, suggest them anonymously or with GitHub credit,
   or publish your own game. Everything becomes a reviewed pull request.
+
+## Screenshots
+
+Real screens from the app's render tests (`RenderShotsTest`): each game running in its terminal, with its own controls.
+
+| | |
+|---|---|
+| ![Kio: Lantern Tide, upright, with the pad](docs/images/screenshots/lantern-tide.png) | ![Doom in ASCII, sideways, with the pad and weapon buttons](docs/images/screenshots/doom.png)<br><br>![Klondike solitaire (solVItaire)](docs/images/screenshots/solitaire.png)<br><br>![Tetro TUI](docs/images/screenshots/tetro.png)<br><br>![Balatro TUI](docs/images/screenshots/balatro.png)<br><br>![Pokete, a Python game](docs/images/screenshots/pokete.png) |
+
+A 16:9 version of the banner, for slides and social cards, is at [`docs/images/banner-16x9.png`](docs/images/banner-16x9.png).
 
 ## Status
 
