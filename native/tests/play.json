@@ -927,6 +927,15 @@
       "type:l",
       "wait:300",
       "expect:Hp:"
+    ],
+    "npush": [
+      "expect:nPush",
+      "key:ENTER",
+      "expect:Select a level",
+      "key:ENTER",
+      "expect:Gold and Exit",
+      "key:LEFT",
+      "wait:300"
     ]
   }
 }

@@ -323,6 +323,10 @@ noteye-55bb69d7.tar
   https://github.com/zenorogue/noteye @ 55bb69d716a9fb269c6364f9df89d4bc260cb1a1
   sha256 c3934e92247f4329a9bbaf59f017d92e8c2e15ed2cea148154f7b7c38d892b97
 
+npush-0.7.tgz
+  https://downloads.sourceforge.net/project/npush/npush/0.7/npush-0.7.tgz
+  sha256 f216d2b3279e8737784f77d4843c9e6f223fa131ce1ebddaf00ad802aba2bcd9
+
 nsnake_3.0.1.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/n/nsnake/nsnake_3.0.1.orig.tar.gz
   sha256 7240dafe35e17b01134591d7ae8f09f5a375cded8b01e43ba97ca3610a09ea61

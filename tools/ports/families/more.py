@@ -75,4 +75,13 @@ GAMES = [
          **gh("Davidslv/rogue", "f4653c2a"), discovery="rogue",
          saves=(["rogue.save", "rogue.scr"], "Saved game and scores"),
          test_notes="Host test: first room, walking, status line."),
+    dict(id="npush", title="nPush", exe="game_npush", controls="arrows.v1", labels={"select": "Action"},
+         hide=["space", "back"], keys=["Switch=<TAB>", "Undo=u", "Quit=q"],
+         summary="Push rocks, collect gold, blow your way out with dynamite: 18 hand-made puzzles.",
+         description="A Sokoban-like puzzle game: gather every piece of gold, then reach the exit. Rocks can be pushed "
+                     "or blasted; some levels give you several characters to switch between. Undo takes a move back.",
+         category="puzzle", tags=["sokoban", "puzzle", "dynamite"], authors=["the nPush developers"],
+         license="GPL-2.0-or-later", source_url="https://npush.sourceforge.net/", version="0.7",
+         archive="npush-0.7.tgz", discovery="npush",
+         test_notes="Host test: level list, level 1, moving."),
 ]

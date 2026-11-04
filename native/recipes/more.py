@@ -126,3 +126,26 @@ def build_rogue(abi):
     autotools(abi, src, "--enable-scorefile=rogue.scr --enable-lockfile=rogue.lck --disable-setgid --enable-wizardmode=no",
               cflags="-fcommon -D_GNU_SOURCE", make="make -j4 rogue")
     return {"game_rogue": os.path.join(src, "rogue")}
+
+
+@game("npush", notice=("npush-0.7.tgz", "COPYING"))
+def build_npush(abi):
+    """nPush: a Sokoban-like puzzle with dynamite and monsters. It reads levels/ from the working
+    directory, the game's home. (The archive's prebuilt binary is not used.)"""
+    work = abi.work("npush")
+    src = unpack("npush-0.7.tgz", os.path.join(work, "src"))
+    # Its level files have spaces in their names, which app data paths don't allow: they are
+    # installed with underscores, shown with spaces in the menu and opened with underscores.
+    game_cpp = os.path.join(src, "npush.cpp")
+    replace_in(game_cpp, '    std::string fileName = "levels/" + name;\n',
+               '    std::string fileName = "levels/" + name;\n'
+               '    std::replace (fileName.begin (), fileName.end (), \' \', \'_\');\n')
+    replace_in(game_cpp, '        std::string filename (de->d_name);\n',
+               '        std::string filename (de->d_name);\n'
+               '        std::replace (filename.begin (), filename.end (), \'_\', \' \');\n')
+    exe = os.path.join(work, "game_npush")
+    cc(abi, [game_cpp], exe, "-std=c++11 -include algorithm", f"{abi.curses_libs}", cxx=True, cwd=src)
+    if abi.name == "x86_64":
+        for path in files(src, "levels/*"):
+            install_asset(f"games/npush/levels/{os.path.basename(path).replace(' ', '_')}", path)
+    return {"game_npush": exe}

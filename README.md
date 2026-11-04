@@ -60,7 +60,7 @@ the SIL Open Font License 1.1.
 
 Everyone whose suggestion, port or correction is accepted through the app or a pull request is listed here, by GitHub login or as an anonymous community contributor. Be the first: suggest a game from the app's Create tab.
 
-### Games (158 playable)
+### Games (159 playable)
 
 Every game is the work of its authors; Tuikio only ports and packages it. Licenses link to the full text shipped in the app.
 
@@ -152,6 +152,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 | Netris | Mark H. Weaver | [GPL-2.0-or-later](LICENSES/netris.txt) | [github.com/naclander/netris](https://github.com/naclander/netris) | PORTABLE |
 | netToe | Gabriele Giorgetti, Mats Erik Andersson | [GPL-2.0-or-later](LICENSES/nettoe.txt) | [nettoe.sourceforge.net/](https://nettoe.sourceforge.net/) | PORTABLE |
 | nInvaders | Dettus | [GPL-2.0-or-later](LICENSES/ninvaders.txt) | [ninvaders.sourceforge.net/](https://ninvaders.sourceforge.net/) | PORTABLE |
+| nPush | the nPush developers | [GPL-2.0-or-later](LICENSES/npush.txt) | [npush.sourceforge.net/](https://npush.sourceforge.net/) | PORTABLE |
 | nSnake | Alexandre Dantas | [GPL-3.0-or-later](LICENSES/nsnake.txt) | [github.com/alexdantas/nSnake](https://github.com/alexdantas/nSnake) | PORTABLE |
 | nsuds | Vincent Launchbury | [GPL-2.0-or-later](LICENSES/nsuds.txt) | [sourceforge.net/projects/nsuds/](https://sourceforge.net/projects/nsuds/) | PORTABLE |
 | nudoku | Michael "jubalh" Vetter | [GPL-3.0-or-later](LICENSES/nudoku.txt) | [jubalh.github.io/nudoku/](https://jubalh.github.io/nudoku/) | PORTABLE |
@@ -255,7 +256,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 - [Termux packages](https://github.com/termux/termux-packages) by The Termux maintainers
 - [Debian and Ubuntu archives](https://packages.debian.org/) by The Debian and Ubuntu maintainers
 
-### Also in the catalog (75 links)
+### Also in the catalog (74 links)
 
 Listed in the app with a link to their authors' pages; not bundled (yet). Licenses are their authors'.
 
@@ -268,7 +269,7 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [ASCII Patrol](http://ascii-patrol.com/) (GPL-3.0-only)
 - [ASCIIpOrtal](https://github.com/cymonsgames/ASCIIpOrtal)
 - [Astwar](https://savannah.nongnu.org/projects/astwar)
-- [Bash Dungeon](https://github.com/wolandark/bash-dungeon)
+- [Bash Dungeon](https://github.com/wolandark/bash-dungeon) (MIT)
 - [Bashmaze](https://github.com/phoemur/bashmaze)
 - [Brickgame 4bit](https://github.com/ilyakurdyukov/brickgame-4bit) (ISC)
 - [Cataclysm: Dark Days Ahead](https://github.com/CleverRaven/Cataclysm-DDA)
@@ -282,7 +283,7 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [Dango (Go board)](https://github.com/gsobell/dango)
 - [dMagnetic (interactive fiction interpreter)](https://www.dettus.net/dMagnetic)
 - [DoomRL / DRL](https://drl.chaosforge.org/)
-- [Dopewars](https://dopewars.sourceforge.io/)
+- [Dopewars](https://dopewars.sourceforge.io/) (GPL-2.0-or-later)
 - [Dukedomrb](https://github.com/infews/dukedomrb)
 - [Dungeon Crawl Stone Soup](https://github.com/crawl/crawl)
 - [FloodIt](https://github.com/smmspiers/FloodIt)
@@ -305,7 +306,6 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [MyMan (Pac-Man)](https://myman.sourceforge.io/)
 - [NBSD Games (18 games)](https://github.com/abakh/nbsdgames) (CC0-1.0 OR Apache-2.0)
 - [Nibbles](https://www.earth.li/projectpurple/progs/nibbles.html)
-- [Npush](http://npush.sourceforge.net/)
 - [NSudoku](https://www.tbmatuka.com/nsudoku/)
 - [Oldrunner](http://culot.org/public/Code/oldrunner.html)
 - [Omega](http://www.alcyone.com/max/projects/omega/)
@@ -318,7 +318,7 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [Roguelike Gallery](https://rlgallery.org)
 - [Rummy](https://github.com/ljc2154/Rummy)
 - [Shell Games](https://github.com/MCookinho/shellgame)
-- [Shell Tanks](https://github.com/annacrombie/shell-tanks)
+- [Shell Tanks](https://github.com/annacrombie/shell-tanks) (GPL-2.0-only)
 - [Solar System Explorer](https://github.com/furan917/go-solar-system)
 - [Spacezero](http://spacezero.sourceforge.net/)
 - [Spire Ascent (Shell Games)](https://github.com/MCookinho/shellgame)

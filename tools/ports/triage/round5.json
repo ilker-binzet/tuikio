@@ -34,5 +34,21 @@
   "zoridor": {
     "license": "MIT",
     "notes": "Needs Zig 0.13 (the app's games use 0.15 and 0.17) and four more pinned dependencies, one of them a web server for its browser mode; not ported in this round."
+  },
+  "bashmaze": {
+    "license": "UNKNOWN",
+    "notes": "No licence anywhere in the repository: all rights reserved, so it can't be redistributed."
+  },
+  "shell-tanks": {
+    "license": "GPL-2.0-only",
+    "notes": "Calls bc, sed, grep, sox (play) and netcat (for its networked two-player mode) besides the few commands the app's bundled bash provides; not ported in this round."
+  },
+  "bash-dungeon": {
+    "license": "MIT",
+    "notes": "Not a program: it is played by exploring directories with your own shell's cd and ls, which the app doesn't offer."
+  },
+  "dopewars": {
+    "license": "GPL-2.0-or-later",
+    "notes": "Its curses client needs GLib, which no other game uses; not ported in this round for that library's size and build."
   }
 }
