@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "id": "sporkhack",
+  "title": "SporkHack",
+  "summary": "A tougher NetHack 3.4.3 variant: rebalanced monsters, new items and a meaner dungeon.",
+  "description": "SporkHack, as played on the hardfought.org servers, with NetHack's tty interface. Pick a class, race, gender and alignment on one screen, then '.' to play. The pad walks with the vi keys; the strip holds the everyday commands. Leaving the game saves it.",
+  "category": "roguelike",
+  "tags": [
+    "roguelike",
+    "nethack",
+    "variant",
+    "fantasy"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Derek S. Ray",
+      "The NetHack DevTeam"
+    ],
+    "license": "NGPL",
+    "source_url": "https://github.com/NHTangles/sporkhack",
+    "version": "git 8d6bc8e9"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/roguelikes.py",
+    "source_archive": "sporkhack-8d6bc8e9.tar",
+    "source_sha256": "2f0132e1febaa70e1af47356a67c22d99a879638629537c61aadc7e8ca74b6e0"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_sporkhack",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "dungeon8.v1",
+  "keys": [
+    {
+      "label": "Wield",
+      "text": "w"
+    },
+    {
+      "label": "Wear",
+      "text": "W"
+    },
+    {
+      "label": "Take off",
+      "text": "T"
+    },
+    {
+      "label": "Put on",
+      "text": "P"
+    },
+    {
+      "label": "Remove",
+      "text": "R"
+    },
+    {
+      "label": "Eat",
+      "text": "e"
+    },
+    {
+      "label": "Quaff",
+      "text": "q"
+    },
+    {
+      "label": "Read",
+      "text": "r"
+    },
+    {
+      "label": "Zap",
+      "text": "z"
+    },
+    {
+      "label": "Cast",
+      "text": "Z"
+    },
+    {
+      "label": "Apply",
+      "text": "a"
+    },
+    {
+      "label": "Fire",
+      "text": "f"
+    },
+    {
+      "label": "Drop",
+      "text": "d"
+    },
+    {
+      "label": "Kick",
+      "text": "#kick\r"
+    },
+    {
+      "label": "Pray",
+      "text": "#pray\r"
+    },
+    {
+      "label": "Help",
+      "text": "?"
+    }
+  ],
+  "saves": {
+    "paths": [
+      "save",
+      "record",
+      "sporkrc"
+    ],
+    "notes": "Saved game, top scores and your options file"
+  },
+  "data_files": [
+    {
+      "asset": "games/sporkhack/license",
+      "dest": "license",
+      "sha256": "93a3ae2cb8dee482daddfaebe53bcffe5b114b603def19b4dca21621cbc5a747"
+    },
+    {
+      "asset": "games/sporkhack/logfile",
+      "dest": "logfile",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "asset": "games/sporkhack/nhdat",
+      "dest": "nhdat",
+      "sha256": "8d0d74cb6ed53c26ac92dcf51284ecbadf69ad0a58f0215cd1fa963712862b94"
+    },
+    {
+      "asset": "games/sporkhack/nhdat32",
+      "dest": "nhdat32",
+      "sha256": "fe26a25517069ba326b904b359487b79b914961e863796920f984a7b958c74ef"
+    },
+    {
+      "asset": "games/sporkhack/perm",
+      "dest": "perm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "asset": "games/sporkhack/record",
+      "dest": "record",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "asset": "games/sporkhack/save/keep",
+      "dest": "save/keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "asset": "games/sporkhack/sporkrc",
+      "dest": "sporkrc",
+      "sha256": "9e5e287bfb43880489e5e502a6afdbc782cce6a230f6c97bc15e1e5c4318b6ef"
+    },
+    {
+      "asset": "games/sporkhack/xlogfile",
+      "dest": "xlogfile",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-05",
+    "android_tested": null,
+    "notes": "Host test in a PTY at 80x24: character screen, a Valkyrie's first room, walking."
+  }
+}

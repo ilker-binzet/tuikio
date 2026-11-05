@@ -92,6 +92,12 @@ and delete it right after (`.gitignore` excludes it anyway).
 
 ## Current state (1.1.0, 2026-11-04)
 
+- After 1.1.3: six more ports (ASCIIpOrtal, ASCII DASH, GNUSki, cNibbles, Omega, SporkHack): 175 games.
+  Every other discovery candidate now has a recorded decision in `tools/ports/triage/round7.json`
+  (declined, deferred with what blocks it, or "not assessed: site unreachable from the build
+  environment"). The deferred ones are the real to-do list: DCSS (crawl 0.28), MyMan, frotz with free
+  stories, chess-tui (two players on one phone), terminal-space-program (needs Go 1.26),
+  rebels-in-the-sky.
 - 1.1.0 (versionCode 10) adds the Python runtime (5 games) and online games (5, opt-in). 169
   games; 57 control profiles; 241 discovery entries. The online games were **never connected to
   their real servers** (the build machine had no DNS or SSH/telnet egress): test them on a phone

@@ -94,5 +94,11 @@
   "ssh-hattrick": "New in round 6 (online, ssh). Needs 160x50: very small text. Not played against the real server.",
   "late-sh": "New in round 6 (online, ssh). Public chat. Not played against the real server.",
   "nethack-alt-org": "New in round 6 (online, ssh). Not played against the real server.",
-  "telehack-z-code-games": "New in round 6 (online, telnet). Not played against the real server."
+  "telehack-z-code-games": "New in round 6 (online, telnet). Not played against the real server.",
+  "asciiportal": "New in round 7: plain-text build; crash and chdir fixed.",
+  "ascii-dash": "New in round 7: 92x29.",
+  "gnuski": "New in round 7.",
+  "cnibbles": "New in round 7: 80x25.",
+  "omega": "New in round 7: Debian patches; typing for the questionnaire.",
+  "sporkhack": "New in round 7: asks the hero's name."
 }

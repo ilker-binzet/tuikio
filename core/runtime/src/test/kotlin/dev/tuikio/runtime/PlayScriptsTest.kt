@@ -58,6 +58,21 @@ class PlayScriptsTest {
                     "type" -> s.send(s.keys.text(arg.replace("\n", "\r")))
                     "key" -> s.send(s.keys.encode(TermKey.valueOf(arg)))
                     "wait" -> Thread.sleep(arg.toLong())
+                    // "until:<text>:<keys>[:<tries>]": types <keys> every 1.5 s (6 times unless <tries> says)
+                    // until <text> shows. For title screens that drop keys while they animate.
+                    "until" -> {
+                        val parts = arg.split(":")
+                        val text = parts[0]
+                        val keys = parts.getOrElse(1) { "" }
+                        val tries = parts.getOrNull(2)?.toIntOrNull() ?: 6
+                        var seen = false
+                        for (attempt in 0 until tries) {
+                            s.send(s.keys.text(keys.replace("\n", "\r")))
+                            if (s.awaitScreen(1500) { lines -> lines.joinToString("\n").contains(text) }) { seen = true; break }
+                        }
+                        if (!seen) fail("$id: \"$text\" not seen after typing \"$keys\" $tries times. Screen:\n" +
+                            s.screenText().joinToString("\n") { "|$it" })
+                    }
                     else -> fail("$id: unknown step $step")
                 }
             }

@@ -253,3 +253,43 @@ def build_ascii_dash(abi):
     for path in files(src, "data/BD-I-*.ad"):
         install_asset("games/ascii-dash/data/" + os.path.basename(path), path)
     return {"game_ascii_dash": exe}
+
+
+OMEGA = "omega-rpg_0.90-pa9.orig.tar.gz"
+OMEGA_OBJ = ("omega abyss aux1 aux2 aux3 bank char city command1 command2 command3 country effect1 effect2 "
+             "effect3 etc env file gen1 gen2 guild1 guild2 house init inv item itemf1 itemf2 itemf3 lev map "
+             "mmelee mmove mon move movef mspec mstrike mtalk newrand priest pdump save scr site1 site2 spell "
+             "stats time trap util village").split()
+
+
+@game("omega", notice=(OMEGA, "lib/lgpl.txt"))
+def build_omega(abi):
+    """Omega 0.90 (pa9) with Debian's maintenance patches, on ncurses. Its data lives in ./lib and
+    its high scores and log in ./var, both in the game's home. Three build-time generators run on
+    the build machine: the map encrypter (maps.dat), genclr (the colour table) and the build date,
+    which is fixed for a reproducible build."""
+    work = abi.work("omega")
+    src = unpack(OMEGA, os.path.join(work, "src"))
+    tk.apply_debian_patches(src, "omega-rpg_0.90-pa9-17.debian.tar.xz")
+    replace_in(os.path.join(src, "defs.h"), '#define OMEGALIB "/usr/share/games/omega-rpg/"', '#define OMEGALIB "./lib/"')
+    replace_in(os.path.join(src, "defs.h"), '#define OMEGAVAR "/var/games/omega-rpg/"', '#define OMEGAVAR "./var/"')
+    tools = os.path.join(src, "tools")
+    run("gcc -O2 crypt.c bwt.c -o crypt", tools)
+    maps = sorted(f for f in os.listdir(os.path.join(tools, "libsrc")) if f.endswith(".map"))
+    run(f"../crypt ../../lib/maps.dat {' '.join(maps)}", os.path.join(tools, "libsrc"))
+    replace_in(os.path.join(src, "command3.c"), '  nprint3(__DATE__" "__TIME__);\n', '  nprint3("Tuikio build");\n')
+    with open(os.path.join(src, "date.c"), "w") as fh:
+        fh.write('const char * LAST_OMEGA_BUILD_TIME = "Omega 0.90 for Tuikio";\n')
+    run(f"gcc -O2 {abi.curses_cflags.replace(abi.sysroot, '/usr')} genclr.c -o genclr", src)
+    run("for f in *.[ch]; do gcc -E -DOMEGA_CLRGEN -x c \"$f\"; done | ./genclr clrgen.c clrgen.h", src)
+    exe = os.path.join(work, "game_omega")
+    cc(abi, [os.path.join(src, f + ".c") for f in OMEGA_OBJ + ["date", "clrgen"]], exe,
+       f"{LEGACY} -DBSD -Wno-format-security", abi.curses_libs, cwd=src)
+    lib = os.path.join(src, "lib")
+    for name in sorted(os.listdir(lib)):
+        path = os.path.join(lib, name)
+        if os.path.isfile(path) and not name.endswith((".xpm", ".backup")) and name not in ("Makefile", "omega.hi", "omega.log"):
+            install_asset(f"games/omega/lib/{name}", path)
+    for name in ("omega.hi", "omega.log"):  # the starting score table and log, written as you play
+        install_asset(f"games/omega/var/{name}", os.path.join(lib, name + ".backup"))
+    return {"game_omega": exe}

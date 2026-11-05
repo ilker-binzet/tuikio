@@ -39,6 +39,12 @@
   symbols collide); `__DATE__` breaks reproducible builds (patch `getbuildinfo.c`).
 - **Read what a Python game does with save files**: Pokete's oldest save format was a Python file
   it `exec()`ed. Saves are data, never code.
+- **Open issue: Brogue's title screen sometimes stops updating in `PlayScriptsTest`** (about one
+  run in three on the build machine): the flame animation never draws, the menu shows, and no key
+  gets an answer for 18 s. Other runs start a game fine, and it has not been seen on a phone. Its
+  play script only checks that the menu appears until this is understood. Suspects: the PTY reader
+  falling behind Brogue's full-screen truecolour frames, or Brogue blocking on output. Reproduce
+  with `--rerun-tasks` a few times and take a thread dump of the test JVM while it hangs.
 - `SuspendResumeTest` can fail on moon-buggy (`GAME ABORTED (signal 18)`) when the machine is
   loaded by a parallel build or test run; it passes alone. Rerun it alone before chasing it.
 - ncurses here is built with an **opaque `WINDOW`**: code poking `win->_cury` needs `wmove` (Rogue).

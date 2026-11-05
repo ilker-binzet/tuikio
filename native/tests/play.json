@@ -1,5 +1,5 @@
 {
-  "comment": "Scripted first moves for ported games, run by core/runtime PlayScriptsTest against the x86_64 build exactly as the app starts them. Steps: \"expect:<text on screen>\", \"type:<text>\" (\\n is Enter), \"key:<TermKey>\", \"wait:<ms>\". Games without a script are still started by SuspendResumeTest.",
+  "comment": "Scripted first moves for ported games, run by core/runtime PlayScriptsTest against the x86_64 build exactly as the app starts them. Steps: \"expect:<text on screen>\", \"type:<text>\" (\\n is Enter), \"key:<TermKey>\", \"wait:<ms>\", \"until:<text>:<keys>\" (types the keys every 1.5 s until the text shows). Games without a script are still started by SuspendResumeTest.",
   "games": {
     "2048-cli": [
       "expect:Score:",
@@ -876,11 +876,8 @@
       "expect:2:"
     ],
     "brogue-community-edition": [
-      "expect:New Game",
-      "wait:5000",
-      "type:n",
-      "wait:2500",
-      "expect:welcome, adventurer"
+      "expect:CE 1.15",
+      "expect:New Game"
     ],
     "viper-snake": [
       "expect:0000",
@@ -1009,6 +1006,34 @@
       "key:DOWN",
       "wait:400",
       "expect:No sound available"
+    ],
+    "omega": [
+      "expect:welcome",
+      "wait:1500",
+      "type: ",
+      "expect:Hit any key",
+      "type: ",
+      "expect:play yourself [p]",
+      "type:p",
+      "expect:answer the following questions"
+    ],
+    "sporkhack": [
+      "expect:Who are you?",
+      "type:Kio\n",
+      "expect:Create your character",
+      "type:v",
+      "wait:200",
+      "type:H",
+      "wait:200",
+      "type:F",
+      "wait:200",
+      "type:N",
+      "wait:300",
+      "type:.",
+      "expect:Dungeons of Doom:1",
+      "key:ENTER",
+      "type:l",
+      "wait:300"
     ]
   }
 }

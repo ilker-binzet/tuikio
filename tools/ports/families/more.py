@@ -95,7 +95,7 @@ GAMES = [
          authors=["Joe Larson", "the ASCIIpOrtal contributors"], license="GPL-3.0-only AND MIT",
          **gh("cymonsgames/ASCIIpOrtal", "0d7fb094", "asciiportal"), discovery="asciiportal",
          saves=(["asciiportal"], "Progress in each map pack"),
-         test_notes="Host test in a PTY at 80x24: title, menu, the first test chamber, moving. Built without SDL "
+         host_tested="2026-11-05", test_notes="Host test in a PTY at 80x24: title, menu, the first test chamber, moving. Built without SDL "
                     "or sound; fixed two functions that fell off their end (the game crashed on loading a map)."),
     dict(id="gnuski", title="GNUSki", exe="game_gnuski", controls="arrows4.v1",
          summary="A SkiFree clone: race downhill between trees and rocks, and outrun the snowman.",
@@ -103,7 +103,7 @@ GAMES = [
          category="arcade", tags=["skiing", "skifree", "classic"], authors=["Rudolf Olah"], license="GPL-2.0-or-later",
          source_url="https://sourceforge.net/projects/gnuski/", version="0.3", archive="gnuski-0.3.tar.gz",
          discovery="gnuski",
-         test_notes="Host test in a PTY at 80x24: start, leaning, crash and score."),
+         host_tested="2026-11-05", test_notes="Host test in a PTY at 80x24: start, leaning, crash and score."),
     dict(id="cnibbles", title="cNibbles", exe="game_cnibbles", controls="arrows4.v1", keys=["Pause=p"],
          terminal=((80, 25), (80, 25)),
          summary="Nibbles in the terminal: steer the worm to the food and don't bite yourself.",
@@ -111,7 +111,7 @@ GAMES = [
          category="arcade", tags=["snake", "nibbles", "classic"], authors=["Daniel Aarno"], license="AFL-1.2",
          source_url="https://cnibbles.sourceforge.net", version="2.0.1", archive="cNibbles-2.0.1.tbz",
          discovery="cnibbles", saves=(["cNibbles"], "High scores and replays"),
-         test_notes="Host test in a PTY at 80x25: intro, game, steering. Needs 25 rows."),
+         host_tested="2026-11-05", test_notes="Host test in a PTY at 80x25: intro, game, steering. Needs 25 rows."),
     dict(id="ascii-dash", title="ASCII DASH", exe="game_ascii_dash", controls="pad-fire.v1",
          labels={"fire": "Dig", "ok": "Dynamite"}, hide=["quit"], keys=["Pause=p", "End=e"],
          terminal=((92, 29), (92, 29)),
@@ -122,5 +122,16 @@ GAMES = [
          category="arcade", tags=["boulder dash", "puzzle", "classic"], authors=["Stefan Roettger"], license="MIT",
          source_url="https://sourceforge.net/projects/ascii-dash/", version="1.3", archive="ASCII-DASH-1.3.zip",
          discovery="ascii-dash", saves=(["dash.txt"], "High score"),
-         test_notes="Host test in a PTY at 92x29: the start cave, moving and digging. No sound (SDL) in this build."),
+         host_tested="2026-11-05", test_notes="Host test in a PTY at 92x29: the start cave, moving and digging. No sound (SDL) in this build."),
+    dict(id="omega", title="Omega", exe="game_omega", controls="dungeon8.v1", input="typing",
+         keys=["Talk=t", "Pick up=g", "Items=I", "Cast=m", "Quaff=q", "Read=r", "Eat=E", "Rest=R",
+               "Save=S", "Help=?"],
+         summary="A huge 1980s roguelike with a whole world: a city, guilds, temples, a countryside and deep dungeons.",
+         description="Start in the city of Rampart, join guilds and temples, explore the countryside and its "
+                     "dungeons. The pad walks (diagonals too); the buttons cover the common commands, the keyboard "
+                     "the rest. A questionnaire builds your character first (or choose a ready one).",
+         category="roguelike", tags=["roguelike", "rpg", "classic"], authors=["Laurence R. Brothers", "William Tanksley"],
+         license="LGPL-2.0-only", source_url="https://packages.ubuntu.com/noble/omega-rpg", version="0.90-pa9 (Debian 0.90-pa9-17)",
+         archive="omega-rpg_0.90-pa9.orig.tar.gz", discovery="omega", saves=(["var"], "High scores and the hall of fame"),
+         host_tested="2026-11-05", test_notes="Host test in a PTY at 80x24: title, hall of fame, the character questionnaire."),
 ]

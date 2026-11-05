@@ -189,11 +189,21 @@ machine); their text size is not measured because nothing draws until a server a
 Declined: terminal-frogger, oregon-trail, hammurabi-python (no licence), just-asteroids (needs
 root input devices), chs (starts Stockfish), onx (no public server), ssh-games (domain gone).
 
+## Round 7: six more, every candidate decided (2026-11-05)
+
+Ported: ASCIIpOrtal (plain-text build, yaml-cpp compiled in; fixed two functions without a return
+value that crashed it, and its chdir into the read-only library directory), ASCII DASH (Boulder Dash
+I, 92x29), GNUSki (a SkiFree clone), cNibbles (80x25), Omega 0.90 (with Debian's patches; its map and
+colour generators run on the build machine) and SporkHack (a NetHack 3.4.3 variant, from an earlier
+helper's recipe, finished). Every remaining discovery candidate has a recorded decision in
+`tools/ports/triage/round7.json`. Brogue's play script now only checks that its menu appears: see
+the open issue in `docs/handoff/LESSONS.md`.
+
 ## Every game
 
-Text size and buttons are from the round 2 to 6 shots: past the title screen where a script gets there.
+Text size and buttons are from the round 2 to 7 shots: past the title screen where a script gets there.
 
-| Game | Orientation | Terminal | Controls | Text (dp) | Buttons under the game (audited screen) | Fixed (rounds 1 to 6) |
+| Game | Orientation | Terminal | Controls | Text (dp) | Buttons under the game (audited screen) | Fixed (rounds 1 to 7) |
 |---|---|---|---|---|---|---|
 | 2048 (cli) | portrait | 80×24 | arrows4 | 30 | - | Every first game began with "Failed to parse highscore file". Fixed. |
 | 2048 | portrait | 40×20 | grid4 | 30 | - |  |
@@ -201,10 +211,12 @@ Text size and buttons are from the round 2 to 6 shots: past the title screen whe
 | Angband | landscape | 80×24 | dungeon8 | 14 | Wield, Take off, Eat, Quaff, Read, Fire, Cast, Look, Map, Rest, Character, Help, a Human, c Elf, d Hobbit, e Gnome, f Dwarf, g Half-Orc |  |
 | Arithmetic | any | 80×24 | text | 30 / 30 | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, Minus | Digit buttons and minus. |
 | ASCII-Chess | portrait | 72×40 | text | 13 | - | Keyboard up at the start. |
+| ASCII DASH | landscape | 92×29 | pad-fire | - | - | New in round 7: 92x29. |
 | ASCII Invaders | landscape | 80×24 | shooter | 16 | - |  |
 | ASCII Pacman | landscape | 80×24 | xckm | 15 | - |  |
 | ASCII Snake | portrait | 40×26 | arrows4 | 25 | - |  |
 | ASCII-Tetris | portrait | 80×24 | qsd-blocks | 30 | - |  |
+| ASCIIpOrtal | landscape | 80×24 | pad-fire | - | - | New in round 7: plain-text build; crash and chdir fixed. |
 | Air Traffic Controller | landscape | 80×24 | text | 14 | - | Keyboard up at the start. |
 | awkaster | landscape | 80×24 | awkaster | 14 | 1, 2, 3, 4 |  |
 | Backgammon | landscape | 80×24 | text | 18 | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, Dash, Comma, Double, Save, Quit | Landscape: the board needs 80 columns. Digits, dash and comma for moves; Double, Save, Quit; its questions as chips. |
@@ -223,6 +235,7 @@ Text size and buttons are from the round 2 to 6 shots: past the title screen whe
 | Chroma | landscape | 80×24 | arrows | 14 | Undo, Redo, Fast, Pause | Menu readable; H/E/D/Q as chips. Undo, Redo, Fast, Pause; Enter reads Swap. |
 | Clidle | portrait | 58×30 | clidle | 15 | - |  |
 | Color Lines | portrait | 37×37 | space-select | 16 | Quit | 40×24: the board fills the screen. 37x37: balls drawn 3x3 instead of one character. |
+| cNibbles | landscape | 80×25 | arrows4 | - | - | New in round 7: 80x25. |
 | CPat | landscape | 80×24 | text | 15 | a, b, c, d, e, f, g, h, i, j, p, o, Undo, Help |  |
 | Cribbage | landscape | 80×24 | text | 15 | - | Quit when asked for instructions (no shell for its pager); keyboard up; Long/Short chips. |
 | csol | landscape | 80×24 | csol | 20 | Undo, Waste, Redeal, Help | Undo, Waste, Redeal and Help buttons. |
@@ -238,6 +251,7 @@ Text size and buttons are from the round 2 to 6 shots: past the title screen whe
 | Freecell | landscape | 80×24 | text | 24 | a, b, c, d, e, f, g, h, Undo, Quit, Help | Column buttons a-h, Undo, Quit, Help; Space and Enter read Free cell and Home. |
 | Freesweep | portrait | 60×24 | mines | 15 | ? Help | A 12x15 board: a third of the 15x15 one was off screen. |
 | GNU Shogi | landscape | 80×24 | text | 13 | Hint, Undo, Switch, New, 2 Black |  |
+| GNUSki | landscape | 80×24 | arrows4 | - | - | New in round 7. |
 | Go Fish | portrait | 48×32 | text | 22 | - | Portrait, 48 columns, word wrap. Instructions paged without a shell; keyboard up. |
 | Gomoku | landscape | 80×24 | text | 12 | Black, White | Keyboard up at the start. |
 | Greed | landscape | 80×24 | greed | 13 | ? Help |  |
@@ -274,6 +288,7 @@ Text size and buttons are from the round 2 to 6 shots: past the title screen whe
 | nsuds | landscape | 66×22 | arrows | 15 | 1, 2, 3, 4, 5, 6, 7, 8, 9, Delete, Mark, Pause, New, Scores, Help, Quit |  |
 | nudoku | landscape | 80×24 | arrows | 18 | 1, 2, 3, 4, 5, 6, 7, 8, 9, Delete, Check, Hint, New, Quit, m Toggle marks, r Redraw, S Solve puzzle | Its commands as chips (moves stay on the pad). Digit buttons, Delete, Check, Hint, New, Quit. |
 | Nuzzle | landscape | 80×24 | arrows | 14 | Next, Quit | Menu readable (was black on navy). Next (Tab) and Quit; Enter reads Drop. |
+| Omega | landscape | 80×24 | dungeon8 | - | - | New in round 7: Debian patches; typing for the questionnaire. |
 | Open Adventure | portrait | 48×32 | text | 19 | - |  |
 | Pacman for Console | portrait | 32×32 | arrows | 19 | Pause, Quit | Did not start: looked for its levels in /usr/share. Fixed. Pause and Quit; unused buttons gone. |
 | Penney's Game | portrait | 48×30 | text | 18 | - | New in round 6 (Python): typing, word wrap. |
@@ -327,6 +342,7 @@ Text size and buttons are from the round 2 to 6 shots: past the title screen whe
 | solVItaire Spider | portrait | 51×40 | space-select | 18 | Join here, Undo, New, Restart, Quit |  |
 | solVItaire Klondike | portrait | 36×40 | space-select | 24 | Join here, Undo, New, Restart, Quit |  |
 | SOS | landscape | 80×24 | sos-nb | 30 | Quit | Quit button; unused buttons gone. |
+| SporkHack | landscape | 80×24 | dungeon8 | - | - | New in round 7: asks the hero's name. |
 | SSH Hattrick | landscape | 160×50 | arrows | - | - | New in round 6 (online, ssh). Needs 160x50: very small text. Not played against the real server. |
 | SSHTron | landscape | 80×24 | arrows4 | - | - | New in round 6 (online, ssh). Not played against the real server. |
 | Sudoku | landscape | 80×24 | nbsd | 21 | 1, 2, 3, 4, 5, 6, 7, 8, 9, New, Restart, Quit | Digit buttons, New, Restart, Quit; Space reads Clear. |

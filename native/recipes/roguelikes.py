@@ -55,15 +55,37 @@ class NetHackTree:
     """A NetHack-derived source tree: its configuration edits and file lists."""
 
     def __init__(self, gid, archive, exe, game_srcs, sys_srcs, win_srcs, defs, edits, dat_dlb, dat_plain,
-                 makedefs_steps, nhrc):
+                 makedefs_steps, nhrc, rcname="nethackrc", regen_parsers=False, skip_des=(), extra=(), cflags=""):
         self.gid, self.archive, self.exe = gid, archive, exe
         self.game_srcs, self.sys_srcs, self.win_srcs = game_srcs, sys_srcs, win_srcs
         self.defs, self.edits = defs, edits
         self.dat_dlb, self.dat_plain = dat_dlb, dat_plain
         self.makedefs_steps = makedefs_steps
-        self.nhrc = nhrc
+        self.nhrc, self.rcname = nhrc, rcname
+        # A tree whose pre-generated parsers in sys/share are older than its grammar regenerates
+        # them with the build machine's bison and flex.
+        self.regen_parsers = regen_parsers
+        self.skip_des = skip_des
+        self.extra = extra  # (source, extra flags) compiled into the game besides the lists
+        self.cflags = cflags
         self.lock = threading.Lock()
         self.hosts = {}
+
+    def parsers(self, src, util):
+        if not self.regen_parsers:
+            for f in ("lev_lex.c", "lev_yacc.c", "dgn_lex.c", "dgn_yacc.c"):
+                shutil.copyfile(os.path.join(src, "sys", "share", f), os.path.join(util, f))
+            for f in ("lev_comp.h", "dgn_comp.h"):
+                shutil.copyfile(os.path.join(src, "sys", "share", f), os.path.join(src, "include", f))
+            return
+        for kind in ("lev", "dgn"):
+            run(f"bison -y -d {kind}_comp.y && mv y.tab.c {kind}_yacc.c && mv y.tab.h ../include/{kind}_comp.h", util)
+            run(f"flex {kind}_comp.l && mv lex.yy.c {kind}_lex.c", util)
+
+    def weird_lex(self, util, kind):
+        """What the makefile passes as WEIRD_LEX: how often the scanner mentions _cplusplus."""
+        with open(os.path.join(util, f"{kind}_lex.c"), encoding="latin-1") as fh:
+            return f"-DWEIRD_LEX={sum('_cplusplus' in line for line in fh)}"
 
     def configure(self, src):
         for rel, old, new in self.edits:
@@ -79,22 +101,22 @@ class NetHackTree:
             src = unpack(self.archive, os.path.join(work, "src"))
             self.configure(src)
             util, dat = os.path.join(src, "util"), os.path.join(src, "dat")
-            for f in ("lev_lex.c", "lev_yacc.c", "dgn_lex.c", "dgn_yacc.c"):
-                shutil.copyfile(os.path.join(src, "sys", "share", f), os.path.join(util, f))
-            for f in ("lev_comp.h", "dgn_comp.h"):
-                shutil.copyfile(os.path.join(src, "sys", "share", f), os.path.join(src, "include", f))
-            hcc = f"{host_cc(bits)} {LEGACY} -I../include {self.defs}"
+            self.parsers(src, util)
+            # (SporkHack's scanner calls yyerror() undeclared; it returns nothing, so that is harmless.)
+            hcc = f"{host_cc(bits)} {LEGACY} -Wno-error=implicit-function-declaration -I../include {self.defs}"
             env = dict(os.environ, SOURCE_DATE_EPOCH=SOURCE_DATE_EPOCH)
             mon = "../src/monst.c ../src/objects.c"
             run(f"{hcc} makedefs.c {mon} -o makedefs", util)
             for step in self.makedefs_steps:
                 run(f"./makedefs {step}", util, env)
-            run(f"{hcc} lev_yacc.c lev_lex.c lev_main.c ../src/alloc.c panic.c ../src/drawing.c ../src/decl.c {mon} "
-                "-o lev_comp", util)
-            run(f"{hcc} dgn_yacc.c dgn_lex.c dgn_main.c ../src/alloc.c panic.c -o dgn_comp", util)
+            run(f"{hcc} {self.weird_lex(util, 'lev')} lev_yacc.c lev_lex.c lev_main.c ../src/alloc.c panic.c "
+                f"../src/drawing.c ../src/decl.c {mon} -o lev_comp", util)
+            run(f"{hcc} {self.weird_lex(util, 'dgn')} dgn_yacc.c dgn_lex.c dgn_main.c ../src/alloc.c panic.c "
+                "-o dgn_comp", util)
             run(f"{hcc} dlb_main.c ../src/dlb.c ../src/alloc.c panic.c -o dlb", util)
             for des in sorted(glob.glob(os.path.join(dat, "*.des"))):
-                run(f"../util/lev_comp {os.path.basename(des)}", dat)
+                if os.path.basename(des) not in self.skip_des:
+                    run(f"../util/lev_comp {os.path.basename(des)}", dat)
             run("../util/dgn_comp dungeon.pdf", dat)
             files = []
             for pattern in self.dat_dlb:
@@ -113,7 +135,7 @@ class NetHackTree:
         src = self.host(64)
         for f in self.dat_plain:
             install_asset(f"games/{self.gid}/{f}", os.path.join(src, "dat", f))
-        install_asset(f"games/{self.gid}/nethackrc", self.nhrc)
+        install_asset(f"games/{self.gid}/{self.rcname}", self.nhrc)
         # They must exist: the game locks each by opening it (perm is only a lock).
         for f in ("perm", "record", "logfile", "xlogfile"):
             placeholder(f"games/{self.gid}/{f}")
@@ -126,8 +148,11 @@ class NetHackTree:
         dlb = ' -DDLBFILE=\\"nhdat32\\"' if bits == 32 else ""
         srcs = ([os.path.join(src, "src", f) for f in self.game_srcs] +
                 [os.path.join(src, f) for f in self.sys_srcs + self.win_srcs])
-        objs = compile_objects(abi, srcs, os.path.join(abi.work(self.gid), "obj"),
-                               f"{LEGACY} -I{src}/include {self.defs}{dlb}", cwd=src)
+        flags = f"{LEGACY} -I{src}/include {self.defs}{dlb} {self.cflags}"
+        objs = compile_objects(abi, srcs, os.path.join(abi.work(self.gid), "obj"), flags, cwd=src)
+        for rel, extra in self.extra:
+            objs += compile_objects(abi, [os.path.join(src, rel)], os.path.join(abi.work(self.gid), "obj"),
+                                    f"{flags} {extra}", cwd=src)
         exe = os.path.join(abi.work(self.gid), self.exe)
         link(abi, objs, exe, abi.curses_libs)
         return {self.exe: exe}
@@ -179,3 +204,47 @@ NETHACK = NetHackTree(
 )
 
 game("nethack", notice=("nethack_3.6.7.orig.tar.gz", "dat/license"))(NETHACK.build)
+
+# SporkHack: a NetHack 3.4.3 variant, as it runs on the hardfought.org servers. Its tree comes
+# configured for that server, so the same phone configuration is applied by hand.
+SPORK_GAME = [f for f in NH36_GAME if f not in ("isaac64", "sys")] + ["charinit", "monstr"]
+SPORK_EDITS = [
+    ("include/config.h", "#define CURSES_GRAPHICS     /* Proper curses interface */\n",
+     "/* Tuikio: the tty interface, as for NetHack */\n"),
+    ("include/config.h", '#define COMPRESS "/bin/gzip" /* FSF gzip compression */\n'
+                         '#define COMPRESS_EXTENSION ".gz" \t/* normal gzip extension */\n', ""),
+    ("include/unixconf.h", '#define VAR_PLAYGROUND "/opt/games/lib/sporkhackdir/var/"\n', ""),
+    ("include/unixconf.h", "#define SUSPEND\t\t/* let ^Z suspend the game */", "/* Tuikio: no job control */"),
+    ("src/files.c", '\t\t\t".sporkrc";', '\t\t\t"sporkrc";'),
+    # Ask for the hero's name rather than take the app's user name, "player".
+    ("sys/unix/unixmain.c", "\t\t(void) strncpy(plname, s, sizeof(plname)-1);\n\treturn TRUE;\n",
+     "\t\t(void) strncpy(plname, s, sizeof(plname)-1);\n"
+     "\tif (!strcmp(plname, \"player\")) *plname = '\\0'; /* Tuikio */\n\treturn TRUE;\n"),
+    # ncurses defines the terminal speed variable itself.
+    ("sys/share/unixtty.c", "short\tospeed = 0;", "extern short ospeed; /* Tuikio: defined by ncurses */"),
+    # petattr is an option of the curses interface, which isn't built: refuse it like a bad option.
+    ("src/options.c", "                    iflags.wc2_petattr = curses_read_attrs(op);\n"
+                      "                    if (!curses_read_attrs(op))\n                        badoption(opts);\n",
+     "                    badoption(opts); /* Tuikio: no curses interface */\n"),
+    # A reproducible build date.
+    ("util/makedefs.c", "\t(void) time((time_t *)&clocktim);\n",
+     '\tclocktim = atol(getenv("SOURCE_DATE_EPOCH"));\n'),
+]
+
+SPORKHACK = NetHackTree(
+    "sporkhack", "sporkhack-8d6bc8e9.tar", "game_sporkhack",
+    [f"{f}.c" for f in SPORK_GAME],
+    ["sys/share/ioctl.c", "sys/share/unixtty.c", "sys/unix/unixmain.c", "sys/unix/unixunix.c", "sys/unix/unixres.c"],
+    ["win/tty/getline.c", "win/tty/termcap.c", "win/tty/topl.c", "win/tty/wintty.c"],
+    NH_DEFS, SPORK_EDITS,
+    ["help", "hh", "cmdhelp", "history", "opthelp", "wizhelp", "dungeon", "*.lev", "data", "oracles", "options",
+     "quest.dat", "rumors", "vaults.dat"],
+    ["license"],
+    ["-o", "-p", "-m", "-z", "-v", "-d", "-r", "-q", "-h", "-e"],
+    os.path.join(PORTS, "sporkhack", "sporkrc"), rcname="sporkrc", regen_parsers=True,
+    skip_des=("functions.des",), extra=[("util/recover.c", "-DNO_MAIN")],
+    # botl.c and wintty.c call the void term_*() colour functions without a declaration.
+    cflags="-Wno-error=implicit-function-declaration",
+)
+
+game("sporkhack", notice=("sporkhack-8d6bc8e9.tar", "dat/license"))(SPORKHACK.build)
