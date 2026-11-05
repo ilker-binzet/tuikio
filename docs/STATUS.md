@@ -1,4 +1,4 @@
-# Status report: Tuikio 1.1.0 (2026-11-04)
+# Status report: Tuikio 1.1.3 (2026-11-04)
 
 Statuses:
 - **IMPLEMENTED_AND_TESTED**: built, and an automated or manual test was actually run.
