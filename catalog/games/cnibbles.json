@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "id": "cnibbles",
+  "title": "cNibbles",
+  "summary": "Nibbles in the terminal: steer the worm to the food and don't bite yourself.",
+  "description": "The pad steers. Pause pauses, Quit ends the game. High scores and replays are kept.",
+  "category": "arcade",
+  "tags": [
+    "snake",
+    "nibbles",
+    "classic"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Daniel Aarno"
+    ],
+    "license": "AFL-1.2",
+    "source_url": "https://cnibbles.sourceforge.net",
+    "version": "2.0.1"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/more.py",
+    "source_archive": "cNibbles-2.0.1.tbz",
+    "source_sha256": "a295bd74de887580a0ba7c4f8ed27c38c137fd8b6218ab637eae019a267c8d06"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_cnibbles",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        25
+      ],
+      "preferred": [
+        80,
+        25
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows4.v1",
+  "keys": [
+    {
+      "label": "Pause",
+      "text": "p"
+    }
+  ],
+  "art": {
+    "rows": [
+      "                             │",
+      "                             │",
+      "                             │",
+      "               ##########    │",
+      "                             │",
+      "                             │"
+    ],
+    "fg": [
+      ".............................1",
+      ".............................1",
+      ".............................1",
+      "2222222222222222222222222....1",
+      ".............................1",
+      ".............................1"
+    ],
+    "bg": [
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000",
+      "000000000000000000000000000000"
+    ],
+    "palette": [
+      "a0",
+      "a15",
+      "a11"
+    ]
+  },
+  "saves": {
+    "paths": [
+      "cNibbles"
+    ],
+    "notes": "High scores and replays"
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-05",
+    "android_tested": null,
+    "notes": "Host test in a PTY at 80x25: intro, game, steering. Needs 25 rows."
+  }
+}

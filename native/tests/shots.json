@@ -831,6 +831,26 @@
       "wait:80",
       "key:ENTER",
       "wait:300"
+    ],
+    "gnuski": [
+      "wait:100"
+    ],
+    "cnibbles": [
+      "wait:8000",
+      "text: ",
+      "wait:1500"
+    ],
+    "omega": [
+      "wait:200"
+    ],
+    "asciiportal": [
+      "wait:2500",
+      "text: ",
+      "wait:1200",
+      "key:ENTER",
+      "wait:1500",
+      "key:RIGHT",
+      "wait:300"
     ]
   }
 }

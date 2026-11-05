@@ -1,0 +1,12 @@
+This software is copyright (c) 2021 by Stefan Roettger.
+It is distributed under the terms of the MIT license.
+Contact: snroettg@gmail.com
+
+Credits go to the free sound archives:
+* http://www.grsites.com/archive/sounds/
+* http://soundbible.com/
+
+Credits also go to Martijn and Arno Weber for their great BD fan sites
+(in particular for preparing the original BD levels in BDCFF format):
+* http://http://www.bd-fans.com
+* http://www.boulder-dash.nl

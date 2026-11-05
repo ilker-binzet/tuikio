@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "id": "ascii-dash",
+  "title": "ASCII DASH",
+  "summary": "Boulder Dash I in ASCII: dig through the caves, grab the diamonds, mind the boulders.",
+  "description": "The pad moves Rockford. Dig, then a direction, digs without moving; Dynamite, then a direction, drops dynamite. In the start cave, walk onto a menu number to choose it. Pause pauses, End ends the game. The 20 caves of Boulder Dash I.",
+  "category": "arcade",
+  "tags": [
+    "boulder dash",
+    "puzzle",
+    "classic"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Stefan Roettger"
+    ],
+    "license": "MIT",
+    "source_url": "https://sourceforge.net/projects/ascii-dash/",
+    "version": "1.3"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/more.py",
+    "source_archive": "ASCII-DASH-1.3.zip",
+    "source_sha256": "8f59271551828767f01c8574a1ab8daa3ce1127c483451a37234d71d0e6d3db7"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_ascii_dash",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        92,
+        29
+      ],
+      "preferred": [
+        92,
+        29
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "pad-fire.v1",
+  "control_labels": {
+    "fire": "Dig",
+    "ok": "Dynamite"
+  },
+  "control_hide": [
+    "quit"
+  ],
+  "keys": [
+    {
+      "label": "Pause",
+      "text": "p"
+    },
+    {
+      "label": "End",
+      "text": "e"
+    }
+  ],
+  "art": {
+    "rows": [
+      "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ |  | ",
+      ":;:;::;:;::;:;::;:;::;:▒ |--| ",
+      ":;::;:;::;:;::;:;::;:;:▒ |  | ",
+      "ing!:;:;::;:__|_|__|_|_▒ |⎺⎺⎺|",
+      "dynamite!::;_|_|__|_|__▒ |  ~|",
+      ":;::;:;::;:;_|__|_|__|_▒ |___|",
+      ";:;::;:;::;:          /▒  |oo|",
+      ":;:;::;:;::;          |▒ ~|- |"
+    ],
+    "fg": [
+      "000000000000000000000000000000",
+      "222222222222222222222220000000",
+      "222222222222222222222220000000",
+      "000022222222111111111110033333",
+      "000000000222111111111110033333",
+      "222222222222111111111110033333",
+      "222222222222000000000000000440",
+      "222222222222000000000000000000"
+    ],
+    "bg": [
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111",
+      "111111111111000000000001100000",
+      "111111111111000000000001100000",
+      "111111111111000000000001100000",
+      "111111111111111111111111111111",
+      "111111111111111111111111111111"
+    ],
+    "palette": [
+      "a7",
+      "a0",
+      "a3",
+      "a4",
+      "a6"
+    ]
+  },
+  "saves": {
+    "paths": [
+      "dash.txt"
+    ],
+    "notes": "High score"
+  },
+  "data_files": [
+    {
+      "asset": "games/ascii-dash/data/BD-I-01.ad",
+      "dest": "data/BD-I-01.ad",
+      "sha256": "133528747889ae84bb29a7f0a97031a99d6226847dfa587baba469a7cc8b44a5"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-02.ad",
+      "dest": "data/BD-I-02.ad",
+      "sha256": "8129643f9c1bcfd84966950052bb677685746424e2421a21a5f9154c7ef1cb19"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-03.ad",
+      "dest": "data/BD-I-03.ad",
+      "sha256": "113157078a3f37f2331c2dcb7bd6296959ff5facd3231bbb4a0b5b35e5991eb1"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-04.ad",
+      "dest": "data/BD-I-04.ad",
+      "sha256": "0e3d09b757f150af5b404fba7a58159bbcfca3074c5bfd89aff4051c34a37dbd"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-05.ad",
+      "dest": "data/BD-I-05.ad",
+      "sha256": "365836f7da1f0032b74f5275613198e9bee3d00a7c525ca705e3eaa37fb35638"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-06.ad",
+      "dest": "data/BD-I-06.ad",
+      "sha256": "40476dac7a8db5dd4bf51f9ef9460a020cdaa073edd8b3b63bff66af02486015"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-07.ad",
+      "dest": "data/BD-I-07.ad",
+      "sha256": "86b0dbed871cab7ec78ae71020e310a00f33abe88289307275114204b765b6ca"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-08.ad",
+      "dest": "data/BD-I-08.ad",
+      "sha256": "d83abf6c345bd2c71f3a9dcbb71a8de8aa64f28eb558dc48f768173275e71cf1"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-09.ad",
+      "dest": "data/BD-I-09.ad",
+      "sha256": "5a48fae3164f9026dd359a075ae934cafa589b8d0e07b667f719a54b4d41a6f9"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-10.ad",
+      "dest": "data/BD-I-10.ad",
+      "sha256": "3b552282d97c9220fee55587e8e0a621952a0838a8e1366fa47b01ea53fd3f60"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-11.ad",
+      "dest": "data/BD-I-11.ad",
+      "sha256": "953994bcb6073278befa6824b032b313d23f0170221f75b6823b24da339bcd4a"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-12.ad",
+      "dest": "data/BD-I-12.ad",
+      "sha256": "5a0282bff3b63351a7d033e00cc03782ae0354f37e580da23421748a413eadf1"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-13.ad",
+      "dest": "data/BD-I-13.ad",
+      "sha256": "23c8c7b78665c59930a25a42abda70c3b7446fb010d2fcb9efe4a99c3c6b5c8e"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-14.ad",
+      "dest": "data/BD-I-14.ad",
+      "sha256": "7bced3b9926f9de4c24dc64e0551bd8c75cf53ddb02ec93dc1bf8530a2ab3486"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-15.ad",
+      "dest": "data/BD-I-15.ad",
+      "sha256": "8ca4474e8906a8bbaa1858512c8118999df6245e38dc3b6b9e9f8ac2b5b28084"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-16.ad",
+      "dest": "data/BD-I-16.ad",
+      "sha256": "5e0e5e9436cf60feb2004c141fd27c58d25b5bbb2c53c1c20da8c2652f3cf247"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-17.ad",
+      "dest": "data/BD-I-17.ad",
+      "sha256": "babfc4d05bbbfbdee573573057f8138a86f432cfaa0140069c66dbcf6f38922e"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-18.ad",
+      "dest": "data/BD-I-18.ad",
+      "sha256": "e97871dd29c5f8a9b550d5934ef72f280cf9ba1a3560f22d7e45e38e193d77a8"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-19.ad",
+      "dest": "data/BD-I-19.ad",
+      "sha256": "1f1f50ea22adad5c51ff8b78c3713e420890e0da0a1b5734c8606e937d5e79cc"
+    },
+    {
+      "asset": "games/ascii-dash/data/BD-I-20.ad",
+      "dest": "data/BD-I-20.ad",
+      "sha256": "2cf4a82e8c2acb1c1680b676204c614c3b77ebef35f49ea6d0171240d828ccc8"
+    }
+  ],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-05",
+    "android_tested": null,
+    "notes": "Host test in a PTY at 92x29: the start cave, moving and digging. No sound (SDL) in this build."
+  }
+}

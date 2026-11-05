@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "id": "omega",
+  "title": "Omega",
+  "summary": "A huge 1980s roguelike with a whole world: a city, guilds, temples, a countryside and deep dungeons.",
+  "description": "Start in the city of Rampart, join guilds and temples, explore the countryside and its dungeons. The pad walks (diagonals too); the buttons cover the common commands, the keyboard the rest. A questionnaire builds your character first (or choose a ready one).",
+  "category": "roguelike",
+  "tags": [
+    "roguelike",
+    "rpg",
+    "classic"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Laurence R. Brothers",
+      "William Tanksley"
+    ],
+    "license": "LGPL-2.0-only",
+    "source_url": "https://packages.ubuntu.com/noble/omega-rpg",
+    "version": "0.90-pa9 (Debian 0.90-pa9-17)"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/more.py",
+    "source_archive": "omega-rpg_0.90-pa9.orig.tar.gz",
+    "source_sha256": "1c91efa6939a9ca550cd0fad910fcc94c735893f33f6f80974632a65cca6fc42"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_omega",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape",
+    "input": "typing"
+  },
+  "controls": "dungeon8.v1",
+  "keys": [
+    {
+      "label": "Talk",
+      "text": "t"
+    },
+    {
+      "label": "Pick up",
+      "text": "g"
+    },
+    {
+      "label": "Items",
+      "text": "I"
+    },
+    {
+      "label": "Cast",
+      "text": "m"
+    },
+    {
+      "label": "Quaff",
+      "text": "q"
+    },
+    {
+      "label": "Read",
+      "text": "r"
+    },
+    {
+      "label": "Eat",
+      "text": "E"
+    },
+    {
+      "label": "Rest",
+      "text": "R"
+    },
+    {
+      "label": "Save",
+      "text": "S"
+    },
+    {
+      "label": "Help",
+      "text": "?"
+    }
+  ],
+  "art": {
+    "rows": [
+      "     *****   *****      ",
+      "  *****         *****   ",
+      " ****   welcome   ****  ",
+      "***       t o       *** ",
+      " ***     omega     ***  ",
+      "  ****           ****   ",
+      "     ****    ****       ",
+      "  *    **    **    *    ",
+      "   *****      *****     ",
+      "                        "
+    ],
+    "fg": [
+      ".....1111111111111......",
+      "..11111.........11111...",
+      ".111111111111111111111..",
+      "111.......111.......111.",
+      ".111111111111111111111..",
+      "..1111...........1111...",
+      ".....111111111111.......",
+      "..111111111111111111....",
+      "...11111......11111.....",
+      "........................"
+    ],
+    "bg": [
+      "000000000000000000000000",
+      "000000000000000000000000",
+      "000000000000000000000000",
+      "000000000000000000000000",
+      "000000000000000000000000",
+      "000000000000000000000000",
+      "000000000000000000000000",
+      "000000000000000000000000",
+      "000000000000000000000000",
+      "000000000000000000000000"
+    ],
+    "palette": [
+      "a0",
+      "a7"
+    ]
+  },
+  "saves": {
+    "paths": [
+      "var"
+    ],
+    "notes": "High scores and the hall of fame"
+  },
+  "data_files": [
+    {
+      "asset": "games/omega/lib/abyss.txt",
+      "dest": "lib/abyss.txt",
+      "sha256": "4bed0100531b661789888ab920dd5575cec809d26285ac112bbd8888b3b6d9e9"
+    },
+    {
+      "asset": "games/omega/lib/help1.txt",
+      "dest": "lib/help1.txt",
+      "sha256": "12b52c7a19174fe06bd6363697e323c3f042f9d6c3dfa648e51896b7f7c1c031"
+    },
+    {
+      "asset": "games/omega/lib/help10.txt",
+      "dest": "lib/help10.txt",
+      "sha256": "ad9e6eed686fde0f30764ae9793004a5b73d4940a21e0be2ca347cb200c608bd"
+    },
+    {
+      "asset": "games/omega/lib/help11.txt",
+      "dest": "lib/help11.txt",
+      "sha256": "ccc86954dcc5910a6620d6d4089ee9f1a14563835bca95e48976d4f0e781d114"
+    },
+    {
+      "asset": "games/omega/lib/help12.txt",
+      "dest": "lib/help12.txt",
+      "sha256": "37ca64b390968b78bfc9dd5c498a6ffaf0c0aa2995fccb6d69de0deeee7a4740"
+    },
+    {
+      "asset": "games/omega/lib/help13.txt",
+      "dest": "lib/help13.txt",
+      "sha256": "fdce9a8e4f2c7ddf72adc1182472508f592222118e4c637f81c707ded4c73bb8"
+    },
+    {
+      "asset": "games/omega/lib/help2.txt",
+      "dest": "lib/help2.txt",
+      "sha256": "9494beed36e535add3568c404ff2dcfb923fcfb5d78a43da47e1c4f4caa89022"
+    },
+    {
+      "asset": "games/omega/lib/help3.txt",
+      "dest": "lib/help3.txt",
+      "sha256": "6eaf10e217746b2e695ccc2263a967db23bf9ed36f1be06f65484b5878bbe07f"
+    },
+    {
+      "asset": "games/omega/lib/help4.txt",
+      "dest": "lib/help4.txt",
+      "sha256": "3aa1d3d3d6ffb7982c7dd9299063c593b12ff4fa6dba3e2f777fab7676b40205"
+    },
+    {
+      "asset": "games/omega/lib/help5.txt",
+      "dest": "lib/help5.txt",
+      "sha256": "5f98bb5c2608e3ed51362a9f77f01ab2f425fc206a1f511b1427a75006a3f740"
+    },
+    {
+      "asset": "games/omega/lib/help6.txt",
+      "dest": "lib/help6.txt",
+      "sha256": "b394ec73eb78f91e62201929d6da2aae643bb946a56b2ab30bab75444592970b"
+    },
+    {
+      "asset": "games/omega/lib/help7.txt",
+      "dest": "lib/help7.txt",
+      "sha256": "a96a8da7064b636b4aa1c362381c97e976960ef2f309128fe807b161b6d690c6"
+    },
+    {
+      "asset": "games/omega/lib/help8.txt",
+      "dest": "lib/help8.txt",
+      "sha256": "bac822244625267ee5c98fb26e71156894a97407fa1e13178d0146c815a58b70"
+    },
+    {
+      "asset": "games/omega/lib/help9.txt",
+      "dest": "lib/help9.txt",
+      "sha256": "8c853e5ea12a7e69f502e1c62ae2f1a3a90a4215c3d78e1af2dafca1de7d1181"
+    },
+    {
+      "asset": "games/omega/lib/intro.txt",
+      "dest": "lib/intro.txt",
+      "sha256": "986bfac1cc64331bacd23af73d6955869e169b13bca9c11bab401c05cbc3a4e2"
+    },
+    {
+      "asset": "games/omega/lib/lgpl.txt",
+      "dest": "lib/lgpl.txt",
+      "sha256": "38d132ee56ccc6601fc7a239fcb9d13c5d646bd41bc07a2ce89dc0255b64b447"
+    },
+    {
+      "asset": "games/omega/lib/license.txt",
+      "dest": "lib/license.txt",
+      "sha256": "085fc8b26f3659b00281b84a1dccdb704be17e53248e9ebdbd4128746549c15e"
+    },
+    {
+      "asset": "games/omega/lib/maps.dat",
+      "dest": "lib/maps.dat",
+      "sha256": "48a6d311f3d2d2db882dca9c3df2cb97c6d445c9c57fe8f07903bfa6f08faf27"
+    },
+    {
+      "asset": "games/omega/lib/motd.txt",
+      "dest": "lib/motd.txt",
+      "sha256": "9e05731790a55111832ed86a13976d3378dc4d9882eff32599d64fd4cd403492"
+    },
+    {
+      "asset": "games/omega/lib/scroll1.txt",
+      "dest": "lib/scroll1.txt",
+      "sha256": "6997733244b15278453bbdfb0b6c6a974c646914a7fb7693238d8f79997637b8"
+    },
+    {
+      "asset": "games/omega/lib/scroll2.txt",
+      "dest": "lib/scroll2.txt",
+      "sha256": "418c1f7cb740113481a3103b8e732f2baed1253fce92693cfdd521a5883cdce7"
+    },
+    {
+      "asset": "games/omega/lib/scroll3.txt",
+      "dest": "lib/scroll3.txt",
+      "sha256": "e7eaa3fed8a91882ac6cd7ffabcbad4b7eedc69b41dd20a920a6391725ba1206"
+    },
+    {
+      "asset": "games/omega/lib/scroll4.txt",
+      "dest": "lib/scroll4.txt",
+      "sha256": "5d7292a24b644926fab05f2691475bc13f63046c7f3056d7b914d9cd394a1b09"
+    },
+    {
+      "asset": "games/omega/lib/thanks.txt",
+      "dest": "lib/thanks.txt",
+      "sha256": "2741c4d9bb22dfb6a0954b1db40ede2cb68e81a928bb3602e23415beca372c8f"
+    },
+    {
+      "asset": "games/omega/lib/update.txt",
+      "dest": "lib/update.txt",
+      "sha256": "81a3b78e7f22bc6a3203833736846aba777ee6a45b956ef07c021bc1961cf43b"
+    },
+    {
+      "asset": "games/omega/var/omega.hi",
+      "dest": "var/omega.hi",
+      "sha256": "1850c1f6d2e735c2f6e56b40c31a1593816fa4f4bac0c3f13431515d63c378a0"
+    },
+    {
+      "asset": "games/omega/var/omega.log",
+      "dest": "var/omega.log",
+      "sha256": "4d0bde48591190a972c31f1d3ea0b92faf388cb6de551ec3219b481917a567d0"
+    }
+  ],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-05",
+    "android_tested": null,
+    "notes": "Host test in a PTY at 80x24: title, hall of fame, the character questionnaire."
+  }
+}

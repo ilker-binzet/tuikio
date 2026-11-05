@@ -19,6 +19,10 @@ mirror disappears.
   https://raw.githubusercontent.com/mevdschee/2048.c/main/2048.c
   sha256 90f794c675a696aa10980dd120d1f0503ee4ed33a61fef92c7df8f443f5b18a8
 
+ASCII-DASH-1.3.zip
+  https://downloads.sourceforge.net/project/ascii-dash/ASCII-DASH-1.3.zip
+  sha256 8f59271551828767f01c8574a1ab8daa3ce1127c483451a37234d71d0e6d3db7
+
 angband-e473720e.tar
   https://github.com/angband/angband @ e473720ed88a0f0c7ca66815cef3000eb4a38bc3
   sha256 d8944ceaa4fdc42f3ef18999caa917f9afae41d556838cd449f349accce714d5
@@ -62,6 +66,10 @@ ascii-snake-3107faaa.tar
 ascii-tetris-f983b048.tar
   https://github.com/Gregwar/ASCII-Tetris @ f983b0488a43bfea9ab1637f31596bbb94a1135e
   sha256 8ee152355565f58c5f40bbfe33248c08547a62969e618b9cc3bcb7a92eb35fa0
+
+asciiportal-0d7fb094.tar
+  https://github.com/cymonsgames/ASCIIpOrtal @ 0d7fb0946f760c2b3cd0a1b55a9179914c1a1cb7
+  sha256 3333a9c85fa6a558bcaf7f59d16ae95c1b976fafe651e57cb8ecd0764ce9a3f2
 
 awkaster-ac7f1b03.tar
   https://github.com/TheMozg/awk-raycaster @ ac7f1b03554ca1c662ea2951cdd9f0b586075890
@@ -118,6 +126,10 @@ bsdgames_2.17-33.debian.tar.xz
 bsdgames_2.17.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/b/bsdgames/bsdgames_2.17.orig.tar.gz
   sha256 066f924aef6c1c5ea946f588e36f303021f5dfc093944738f025d8edbc6fff60
+
+cNibbles-2.0.1.tbz
+  https://downloads.sourceforge.net/project/cnibbles/Source/cNibbles%20v2.0.1/cNibbles-2.0.1.tbz
+  sha256 a295bd74de887580a0ba7c4f8ed27c38c137fd8b6218ab637eae019a267c8d06
 
 cavezofphear_0.5.1-1.1.debian.tar.xz
   http://archive.ubuntu.com/ubuntu/pool/universe/c/cavezofphear/cavezofphear_0.5.1-1.1.debian.tar.xz
@@ -234,6 +246,10 @@ gnushogi_1.5~git20140725-2.1.debian.tar.xz
 gnushogi_1.5~git20140725.orig.tar.gz
   http://archive.ubuntu.com/ubuntu/pool/universe/g/gnushogi/gnushogi_1.5~git20140725.orig.tar.gz
   sha256 bd69e9fe7a2dd0d965b585149b59a95374fcd46f099bef10a5c12db448ab3da7
+
+gnuski-0.3.tar.gz
+  https://downloads.sourceforge.net/project/gnuski/gnuski/gnuski-0.3/gnuski-0.3.tar.gz
+  sha256 1b629bd29dd6ad362b56055ccdb4c7ad462ff39d7a0deb915753c2096f5f959d
 
 go-solar-system-7fe16e6a.tar
   https://github.com/furan917/go-solar-system @ 7fe16e6a837c58cbff8256d605b1a732766b3ffb
@@ -578,6 +594,14 @@ wordle-cli-90f3c622.tar
 xonitix-8d0eba81.tar
   https://github.com/garu/Xonitix @ 8d0eba81ff0984d4f1415214c5edb5a8ab1566d0
   sha256 2c8c08fb36e06bc27c1b213654d81a5e64ff91140657399225d5181c301d6d34
+
+yaml-cpp_0.8.0+dfsg-6build1.debian.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/main/y/yaml-cpp/yaml-cpp_0.8.0+dfsg-6build1.debian.tar.xz
+  sha256 e916f67cc5d80df18f7426279e13f9ce2fcf65c88236d1e318d07b3b4aae6e19
+
+yaml-cpp_0.8.0+dfsg.orig.tar.xz
+  http://archive.ubuntu.com/ubuntu/pool/main/y/yaml-cpp/yaml-cpp_0.8.0+dfsg.orig.tar.xz
+  sha256 32c85a5f36633a9005b20261b35fccb0d8ec69e9ef16c67de7d5d007944e3709
 
 yetris-cf3fee6c.tar
   https://github.com/alexdantas/yetris @ cf3fee6c2f1daf5b2c35468b9e211c2e87530a4f

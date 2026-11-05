@@ -3,7 +3,9 @@ from the file list its upstream makefile compiles."""
 import glob
 import os
 
-from tk import EXTRA_NOTICES, HERE, BuildError, autotools, cc, game, install_asset, replace_in, run, unpack
+import tk
+
+from tk import EXTRA_NOTICES, HERE, LEGACY, BuildError, autotools, cc, game, install_asset, replace_in, run, unpack
 
 
 def files(src, *patterns):
@@ -149,3 +151,145 @@ def build_npush(abi):
         for path in files(src, "levels/*"):
             install_asset(f"games/npush/levels/{os.path.basename(path).replace(' ', '_')}", path)
     return {"game_npush": exe}
+
+
+YAML_CPP = "yaml-cpp_0.8.0+dfsg.orig.tar.xz"
+
+
+@game("asciiportal", notice=("asciiportal-0d7fb094.tar", "LICENSE"))
+def build_asciiportal(abi):
+    """ASCIIpOrtal: Portal as an ASCII puzzle platformer, in its plain-text build (no SDL, no sound),
+    with yaml-cpp (Ubuntu's source) compiled in for its map-pack descriptions and saves. The map
+    packs are data in the game's home; saves go to ~/asciiportal (not the hidden ~/.asciiportal)."""
+    work = abi.work("asciiportal")
+    src = unpack("asciiportal-0d7fb094.tar", os.path.join(work, "src"))
+    ysrc = unpack(YAML_CPP, os.path.join(work, "yaml"))
+    replace_in(os.path.join(src, "src", "ap_filemgr.cpp"), 'userpath += s + ".asciiportal";', 'userpath += s + "asciiportal";')
+    # Included unconditionally "to compile on OS X"; the plain-text build uses no SDL.
+    replace_in(os.path.join(src, "src", "main.cpp"), "#include <SDL/SDL.h>\n", "")
+    # It moves into its executable's directory to find maps/; on a phone that is the read-only
+    # native library directory. The game's home (its working directory) holds the maps.
+    replace_in(os.path.join(src, "src", "main.cpp"), "  chdir(dirname(argv[0]));\n", "")
+    # Two functions fall off their end without a return value: undefined behaviour, which the
+    # compiler turns into a trap (the game crashed loading its first map pack).
+    replace_in(os.path.join(src, "src", "ap_maps.cpp"), "  load_map();\n}\n", "  load_map();\n  return 0;\n}\n")
+    replace_in(os.path.join(src, "src", "ap_play.cpp"), "  if (game.has_won()) return 3;\n}\n",
+               "  if (game.has_won()) return 3;\n  return 2;\n}\n")
+    # Reproducible build: no build date on the title screen.
+    replace_in(os.path.join(src, "src", "menu.cpp"), '"v%s (%s)", AP_VERSION, __DATE__', '"v%s", AP_VERSION')
+    # The notice that it created the directory would be printed over the menu.
+    replace_in(os.path.join(src, "src", "ap_filemgr.cpp"),
+               '      cout << "Home directory " << userpath << " not existing, creating it." << endl;\n', "")
+    srcs = [os.path.join(src, "src", n + ".cpp") for n in
+            ("ap_pager", "ap_object", "ap_maps", "ap_filemgr", "ap_input", "ap_draw", "ap_play", "main", "menu")]
+    srcs += files(ysrc, "src/*.cpp", "src/contrib/*.cpp")
+    exe = os.path.join(work, "game_asciiportal")
+    cc(abi, srcs, exe, f'-std=gnu++17 {abi.curses_cflags} -I{ysrc}/include -I{ysrc}/src -DYAML_CPP_STATIC_DEFINE -D__NOSDL__ -D__NOSOUND__ '
+       '-DAP_VERSION=\\"1.3-beta8\\"', abi.curses_libs, cxx=True, cwd=src)
+    for path in files(src, "maps/**/*"):
+        if os.path.isfile(path):
+            install_asset("games/asciiportal/" + os.path.relpath(path, src), path)
+    EXTRA_NOTICES["asciiportal"] = ("\n\n" + "=" * 72 + "\nIt includes yaml-cpp 0.8.0 (MIT): Copyright (c) 2008-2015 Jesse Beder.\n")
+    return {"game_asciiportal": exe}
+
+
+@game("gnuski", notice=("gnuski-0.3.tar.gz", "GPL.txt"))
+def build_gnuski(abi):
+    """GNUSki 0.3: a SkiFree clone in curses."""
+    src = unpack("gnuski-0.3.tar.gz", os.path.join(abi.work("gnuski"), "src"))
+    # setupColors() is defined in objects.c but declared nowhere.
+    replace_in(os.path.join(src, "objects.h"), "struct Object makeObject (", "void setupColors (void);\nstruct Object makeObject (")
+    exe = os.path.join(abi.work("gnuski"), "game_gnuski")
+    cc(abi, [os.path.join(src, f) for f in ("main.c", "objects.c")], exe, LEGACY, abi.curses_libs, cwd=src)
+    return {"game_gnuski": exe}
+
+
+@game("cnibbles", notice=("cNibbles-2.0.1.tbz", "LICENSE"))
+def build_cnibbles(abi):
+    """cNibbles 2.0.1: Nibbles in curses. High scores and replays go to ~/cNibbles (not the
+    hidden ~/.cNibbles)."""
+    src = unpack("cNibbles-2.0.1.tbz", os.path.join(abi.work("cnibbles"), "src"))
+    replace_in(os.path.join(src, "highscore.c"), 'const char highscoreDirName[] = "/.cNibbles";',
+               'const char highscoreDirName[] = "/cNibbles";')
+    # Reproducible build: no build date in the about text.
+    replace_in(os.path.join(src, "options.c"), '     fprintf (stderr, "Built on %s @ %s\\n", __DATE__, __TIME__);\n', "")
+    exe = os.path.join(abi.work("cnibbles"), "game_cnibbles")
+    cc(abi, [os.path.join(src, f + ".c") for f in ("main", "misc", "screen", "options", "highscore", "replay", "intro")],
+       exe, LEGACY, abi.curses_libs, cwd=src)
+    return {"game_cnibbles": exe}
+
+
+def unpack_zip(name, dest):
+    """unpack() for a zip archive: verified, fresh, no path may leave the destination."""
+    import shutil
+    import zipfile
+    archive = tk.fetch(name)
+    if os.path.exists(dest):
+        shutil.rmtree(dest)
+    os.makedirs(dest)
+    real = os.path.realpath(dest)
+    with zipfile.ZipFile(archive) as z:
+        for info in z.infolist():
+            target = os.path.realpath(os.path.join(dest, info.filename))
+            if target != real and not target.startswith(real + os.sep):
+                raise BuildError(f"refusing path outside archive root: {info.filename}")
+            if (info.external_attr >> 16) & 0o170000 == 0o120000:
+                raise BuildError(f"refusing symlink in archive: {info.filename}")
+        z.extractall(dest)
+    tops = os.listdir(dest)
+    return os.path.join(dest, tops[0]) if len(tops) == 1 else dest
+
+
+@game("ascii-dash", notice=("ASCII-DASH-1.3.zip", "COPYING"))
+def build_ascii_dash(abi):
+    """ASCII DASH 1.3: Boulder Dash I in ncurses, without sound (SDL) or joystick. The 20 caves of
+    Boulder Dash I are data in the game's home (data/BD-I-*.ad); the high score is ./dash.txt."""
+    work = abi.work("ascii-dash")
+    src = unpack_zip("ASCII-DASH-1.3.zip", os.path.join(work, "src"))
+    gfx = os.path.join(src, "ascii-gfx", "gfx")
+    srcs = [os.path.join(src, "main.cpp")] + files(src, "dash/*.cpp") + files(gfx, "*.cpp")
+    exe = os.path.join(work, "game_ascii_dash")
+    cc(abi, srcs, exe, f"-std=gnu++98 {abi.curses_cflags} -I{src} -I{src}/dash -I{gfx}", abi.curses_libs, cxx=True, cwd=src)
+    for path in files(src, "data/BD-I-*.ad"):
+        install_asset("games/ascii-dash/data/" + os.path.basename(path), path)
+    return {"game_ascii_dash": exe}
+
+
+OMEGA = "omega-rpg_0.90-pa9.orig.tar.gz"
+OMEGA_OBJ = ("omega abyss aux1 aux2 aux3 bank char city command1 command2 command3 country effect1 effect2 "
+             "effect3 etc env file gen1 gen2 guild1 guild2 house init inv item itemf1 itemf2 itemf3 lev map "
+             "mmelee mmove mon move movef mspec mstrike mtalk newrand priest pdump save scr site1 site2 spell "
+             "stats time trap util village").split()
+
+
+@game("omega", notice=(OMEGA, "lib/lgpl.txt"))
+def build_omega(abi):
+    """Omega 0.90 (pa9) with Debian's maintenance patches, on ncurses. Its data lives in ./lib and
+    its high scores and log in ./var, both in the game's home. Three build-time generators run on
+    the build machine: the map encrypter (maps.dat), genclr (the colour table) and the build date,
+    which is fixed for a reproducible build."""
+    work = abi.work("omega")
+    src = unpack(OMEGA, os.path.join(work, "src"))
+    tk.apply_debian_patches(src, "omega-rpg_0.90-pa9-17.debian.tar.xz")
+    replace_in(os.path.join(src, "defs.h"), '#define OMEGALIB "/usr/share/games/omega-rpg/"', '#define OMEGALIB "./lib/"')
+    replace_in(os.path.join(src, "defs.h"), '#define OMEGAVAR "/var/games/omega-rpg/"', '#define OMEGAVAR "./var/"')
+    tools = os.path.join(src, "tools")
+    run("gcc -O2 crypt.c bwt.c -o crypt", tools)
+    maps = sorted(f for f in os.listdir(os.path.join(tools, "libsrc")) if f.endswith(".map"))
+    run(f"../crypt ../../lib/maps.dat {' '.join(maps)}", os.path.join(tools, "libsrc"))
+    replace_in(os.path.join(src, "command3.c"), '  nprint3(__DATE__" "__TIME__);\n', '  nprint3("Tuikio build");\n')
+    with open(os.path.join(src, "date.c"), "w") as fh:
+        fh.write('const char * LAST_OMEGA_BUILD_TIME = "Omega 0.90 for Tuikio";\n')
+    run(f"gcc -O2 {abi.curses_cflags.replace(abi.sysroot, '/usr')} genclr.c -o genclr", src)
+    run("for f in *.[ch]; do gcc -E -DOMEGA_CLRGEN -x c \"$f\"; done | ./genclr clrgen.c clrgen.h", src)
+    exe = os.path.join(work, "game_omega")
+    cc(abi, [os.path.join(src, f + ".c") for f in OMEGA_OBJ + ["date", "clrgen"]], exe,
+       f"{LEGACY} -DBSD -Wno-format-security", abi.curses_libs, cwd=src)
+    lib = os.path.join(src, "lib")
+    for name in sorted(os.listdir(lib)):
+        path = os.path.join(lib, name)
+        if os.path.isfile(path) and not name.endswith((".xpm", ".backup")) and name not in ("Makefile", "omega.hi", "omega.log"):
+            install_asset(f"games/omega/lib/{name}", path)
+    for name in ("omega.hi", "omega.log"):  # the starting score table and log, written as you play
+        install_asset(f"games/omega/var/{name}", os.path.join(lib, name + ".backup"))
+    return {"game_omega": exe}
