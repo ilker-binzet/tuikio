@@ -10,6 +10,7 @@ points to.
 | `RULES.md` | The owner's rules and the project's standing decisions. **Follow them.** |
 | `HISTORY.md` | The conversation, condensed: what the owner asked for, in order, and what was done and decided |
 | `PLAYBOOK.md` | Step-by-step recipes for the recurring jobs: port a game, audit, card art, release, CI |
+| `../PORTING.md` | The developer guide to porting a game, with a worked example (start here for ports) |
 | `LESSONS.md` | Mistakes made and what they taught: read before changing anything subtle |
 | `PORTING-BRIEF.md` | The brief given to porting helpers: the rules and workflow for one game, in detail |
 | `tools/` | Scratch tools used during development (PTY play-tester, JSON merge, triage applier, audit table) |

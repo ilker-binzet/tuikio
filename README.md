@@ -44,6 +44,7 @@ python3 native/build.py              # games for all ABIs (needs zig 0.17)
 ```
 
 See [docs/BUILD.md](docs/BUILD.md). Other docs:
+- **[Porting a game](docs/PORTING.md)**: add a terminal game to Tuikio, step by step
 - [Architecture](docs/ARCHITECTURE.md)
 - [Runtime](docs/RUNTIME.md)
 - [Catalog format](docs/CATALOG.md)
