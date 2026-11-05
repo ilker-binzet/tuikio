@@ -26,6 +26,9 @@ WINDOWS = [(22, 6), (26, 7), (30, 8)]
 # are drawn small. SQUASH drops its rows without a glyph (boards drawn
 # double-spaced).
 PIN = {
+    "omega": (1, 28, 24, 10),
+    "cnibbles": (8, 50, 30, 6),
+    "asciiportal": (0, 44, 36, 16),
     "2048": (2, 0, 28, 12),
     "arithmetic-bsd": (0, 0, 14, 1),
     "ascii-snake": (3, 0, 32, 11),
