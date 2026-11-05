@@ -2,39 +2,74 @@
 
 <p align="center"><img src="docs/images/banner.png" alt="tuikio: Terminal games, carried home. Kio the hermit crab beside a NetHack terminal and 2048 and Tetris cards." width="100%"></p>
 
-Tuikio (tuıkıo) is an Android app for discovering, installing and playing terminal games:
-the real C/C++ programs, running on a real pseudo-terminal, with touch controls designed for
-each game. Its mascot is Kio, a hermit crab that lives in a terminal.
+Tuikio (tuıkıo) is an Android app for discovering, installing and playing terminal games: the
+real programs (C, C++, Rust, Go, Zig, bash, awk and Python), running on a real pseudo-terminal,
+with touch controls made for each game. Its mascot is Kio, a hermit crab that lives in a terminal.
 
-- **Real runtime.** Games are cross-compiled static executables packaged inside the APK. They
-  run under a PTY helper and an xterm-compatible emulator written in Kotlin. Nothing is
-  downloaded and executed (Android 10+ W^X), and nothing is simulated.
-- **Controls per game.** Declarative profiles (D-pads, buttons, gestures, repeat, confirm for
-  quit/restart), plus hardware keyboards, gamepads and mouse reporting.
-- **Own look.** A custom design system (no Material/AndroidX), six brand packs plus an
-  accessibility pack, and launcher identities you can switch in Brand Studio.
-- **Community.** Save sources on your phone, suggest them anonymously or with GitHub credit,
-  or publish your own game. Everything becomes a reviewed pull request.
+- **169 games, offline.** NetHack, Angband, Brogue, Rogue, Doom (ASCII, with Freedoom), the BSD
+  games, solitaires, puzzles, word games, a Pokémon-like (Pokete), Tuikio's own Kio: Lantern Tide,
+  and more. Every game is bundled in the APK: no account, no Termux, no typing commands.
+- **Real runtime.** Games are cross-compiled static executables packaged inside the APK. They run
+  under a PTY helper and an xterm-compatible emulator written in Kotlin. Nothing is downloaded and
+  executed (Android 10+ W^X), and nothing is simulated. Python and bash games run on bundled
+  interpreters that only run the games' own pinned code.
+- **Controls per game.** A D-pad, buttons and gestures laid out for each game; answer chips when a
+  game asks a question; keyboard, gamepad and mouse too. Pause any game; Quit sits next to Pause.
+- **Online games, if you want them.** Five games played on public servers over SSH or telnet
+  (NetHack on alt.org, Telehack, SSHTron, SSH Hattrick, Late.sh), behind an **Online games** switch
+  that is off until you turn it on.
+- **Own look.** A custom design system (no Material/AndroidX), six brand packs plus a retro
+  Phosphor theme, light and dark, and launcher identities you can switch in Brand Studio.
+- **Community.** Save sources on your phone, suggest them anonymously or with GitHub credit, or
+  publish your own game. Everything becomes a reviewed pull request.
+
+## Install
+
+Download the APK from [Releases](https://github.com/omersusin/tuikio/releases):
+`tuikio-<version>-arm64-v8a.apk` is the one for almost every phone (Android 8 or newer). New
+versions install over old ones and keep your saves.
 
 ## Screenshots
 
-Real screens from the app's render tests (`RenderShotsTest`): each game running in its terminal, with its own controls.
+On a real phone (Android, 2026-11-05).
+
+**Games**
+
+<table>
+<tr><td align="center" valign="top"><img src="docs/images/phone/game-2048.jpg" alt="2048 with the D-pad, New game and Quit" width="200"><br><sub>2048</sub></td><td align="center" valign="top"><img src="docs/images/phone/game-ascii-chess.jpg" alt="ASCII-Chess waiting for a typed move, with Keys, Space, Erase and Enter" width="200"><br><sub>ASCII-Chess: typing</sub></td><td align="center" valign="top"><img src="docs/images/phone/game-spider-solitaire.jpg" alt="Spider solitaire with Undo, New, Restart, Deal and Select" width="200"><br><sub>solVItaire Spider</sub></td><td align="center" valign="top"><img src="docs/images/phone/game-threes.jpg" alt="Threes with the D-pad" width="200"><br><sub>Threes</sub></td></tr>
+</table>
+<table>
+<tr><td align="center" valign="top"><img src="docs/images/phone/game-awkaster.jpg" alt="awkaster, a 3D raycaster in awk, sideways with Shoot, Lift and turn buttons" width="400"><br><sub>awkaster: a raycaster in awk</sub></td><td align="center" valign="top"><img src="docs/images/phone/game-termrex.jpg" alt="Termrex game over, with Jump, Duck and a Continue chip" width="400"><br><sub>Termrex</sub></td></tr>
+</table>
+<table>
+<tr><td align="center" valign="top"><img src="docs/images/phone/paused.jpg" alt="The pause sheet: Resume, Quit, Keyboard, How to play" width="400"><br><sub>Pause any game</sub></td><td align="center" valign="top"><img src="docs/images/phone/game-details.jpg" alt="A game page: controls, runtime, saves, licence, who made it" width="200"><br><sub>Every game credits its authors</sub></td></tr>
+</table>
+
+**The app**
+
+<table>
+<tr><td align="center" valign="top"><img src="docs/images/phone/discover.jpg" alt="Discover: continue playing, categories, the shelf" width="200"><br><sub>Discover</sub></td><td align="center" valign="top"><img src="docs/images/phone/all-games.jpg" alt="All games, A to Z, with categories" width="200"><br><sub>All games</sub></td><td align="center" valign="top"><img src="docs/images/phone/library.jpg" alt="Library: installed games" width="200"><br><sub>Library</sub></td><td align="center" valign="top"><img src="docs/images/phone/add-source.jpg" alt="Add a game source" width="200"><br><sub>Suggest a game</sub></td></tr>
+</table>
+
+**Brands and themes**
+
+<table>
+<tr><td align="center" valign="top"><img src="docs/images/phone/brand-studio.jpg" alt="Brand Studio" width="200"><br><sub>Brand Studio</sub></td><td align="center" valign="top"><img src="docs/images/phone/brand-pocktty.jpg" alt="The PockTTY brand pack" width="200"><br><sub>PockTTY</sub></td><td align="center" valign="top"><img src="docs/images/phone/brand-tuiko.jpg" alt="The Tuiko brand pack" width="200"><br><sub>Tuiko</sub></td><td align="center" valign="top"><img src="docs/images/phone/brand-tuitopia.jpg" alt="The Tuitopia brand pack" width="200"><br><sub>Tuitopia</sub></td></tr>
+<tr><td align="center" valign="top"><img src="docs/images/phone/brand-bitiko.jpg" alt="The Bitiko brand pack" width="200"><br><sub>Bitiko</sub></td><td align="center" valign="top"><img src="docs/images/phone/brand-ttybit.jpg" alt="The Ttybit brand pack" width="200"><br><sub>Ttybit</sub></td><td align="center" valign="top"><img src="docs/images/phone/theme-phosphor.jpg" alt="The retro Phosphor theme" width="200"><br><sub>Phosphor theme</sub></td><td align="center" valign="top"><img src="docs/images/phone/publish.jpg" alt="Publish a game, step 1" width="200"><br><sub>Publish your game</sub></td></tr>
+</table>
+
+A 16:9 version of the banner, for slides and social cards, is at
+[`docs/images/banner-16x9.png`](docs/images/banner-16x9.png).
+
+## Status (1.1.3)
 
 | | |
 |---|---|
-| ![Kio: Lantern Tide, upright, with the pad](docs/images/screenshots/lantern-tide.png) | ![Doom in ASCII, sideways, with the pad and weapon buttons](docs/images/screenshots/doom.png)<br><br>![Klondike solitaire (solVItaire)](docs/images/screenshots/solitaire.png)<br><br>![Tetro TUI](docs/images/screenshots/tetro.png)<br><br>![Balatro TUI](docs/images/screenshots/balatro.png)<br><br>![Pokete, a Python game](docs/images/screenshots/pokete.png) |
-
-A 16:9 version of the banner, for slides and social cards, is at [`docs/images/banner-16x9.png`](docs/images/banner-16x9.png).
-
-## Status
-
-| | |
-|---|---|
-| Games bundled | 9: Lantern Tide (original), 2048, vitetris, robotfindskitten, Moon-buggy, freesweep, nInvaders, greed, nsnake |
-| Verification | All `PORTABLE`: built for arm64-v8a, armeabi-v7a and x86_64 and tested end to end on an x86_64 host (PTY protocol also checked under qemu for arm). **No device test has been recorded yet**, so none is `ANDROID_TESTED`, and the app labels them "Preview port". |
-| Catalog | 189 discovery entries (181 candidates) |
-| Visual direction | Design canvas awaiting the owner's review; not yet approved |
-| Community server | Implemented and tested against a fake GitHub; not deployed |
+| Games | 169: 163 offline ports, the original Kio: Lantern Tide, and 5 online games |
+| Phones | arm64-v8a, armeabi-v7a and x86_64; Android 8 and newer |
+| Tested | Every game builds for all three and plays its first moves in automated tests against the real binaries; the app starts every game on its game screen. The app and many games run on the owner's phone (screenshots above). Games stay labelled "Preview port" until each is recorded as played on a device. |
+| Catalog | 241 discovery entries: the ported games, candidates still to port, and declined ones with the reason |
+| Community server | Implemented and tested against a fake GitHub; not deployed yet |
 
 ## Build
 
@@ -44,6 +79,7 @@ python3 native/build.py              # games for all ABIs (needs zig 0.17)
 ```
 
 See [docs/BUILD.md](docs/BUILD.md). Other docs:
+- **[Porting a game](docs/PORTING.md)**: add a terminal game to Tuikio, step by step
 - [Architecture](docs/ARCHITECTURE.md)
 - [Runtime](docs/RUNTIME.md)
 - [Catalog format](docs/CATALOG.md)
