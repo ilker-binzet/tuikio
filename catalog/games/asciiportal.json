@@ -1,0 +1,1501 @@
+{
+  "schema_version": 1,
+  "id": "asciiportal",
+  "title": "ASCIIpOrtal",
+  "summary": "Portal as an ASCII puzzle platformer: two portals, boulders, buttons and a lot of falling.",
+  "description": "Run with the pad, climb ladders with up and down; up and down also aim. Portal fires the next portal, Blue and Yellow fire one of each, Clear removes them. Fling yourself through the test chambers: over 200 levels in many map packs (Change Map Set in the menu).",
+  "category": "puzzle",
+  "tags": [
+    "portal",
+    "platformer",
+    "puzzle"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Joe Larson",
+      "the ASCIIpOrtal contributors"
+    ],
+    "license": "GPL-3.0-only AND MIT",
+    "source_url": "https://github.com/cymonsgames/ASCIIpOrtal",
+    "version": "git 0d7fb094"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/more.py",
+    "source_archive": "asciiportal-0d7fb094.tar",
+    "source_sha256": "3333a9c85fa6a558bcaf7f59d16ae95c1b976fafe651e57cb8ecd0764ce9a3f2"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_asciiportal",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "pad-fire.v1",
+  "control_labels": {
+    "fire": "Portal"
+  },
+  "control_hide": [
+    "quit"
+  ],
+  "keys": [
+    {
+      "label": "Blue",
+      "text": "z"
+    },
+    {
+      "label": "Yellow",
+      "text": "x"
+    },
+    {
+      "label": "Clear",
+      "text": "c"
+    },
+    {
+      "label": "Restart",
+      "text": "r"
+    },
+    {
+      "label": "Menu",
+      "key": "ESCAPE"
+    }
+  ],
+  "saves": {
+    "paths": [
+      "asciiportal"
+    ],
+    "notes": "Progress in each map pack"
+  },
+  "data_files": [
+    {
+      "asset": "games/asciiportal/maps/GRVNG/001.txt",
+      "dest": "maps/GRVNG/001.txt",
+      "sha256": "61d6c5661c2eac1342e936aad1c892225f3880aba9cbd535a6c750260eb956a1"
+    },
+    {
+      "asset": "games/asciiportal/maps/GRVNG/002.txt",
+      "dest": "maps/GRVNG/002.txt",
+      "sha256": "e013074496bae3b4e17216dcd9ffd2bf7844dea4e13d15269dc7b5b0abeec02f"
+    },
+    {
+      "asset": "games/asciiportal/maps/GRVNG/003.txt",
+      "dest": "maps/GRVNG/003.txt",
+      "sha256": "ea7d18fc0a0d5ffd08f0112964df56e51ea3e87281b096cf8a59e57199c5b493"
+    },
+    {
+      "asset": "games/asciiportal/maps/GRVNG/004.txt",
+      "dest": "maps/GRVNG/004.txt",
+      "sha256": "5b4ec82e00ddcd751bbe845f520a95f6fc4508f64b89bde7280209a7cf13777f"
+    },
+    {
+      "asset": "games/asciiportal/maps/GRVNG/005.txt",
+      "dest": "maps/GRVNG/005.txt",
+      "sha256": "615618cf0f5b1f5f53d69314d05e5515a8f87a1bdf550edbb50883a026699ecc"
+    },
+    {
+      "asset": "games/asciiportal/maps/GRVNG/006.txt",
+      "dest": "maps/GRVNG/006.txt",
+      "sha256": "fc5d826e9909faa286ae7e12aeb8df90f96cd7674921e086a091bfd67d51a3a0"
+    },
+    {
+      "asset": "games/asciiportal/maps/GRVNG/007.txt",
+      "dest": "maps/GRVNG/007.txt",
+      "sha256": "2f181f176667b43bbeda8fc06d6640a3441b69b3675ba7f98b1a311e20fcf581"
+    },
+    {
+      "asset": "games/asciiportal/maps/GRVNG/credits.txt",
+      "dest": "maps/GRVNG/credits.txt",
+      "sha256": "dd9640b24668a9e640ca275fa362aab50e5c7de1b8c9f08099fb8023ea5d36ac"
+    },
+    {
+      "asset": "games/asciiportal/maps/GRVNG/infos.yaml",
+      "dest": "maps/GRVNG/infos.yaml",
+      "sha256": "0d9a545f3d7229bfda7495e59c66a8b5392a4f399b5951e4849c19f36e2eabf7"
+    },
+    {
+      "asset": "games/asciiportal/maps/GRVNG/inscreen.txt",
+      "dest": "maps/GRVNG/inscreen.txt",
+      "sha256": "a618183fa3d88b4a2b43af087c415ddb00f169d61e7c7296a0fd68d1551ec596"
+    },
+    {
+      "asset": "games/asciiportal/maps/Mechanist/001.txt",
+      "dest": "maps/Mechanist/001.txt",
+      "sha256": "bb106cdb9c3aa118bb2026f181e2acac7164a9328122f58ea065b153bd38f5ba"
+    },
+    {
+      "asset": "games/asciiportal/maps/Mechanist/002.txt",
+      "dest": "maps/Mechanist/002.txt",
+      "sha256": "47496de93c598905c395aa4b0fb2a8603a500c3fcea0db2f40fe491f5e278147"
+    },
+    {
+      "asset": "games/asciiportal/maps/Mechanist/COPYING",
+      "dest": "maps/Mechanist/COPYING",
+      "sha256": "029527eed9797a7a002fc889878dbbce457728d6cb3994d9e339d813bfae2433"
+    },
+    {
+      "asset": "games/asciiportal/maps/Mechanist/README",
+      "dest": "maps/Mechanist/README",
+      "sha256": "8fbf3243dadafb02a347bd9d9a9e76992c06bf788b43740f73c1972b14cf0ba7"
+    },
+    {
+      "asset": "games/asciiportal/maps/Mechanist/infos.yaml",
+      "dest": "maps/Mechanist/infos.yaml",
+      "sha256": "67f16575231bed7bf567ccc8148ef7d45f88611721db1d59f274e2a6d5bf4579"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/001.txt",
+      "dest": "maps/challengeme/001.txt",
+      "sha256": "7c48e0dede66b9c9e8218891472ce7d2a619581575cfd8a5f0ca8df6b3a94a9d"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/002.txt",
+      "dest": "maps/challengeme/002.txt",
+      "sha256": "a64f126c792c2adfff2b3337f3e4881da0da5973774dbeb0624a009a3e638f96"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/003.txt",
+      "dest": "maps/challengeme/003.txt",
+      "sha256": "6e3c9e84228cf98be48c48b42a36b01e34d508de80012be7a3c8726092d6bcc5"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/004.txt",
+      "dest": "maps/challengeme/004.txt",
+      "sha256": "6300ac6a09a224f815bf0c42d24f9eba6f59c5749a21a6a0b188dd4ae0b172f1"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/005.txt",
+      "dest": "maps/challengeme/005.txt",
+      "sha256": "6e5751065ee62f03e6f57d60389ab88a2517b05018c01f034415976586804eef"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/006.txt",
+      "dest": "maps/challengeme/006.txt",
+      "sha256": "2b00ec39edf10b1c3a8676ce0d0f43e363109750970b5110e3ee3973b1a017c1"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/007.txt",
+      "dest": "maps/challengeme/007.txt",
+      "sha256": "e0caa6a8a6dad5df3315e7c2d8f7738e96da20a3062728e7b3ee74296cfb8b17"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/008.txt",
+      "dest": "maps/challengeme/008.txt",
+      "sha256": "9099ca846a83a8c4ae6e42277c0d18ade7230cb55bbe679d2eafbb89f81002e4"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/009.txt",
+      "dest": "maps/challengeme/009.txt",
+      "sha256": "b23d7f5654e2952e00e63fb8a030ea0f1a27ef740cae102582bcac60121016d2"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/010.txt",
+      "dest": "maps/challengeme/010.txt",
+      "sha256": "3e7ce4eda43a7e56aebdc24668c8b62f48c4b5bd534c036fd93ba7ad449cd71f"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/011.txt",
+      "dest": "maps/challengeme/011.txt",
+      "sha256": "c573dd5220870d994fcd590cf0f2bd3fa7ca146e17511d5dc1dcacb9b49724a8"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/012.txt",
+      "dest": "maps/challengeme/012.txt",
+      "sha256": "2714c580c65bcff75dd46d68837f93a2dbfa68d715910e0255109135199e48eb"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/013.txt",
+      "dest": "maps/challengeme/013.txt",
+      "sha256": "7d79f2105f75ee3bedbda116b0562db0ddd779fa5d31cf08e945534445f5075b"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/014.txt",
+      "dest": "maps/challengeme/014.txt",
+      "sha256": "7edfd155139155c5f6b974f5a17dad6f6a4de8554fb5da79cb14448b49bc23e0"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/015.txt",
+      "dest": "maps/challengeme/015.txt",
+      "sha256": "94d1c474faad90dd88b7660e3ccad229bfec7ec4e7f54d5b97fe23e3a1def168"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/016.txt",
+      "dest": "maps/challengeme/016.txt",
+      "sha256": "e095458ed8421ce617eb4ae91092b7526869dab0c8421da7423de06d79016d76"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/017.txt",
+      "dest": "maps/challengeme/017.txt",
+      "sha256": "d945516b5344bd9e097a123e519bae38e7a7968777e81106e86826acc7a72b6b"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/018.txt",
+      "dest": "maps/challengeme/018.txt",
+      "sha256": "012fb5475ff3d57e637b727925ea3c252c02ac4f7bdae56a14e6fc70f7260fc0"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/019.txt",
+      "dest": "maps/challengeme/019.txt",
+      "sha256": "f0eb45d5e3647eed791d32cb0a5d5cb7574e179e8cf2e5c91db2a9242b17b406"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/020.txt",
+      "dest": "maps/challengeme/020.txt",
+      "sha256": "f4b9161c00749c88bd3e6056bc4a4cbf6f2e2b840c9de1b714a67dafc89299b5"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/021.txt",
+      "dest": "maps/challengeme/021.txt",
+      "sha256": "9dd16426aa854d2a92b49fa933ec222fbf0ef784b09f21dd969c1a6b855d72c5"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/022.txt",
+      "dest": "maps/challengeme/022.txt",
+      "sha256": "a2ca1a3033b93c1f70be5bbcc06dd51a1e0c51e74cbc72afb5794b6169e0ca15"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/credits.txt",
+      "dest": "maps/challengeme/credits.txt",
+      "sha256": "65e2b59509288c2a367a7b919752624f490e1adfbd3bd4a51fcbaae28e9fb592"
+    },
+    {
+      "asset": "games/asciiportal/maps/challengeme/infos.yaml",
+      "dest": "maps/challengeme/infos.yaml",
+      "sha256": "3a134654712b4b7eea92c6c6d6c4f3b9acb41d1dd769f391de735fa0093ac9ff"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/001.txt",
+      "dest": "maps/default/001.txt",
+      "sha256": "fc9cb7a37dd33feffc46fcd8fbb46f2540437bea422e2678448dfb71eb68037c"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/002.txt",
+      "dest": "maps/default/002.txt",
+      "sha256": "5f4843e66f08acb0fcf42c969d6cc0464f62e82f3ac07754046d50c7325c1cb8"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/003.txt",
+      "dest": "maps/default/003.txt",
+      "sha256": "4646f54bccd1d27dbebb4a989e0026a82bed45786fa9466f57432cab61f00bb9"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/004.txt",
+      "dest": "maps/default/004.txt",
+      "sha256": "5d03012db7c2c5d96599da4cbdf6afdecc0afc5c96a162ec861b19ecb98adac5"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/005.txt",
+      "dest": "maps/default/005.txt",
+      "sha256": "aba42b57bc8c593ba3d5c62efb58b442064de31109281c632670f145a1f86e0f"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/006.txt",
+      "dest": "maps/default/006.txt",
+      "sha256": "1b326425b4c7534322624d90a9d1b6c806930877a58cb3febf1560c779260a6f"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/007.txt",
+      "dest": "maps/default/007.txt",
+      "sha256": "38a8facdac113ed44a57a9969a09512dbfe60a555482e537e80c266599f488e1"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/008.txt",
+      "dest": "maps/default/008.txt",
+      "sha256": "fb8939f667f4303c5ff2c7f54032ab9c965fd2c6564185b59fc0afedb064b968"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/009.txt",
+      "dest": "maps/default/009.txt",
+      "sha256": "a54d8ef247cdfb695b5633b2b10b82fea72aa662251385ad00c0912e5314fc6f"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/010.txt",
+      "dest": "maps/default/010.txt",
+      "sha256": "809a98419c81952f4da9fa6e2139c17ab51d126cda2ee97d3ea4f2ea22ea761e"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/011.txt",
+      "dest": "maps/default/011.txt",
+      "sha256": "92009feb72d0c3b5ee284bf5e3ddadc050b3767488252f2966c1dd393aa40efc"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/012.txt",
+      "dest": "maps/default/012.txt",
+      "sha256": "37a4212b22cdb2775f32377570911ecffe365a8cc5687f2a29ba7cf529282210"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/013.txt",
+      "dest": "maps/default/013.txt",
+      "sha256": "442dc9d3d8251928fd1d8e52dffdaa03e56e73eaac71345ae7883fee52f676b9"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/014.txt",
+      "dest": "maps/default/014.txt",
+      "sha256": "5bb6230aa30671939df0e6321faa759375161f8042b07ee5f179e98ea897e244"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/015.txt",
+      "dest": "maps/default/015.txt",
+      "sha256": "e0e89a71ea05dedf06b854923009f177e29357eb04fe7b9852cf61660b3b7503"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/016.txt",
+      "dest": "maps/default/016.txt",
+      "sha256": "c64eeb5cb8b9014e2f9effdd13555a9997445d3433952a0f79561eeb494a3744"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/017.txt",
+      "dest": "maps/default/017.txt",
+      "sha256": "07e5331123806cb063a8af71cc6eeb2b8968b9b9f8036ac19e43e615fbb06db8"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/018.txt",
+      "dest": "maps/default/018.txt",
+      "sha256": "6146330464bf2fddcba536a54528deb3b6e9a74a680dbfedd9829b24c06f0ba9"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/019.txt",
+      "dest": "maps/default/019.txt",
+      "sha256": "0db3a407763b2d0c25c7081512b62785b1dda0af60438a26f69d6ae8ebf5ea24"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/020.txt",
+      "dest": "maps/default/020.txt",
+      "sha256": "4480ffa70d84a2bfe7d21aecc39bf2d1dc9c07736e4771cb373bbd3cb539e3fc"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/021.txt",
+      "dest": "maps/default/021.txt",
+      "sha256": "6914ecb3d02fca09a5e35b52e954fad5f539dd455b0a830077c71bb3192fc871"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/022.txt",
+      "dest": "maps/default/022.txt",
+      "sha256": "c5970bf1a971a5ad5ed82eec14dc3eb58898c8f4e25287da5eb022432e832157"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/023.txt",
+      "dest": "maps/default/023.txt",
+      "sha256": "3505a2e198a84cdba0ae43afdaa72ebb52a2a3122243e0eca503899b99324af0"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/024.txt",
+      "dest": "maps/default/024.txt",
+      "sha256": "a5a6775fd1b443bb01a621206fdb1c084e535864a403d9a93c593f06726cb192"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/025.txt",
+      "dest": "maps/default/025.txt",
+      "sha256": "3af38189b56319589bcce107c51eac41b8fb9f73451646071e1b9f24a2d1b038"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/credits.txt",
+      "dest": "maps/default/credits.txt",
+      "sha256": "c7fe7a982ab5a6f0c496e66f2009ae089e76b177e63058464307202cec1e99a3"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/final.mp3",
+      "dest": "maps/default/final.mp3",
+      "sha256": "35e1768e2861962711af9855bc37a9c67048431d8d4b0de4c6974fdedd19450c"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/infos.yaml",
+      "dest": "maps/default/infos.yaml",
+      "sha256": "124ae74d09217c07634b5f3c50d62fc746a2e5aa63d5f7ddc46705c38c9880da"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/inscreen.txt",
+      "dest": "maps/default/inscreen.txt",
+      "sha256": "e23e6629abf4fb6cde8f3c3007ed83627d4ce341d4adbcd894e79bf1f2d2e530"
+    },
+    {
+      "asset": "games/asciiportal/maps/default/penultimatecountdown.ogg",
+      "dest": "maps/default/penultimatecountdown.ogg",
+      "sha256": "43ebcdb369b96f663c4cdd68d5b1352a9c9d008c0cbe66961724cd392dec31ac"
+    },
+    {
+      "asset": "games/asciiportal/maps/evil/001.txt",
+      "dest": "maps/evil/001.txt",
+      "sha256": "6a80a8207c467494fb904a620b44d8d6354fef50264351efd101f150f2a395b5"
+    },
+    {
+      "asset": "games/asciiportal/maps/evil/002.txt",
+      "dest": "maps/evil/002.txt",
+      "sha256": "46cbadb027f9636f102f5edf28ec30cad7167aa90be2e261d5b1fa9527e7cf9b"
+    },
+    {
+      "asset": "games/asciiportal/maps/evil/003.txt",
+      "dest": "maps/evil/003.txt",
+      "sha256": "13e5d0b84fbe7b13e91928293eb9e358c5e635d9b63e7b43567abb701366e4cb"
+    },
+    {
+      "asset": "games/asciiportal/maps/evil/004.txt",
+      "dest": "maps/evil/004.txt",
+      "sha256": "a152e2c1f9d828549612c764a89808373ded9a9fd3b47e697911d95ee617a457"
+    },
+    {
+      "asset": "games/asciiportal/maps/evil/005.txt",
+      "dest": "maps/evil/005.txt",
+      "sha256": "9f9629deea08311ae8e1c2a4b75643f0cb5954932525451d39db3661847929aa"
+    },
+    {
+      "asset": "games/asciiportal/maps/evil/006.txt",
+      "dest": "maps/evil/006.txt",
+      "sha256": "162bdb13e7bb425933b4093ab2e9d825f6bf94199bd2f414ecc092d9c303f90b"
+    },
+    {
+      "asset": "games/asciiportal/maps/evil/007.txt",
+      "dest": "maps/evil/007.txt",
+      "sha256": "639dfc738d74a84be1fdc31873d44abdaf9a3e91b0cf84fbba26ead6e4619a9a"
+    },
+    {
+      "asset": "games/asciiportal/maps/evil/008.txt",
+      "dest": "maps/evil/008.txt",
+      "sha256": "a31f1cfe40790fb8179669621879a20cd5c2b299fa2625d253a4654fdb038f7a"
+    },
+    {
+      "asset": "games/asciiportal/maps/evil/009.txt",
+      "dest": "maps/evil/009.txt",
+      "sha256": "3f9093bd1a634ac047088a2346d7a974516112236d8d5089c572b246003df010"
+    },
+    {
+      "asset": "games/asciiportal/maps/evil/010.txt",
+      "dest": "maps/evil/010.txt",
+      "sha256": "ce0d6fe5e97514daaf621862fe2231dd22a48d6ed5e389f2ec52236a1f6b4102"
+    },
+    {
+      "asset": "games/asciiportal/maps/evil/COPYING",
+      "dest": "maps/evil/COPYING",
+      "sha256": "029527eed9797a7a002fc889878dbbce457728d6cb3994d9e339d813bfae2433"
+    },
+    {
+      "asset": "games/asciiportal/maps/evil/README",
+      "dest": "maps/evil/README",
+      "sha256": "2d40e4d57e70a64f9cfdf503515c52718827ad86452f51ce0bcea5c3675f6576"
+    },
+    {
+      "asset": "games/asciiportal/maps/evil/infos.yaml",
+      "dest": "maps/evil/infos.yaml",
+      "sha256": "c5fed583f4e485ab63002d52fc2841d20822b29739b978a295df6dd357d291a6"
+    },
+    {
+      "asset": "games/asciiportal/maps/extralevels/001.txt",
+      "dest": "maps/extralevels/001.txt",
+      "sha256": "82960c7e1c1711f92a74e9e3df88e90a73e3bea4d1458a538928216420ec6569"
+    },
+    {
+      "asset": "games/asciiportal/maps/extralevels/extralevels.txt",
+      "dest": "maps/extralevels/extralevels.txt",
+      "sha256": "a1e82c3c23b62c20729dcf9e79762f42125f371908eb25b194e44caa4563490a"
+    },
+    {
+      "asset": "games/asciiportal/maps/extralevels/infos.yaml",
+      "dest": "maps/extralevels/infos.yaml",
+      "sha256": "64f17f9818a6714bbb329d02c546ef38779ade641a9ddb4f470c1f2fc92f1ece"
+    },
+    {
+      "asset": "games/asciiportal/maps/extralevels/x001.txt",
+      "dest": "maps/extralevels/x001.txt",
+      "sha256": "82960c7e1c1711f92a74e9e3df88e90a73e3bea4d1458a538928216420ec6569"
+    },
+    {
+      "asset": "games/asciiportal/maps/ivanq/001.txt",
+      "dest": "maps/ivanq/001.txt",
+      "sha256": "ce2ea174dd97e5f6e253e4abb5de00b172cf22bedd85cfad5d0a845949e61a94"
+    },
+    {
+      "asset": "games/asciiportal/maps/ivanq/002.txt",
+      "dest": "maps/ivanq/002.txt",
+      "sha256": "ee0069121ae1ce30efc6982025de536c7372bcb718d74b91200648d36c4ebbbc"
+    },
+    {
+      "asset": "games/asciiportal/maps/ivanq/003.txt",
+      "dest": "maps/ivanq/003.txt",
+      "sha256": "7af4aa01cf29b1617c9a9253110b02715eda589aa0b6cac95cadb28d06ee5bb2"
+    },
+    {
+      "asset": "games/asciiportal/maps/ivanq/infos.yaml",
+      "dest": "maps/ivanq/infos.yaml",
+      "sha256": "e5459ebcf228dbd82cd7d2fd39bbf5e8cceb295db35c604b05f79625168e1ce2"
+    },
+    {
+      "asset": "games/asciiportal/maps/kris/001.txt",
+      "dest": "maps/kris/001.txt",
+      "sha256": "ad0219d5d14914fa05e7202f613dcf0ae8a399026af492252e9c48023bb3c014"
+    },
+    {
+      "asset": "games/asciiportal/maps/kris/002.txt",
+      "dest": "maps/kris/002.txt",
+      "sha256": "189bc5902168bed20357701e22fe84ea933f36fee112898620dba153021fe9e2"
+    },
+    {
+      "asset": "games/asciiportal/maps/kris/003.txt",
+      "dest": "maps/kris/003.txt",
+      "sha256": "cf4569f6ec567f54ffada1b15b2cbc04c522a1428496765ae56700d62964ffe8"
+    },
+    {
+      "asset": "games/asciiportal/maps/kris/004.txt",
+      "dest": "maps/kris/004.txt",
+      "sha256": "434190910520a060c2189d0a1f644ccfe839b677ce8ae541e58f74c1799e5568"
+    },
+    {
+      "asset": "games/asciiportal/maps/kris/005.txt",
+      "dest": "maps/kris/005.txt",
+      "sha256": "3005835514f17e194e4f04e0823da2829ab0140c15fed329544a9bf8749d4807"
+    },
+    {
+      "asset": "games/asciiportal/maps/kris/006.txt",
+      "dest": "maps/kris/006.txt",
+      "sha256": "c392940320eae59c707dd56610b7932ac33827525dbc404de3327629c6fa0f7a"
+    },
+    {
+      "asset": "games/asciiportal/maps/kris/007.txt",
+      "dest": "maps/kris/007.txt",
+      "sha256": "e137185d52886222dfda360ae504dab936616206d8580db8537ad2ec76256a02"
+    },
+    {
+      "asset": "games/asciiportal/maps/kris/008.txt",
+      "dest": "maps/kris/008.txt",
+      "sha256": "33bc6d9d9415903075a75327c761f136b65f0e9717e021a4bedfc0bdc7edf9f7"
+    },
+    {
+      "asset": "games/asciiportal/maps/kris/infos.yaml",
+      "dest": "maps/kris/infos.yaml",
+      "sha256": "980bbb6f37c781f66e04ef796741724831112558f4f0a595a70d24644956ac8a"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/001.txt",
+      "dest": "maps/masterlevels/001.txt",
+      "sha256": "ecbe4c213c00dd268cfc088430f57d2fd47c66438946368f6257562345ec4640"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/002.txt",
+      "dest": "maps/masterlevels/002.txt",
+      "sha256": "56290d6df7192cd0fd3f2748ece41bd0a7d295750e91c09f645c35154be43c0d"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/003.txt",
+      "dest": "maps/masterlevels/003.txt",
+      "sha256": "ed3766fefd64e1a5998c135e44da50ff665ad5a984c9af88481c00348eada31d"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/004.txt",
+      "dest": "maps/masterlevels/004.txt",
+      "sha256": "0b77203556a2eef547a043372f9484c273ba25f51efa1185375142f6ce811587"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/005.txt",
+      "dest": "maps/masterlevels/005.txt",
+      "sha256": "8fe81fe1a0db9386e226f9e47ec0861bc2886930364621a0c8c53effb8043f71"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/006.txt",
+      "dest": "maps/masterlevels/006.txt",
+      "sha256": "480f64bce97ed93eed83f0fefa86493a2a39aec26bc7771bf8f61ff986f40ae9"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/007.txt",
+      "dest": "maps/masterlevels/007.txt",
+      "sha256": "e9e1a33af34685570c292652f121134e3874dcf3abeb820c7ae4f7acbef168a1"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/008.txt",
+      "dest": "maps/masterlevels/008.txt",
+      "sha256": "af0fb3cfb68683164b95c54368d526e4906cf8b9ea9fa7ed6c54177b51aec343"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/009.txt",
+      "dest": "maps/masterlevels/009.txt",
+      "sha256": "8e7c4720201eeecf927416e7ee7905e3a018c1cdf7afc6fe9d3c07744bffa589"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/010.txt",
+      "dest": "maps/masterlevels/010.txt",
+      "sha256": "06a2e67e89d4423b9a7b80eea59ed6dfa3f67486b200ae1bf15d45ab1924c4da"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/011.txt",
+      "dest": "maps/masterlevels/011.txt",
+      "sha256": "768da913a0c720e47a9882c59eea63341691ced6f50836ad07e8808caf3bf7aa"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/012.txt",
+      "dest": "maps/masterlevels/012.txt",
+      "sha256": "fd2622dbdc42474cb471131ad78e04f645ee6462178cb82dc22c7f0e338ade28"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/013.txt",
+      "dest": "maps/masterlevels/013.txt",
+      "sha256": "f1efe36ab80e3bc69cea284f702f7b9152b0d6c95fb01d4d7df02e02d799c656"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/014.txt",
+      "dest": "maps/masterlevels/014.txt",
+      "sha256": "11e37afbe3f5e01ac2574d53df3a56e8bc2d76625d98080399a42a617b4eebc8"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/015.txt",
+      "dest": "maps/masterlevels/015.txt",
+      "sha256": "0089459d6d82129fb5e55876d6c91f892debd4586d363af6ceb20f97cbb3498a"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/016.txt",
+      "dest": "maps/masterlevels/016.txt",
+      "sha256": "89c40b6061ab8a28208b412619cd339ffec2aed67a5230065d36abec6557a0a2"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/017.txt",
+      "dest": "maps/masterlevels/017.txt",
+      "sha256": "0629ff983c797b5c2a20e483f30c9d7203f97a7ece16fc3ba893cec98875fafe"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/018.txt",
+      "dest": "maps/masterlevels/018.txt",
+      "sha256": "26f7d58f06feed6b7a44e03ad3a3df0d738ff337690fb8a98cd8b1547ac0b6e7"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/019.txt",
+      "dest": "maps/masterlevels/019.txt",
+      "sha256": "28e5c805fb659d8f69ddfc478ee601c4dababe8fa8770ba70acfb4b7a953b6d4"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/020.txt",
+      "dest": "maps/masterlevels/020.txt",
+      "sha256": "6a80a8207c467494fb904a620b44d8d6354fef50264351efd101f150f2a395b5"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/021.txt",
+      "dest": "maps/masterlevels/021.txt",
+      "sha256": "46cbadb027f9636f102f5edf28ec30cad7167aa90be2e261d5b1fa9527e7cf9b"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/022.txt",
+      "dest": "maps/masterlevels/022.txt",
+      "sha256": "fa01608c2674d907a5a1f796333fab0c71fc429f6cdba221194413315376aacf"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/023.txt",
+      "dest": "maps/masterlevels/023.txt",
+      "sha256": "61690b7042724caac44388077aaf60744d0fbfdb3405b85f883aed95c9af9530"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/024.txt",
+      "dest": "maps/masterlevels/024.txt",
+      "sha256": "2b67699df230b20ed9b07a23d451e5dc3f721534c0dab6f96a9c712803d6fed3"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/025.txt",
+      "dest": "maps/masterlevels/025.txt",
+      "sha256": "3a644f7d28432ed2a6dd46a391cd2814a00c3a7d5bcc9b50aa388ca4cf213ed0"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/026.txt",
+      "dest": "maps/masterlevels/026.txt",
+      "sha256": "a3abcb616e6f1ce40638aeed17440240d83b705527e4f9c58dae26394f440f6c"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/027.txt",
+      "dest": "maps/masterlevels/027.txt",
+      "sha256": "cc884a51098f5e5ab2a0f0191462896e9378949856c686c6f45bfea806445b58"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/028.txt",
+      "dest": "maps/masterlevels/028.txt",
+      "sha256": "d4c15e758af487d18ea4a1f5f5d982bf5d07c2bc136f4ba1a26d45dcebbc9fca"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/029.txt",
+      "dest": "maps/masterlevels/029.txt",
+      "sha256": "e82a475c385a4955b1897ff60d2fc6e7e3cedb70ff92149c88eee49637098096"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/030.txt",
+      "dest": "maps/masterlevels/030.txt",
+      "sha256": "77834d7e7f40ae43ded77b97dba2073ea51c982763694f102ebdce1d435abee6"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/031.txt",
+      "dest": "maps/masterlevels/031.txt",
+      "sha256": "ce2ea174dd97e5f6e253e4abb5de00b172cf22bedd85cfad5d0a845949e61a94"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/032.txt",
+      "dest": "maps/masterlevels/032.txt",
+      "sha256": "50878a94998f60528dee39dc4d506636d6e041de602f911ea4ec62d239e4ff43"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/033.txt",
+      "dest": "maps/masterlevels/033.txt",
+      "sha256": "2b214cfaab80b292acc754b41827aabc7bdcf7ec5222473d1c0b193e66e10117"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/034.txt",
+      "dest": "maps/masterlevels/034.txt",
+      "sha256": "33bc6d9d9415903075a75327c761f136b65f0e9717e021a4bedfc0bdc7edf9f7"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/035.txt",
+      "dest": "maps/masterlevels/035.txt",
+      "sha256": "e137185d52886222dfda360ae504dab936616206d8580db8537ad2ec76256a02"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/036.txt",
+      "dest": "maps/masterlevels/036.txt",
+      "sha256": "8960e88276c2bcc04adfd40040cc5278a002bf98ffaae9b12c63b726ff8aa45d"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/037.txt",
+      "dest": "maps/masterlevels/037.txt",
+      "sha256": "0bdf69d0ca47db883767015d9897b9b764fbf4c35381e2662b766c9e23994320"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/credits.txt",
+      "dest": "maps/masterlevels/credits.txt",
+      "sha256": "8c4de198004b7c2393e14b27ad303006f49f3d61472030266cbfce81ed29d55d"
+    },
+    {
+      "asset": "games/asciiportal/maps/masterlevels/infos.yaml",
+      "dest": "maps/masterlevels/infos.yaml",
+      "sha256": "8cb1f33a6c70b6cf1f0f8326f1a0deca29df5c201e2292ec7cfa7c7a43061979"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/001.txt",
+      "dest": "maps/metapuzzles/001.txt",
+      "sha256": "774715c6bda6db903711191a09d43093808da39bdf25ffd95e89b11a42cb6ce1"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/002.txt",
+      "dest": "maps/metapuzzles/002.txt",
+      "sha256": "c5ea41b69a31372874aee7df2fd3e82052f4d8600b57b54cef993400b0182244"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/003.txt",
+      "dest": "maps/metapuzzles/003.txt",
+      "sha256": "47052f05543cbace086002b4b122a830216080a5aa6e63c01e0b177f885754c4"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/004.txt",
+      "dest": "maps/metapuzzles/004.txt",
+      "sha256": "703c10aa1bfb4ff9aae5f151adfbfa63ce32f004e405f5ceb5dacfaeca0397f0"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/005.txt",
+      "dest": "maps/metapuzzles/005.txt",
+      "sha256": "ca2a556aad50e439d4afc05185571cbdbb7964d8c2279f45ff897a815cc9dd47"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/006.txt",
+      "dest": "maps/metapuzzles/006.txt",
+      "sha256": "014fb1127bff68835317fd33b953cb49c32bc9ce0645054f1bafe3e22219d2a5"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/007.txt",
+      "dest": "maps/metapuzzles/007.txt",
+      "sha256": "475f0009b541b1ecde86bfe4f78b15ccaed4c872871e6ff60918e98af37d7059"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/008.txt",
+      "dest": "maps/metapuzzles/008.txt",
+      "sha256": "3e9f18f152fdc450c5d017f372c4ea1540c7e94e97dd81143807501820fac9bc"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/009.txt",
+      "dest": "maps/metapuzzles/009.txt",
+      "sha256": "15c890fe2f2900b9cfd0903a9176183978dca07e7a8d2411a76ea7103632a4f1"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/010.txt",
+      "dest": "maps/metapuzzles/010.txt",
+      "sha256": "e5b580cb25e0b8614e376b443077f179d09487e196a7c632d1014208a92362a7"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/011.txt",
+      "dest": "maps/metapuzzles/011.txt",
+      "sha256": "8f29fade3aebebbaecaf3874e63111c390108dde6b6ea3642290e27486be7ff5"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/012.txt",
+      "dest": "maps/metapuzzles/012.txt",
+      "sha256": "4aa98573907ab2285bb738c941ca37d1a7205db30f795e5e409c4effb4d16e41"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/013.txt",
+      "dest": "maps/metapuzzles/013.txt",
+      "sha256": "a8dd3426c13e4477854f2e0f59ee2eb1aaccfbeecf31a97b8fd408ce84fb4cf5"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/014.txt",
+      "dest": "maps/metapuzzles/014.txt",
+      "sha256": "093bd7362a6359f5531f371724439c4588f80b2fdd38673da4b0904a05652457"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/015.txt",
+      "dest": "maps/metapuzzles/015.txt",
+      "sha256": "24cafba185ca727a512081623daa3e39c18146358f14f5416f0d0323033d11c4"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/016.txt",
+      "dest": "maps/metapuzzles/016.txt",
+      "sha256": "bf853f866624a933c6e99c6cbcefa4fc5456d41e57f82a50ef35b600da1687b2"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/017.txt",
+      "dest": "maps/metapuzzles/017.txt",
+      "sha256": "bd007c3259d4820ad002f9afc697a5f03eb4aee9311640dd95863fc08cebac35"
+    },
+    {
+      "asset": "games/asciiportal/maps/metapuzzles/infos.yaml",
+      "dest": "maps/metapuzzles/infos.yaml",
+      "sha256": "609c44fb0e08e5a15d59c6f16273359e5ac7d993e0ee2982a3fbe095dee9c662"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/001.txt",
+      "dest": "maps/n_a_portal/001.txt",
+      "sha256": "f19c7e92160c1dc877dace62d61bedc667be0a9128b6ef3d0e876197f755ad7a"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/002.txt",
+      "dest": "maps/n_a_portal/002.txt",
+      "sha256": "4791826deaaee7e1a8931de70bb940bb4109456bc1965eec91e103fa574e24f3"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/003.txt",
+      "dest": "maps/n_a_portal/003.txt",
+      "sha256": "ab3ee75586b3761b9f2c4293874cb97ee2a8a49a43ea27ef85b3fb4c974ea230"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/004.txt",
+      "dest": "maps/n_a_portal/004.txt",
+      "sha256": "69e996862456dfd893b1e93b8448c56190e02110eb8dc3d1f5b94803c3af208c"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/005.txt",
+      "dest": "maps/n_a_portal/005.txt",
+      "sha256": "87a482acd417657e8887813fa764f579f97167a3a4dd56d5c6b2567aecc4152a"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/006.txt",
+      "dest": "maps/n_a_portal/006.txt",
+      "sha256": "c3d44ab62e5bc2b873a1b0e678c7522b14f7c0b354c9fec5ac2c0237e2ce5cd3"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/007.txt",
+      "dest": "maps/n_a_portal/007.txt",
+      "sha256": "b7797a8d78a0d13b00423ba09f37d86ba1aaa16362e9c9fdf1d7c7767a7f6dc5"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/008.txt",
+      "dest": "maps/n_a_portal/008.txt",
+      "sha256": "1d62e7d24bad1b81420fb8664ceaf126ad9917b2023101b145cefaa96f0b69da"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/009.txt",
+      "dest": "maps/n_a_portal/009.txt",
+      "sha256": "c55183cba4aecb2d9a1ceedb2ef5a19787e3798803893b140d4d056b46fc0110"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/010.txt",
+      "dest": "maps/n_a_portal/010.txt",
+      "sha256": "38686418e9106fd263c39ab8ada08dcccecbae3070f33ce3ec74306055ba9812"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/011.txt",
+      "dest": "maps/n_a_portal/011.txt",
+      "sha256": "37cfa062da74b2b6e9620e55295067bb552d617f519b81c5ff5e5c567134c1fc"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/012.txt",
+      "dest": "maps/n_a_portal/012.txt",
+      "sha256": "647cbd5fdcf579c0fc8cc2a2def697b504757f023889c391e5269a34be8caeda"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/013.txt",
+      "dest": "maps/n_a_portal/013.txt",
+      "sha256": "89b38457b9ae326babc943bfd8d56f67bcf9023b7cbb3007f381cdb50c504b78"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/014.txt",
+      "dest": "maps/n_a_portal/014.txt",
+      "sha256": "449613f23acc60f7267ae22eb6e910b58eaea58b1f4ef3ec3d09e48b8e9d352f"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/015.txt",
+      "dest": "maps/n_a_portal/015.txt",
+      "sha256": "c6fb1a597bbb4f3bc582a733ea24d8a3952d30bdd39642f464313787768770b3"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/016.txt",
+      "dest": "maps/n_a_portal/016.txt",
+      "sha256": "8766f06e48475571faaf07f3f1296c6dd8695f865b48bdaaaeeeac67f39f3489"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/017.txt",
+      "dest": "maps/n_a_portal/017.txt",
+      "sha256": "74c0d5ed34a4cc741e950c512c19c0b51294c60412fb4f16f9e2243929521135"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/018.txt",
+      "dest": "maps/n_a_portal/018.txt",
+      "sha256": "2a9406df49f4cac3beef0771e74436c97854e6154290733f6df715df9ad29d01"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/credits.txt",
+      "dest": "maps/n_a_portal/credits.txt",
+      "sha256": "92b2f29e393acde704bfc4ab0a380943f0d47468e513a7672536c14edf631697"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/infos.yaml",
+      "dest": "maps/n_a_portal/infos.yaml",
+      "sha256": "6b1032204f796dd2acdc2bed88cf9d8a9f3401a89036a63a955b9f504b4cdf1d"
+    },
+    {
+      "asset": "games/asciiportal/maps/n_a_portal/inscreen.txt",
+      "dest": "maps/n_a_portal/inscreen.txt",
+      "sha256": "512bc44c1f12c94c5abec3255ea36d8bc20f0bdec37713b043d3ba153800ebbb"
+    },
+    {
+      "asset": "games/asciiportal/maps/radad1/001.txt",
+      "dest": "maps/radad1/001.txt",
+      "sha256": "0520361a271c54add879931bedbd4840fde724967b0977b46ffccfd7e9b56b3c"
+    },
+    {
+      "asset": "games/asciiportal/maps/radad1/002.txt",
+      "dest": "maps/radad1/002.txt",
+      "sha256": "e876e657a5683400da824a6983453f33bae2181966eb9184c35aaaa290a2d0d0"
+    },
+    {
+      "asset": "games/asciiportal/maps/radad1/003.txt",
+      "dest": "maps/radad1/003.txt",
+      "sha256": "b86fbe3e2a5c42642b108150038d0fafe7f7e5f559d80bb3bef7c52641fa1957"
+    },
+    {
+      "asset": "games/asciiportal/maps/radad1/004.txt",
+      "dest": "maps/radad1/004.txt",
+      "sha256": "1d736848177f842f152c97ee65caf242e3565918bc6a26aa06cec2325144d8dc"
+    },
+    {
+      "asset": "games/asciiportal/maps/radad1/005.txt",
+      "dest": "maps/radad1/005.txt",
+      "sha256": "cd6f6e87d16909b9ca13c4186da64149896eafb3cc67f9201c819f1a9bd97585"
+    },
+    {
+      "asset": "games/asciiportal/maps/radad1/006.txt",
+      "dest": "maps/radad1/006.txt",
+      "sha256": "19d26ec0726cf31234a369f6099cfaaa1dc764d071d9f7f6d57f4d79b9d04b30"
+    },
+    {
+      "asset": "games/asciiportal/maps/radad1/007.txt",
+      "dest": "maps/radad1/007.txt",
+      "sha256": "2d6f3c3c2d8eb3a0bb4806c383cdbfd4470947961961c614f043ecce2510de1e"
+    },
+    {
+      "asset": "games/asciiportal/maps/radad1/008.txt",
+      "dest": "maps/radad1/008.txt",
+      "sha256": "19199c6dcc5f5845e18f0106db209593d8ed99ab4f11ee8270ffa619e0e6d4f0"
+    },
+    {
+      "asset": "games/asciiportal/maps/radad1/009.txt",
+      "dest": "maps/radad1/009.txt",
+      "sha256": "45691c8de577fd59b4fba5847385350b2b1de4b92271e8a0726439f148fac369"
+    },
+    {
+      "asset": "games/asciiportal/maps/radad1/010.txt",
+      "dest": "maps/radad1/010.txt",
+      "sha256": "c19ec034b6f09d0831fd83eb7b840633adccf17fbdf9e9eb4c500b05bdb55ef2"
+    },
+    {
+      "asset": "games/asciiportal/maps/radad1/011.txt",
+      "dest": "maps/radad1/011.txt",
+      "sha256": "7f8a17458493ea4fb2bc3c70031539acf37299bac0b61d2fc084febe4ae21a6a"
+    },
+    {
+      "asset": "games/asciiportal/maps/radad1/infos.yaml",
+      "dest": "maps/radad1/infos.yaml",
+      "sha256": "5705652e1932616ce33888f002d689ca96161487d9fed095aba85c60cef0e50f"
+    },
+    {
+      "asset": "games/asciiportal/maps/raisonbran648/001.txt",
+      "dest": "maps/raisonbran648/001.txt",
+      "sha256": "ca091664051596ecc09dc07feb4182b9678ec2215c319b9eceb904dd55a383d5"
+    },
+    {
+      "asset": "games/asciiportal/maps/raisonbran648/002.txt",
+      "dest": "maps/raisonbran648/002.txt",
+      "sha256": "f760f80d901f59316a2d3b36beb3abf74a0f9a60726dd3194f5fb5b88c69d7c9"
+    },
+    {
+      "asset": "games/asciiportal/maps/raisonbran648/003.txt",
+      "dest": "maps/raisonbran648/003.txt",
+      "sha256": "0f7ce161aacc87795af451c5a5cb7367f0083970f000304fe4cedf76f9cf173e"
+    },
+    {
+      "asset": "games/asciiportal/maps/raisonbran648/004.txt",
+      "dest": "maps/raisonbran648/004.txt",
+      "sha256": "461e315ef93c4d72c6e4914133a11ebd3508f4136cd04eaa5a5bfd12375ac48d"
+    },
+    {
+      "asset": "games/asciiportal/maps/raisonbran648/005.txt",
+      "dest": "maps/raisonbran648/005.txt",
+      "sha256": "142fa98e247449fc3b26f0dd98749e5b890ce7d536fcace7598351545d075511"
+    },
+    {
+      "asset": "games/asciiportal/maps/raisonbran648/006.txt",
+      "dest": "maps/raisonbran648/006.txt",
+      "sha256": "39cab95ceaedd733a79e44b2685d9e5a0e63e6d3678638eb224299e8d991326f"
+    },
+    {
+      "asset": "games/asciiportal/maps/raisonbran648/infos.yaml",
+      "dest": "maps/raisonbran648/infos.yaml",
+      "sha256": "09bc17b3b042b91cbe63f47970c4ef6af77e1f980b5316a6ff0687266149689a"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/001.txt",
+      "dest": "maps/ratpack/001.txt",
+      "sha256": "629e2eb2f23a04c8710f998a217e46a81091d3a958c1a8dff2a828e08552bf22"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/002.txt",
+      "dest": "maps/ratpack/002.txt",
+      "sha256": "866fa5a018720012a8487dd5f7c21c3d91fe361baafbf41292f3dbff8a930907"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/003.txt",
+      "dest": "maps/ratpack/003.txt",
+      "sha256": "4d96f45af9cd551634b37db9f5f5965eaf8a953dd1322fff3d6c9c86a44d1efe"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/004.txt",
+      "dest": "maps/ratpack/004.txt",
+      "sha256": "0d83f5aadeb2a3ec2201c708eeef8dbe50b72732fcc59d01188ecb58e63ca965"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/005.txt",
+      "dest": "maps/ratpack/005.txt",
+      "sha256": "3183c938a0c2d253d9cbb30bb244e35081be4dde8879ea278ec298e7a512e116"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/006.txt",
+      "dest": "maps/ratpack/006.txt",
+      "sha256": "928ae001bf15d313785d3c3de1e8ea30f4ce4d956d244bffe6eb92041e0fc6e3"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/007.txt",
+      "dest": "maps/ratpack/007.txt",
+      "sha256": "ac6bbd52313ea510732a057bd666ad976d1932e76fca45f457978fc47a59fe28"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/008.txt",
+      "dest": "maps/ratpack/008.txt",
+      "sha256": "f833e8eaff0d8417934fcbaf7cf206473458b43353725a96cb9b722142280e26"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/009.txt",
+      "dest": "maps/ratpack/009.txt",
+      "sha256": "1adf805ba1e9d5c956462490237ccbea440bdd1c923a1afed3ea2c23cb07978a"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/010.txt",
+      "dest": "maps/ratpack/010.txt",
+      "sha256": "c7806d6f604088f0a392e7c8fe5585003e6ca0333e41ad6cd65bb80a6a38ca76"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/011.txt",
+      "dest": "maps/ratpack/011.txt",
+      "sha256": "27f02e0d58a4344c000b2ddde2854a07e109f3b828d20b39baec750303e826c7"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/012.txt",
+      "dest": "maps/ratpack/012.txt",
+      "sha256": "8ea9b804e565e19d368869d1021d2964420990dfd0db0125fba871a241fc5e49"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/credits.txt",
+      "dest": "maps/ratpack/credits.txt",
+      "sha256": "04609b994e004d8c31e413054a2f2fad6e6f91dc9d1083f70fd1f6fbc41a93b5"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/infos.yaml",
+      "dest": "maps/ratpack/infos.yaml",
+      "sha256": "b53691c89dc92cb170bdaef91e5a696d19ea6731e40f5be9d110d7fe41a9dd5d"
+    },
+    {
+      "asset": "games/asciiportal/maps/ratpack/inscreen.txt",
+      "dest": "maps/ratpack/inscreen.txt",
+      "sha256": "1ac6001dffa7989779622b7b3dc783e81cfb69380c5f0ea3e674fc00aa5d059e"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/001.txt",
+      "dest": "maps/subject15189/001.txt",
+      "sha256": "184666b3e46f88d8a66e58023e3df5c8c5a6019735fc953164195747d926733a"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/002.txt",
+      "dest": "maps/subject15189/002.txt",
+      "sha256": "b7a37961400db83af57ca35ab747944ccd1f8267b5023ffe496e80250880a86b"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/003.txt",
+      "dest": "maps/subject15189/003.txt",
+      "sha256": "395b5c08935f3340f0da7ff2d9ed2d001f9ac2a7e150f5f8f756531c4f407bc0"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/004.txt",
+      "dest": "maps/subject15189/004.txt",
+      "sha256": "0a34a9b43ccbce4f4c0b0d106092be5bed942393cfc102b5b6c0d7e5270b1e2c"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/005.txt",
+      "dest": "maps/subject15189/005.txt",
+      "sha256": "8f091969b0538807b096c0f9a2b449f54e1a0c3c0306ebc31cfe1fe8364d5b5e"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/006.txt",
+      "dest": "maps/subject15189/006.txt",
+      "sha256": "3756b0c11b017246ee908bc50a2aea97be398bb70782bc3065607b6c7501cb9e"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/007.txt",
+      "dest": "maps/subject15189/007.txt",
+      "sha256": "b8bb391c3e895d4bc5bb7e746a29e2fe88965c9a3fcd6c7c4f92e83f8efdcbe5"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/008.txt",
+      "dest": "maps/subject15189/008.txt",
+      "sha256": "9bd7edd5361f3c1a49bcbbacd16b528f4159b87843ad7989b7c8b8e3851c8ed6"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/009.txt",
+      "dest": "maps/subject15189/009.txt",
+      "sha256": "b87491001e46a8707f196384468d231f788ccddc88018b5a8a713eea17febf29"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/010.txt",
+      "dest": "maps/subject15189/010.txt",
+      "sha256": "2ecbb281ae9efa70bc5fc98fc03542307c0ea37e449aad7d2afe573216b9bdc7"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/011.txt",
+      "dest": "maps/subject15189/011.txt",
+      "sha256": "5915efcff5ec341f4717f453fbe6a12753c15f4d52a87f494edd5d37bd05f06d"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/012.txt",
+      "dest": "maps/subject15189/012.txt",
+      "sha256": "4f92c8299fe19a7c27090afc9606d4195c23d1a958af4a2bef5da71e67a10ad7"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/013.txt",
+      "dest": "maps/subject15189/013.txt",
+      "sha256": "637cf5748b30b408f6163ecaa3f9c5a9edb64d685067db49b0f9e2b23710d910"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/014.txt",
+      "dest": "maps/subject15189/014.txt",
+      "sha256": "9d1c125703bc190c18bde53d7d3de7369b598026dfe3a024b748f548e741923b"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/015.txt",
+      "dest": "maps/subject15189/015.txt",
+      "sha256": "75eda97850f5df970179158bf9fd4d808327e7e156981e75bbde4e28ee1f5516"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/016.txt",
+      "dest": "maps/subject15189/016.txt",
+      "sha256": "2da47f3e74501961c7b5d724c686aa34d3718eeee3fb69b3f4febea335e732bb"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/017.txt",
+      "dest": "maps/subject15189/017.txt",
+      "sha256": "db349231bab053fe9de8e9f7de6cd12e072f6df40de20ff92ecae20461018f2e"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/018.txt",
+      "dest": "maps/subject15189/018.txt",
+      "sha256": "6b06d86639956b5670c3668ff3093b522df515236be1ccd7c3191fee923e7ba0"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/019.txt",
+      "dest": "maps/subject15189/019.txt",
+      "sha256": "5c971c4cf90432d149b66f1ec908e478c4749ee10410bc19630f50a86d249913"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/020.txt",
+      "dest": "maps/subject15189/020.txt",
+      "sha256": "689d13735f1d373511c2aaff38674bfe071be503dc56182b11e1edd594583162"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/021.txt",
+      "dest": "maps/subject15189/021.txt",
+      "sha256": "db6623578cd33b5f189408cd38fb8ef450a5842922a9393c00b8c285b5f905cc"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/022.txt",
+      "dest": "maps/subject15189/022.txt",
+      "sha256": "fa999430cdcc4bab90b0d9c11cb277b61924e76b9aa9890ce65e0dcb1fc14d55"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/023.txt",
+      "dest": "maps/subject15189/023.txt",
+      "sha256": "78efce9b6f4d0a77a4862293d58c6c62617b76daf1ed224a1fe097afb031fcb0"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/024.txt",
+      "dest": "maps/subject15189/024.txt",
+      "sha256": "7ddca78e8a27220ad49c4881e989d7f650f7eda9d76da81c841d23c026107cfa"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/025.txt",
+      "dest": "maps/subject15189/025.txt",
+      "sha256": "9473eb1b2ec49f883e27dfdabaa1d0ff10c318c82d1ef360115ead8757e3c497"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/026.txt",
+      "dest": "maps/subject15189/026.txt",
+      "sha256": "0d6b44b8888875f38669b212431d3e2adf0bb8fc5c82786be1fe386d68a05688"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/027.txt",
+      "dest": "maps/subject15189/027.txt",
+      "sha256": "0d1abb201439bdf91a4d0701163b2c90d3dbd8dfed3b52788e031e4d852aa12c"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/028.txt",
+      "dest": "maps/subject15189/028.txt",
+      "sha256": "2eaffab4f58d1984d1a72a206972bea58a69751c41d3115929a1b2f646c5f228"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/029.txt",
+      "dest": "maps/subject15189/029.txt",
+      "sha256": "01daf689a97ef601694c6de5e3e1607552c0bad243f7b030f197662bdafd6606"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/030.txt",
+      "dest": "maps/subject15189/030.txt",
+      "sha256": "453b0f62b84bb9ac624b144e105c5d97d723e4e9e0fd20a1d401bb56f0fb3e8a"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/031.txt",
+      "dest": "maps/subject15189/031.txt",
+      "sha256": "6cd1673ed4a631b28f9b856c39c9dcfd25b9b9070c98f85807934957a8cd9d88"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/032.txt",
+      "dest": "maps/subject15189/032.txt",
+      "sha256": "9cb25b87194b44f933cf5ccc38c80338cb1daad7d046c1d1cfc5fd6268b0bc16"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/033.txt",
+      "dest": "maps/subject15189/033.txt",
+      "sha256": "6e63bcc92e97d6576fa35fc5f8365923ba2656aeb3df87ec84c65f7bacfd6597"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/034.txt",
+      "dest": "maps/subject15189/034.txt",
+      "sha256": "432245a753fcd92e31a94210d8f547f7093abc4dc8a825ce0a0bfd207827bcc1"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/035.txt",
+      "dest": "maps/subject15189/035.txt",
+      "sha256": "da9b5f0f9cf8a47b005eea58e43d65e3793e0b55ceba5a3643db7d63d4fb09a0"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/036.txt",
+      "dest": "maps/subject15189/036.txt",
+      "sha256": "7a330cdd583f7a2202b4170fa47c709a8865bf5efeb495023de01b4f7e6f3aa4"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/037.txt",
+      "dest": "maps/subject15189/037.txt",
+      "sha256": "bd783f911521b3c8b864575ba346270c943abd6d689f9a78d79ee902daa20a24"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/038.txt",
+      "dest": "maps/subject15189/038.txt",
+      "sha256": "9598ff23aec75d3366a7e4bb4c1aab57f9f51fc20d04dc91e257a861b65cba84"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/039.txt",
+      "dest": "maps/subject15189/039.txt",
+      "sha256": "fe161cdf27789c3fa0b63a632725a73fd1dea24d0e0ec6d9df99f620966b4975"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/040.txt",
+      "dest": "maps/subject15189/040.txt",
+      "sha256": "1bbfd6b980ed3d225337302d8690d8442031da35cc0a3e98711a4d7b78633936"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/041.txt",
+      "dest": "maps/subject15189/041.txt",
+      "sha256": "c8477d87679ecf39798c4e44f739e44a367bc3bad4e7fcdca4d81b62a4a33529"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/CHANGELOG.txt",
+      "dest": "maps/subject15189/CHANGELOG.txt",
+      "sha256": "a4d0eceefb7f0f54695088e594161442239c58081150f3f255c4e308d96fb2e0"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_001.txt",
+      "dest": "maps/subject15189/_001.txt",
+      "sha256": "dbb70f00601af67b35a7efa0d8dab1b3491a0f14eddabf119daf305a4565e641"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_004.txt",
+      "dest": "maps/subject15189/_004.txt",
+      "sha256": "b1b5db9e6be982fe52e6e48389ca6c25e659b2979d518a9d9c667902dd566084"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_005.txt",
+      "dest": "maps/subject15189/_005.txt",
+      "sha256": "8a9e30f97afd7ab853e8025d631275a9e7fe89720be776c295c05016fe3577d7"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_006.txt",
+      "dest": "maps/subject15189/_006.txt",
+      "sha256": "809cb616f0389c3069b6b68a5521d1954763a6b98e6bcee35e71425a2c0e9c77"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_011.txt",
+      "dest": "maps/subject15189/_011.txt",
+      "sha256": "b41d39b202cd7db0d6186fe01904b26fe81101812ea1784097b5222c6e533d5d"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_013.txt",
+      "dest": "maps/subject15189/_013.txt",
+      "sha256": "e4e3aaeb655cae8247a17e0c18b8bc2e109c0d17e5c6e57a43f0fcbe866610b6"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_014.txt",
+      "dest": "maps/subject15189/_014.txt",
+      "sha256": "afb7f8a1e5f6c55e8fdf87e215f4cabc3b4995809992f14d4afc944c902dc306"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_017.txt",
+      "dest": "maps/subject15189/_017.txt",
+      "sha256": "75585da5ad07d3ee66d0024940b3d261df1f9477ff4132a65f592e924e6780f2"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_018.txt",
+      "dest": "maps/subject15189/_018.txt",
+      "sha256": "e95caaec121f69da4f8b6c0b0b69f777b9df7fc34f73b9f5d4b4e05b9fa8ec91"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_020.txt",
+      "dest": "maps/subject15189/_020.txt",
+      "sha256": "a774b2d35aa0f4243abe5966a378aac8f1973d5cd86f57cf0e4410114acf8738"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_021.txt",
+      "dest": "maps/subject15189/_021.txt",
+      "sha256": "01dc8875f768e0da09101d10eb86f042e92012a87a26cc9994812570d48c719c"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_022.txt",
+      "dest": "maps/subject15189/_022.txt",
+      "sha256": "893549471cf577a7a61713f711b8b36f813dcec7d53fbd49fcd4701d716361c0"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_023.txt",
+      "dest": "maps/subject15189/_023.txt",
+      "sha256": "6085acf9b170debbe06dd1118e645e8a782129fcefbb8ae9b2d57cf17ec0421d"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_024.txt",
+      "dest": "maps/subject15189/_024.txt",
+      "sha256": "50d65d870b09e577527e17b5beac946921bd27fe0df079535acad3184335a0e9"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_026.txt",
+      "dest": "maps/subject15189/_026.txt",
+      "sha256": "253817a06e693ba426c650e2cb461db66d9e31c14210248ad82b8518c4ead376"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_029.txt",
+      "dest": "maps/subject15189/_029.txt",
+      "sha256": "3488a9dbcb42682e582e1531efdf4a3126673fb4e300a02c24ced0b4f50fa26b"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_030.txt",
+      "dest": "maps/subject15189/_030.txt",
+      "sha256": "0a510af4103c41230fa32c440eb25a6087ed0c3557215e43029a87caaa4930a5"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_032.txt",
+      "dest": "maps/subject15189/_032.txt",
+      "sha256": "9539c8cd5988ec4c6a8673e65c5c014424691f19b5cce31513aca413abb33eff"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_035.txt",
+      "dest": "maps/subject15189/_035.txt",
+      "sha256": "907a87b0117aea07f9f5e17a24ca09eb8876a2fec593204998dd8aee8d460b88"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_037.txt",
+      "dest": "maps/subject15189/_037.txt",
+      "sha256": "36fea77b3e77ea23474ff2b0532c84d0c631897fe11eb8adf0af252a0af719cb"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_040.txt",
+      "dest": "maps/subject15189/_040.txt",
+      "sha256": "e9a76a513d52737b01e41f73914a2f10df0c429c113ddee6ce1dbfae234ad86f"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/_credits.txt",
+      "dest": "maps/subject15189/_credits.txt",
+      "sha256": "92b42aae68610aa8b9ee284bafa53d26e17307eb5ced654b72165b3056683280"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/credits.txt",
+      "dest": "maps/subject15189/credits.txt",
+      "sha256": "3163349d28a9189a5f41943e0dbf52f792e0459f13099df34294490cfe77b8c5"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/drums.ogg",
+      "dest": "maps/subject15189/drums.ogg",
+      "sha256": "82cbc152f056b8624f09fecde4e43c36cf246a4dba3e97b7fbe067cfdb262e9b"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/infos.yaml",
+      "dest": "maps/subject15189/infos.yaml",
+      "sha256": "8b172348729122d70e0b082b14b8b00a5d579ea5a2f3ae243d94bc1f34c576b7"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/inscreen.txt",
+      "dest": "maps/subject15189/inscreen.txt",
+      "sha256": "679d6f476c423520c95ac17773f8815324fbe86b6f83fa6aa0f626d83de6f3c5"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/mm.ogg",
+      "dest": "maps/subject15189/mm.ogg",
+      "sha256": "9edbcff05bec170652e7c2ed264db81c13fca9bc0d5762646e37798e0fbece77"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/orchestrativeduties.ogg",
+      "dest": "maps/subject15189/orchestrativeduties.ogg",
+      "sha256": "72d9de84d5a14d4803047cac4db5b1d651dfd330abc7858f1231e15217beb108"
+    },
+    {
+      "asset": "games/asciiportal/maps/subject15189/rjr.ogg",
+      "dest": "maps/subject15189/rjr.ogg",
+      "sha256": "a785fc8b8c12b3f44f64572560bb19719bd6ee679632cda1462a7274ba9810b2"
+    }
+  ],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test in a PTY at 80x24: title, menu, the first test chamber, moving. Built without SDL or sound; fixed two functions that fell off their end (the game crashed on loading a map)."
+  }
+}

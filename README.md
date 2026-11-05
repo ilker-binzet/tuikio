@@ -109,7 +109,7 @@ the SIL Open Font License 1.1.
 
 Everyone whose suggestion, port or correction is accepted through the app or a pull request is listed here, by GitHub login or as an anonymous community contributor. Be the first: suggest a game from the app's Create tab.
 
-### Games (169 playable, 5 of them online)
+### Games (173 playable, 5 of them online)
 
 Every game is the work of its authors; Tuikio only ports and packages it. Licenses link to the full text shipped in the app.
 
@@ -122,11 +122,13 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 | Air Traffic Controller | Ed James | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
 | Angband | Robert Alan Koeneke, Ben Harrison, the Angband team | [GPL-2.0-only](LICENSES/angband.txt) | [github.com/angband/angband](https://github.com/angband/angband) | PORTABLE |
 | Arithmetic | Eamonn McManus | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
+| ASCII DASH | Stefan Roettger | [MIT](LICENSES/ascii-dash.txt) | [sourceforge.net/projects/ascii-dash/](https://sourceforge.net/projects/ascii-dash/) | PORTABLE |
 | ASCII Invaders | Thomas Munro | [GPL-2.0-or-later](LICENSES/ascii-invaders.txt) | [github.com/macdice/ascii-invaders](https://github.com/macdice/ascii-invaders) | PORTABLE |
 | ASCII Pacman | Steven Goodwin | [GPL-2.0-only](LICENSES/ascii-pacman.txt) | [github.com/MarquisdeGeek/pacman](https://github.com/MarquisdeGeek/pacman) | PORTABLE |
 | ASCII Snake | Aleksa Sarai | [GPL-3.0-or-later](LICENSES/ascii-snake.txt) | [github.com/cyphar/ascii-snake](https://github.com/cyphar/ascii-snake) | PORTABLE |
 | ASCII-Chess | Parigyan Chandra Goyal, Sharat Shankar | [GPL-3.0-or-later](LICENSES/ascii-chess.txt) | [github.com/Parigyan/ASCII-Chess](https://github.com/Parigyan/ASCII-Chess) | PORTABLE |
 | ASCII-Tetris | Grégoire Passault | [MIT](LICENSES/ascii-tetris.txt) | [github.com/Gregwar/ASCII-Tetris](https://github.com/Gregwar/ASCII-Tetris) | PORTABLE |
+| ASCIIpOrtal | Joe Larson, the ASCIIpOrtal contributors | [GPL-3.0-only AND MIT](LICENSES/asciiportal.txt) | [github.com/cymonsgames/ASCIIpOrtal](https://github.com/cymonsgames/ASCIIpOrtal) | PORTABLE |
 | Asteroids (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
 | awkaster | Fedor Kalugin | [MIT](LICENSES/awkaster.txt) | [github.com/TheMozg/awk-raycaster](https://github.com/TheMozg/awk-raycaster) | PORTABLE |
 | Backgammon | Alan Char | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
@@ -150,6 +152,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 | Chess (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
 | Chroma | Amf | [GPL-2.0-or-later](LICENSES/chroma.txt) | [http://www.level7.org.uk/chroma/](http://www.level7.org.uk/chroma/) | PORTABLE |
 | Clidle | Ajeet D'Souza | [MIT](LICENSES/clidle.txt) | [github.com/ajeetdsouza/clidle](https://github.com/ajeetdsouza/clidle) | PORTABLE |
+| cNibbles | Daniel Aarno | [AFL-1.2](LICENSES/cnibbles.txt) | [cnibbles.sourceforge.net](https://cnibbles.sourceforge.net) | PORTABLE |
 | Color Lines | Pawel S. Veselov | [GPL-3.0-only](LICENSES/clines.txt) | [github.com/veselov/clines](https://github.com/veselov/clines) | PORTABLE |
 | Colossal Cave Adventure | Will Crowther, Don Woods, Jim Gillogly (C version), James W. Williams | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
 | CPat | Trevor Carey-Smith | [GPL-2.0-only](LICENSES/cpat-solitaire.txt) | [cpat.sourceforge.net/](https://cpat.sourceforge.net/) | PORTABLE |
@@ -174,6 +177,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 | Galaga (Shell Games) | Peu Borges | [MIT](LICENSES/shell-games.txt) | [github.com/MCookinho/shellgame](https://github.com/MCookinho/shellgame) | PORTABLE |
 | GNU Shogi | Matthias Mutz, Mike Vanier, Yann Dirson, the GNU Chess team | [GPL-3.0-or-later](LICENSES/gnu-shogi.txt) | [www.gnu.org/software/gnushogi/](https://www.gnu.org/software/gnushogi/) | PORTABLE |
 | GNU Typist | Simon Baldwin, The GNU Typist Development Team | [GPL-3.0-or-later](LICENSES/gtypist.txt) | [www.gnu.org/software/gtypist/](https://www.gnu.org/software/gtypist/) | PORTABLE |
+| GNUSki | Rudolf Olah | [GPL-2.0-or-later](LICENSES/gnuski.txt) | [sourceforge.net/projects/gnuski/](https://sourceforge.net/projects/gnuski/) | PORTABLE |
 | Go Fish | Muffy Barkocy | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
 | Gomoku | Ralph Campbell | [BSD-3-Clause](LICENSES/bsdgames.txt) | [salsa.debian.org/debian/bsdgames](https://salsa.debian.org/debian/bsdgames) | PORTABLE |
 | Greed | Matthew Day, Eric S. Raymond | [BSD-2-Clause](LICENSES/greed.txt) | [http://www.catb.org/~esr/greed/](http://www.catb.org/~esr/greed/) | PORTABLE |
@@ -315,7 +319,7 @@ Every game is the work of its authors; Tuikio only ports and packages it. Licens
 - [Termux packages](https://github.com/termux/termux-packages) by The Termux maintainers
 - [Debian and Ubuntu archives](https://packages.debian.org/) by The Debian and Ubuntu maintainers
 
-### Also in the catalog (65 links)
+### Also in the catalog (61 links)
 
 Listed in the app with a link to their authors' pages; not bundled (yet). Licenses are their authors'.
 
@@ -324,9 +328,7 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [AlienRL](https://alien.chaosforge.org/)
 - [Alienwave](https://www.alessandropira.org/alienwave/aw.html)
 - [Anonymine](https://oskog97.com/projects/anonymine/)
-- [ASCII Dash](https://sourceforge.net/projects/ascii-dash/)
 - [ASCII Patrol](http://ascii-patrol.com/) (GPL-3.0-only)
-- [ASCIIpOrtal](https://github.com/cymonsgames/ASCIIpOrtal)
 - [Astwar](https://savannah.nongnu.org/projects/astwar)
 - [Bash Dungeon](https://github.com/wolandark/bash-dungeon) (MIT)
 - [Bashmaze](https://github.com/phoemur/bashmaze)
@@ -335,7 +337,6 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [Cemetery Escape](https://github.com/tom-on-the-internet/cemetery-escape)
 - [Chess TUI](https://github.com/thomas-mauran/chess-tui)
 - [CHS](https://github.com/nickzuber/chs) (MIT)
-- [Cnibbles](http://cnibbles.sourceforge.net)
 - [Connect4](https://github.com/badescunicu/connect4)
 - [Conquest (Beej)](https://github.com/beejjorgensen/conquest)
 - [Conquest (Jtrulson)](https://github.com/jtrulson/conquest/)
@@ -352,7 +353,6 @@ Listed in the app with a link to their authors' pages; not bundled (yet). Licens
 - [GitType](https://github.com/unhappychoice/gittype)
 - [GNU Chess](https://www.gnu.org/software/chess/) (GPL-3.0-or-later)
 - [GNU Go](https://www.gnu.org/software/gnugo/) (GPL-3.0-or-later)
-- [Gnuski](https://sourceforge.net/projects/gnuski/)
 - [Hammurabi Python](https://github.com/wzhishen/hammurabi)
 - [Hydra Slayer](http://www.roguetemple.com/z/hydra/)
 - [Just Asteroids](https://github.com/gabrielvictorcf/just-asteroids) (MIT)

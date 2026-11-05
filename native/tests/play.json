@@ -879,10 +879,8 @@
       "expect:New Game",
       "wait:5000",
       "type:n",
-      "wait:3000",
-      "type:n",
-      "wait:4000",
-      "expect:Depth: 1"
+      "wait:2500",
+      "expect:welcome, adventurer"
     ],
     "viper-snake": [
       "expect:0000",
@@ -975,6 +973,42 @@
       "expect:Black to play",
       "type: ",
       "expect:White to play"
+    ],
+    "asciiportal": [
+      "expect:Press any key to begin",
+      "wait:3000",
+      "type: ",
+      "expect:1) Begin",
+      "wait:1000",
+      "key:ENTER",
+      "wait:1500",
+      "expect:Welcome to ASCIIpOrtal",
+      "key:RIGHT",
+      "wait:300",
+      "key:LEFT",
+      "wait:300"
+    ],
+    "gnuski": [
+      "expect:Press any key to start",
+      "type: ",
+      "wait:200"
+    ],
+    "cnibbles": [
+      "expect:cNibbles",
+      "wait:9000",
+      "type: ",
+      "expect:Score:",
+      "key:UP",
+      "wait:300"
+    ],
+    "ascii-dash": [
+      "expect:Press the cursor keys to move Rockford",
+      "wait:800",
+      "key:RIGHT",
+      "wait:400",
+      "key:DOWN",
+      "wait:400",
+      "expect:No sound available"
     ]
   }
 }

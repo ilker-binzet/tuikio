@@ -25,6 +25,7 @@ import os
 import shutil
 import sys
 import tarfile
+import zipfile
 import traceback
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -77,8 +78,16 @@ def build_abi(abi_name, games, jobs):
 
 
 def tar_text(name, rel):
-    """Reads <top>/<rel> from a verified source archive without unpacking it."""
-    with tarfile.open(tk.fetch(name)) as tf:
+    """Reads <top>/<rel> from a verified source archive (tar or zip) without unpacking it."""
+    path = tk.fetch(name)
+    if zipfile.is_zipfile(path):
+        with zipfile.ZipFile(path) as z:
+            for n in z.namelist():
+                parts = n.split("/", 1)
+                if not n.endswith("/") and (parts[-1] == rel and len(parts) == 2 or n == rel):
+                    return z.read(n).decode("utf-8", "replace")
+        raise BuildError(f"{rel} not found in {name}")
+    with tarfile.open(path) as tf:
         for m in tf.getmembers():
             parts = m.name.removeprefix("./").split("/", 1)
             if m.isfile() and (parts[-1] == rel and len(parts) == 2 or m.name.removeprefix("./") == rel):

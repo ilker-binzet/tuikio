@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "gnuski",
+  "title": "GNUSki",
+  "summary": "A SkiFree clone: race downhill between trees and rocks, and outrun the snowman.",
+  "description": "Left and right lean the skier, up slows down, down speeds up. Quit ends the run.",
+  "category": "arcade",
+  "tags": [
+    "skiing",
+    "skifree",
+    "classic"
+  ],
+  "players": "1",
+  "origin": "verified_port",
+  "upstream": {
+    "authors": [
+      "Rudolf Olah"
+    ],
+    "license": "GPL-2.0-or-later",
+    "source_url": "https://sourceforge.net/projects/gnuski/",
+    "version": "0.3"
+  },
+  "port": {
+    "maintainer": "Tuikio ports team",
+    "recipe": "native/recipes/more.py",
+    "source_archive": "gnuski-0.3.tar.gz",
+    "source_sha256": "1b629bd29dd6ad362b56055ccdb4c7ad462ff39d7a0deb915753c2096f5f959d"
+  },
+  "runtime": {
+    "backend": "native_pty",
+    "executable": "game_gnuski",
+    "args": [],
+    "env": {},
+    "terminal": {
+      "min": [
+        80,
+        24
+      ],
+      "preferred": [
+        80,
+        24
+      ]
+    },
+    "orientation": "landscape"
+  },
+  "controls": "arrows4.v1",
+  "saves": {
+    "paths": [],
+    "notes": "No saves."
+  },
+  "data_files": [],
+  "network": "none",
+  "status": "PORTABLE",
+  "verification": {
+    "host_tested": "2026-11-04",
+    "android_tested": null,
+    "notes": "Host test in a PTY at 80x24: start, leaning, crash and score."
+  }
+}
